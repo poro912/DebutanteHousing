@@ -16,7 +16,7 @@
 </td>
 <td align="center" width="150px">
 <a href="" target="_blank">
-<a href="https://github.com/"><img height="100px" width="100px" src="" alt="배채현 프로필"/></a>
+<a href="https://github.com/"><img height="100px" width="100px" src="" alt="배연연 프로필"/></a>
 </a>
 </td>
 <td align="center" width="150px">
