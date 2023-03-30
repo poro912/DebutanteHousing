@@ -11,7 +11,7 @@
 </td>
 <td align="center" width="150px">
 <a href="[https://github.com/gokite227](https://github.com/gokite227)" target="_blank">
-<a href="https://github.com/gokite227"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/102020249?v=4" alt="김가영 프로필"/></a>
+<a href="https://github.com/gokite227"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/102020249?v=4" alt="김가연 프로필"/></a>
 </a>
 </td>
 <td align="center" width="150px">
@@ -34,7 +34,7 @@
 </td>
 <td align="center">
 <a href="[https://github.com/]()" target="_blank">
-김가영<br />(full-stack)
+김가연<br />(full-stack)
 </a>
 </td>
 <td align="center">
