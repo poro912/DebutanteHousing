@@ -21,7 +21,8 @@
 </td>
 <td align="center" width="150px">
 <a href="[https://github.com/poro912](https://github.com/poro912)" target="_blank">
-<a href="https://github.com/poro912"><img height="100px" width="100px" src="https://user-images.githubusercontent.com/62869982/201554520-56311fa4-6e69-4b16-bbae-ceec562c5f60.png" alt="이무현 프로필"/></a>
+<a href="https://github.com/poro912"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/40479447?v=4" alt="이무현 프로필"/></a>
+  
 </a>
 </td>
 </tr>
@@ -29,22 +30,22 @@
 <tr>
 <td align="center">
 <a href="[https://github.com/]()" target="_blank">
-조은서<br />(Back-end)
+조은서<br />(Team Leader)
 </a>
 </td>
 <td align="center">
 <a href="[https://github.com/]()" target="_blank">
-김가영<br />(Back-end)
+김가영<br />(full-stack)
 </a>
 </td>
 <td align="center">
 <a href="[https://github.com/]()" target="_blank">
-배채연<br />(Back-end)
+배채연<br />(front-end)
 </a>
 </td>
 <td align="center">
 <a href="[https://github.com/poro912](https://github.com/poro912)" target="_blank">
-이무현<br />(Front-end)
+이무현<br />(back-end)
 </a>
 </td>
 </tr>
