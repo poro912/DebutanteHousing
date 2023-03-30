@@ -8,7 +8,7 @@
 <tr>
 <td align="center" width="150px">
 <a href="[https://github.com/JorokGom](https://github.com/JorokGom)" target="_blank">
-<a href="https://github.com/woobinkim"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/105807668?v=4" alt="조은서 프로필"/></a>
+<a href="https://github.com/JorokGom"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/105807668?v=4" alt="조은서 프로필"/></a>
 </a>
 </td>
 <td align="center" width="150px">
