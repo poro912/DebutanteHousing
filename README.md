@@ -22,7 +22,6 @@
 <td align="center" width="150px">
 <a href="[https://github.com/poro912](https://github.com/poro912)" target="_blank">
 <a href="https://github.com/poro912"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/40479447?v=4" alt="이무현 프로필"/></a>
-  
 </a>
 </td>
 </tr>
