@@ -17,8 +17,8 @@
 </a>
 </td>
 <td align="center" width="150px">
-<a href="" target="_blank">
-<a href="https://github.com/"><img height="100px" width="100px" src="" alt="배채연 프로필"/></a>
+<a href="[https://github.com/chaeee1](https://github.com/chaeee1)" target="_blank">
+<a href="https://github.com/chaeee1"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/129547484?v=4" alt="배채연 프로필"/></a>
 </a>
 </td>
 <td align="center" width="150px">
