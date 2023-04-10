@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=NFT_minihompage&fontSize=90&animation=fadeIn&fontAlignY=38&desc=아무말&descAlignY=51&descAlign=62)
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=DebutanteHousing&fontSize=90&animation=fadeIn&fontAlignY=38&desc=DecoratingTheRoom&descAlignY=51&descAlign=62)
 
 # NFT_minihompage
 졸업 작품 과제 (NFT 미니홈피)
