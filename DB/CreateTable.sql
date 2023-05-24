@@ -2,12 +2,13 @@
 # Run "DeleteTables.sql" and use it.
 
 # create db
+/*
 CREATE database db_identification;
 CREATE database db_personal;
 CREATE database db_current;
 CREATE database db_transaction;
 CREATE database db_record;
-
+*/
 
 # setup db_identification
 # save sequence numbers for identification
@@ -31,7 +32,7 @@ CREATE TABLE `comment` (
 # setup db_personal
 # save personal information
 USE db_personal;
-CREATE TABLE users (
+CREATE TABLE user (
   code			INT				NOT NULL	UNIQUE,
   id			VARCHAR(20)		NOT NULL	UNIQUE,
   pw			VARCHAR(100)	NOT NULL,
