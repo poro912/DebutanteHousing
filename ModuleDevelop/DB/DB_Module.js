@@ -1,7 +1,24 @@
-const mysql = require('mysql2');
+/**
+* @file     DB_Moudle.js
+* @brief    DB 관련 모듈 파일
+* @details  DB와 관련된 모든 모듈을 모아놓은 파일
+* @author   PORO
+* @date     2023/05/30
+* @version  0.1
+* @exports	database
+* @module	mysql2
+*/
 
 // 모듈 정의
 var database = {};
+
+// require
+const mysql = require('mysql2');
+database.user = require('./user');
+database.room = require('./room');
+database.friend = require('./friend');
+database.transcation = require('./transaction');
+database.comment = require('./comment');
 
 // 상수 정의
 const DB_NAME = 'Debutante Housing';
@@ -13,8 +30,7 @@ const RECORD = "db_record";
 const IDENTIFICATION = "db_identification";
 
 
-// public 변수 정의
-
+// 변수 정의
 // 데이터베이스 연결 정보
 var connection = {
 	host: 'localhost',
@@ -24,33 +40,36 @@ var connection = {
 	database: CURRENT
 };
 
-// 
+
 
 // 로그인 정보 변경 (아이디 비밀번호)
 /**
- * @param {*} id 
- * @param {*} pw 
- * @returns 
+ * @param	{*} id 유저가 입력한 ID
+ * @param	{*} pw 유저가 입력한 PW
+ * @brief   로그인에 사용할 데이터를 변경함 
+ * @details	로그인에 사용할 ID와 PW 값을 변경한다.
+ * @details	public 변수에 저장되며 이후 connect를 바로 진행하면 된다.
+ * @todo    작업 전
  */
 database.setLoginInfo = (id, pw) => {
 	connection.user = id;
 	connection.password = pw;
-	return true;
 }
+
 
 
 // DB 연결 함수
 // return db data
 /**
- * @constant DB 연결 함수
- * @brief DB 연결 함수
- * @details 반환값을 바탕으로 DB 함수들을 동작시킴
- * @description 반환값을 바탕으로 DB 함수들을 동작시킴
- * @returns DB connection data
+ * @brief	DB 연결 함수
+ * @details 저장된 ID PW를 바탕으로 DB에 접속을 시도함
+ * @details 로그인에 성공하면 연결 정보가 담긴 객체를 반환한다.
+ * @return	DB connection data
+ * @todo    작업 전
  */
 database.connect = () => {
 	// 데이터베이스에 연결
-	const db_data = mysql.createConnection(connection);
+	var db_data = mysql.createConnection(connection);
 
 	db_data.connect((err) => {
 		if (err) {
@@ -63,12 +82,12 @@ database.connect = () => {
 	return db_data;
 }
 
-// DB 연결 정보 출력
-// false : 연결 안됨
-// true : 연결 됨
+
+
 /**
- * @returns true : 연결됨
- * @returns false : 연결안됨
+ * @returns	T : 연결됨
+ * @returns F : 연결안됨
+ * @todo    작업 전
  */
 database.status = () => {
 	console.log(`return DB Connected status`);
@@ -76,28 +95,38 @@ database.status = () => {
 	return false;
 }
 
-// DB연결을 해제한다.
+
+
+/**
+ * @param	{*} db_data db 연결정보 데이터
+ * @return	bool 성공 여부 반환
+ * @brief	DB와의 연결을 끊음
+ * @details	db_data를 바탕으로 연결을 끊음
+ * @todo	작업 전
+*/
 database.disconnect = (db_data) => {
-	if(null == db_data){
+	if (null == db_data) {
 		printerror('already disconnected');
 		return flase;
 	}
-	
+
 	db_data.disconnect();
 	console.log(`DB Disconnect`);
 	return true;
 }
 
-database.selectAllUserTable = (db) => {
-	if(db == null){
+
+// 테스트용 함수
+database.selectAllUserTable = (db_data) => {
+	if (db_data == null) {
 		printerror(`DB connect data is null`)
 		return;
 	}
 
-	db.query('USE ' + CURRENT);
-	
+	db_data.query('USE ' + CURRENT);
+
 	// `users` 테이블에서 모든 사용자를 가져옵니다.
-	db.query('SELECT * FROM user', (err, results) => {
+	db_data.query('SELECT * FROM user', (err, results) => {
 
 		if (err) {
 			printerror('select error');
@@ -113,7 +142,11 @@ database.selectAllUserTable = (db) => {
 }
 
 
-printerror = (msg)=> {
+/**
+* @brief    디버깅용 콘솔 출력함수
+* @details  입력받은 메시지를 출력시킴
+*/
+printerror = (msg) => {
 	console.log('error occured');
 	console.log('DB_Moudle : ' + msg);
 	console.log();

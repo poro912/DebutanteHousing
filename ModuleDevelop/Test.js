@@ -17,9 +17,10 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
   
-  const db_data = db.connect();
+  var db_data = db.connect();
 
-  db.selectUserTable(db_data);
+  db.selectAllUserTable(db_data);
+  db.room.room();
 });
 
 
