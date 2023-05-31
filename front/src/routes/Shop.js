@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom"
+import styles from "./Shop.module.css"
 
 function Shop() {
   const [Sitem, setSitem] = useState("");
@@ -13,18 +14,18 @@ function Shop() {
     setSitems((currentArray) => [Sitem, ...currentArray]);
     setSitem("");
   };
-  return <span>
-     <Link to="Home"><button>뒤로가기</button></Link>
+  return <div>
+     <Link to="Home"><button className={styles.btn}>뒤로가기</button></Link>
   
- <h1>가구 검색 ({Sitems.length})</h1>
+     <h1 className={styles.search}>가구 검색 ({Sitem.length})</h1>
       <form onSubmit={onSubmit}>
-        <input
+        <input className={styles.searchbar}
           onChange={onChange}
           value={Sitem}
           type="text"
           placeholder="가구를 검색하세요"
         />
-        <button>검색</button>
+        <button className={styles.btn2}>검색</button>
       </form>
       <hr />
       <ul>
@@ -35,7 +36,7 @@ function Shop() {
  <div>
 
  </div>
-  </span>;
+  </div>;
 }
 
 export default Shop;

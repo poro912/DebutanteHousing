@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom"
+import styles from "./Shopdetail.module.css"
 
 function Shopdetail() {
   const [Sditem, setSditem] = useState("");
@@ -13,7 +14,7 @@ function Shopdetail() {
     setSditems((currentArray) => [Sditem, ...currentArray]);
     setSditem("");
   };
-  return <span>
+  return <div>
      <Link to="Home"><button>뒤로가기</button></Link>
   
  <h1>가구 검색 ({Sditems.length})</h1>
@@ -37,7 +38,7 @@ function Shopdetail() {
 <button>수량 down</button>
 <button>구매</button>
  </div>
-  </span>;
+  </div>;
 }
 
 export default Shopdetail;

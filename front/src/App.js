@@ -23,7 +23,6 @@ function App () {
 					<Route path="/Shopdetail" component={Shopdetail} />
 					<Route path="/Join" component={Join} />
 					<Route path="/Friends" component={Friends} />
-					
 				</Switch>
 			</Router>
 		
