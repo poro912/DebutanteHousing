@@ -21,11 +21,12 @@ server.listen(port, hostname, () => {
   dhm.init();
 
   //db.room.room();
-  user_info = dhm.login('asd','123');
-  console.log(user_info['nick']);
-  console.log(user_info['user_code']);
-  console.log(user_info['nick']);
-  console.log(user_info['nick']);
+  user = dhm.login('asd','123');
+  console.log(user);
+  console.log(user.code);
+  room = dhm.loadRoom(user.code);
+  console.log(room);
+
 });
 
 
