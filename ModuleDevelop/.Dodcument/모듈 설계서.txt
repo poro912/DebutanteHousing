@@ -1,0 +1,55 @@
+메인페이지
+- [○] 친구방 방문하기      loadRoom
+- [○] 상점 방문하기      store.loadItemList
+- [○] 창고 들어가기      inventory.loadItem
+- [○] 내 닉네임 불러오기   loadUserData
+로그인
+- [○] 아이디 비밀번호로 로그인   login
+회원가입
+- [○] 아이디 비밀번호로 가입   join
+창고
+- [○] 내가 가지고있는 가구들 확인하기   inventory.loadItem
+- [○] 내가 가지고있는 가구 불러오기   inventory.loadItem
+- [△] 지금 방 상태 저장하기      옮길 때 마다 저장할 것 인가? 롤백 기능을 지원 할 것인가?
+- [△] 방 확대, 축소하기         가연이가 구현해줄거야 ㅎ
+- [△] 방 초기화시키기         롤백 기능 방 상태 저장하기와 연관
+- [○] 가구 회전시키기         edit.rotateItem
+상점
+- [○] 상점에 올라와있는 가구 불러오기   store.loadItemList
+- [○] 상점에 올라와있는 가구 구입하기   store.buyItem
+- [ ] 상점에 올라와있는 가구 구매 수량 바꾸기      NFT.supplyItem
+- [○] 상점에 올라와있는 가구 미리보기   store.loadItem
+
+
+함수   : camel case   ex) setUserData
+
+join(id, pw, ph ...)      // 회원가입
+login(id, pw)         // 로그인
+logout()         // 로그아웃
+loadUserData(user_code)      // 유저 정보 가져오기
+loadRoom(user_code)      // 유저가 소유한 방 (리스트) 가져오기
+
+room.loadList()         // 방 리스트 불러오기
+room.load(room_code)      // 방 불러오기
+room.edit(room_code)      // 방꾸미기 모드 진입
+
+edit.moveItem(room_code, item_code, position)         // 방의 아이템 옮기기
+edit.rotateItem(room_code, item_code, rotation)         // 방의 아이템 각도 변경
+edit.placeItem(room_code, item_code, position, rotation)   // 방에 새로운 아이템 배치
+edit.removeItem(room_code, item_code)            // 방에 배치된 아이템 제거
+
+inventory.loadItem(user_code)   // 유저가 소유한 아이템 리스트 불러오기
+inventory.sellItem(item_code)   // 유저가 소유한 아이템 판매
+
+store.loadNFTList()      // 상점 NFT 목록 불러오기
+store.loadNFT(nft_code)      // 상점 NFT 하나의 정보 불러오기
+store.loadItemList()      // 상점 아이템 목록 불러오기
+store.loadItem(item_code);   // 상점 아이템 하나의 정보 불러오기
+store.search(string);      // 이름 기반 아이템 탐색
+store.search(tag);      // 태그 기반 아이템 탐색
+store.buyItem(item_code)   // 상점의 아이템 구매
+
+NFT.loadItemList(user_code)   // 소유한 NFT 정보를 불러옴
+NFT.supplyItem(nft_code)   // 아이템을 상점에 더 공급한다.
+NFT.stock(nft_code)      // NFT 아이템의 거래가를 확인한다.
+

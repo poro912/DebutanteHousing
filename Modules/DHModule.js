@@ -12,30 +12,29 @@ DHM.init = () => {
 
 // 함수, 클래스 독시젠
 /**
-* @param    {*} id 아이디
-* @param    {*} pw 비밀번호
-* @return	`객체` code, nick, profile
-* @return	`code : -1` 로그인 실패
-* @brief    로그인을 시도 함
-* @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
+* @param    {*} 변수명 파라메터
+* @return   `sadf`
+* @returns  code, nick, profile
+* @brief    간단 설명
+* @details  자세한 설명
 * @throws   예외상황 설명
 */
 DHM.login = (id, pw) => {
 	var user_code = -1;
 	var nick = "";
 	var profile = "";
-
+	
 	console.log("DHMoudle.login");
 	console.log("attempt login");
 	//db_data.login(id,pw);
-	DHM.DB.login(id, pw);
-
+	DHM.DB.login(id,pw);
+	
 	// dummy
 	user_code = 1;
 	nick = "test_user";
 	profile = "test.png"
-
-	return { "code": user_code, "nick": nick, "profile": profile };
+	
+	return {"code":user_code, "nick":nick, "profile":profile};
 }
 
 DHM.logout = () => {
