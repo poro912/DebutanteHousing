@@ -9,6 +9,8 @@
 * @module	mysql2
 */
 
+//const bcrypt = require('bcrypt');
+
 // 모듈 정의
 var database = {};
 
@@ -95,6 +97,55 @@ database.status = () => {
 	return false;
 }
 
+
+/**
+ * @param	{*} id 유저가 입력한 ID
+ * @param	{*} pw 유저가 입력한 PW
+ * @return	bool 성공 여부 반환
+ * @brief	로그인을 시도함
+ * @details	
+ * @todo	작업 전
+*/
+database.login = (id, pw) => {
+	/*
+	// 사용자 정보 조회
+	const query = 'SELECT * FROM users WHERE username = ?';
+	db_data.query(query, [username], (error, results) => {
+		if (error) {
+			console.error('Error querying the database:', error);
+			res.status(500).send('Internal Server Error');
+			return false;
+		}
+
+		if (results.length === 0) {
+			// 사용자가 존재하지 않을 경우
+			res.status(401).send('Invalid credentials');
+			return false;
+		} else {
+			const user = results[0];
+
+			// 비밀번호 비교
+			bcrypt.compare(password, user.password, (err, isMatch) => {
+				if (err) {
+					console.error('Error comparing passwords:', err);
+					res.status(500).send('Internal Server Error');
+					return false;
+				}
+
+				if (isMatch) {
+					// 로그인 성공
+					res.status(200).send('Login successful');
+					return true;
+				} else {
+					// 비밀번호 불일치
+					res.status(401).send('Invalid credentials');
+					return false;
+				}
+			});
+		}
+	});
+	*/
+}
 
 
 /**
