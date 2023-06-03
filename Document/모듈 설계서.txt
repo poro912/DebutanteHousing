@@ -1,0 +1,51 @@
+함수	: camelcase	ex) setUserData
+
+login(id, pw)
+logout()
+loadUserData(user_code)
+
+room.load(room_code)
+room.loadList(room_code)
+room.moveItem(room_code, item_code, position)
+room.rotateItem(room_code, item_code, rotation)
+room.placeItem(room_code, item_code, position, rotation)
+room.removeItem(room_code, item_code)
+
+
+inventory.loadItem(user_code)
+inventory.sellItem(item_code)
+
+store.loadItems()
+store.loadItem(item code);
+store.search(string);
+store.search(tag);
+
+
+
+mongod --dpath D:\동양미래\Node.js\dev\dev-week13-stu\nodejs-ex\02mongoose-user
+
+위치 		
+파일 경로	
+방향		각도
+
+
+db.users.insert({
+	id : "test01",
+	name : "소녀시대",
+	password : "123456"
+});
+
+db.users.insert({
+	id : "test02:
+	name : ""
+	password : "123456"});
+
+db.users.find()
+
+db.users.remove({name:/소녀/})
+
+
+save 방법
+create 메소드
+
+
