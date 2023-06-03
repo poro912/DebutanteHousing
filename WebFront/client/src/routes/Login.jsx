@@ -5,7 +5,7 @@ import styles from "./Login.module.css"
 
 
 function Login() {
-  return <div><h1 className={styles.title}>Debutante Housing</h1>
+  return <div className=""><h1 className={styles.title}>Debutante Housing</h1>
       <div/>
      <div>
        
