@@ -1,156 +1,112 @@
+var DHM = {};
+var room = {};
+
+DHM.DB = require('./DB/DB_Module');
+DHM.room = require('./room');
+
+DHM.getRoomCode = DHM.room.getRoomCodeByUserCode;
+DHM.loadRoom = DHM.room.load;
+
 /**
-* @file     DB_Moudle.js
-* @brief    DB 관련 모듈 파일
-* @details  DB와 관련된 모든 모듈을 모아놓은 파일
-* @author   PORO
-* @date     2023/05/30
-* @version  0.1
-* @exports	database
-* @module	mysql2
+* @param    {*} user_code 유저코드
+* @return   `code` 유저가 소유한 방의 코드
+* @return   `-1` 가져오기 실패
+* @brief    유저가 갖고있는 방의 코드를 가져옴
+* @todo   작업 전
 */
+room.getRoomCodeByUserCode = (user_code) => {
+   var room_code = -1;
+   console.log("room.getRoomCodeByUserCode");
+   console.log();
 
-// 모듈 정의
-var database = {};
+   // dummy data
+   room_code = 5;
 
-// require
-const mysql = require('mysql2');
-database.user = require('./user');
-database.room = require('./room');
-database.friend = require('./friend');
-database.transcation = require('./transaction');
-database.comment = require('./comment');
-
-// 상수 정의
-const DB_NAME = 'Debutante Housing';
-
-const CURRENT = 'db_current';
-const PERSONAL = "db_personal";
-const TRANSCTION = "db_transaction";
-const RECORD = "db_record";
-const IDENTIFICATION = "db_identification";
-
-
-// 변수 정의
-// 데이터베이스 연결 정보
-var connection = {
-	host: 'localhost',
-	port: 3306,
-	user: 'root',
-	password: '1234',
-	database: CURRENT
-};
-
-
-
-// 로그인 정보 변경 (아이디 비밀번호)
-/**
- * @param	{*} id 유저가 입력한 ID
- * @param	{*} pw 유저가 입력한 PW
- * @brief   로그인에 사용할 데이터를 변경함 
- * @details	로그인에 사용할 ID와 PW 값을 변경한다.
- * @details	public 변수에 저장되며 이후 connect를 바로 진행하면 된다.
- * @todo    작업 전
- */
-database.setLoginInfo = (id, pw) => {
-	connection.user = id;
-	connection.password = pw;
+   return room_code;
 }
 
 
-
-// DB 연결 함수
-// return db data
 /**
- * @brief	DB 연결 함수
- * @details 저장된 ID PW를 바탕으로 DB에 접속을 시도함
- * @details 로그인에 성공하면 연결 정보가 담긴 객체를 반환한다.
- * @return	DB connection data
- * @todo    작업 전
- */
-database.connect = () => {
-	// 데이터베이스에 연결
-	var db_data = mysql.createConnection(connection);
-
-	db_data.connect((err) => {
-		if (err) {
-			printerror('connect error');
-			console.log(err);
-			return null;
-		}
-	});
-	console.log('return db_data');
-	return db_data;
-}
-
-
-
-/**
- * @returns	T : 연결됨
- * @returns F : 연결안됨
- * @todo    작업 전
- */
-database.status = () => {
-	console.log(`return DB Connected status`);
-	console.log(`database : ` + database.a);
-	return false;
-}
-
-
-
-/**
- * @param	{*} db_data db 연결정보 데이터
- * @return	bool 성공 여부 반환
- * @brief	DB와의 연결을 끊음
- * @details	db_data를 바탕으로 연결을 끊음
- * @todo	작업 전
+* @param    {*} room_code 방코드
+* @return   `객체` {code, name, items, user_code, user_name}
+* @return   `code : -1` 가져오기 실패
+* @brief    해당하는 방의 모든 정보를 가져옴
+* @details  방코드를 기반으로 방의 정보, 아이템, 소유주 등의 모든 정보를 가져옴
+* @todo   작업 전
 */
-database.disconnect = (db_data) => {
-	if (null == db_data) {
-		printerror('already disconnected');
-		return flase;
-	}
+room.load = (room_code) => {
+   var room_name = "";
+   var items = {};
+   var user_code = -1;
+   var user_name = "";
+   console.log("room.load");
+   console.log();
 
-	db_data.disconnect();
-	console.log(`DB Disconnect`);
-	return true;
+   // dummy_code
+   
+   room_name = "poro's room";
+   items = [
+      { "code" : 50, "position" : 90501, "rotation" : 0},
+      { "code" : 200, "position" : 40109, "rotation" : 1}
+   ];
+   user_code = 5;
+   user_name = "poro";
+
+   return {
+      "code": room_code,
+      "name": room_name,
+      "items": items,
+      "user_code": user_code,
+      "user_name": user_name
+   };
 }
 
 
-// 테스트용 함수
-database.selectAllUserTable = (db_data) => {
-	if (db_data == null) {
-		printerror(`DB connect data is null`)
-		return;
-	}
+module.exports = room;
 
-	db_data.query('USE ' + CURRENT);
 
-	// `users` 테이블에서 모든 사용자를 가져옵니다.
-	db_data.query('SELECT * FROM user', (err, results) => {
-
-		if (err) {
-			printerror('select error');
-			console.log(err);
-			return;
-		}
-
-		// 결과를 출력합니다.
-		results.forEach((row) => {
-			console.log(row);
-		});
-	});
-}
 
 
 /**
-* @brief    디버깅용 콘솔 출력함수
-* @details  입력받은 메시지를 출력시킴
+* @param    {*} id 아이디
+* @param    {*} pw 비밀번호
+* @return   `객체` {code, nick, profile}
+* @return   `code : -1` 로그인 실패
+* @brief    로그인을 시도 함
+* @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
+* @todo   작업 전
 */
-printerror = (msg) => {
-	console.log('error occured');
-	console.log('DB_Moudle : ' + msg);
-	console.log();
+DHM.login = (id, pw) => {
+   var user_code = -1;
+   var nick = "";
+   var profile = "";
+
+   console.log("DHM.login");
+   console.log("attempt login");
+   console.log();
+   //db_data.login(id,pw);
+   DHM.DB.login(id, pw);
+
+   // dummy
+   user_code = 5;
+   nick = "test_user";
+   profile = "test.png"
+
+   return { "code": user_code, "nick": nick, "profile": profile };
 }
 
+DHM.store.items = () => {
+   var items
+   console.log("DHM.store.items");
 
-module.exports = database;
+   console.log("상점에 등록된 아이템을 불러옴")
+
+   items = [
+      {code : 0, name : "desk", src : ""},
+      {code : 1, name : "chair", src : "test.png"},
+      {code : 2, name : "clock", src : ""}
+   ]
+
+   return items;
+
+}
