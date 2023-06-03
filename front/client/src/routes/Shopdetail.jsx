@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {Link} from "react-router-dom"
 import styles from "./Shopdetail.module.css"
 
@@ -34,7 +34,7 @@ function Shopdetail() {
         ))}
       </ul>
  <div>
-<button>수량 up</button>
+<button className={styles.btn}>수량 up</button>
 <button>수량 down</button>
 <button>구매</button>
  </div>
