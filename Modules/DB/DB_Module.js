@@ -87,8 +87,8 @@ database.connect = () => {
 
 
 /**
- * @returns	T : 연결됨
- * @returns F : 연결안됨
+ * @return	`true` : 연결됨
+ * @return	`false` : 연결안됨
  * @todo    작업 전
  */
 database.status = () => {
