@@ -1,8 +1,7 @@
 
 import {Link} from "react-router-dom"
 import styles from "./Login.module.css"
-
-
+//import DHM from "../../../../Modules/DHModule"
 
 function Login() {
   return <div><h1 className={styles.title}>Debutante Housing</h1>
@@ -16,7 +15,8 @@ function Login() {
             <div>
             <input className={styles.pass} type="text" 
             placeholder="PASSWORD" />
-            <Link to="/Home"><button className={styles.btn}>login</button></Link>
+            <Link to="/Home"><button className={styles.btn} >
+            login</button></Link>
             </div>
             </div>
   <div>
