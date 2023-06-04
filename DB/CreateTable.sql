@@ -36,10 +36,10 @@ CREATE TABLE user (
   code			INT				NOT NULL	UNIQUE,
   id			VARCHAR(20)		NOT NULL	UNIQUE,
   pw			VARCHAR(100)	NOT NULL,
-  public_key	VARCHAR(100)	NOT NULL,
+  public_key	VARCHAR(100)	,
   name			VARCHAR(20)		NOT NULL,
-  email			VARCHAR(20)		NOT NULL,
-  phone			VARCHAR(15)		NOT NULL,
+  email			VARCHAR(50)		,
+  phone			VARCHAR(15)		,
   
   PRIMARY KEY (code)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -52,7 +52,7 @@ CREATE TABLE user (
   code			INT				NOT NULL AUTO_INCREMENT,
   id			VARCHAR(20)		NOT NULL,
   nick			VARCHAR(20)		NOT NULL,
-  profile_path	VARCHAR(50)		NOT NULL,
+  profile_path	VARCHAR(50),
   
   PRIMARY KEY (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
