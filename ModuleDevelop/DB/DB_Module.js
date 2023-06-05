@@ -15,12 +15,13 @@
 var database = {};
 
 // require
-const mysql = require('mysql2');
-database.user = require('./user');
-database.room = require('./room');
-database.friend = require('./friend');
-database.transcation = require('./transaction');
-database.comment = require('./comment');
+import mysql from 'mysql2';
+import DBuser from './user.js';
+import DBroom from './room.js';
+import DBfriend from './friend.js';
+import DBtranscation from './transaction.js';
+import DBcomment from './comment.js';
+
 
 // 상수 정의
 const DB_NAME = 'Debutante Housing';
@@ -197,11 +198,12 @@ database.selectAllUserTable = (db_data) => {
 * @brief    디버깅용 콘솔 출력함수
 * @details  입력받은 메시지를 출력시킴
 */
-printerror = (msg) => {
+var rinterror = (msg) => {
 	console.log('error occured');
 	console.log('DB_Moudle : ' + msg);
 	console.log();
 }
 
 
-module.exports = database;
+// module.exports = database;
+export default database;
