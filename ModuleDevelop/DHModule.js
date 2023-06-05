@@ -12,8 +12,13 @@
 
 var DHM = {};
 
-DHM.DB = require('./DB/DB_Module');
-DHM.room = require('./room');
+// DHM.DB = require('./DB/DB_Module');
+import db_module from './DB/DB_Module.js';
+//DHM.room = require('./room');
+import room_module from './room.js';
+
+DHM.DB = db_module;
+DHM.room = room_module;
 
 DHM.getRoomCode = DHM.room.getRoomCodeByUserCode;
 DHM.loadRoom = DHM.room.load;
@@ -112,5 +117,7 @@ DHM.store.items = () => {
 }
 
 
-
-module.exports = DHM;
+export default DHM;
+//module.exports = DHM;
+//export {DHM};
+//export {DHM}
