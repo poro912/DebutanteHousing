@@ -6,3 +6,13 @@
 * @date     2023/05/30
 * @version  0.1
 */
+var mod = {};
+
+mod.init = () =>
+{
+	console.log("module");
+
+}
+
+
+export default mod;
