@@ -1,6 +1,6 @@
 // const http = require('http');
 import http from 'http';
-
+// import express from 'express';
 //const dhm = require('./DHModule');
 import dhm from './DHModule.js';
 //import dhm from './TestDHM.js';
@@ -14,13 +14,19 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
+
+  dhm.join("user","1234");
+  var user = dhm.login("user","1234");
+  console.log(user);
 });
 
 // 서버 생성 시
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
   dhm.init ();
-  dhm.join("hello","hdslk")
+  dhm.join("user","1234");
+  dhm.join("test","5678");
+ 
 /*
   //db.room.room();
   //user = dhm.login('asd','123');
