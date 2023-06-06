@@ -19,6 +19,7 @@ import room_module from './room.js';
 
 var DHM = {};
 
+var userdata =[];
 // module declare
 DHM.DB = db_module;
 DHM.ROOM = room_module;
@@ -76,6 +77,21 @@ DHM.login = (id, pw) => {
 	nick = "test_user";
 	profile = "test.png"
 
+	// non db code
+	for(var i = 0 ; i < userdata.length ; i++)
+	{
+		if(userdata[i].id != id) continue;
+
+		if(userdata[i].pw == pw){
+			console.log('로그인 성공');
+			break;
+		}
+	}
+
+
+	// db code
+
+
 	return { "code": user_code, "nick": nick, "profile": profile };
 }
 
@@ -85,11 +101,20 @@ DHM.logout = () => {
 	console.log();
 }
 
-DHM.join = () => {
+DHM.join = (id, pw) => {
 	console.log("DHM.join");
 	console.log("attempt join");
 	console.log("회원가입 시도");
 	console.log();
+
+	// non db code
+	userdata.push({'id':id,'pw':pw});
+
+	console.log(userdata);
+	console.log();
+	console.log(userdata[0]);
+	console.log();
+	// db code
 }
 
 // DHM.user------------------------------------------------------------------------------
@@ -177,7 +202,7 @@ DHM.loadRoomByUserCode = (user_code) => {
 
 
 DHM.room.edit = (user_code, room_code) => {
-
+	console.log("edit 모드로 진입");
 }
 
 DHM.room.editAble = (user_code, room_code) => {

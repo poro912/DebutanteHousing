@@ -14,6 +14,8 @@
 // 모듈 정의
 var database = {};
 
+var db_data;
+
 // require
 import mysql from 'mysql2';
 import DBuser from './user.js';
@@ -73,7 +75,7 @@ database.setLoginInfo = (id, pw) => {
  */
 database.connect = () => {
 	// 데이터베이스에 연결
-	var db_data = mysql.createConnection(connection);
+	db_data = mysql.createConnection(connection);
 
 	db_data.connect((err) => {
 		if (err) {
@@ -81,6 +83,7 @@ database.connect = () => {
 			console.log(err);
 			return null;
 		}
+		console.log('success db connect');
 	});
 	console.log('return db_data');
 	return db_data;
@@ -109,6 +112,9 @@ database.status = () => {
  * @todo	작업 전
 */
 database.login = (id, pw) => {
+	
+	
+	
 	/*
 	// 사용자 정보 조회
 	const query = 'SELECT * FROM users WHERE username = ?';
