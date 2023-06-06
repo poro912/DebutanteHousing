@@ -23,6 +23,13 @@
 
 함수   : camel case   ex) setUserData
 
+user 모듈
+room 모듈
+edit 모듈
+inventory 모듈
+store 모듈
+nft 모듈
+
 join(id, pw, ph ...)      // 회원가입
 login(id, pw)         // 로그인
 logout()         // 로그아웃
