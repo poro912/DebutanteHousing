@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.css'
-import Home from "./routes/Home"
+
 import Login from './routes/Login'
 import Nonmem from './routes/Nonmem'
 import Storage from './routes/Storage'
