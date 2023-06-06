@@ -35,11 +35,12 @@ const IDENTIFICATION = "db_identification";
 
 // 변수 정의
 // 데이터베이스 연결 정보
+// 182.220.199.210
 var connection = {
 	host: 'localhost',
 	port: 3306,
 	user: 'root',
-	password: '1234',
+	password: 'A12345678!',
 	database: CURRENT
 };
 
@@ -198,7 +199,7 @@ database.selectAllUserTable = (db_data) => {
 * @brief    디버깅용 콘솔 출력함수
 * @details  입력받은 메시지를 출력시킴
 */
-var rinterror = (msg) => {
+var printerror = (msg) => {
 	console.log('error occured');
 	console.log('DB_Moudle : ' + msg);
 	console.log();
