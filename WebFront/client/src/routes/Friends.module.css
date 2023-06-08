@@ -1,15 +1,17 @@
-
 .searchbar{
     position: relative;
     padding:0;
     margin: 0;
     border: 0;
-    width: 25vw;
+    width: 15vw;
     height: 5vh;
-    top: 20vh;
-    left: 37vw;
-
+    top: 26.3vh;
+    left: 44.3vw;
+    z-index: 6;
+    font-size: 25px;
+    background-color:transparent;
 }
+
 .search{
     
     font-family: 'BookkMyungjo-Bd';
@@ -22,9 +24,36 @@
     height: 5vh;
     top: 20vh;
     left: 37vw;
- 
+    z-index: 6;
   
 }
+
+.box{
+    position: relative;
+    width: 850px;
+        height: 400px;
+        overflow: auto;
+        z-index: 8;
+        background-color: white;
+        top: 34vh;
+        left: 28vw;
+        z-index: 6;
+        opacity: 0.6;
+        border-radius: 30px;
+}
+
+hr {
+    position: relative;
+    width: 18vw;
+    height: 5vh;
+    top: 26.5vh;
+    left: 41.5vw;
+    z-index: 6;
+    border: solid 3px #242322;
+    
+}
+
+
 
 .fname{
     position: relative;
@@ -33,11 +62,12 @@
     border: 0;
     width: 25vw;
     height: 5vh;
-    top: 45vh;
-    left: 37vw;
-    font-family: 'BookkMyungjo-Bd';
-    font-size: 30px;
-    
+    top: 52vh;
+    left: 35vw;
+    font-family: 'Dancing Script';
+    font-size: 43px;
+    z-index: 7;
+
 }
 
 .ffname{
@@ -47,124 +77,48 @@
     border: 0;
     width: 25vw;
     height: 5vh;
-    top: 49vh;
-    left: 37vw;
-    font-family: 'BookkMyungjo-Bd';
-    font-size: 30px;
-    
+    top: 57vh;
+    left: 35vw;
+    font-family: 'Dancing Script';
+    font-size: 43px;
+    z-index: 7;
 }
 
+.Aro {
+    position: fixed;
+    top: 53vh; 
+    left: 63vw;  
+    width: 3.3vw;
+    height: 4vh;
+    z-index:7;
+}
+
+.Aroo {
+    position: fixed;
+    top: 63vh; 
+    left: 63vw;  
+    width: 3.3vw;
+    height: 4vh;
+    z-index:7;
+}
 
 .line {
     position: relative;
-    top: 36vh;
-    left: 37vw;
-    width: 27vw;
-    border: solid 3px #74675c;
+    top: 49vh;
+    left: 30vw;
+    width: 38vw;
+    border: solid 2px #74675c;
+    z-index: 7;
 }
 
 .linee {
     position: relative;
-    top: 45vh;
-    left: 37vw;
-    width: 27vw;
-    border: solid 3px #74675c;
+    top: 58.5vh;
+    left: 30vw;
+    width: 38vw;
+    border: solid 2px #74675c;
+    z-index: 7;
 }
-
-i {position: relative;
-    padding:0;
-    margin: 0;
-    border: 0;
-    width: 25vw;
-    height: 5vh;
-    top: 46vh;
-    left: 1.8vw;
-
-}
-
-.btn {
-    color: white; 
-  padding: 15px 25px;
-  display: inline-block;
-  border: 1px solid rgba(0,0,0,0.21);
-  border-bottom-color: rgba(0,0,0,0.34);
-  text-shadow:0 1px 0 rgba(0,0,0,0.15);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-              0 2px 0 -1px rgba(0,0,0,0.13), 
-              0 3px 0 -1px rgba(0,0,0,0.08), 
-              0 3px 13px -1px rgba(0,0,0,0.21);
-    background-color: #74675c;  
-    padding: 4px 12px;  
-    font-size: 12px;
-    font-family: 'BookkMyungjo-Bd';
-    position: relative;
-    top: 50vh;
-    left:-24vw;
-    z-index: 5;
-}
-
-.btn:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;
-    top: 50vh;
-    left:-24vw;
-    z-index: 5;}
-    
-.btn2{   color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd';
-      position: relative;
-    top: 20vh;
-    left:38vw;
-    z-index: 5;
-      
-
-}
-.btn2:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;
-    top: 20vh;
-    left:38vw;}
-    
-
-.btn3{   color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd';
-      position: relative;
-      top: 26vh;
-      left:59vw;
-
-}
-.btn3:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;
-    top: 26vh;
-    left: 59vw;}
 
 
 
@@ -175,14 +129,38 @@ i {position: relative;
     font-style: normal;
 }
 
-.bgimg{
+.Fbgimg{
     position: fixed; 
     top: 0; 
     left: 0; 
     min-width: 100%;
     min-height: 100%;
     z-index: -5;
-  }
+}
 
 
+.back{
+    position: fixed;
+    top: 46vh; 
+    left: 1vw;  
+    width: 3.5vw;
+    height:10vh;
+}
 
+.Doorplate{
+    position: fixed;
+    top: 30vh; 
+    left: 37vw;  
+    width: 27vw;
+    height: 18vh;
+    z-index: 5;
+}
+
+.Mag{
+    position: fixed;
+    width: 1.8vw;
+    height: 3.5vh;
+    top: 38vh;
+    left: 42vw;
+    z-index: 6;
+}

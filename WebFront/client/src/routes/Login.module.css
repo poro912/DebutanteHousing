@@ -7,13 +7,13 @@
     height: 5vh;
     top: 30vh;
     left: 45vw;
-    font-family: 'BookkMyungjo-Bd';
-    font-size: 48px;
-    color: #463e38;
+    font-family: 'Dancing Script';
+    font-size: 60px;
+    color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
-    text-underline-offset : 15px;
-
+    text-underline-offset : 14px;
+    text-decoration-thickness: 3.5px;
 }
 
 .titlee{
@@ -23,14 +23,15 @@
     border: 0;
     width: 25vw;
     height: 5vh;
-    top: 32vh;
+    top: 33vh;
     left: 46.5vw;
-    font-family: 'BookkMyungjo-Bd';
-    font-size: 48px;
-    color: #463e38;
+    font-family: 'Dancing Script';
+    font-size: 60px;
+    color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
-    text-underline-offset : 20px;
+    text-underline-offset : 18px;
+    text-decoration-thickness: 3.5px;
 }
 
 
@@ -42,7 +43,11 @@
         top: -17vh;
         left: 37.5vw;
         z-index: -1;
-        box-shadow: -25px -20px 2px rgb(114, 102, 102);
+        box-shadow: -2px -2px 2px rgb(255, 255, 255),
+                    -3px -3px 5px rgb(56, 48, 48),
+                    -28px -25px 2px rgb(148, 132, 132),
+                     2px 2px 2px rgb(255, 255, 255), 
+                     3px 3px 5px rgb(114, 102, 102)
   } 
 
 .bgimg{
@@ -60,12 +65,12 @@
     box-sizing: border-box;
     border: none;
     position: relative;
-        top:  50vh;
+        top:  47vh;
         left: 45vw;
         z-index: 5;
-        color:rgba(87, 61, 61, 0.822);
+        color:#131212;
         background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
+        font-family: 'Dancing Script';
         
 }
 
@@ -76,17 +81,27 @@ input:focus::placeholder{
     color:transparent;
 }
 
+.id::placeholder {
+    color: #000000;
+    
+}
+.pass::placeholder {
+    color: #000000;
+    
+}
+
+
 
 .pass{
     box-sizing: border-box;
     border: none;
     position: relative;
-    top: 51vh;
+    top: 48vh;
     left: 45vw;
         z-index: 5;
-        color:rgba(87, 61, 61, 0.822);
+        color:#131212;
         background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
+        font-family: 'Dancing Script';
 }
 .btn{
     color: white; 
@@ -95,16 +110,16 @@ input:focus::placeholder{
     border-bottom-color: rgba(0,0,0,0.34);
     text-shadow:0 1px 0 rgba(0,0,0,0.15);
     box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(0,0,0,0.08), 
                 0 3px 13px -1px rgba(0,0,0,0.21);
       background-color: #74675c;  
       padding: 4px 12px;  
       font-size: 12px;
       font-family: 'BookkMyungjo-Bd';
       position: relative;
-        top: 50vh;
-        left:45vw;
+        top: 46.2vh;
+        left: 49vw;
         z-index: 5;
 
 }
@@ -113,8 +128,8 @@ input:focus::placeholder{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top: 50vh;
-    left:45vw;
+    top: 46vh;
+    left:48vw;
     z-index: 5;}
 
 .btn2{
@@ -167,6 +182,7 @@ input:focus::placeholder{
       z-index: 5;
 
 }
+
 .btn3:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
