@@ -1,3 +1,87 @@
+
+.searchbar{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 20vh;
+    left: 37vw;
+
+}
+.search{
+    
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 25px;
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 20vh;
+    left: 37vw;
+ 
+  
+}
+
+.fname{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 45vh;
+    left: 37vw;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 30px;
+    
+}
+
+.ffname{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 49vh;
+    left: 37vw;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 30px;
+    
+}
+
+
+.line {
+    position: relative;
+    top: 36vh;
+    left: 37vw;
+    width: 27vw;
+    border: solid 3px #74675c;
+}
+
+.linee {
+    position: relative;
+    top: 45vh;
+    left: 37vw;
+    width: 27vw;
+    border: solid 3px #74675c;
+}
+
+i {position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 46vh;
+    left: 1.8vw;
+
+}
+
 .btn {
     color: white; 
   padding: 15px 25px;
@@ -12,13 +96,20 @@
     background-color: #74675c;  
     padding: 4px 12px;  
     font-size: 12px;
-    font-family: 'BookkMyungjo-Bd'
+    font-family: 'BookkMyungjo-Bd';
+    position: relative;
+    top: 50vh;
+    left:-24vw;
+    z-index: 5;
 }
 
 .btn:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
+    position: relative;
+    top: 50vh;
+    left:-24vw;
+    z-index: 5;}
     
 .btn2{   color: white; 
     padding: 15px 25px;
@@ -33,13 +124,20 @@
       background-color: #74675c;  
       padding: 4px 12px;  
       font-size: 12px;
-      font-family: 'BookkMyungjo-Bd'
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+    top: 20vh;
+    left:38vw;
+    z-index: 5;
+      
 
 }
 .btn2:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
+    position: relative;
+    top: 20vh;
+    left:38vw;}
     
 
 .btn3{   color: white; 
@@ -55,30 +153,36 @@
       background-color: #74675c;  
       padding: 4px 12px;  
       font-size: 12px;
-      font-family: 'BookkMyungjo-Bd'
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+      top: 26vh;
+      left:59vw;
 
 }
 .btn3:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
-
-.searchbar{
     position: relative;
-    padding:0;
-    margin: 0;
-    border: 0;
-    width: 330px;
-    height: 40px;
-    font-family: 'BookkMyungjo-Bd'
-}
-.search{
-    font-family: 'BookkMyungjo-Bd'
-}
+    top: 26vh;
+    left: 59vw;}
+
+
+
 @font-face {
     font-family: 'BookkMyungjo-Bd';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 }
+
+.bgimg{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -5;
+  }
+
+
 

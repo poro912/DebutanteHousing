@@ -1,9 +1,123 @@
-body{
-    background-color:#c4a996;
+.title{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 30vh;
+    left: 45vw;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 48px;
+    color: #463e38;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 15px;
+
+}
+
+.titlee{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 32vh;
+    left: 46.5vw;
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 48px;
+    color: #463e38;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 20px;
 }
 
 
+.bookcover {
+    width: 27.5vw;
+    height: 85.5vh;
+    object-fit: cover;
+    position: relative;
+        top: -17vh;
+        left: 37.5vw;
+        z-index: -1;
+        box-shadow: -25px -20px 2px rgb(114, 102, 102);
+  } 
+
+.bgimg{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -5;
+  }
+
+
+
+.id {
+    box-sizing: border-box;
+    border: none;
+    position: relative;
+        top:  50vh;
+        left: 45vw;
+        z-index: 5;
+        color:rgba(87, 61, 61, 0.822);
+        background-color:transparent;
+        font-family: 'BookkMyungjo-Bd';
+        
+}
+
+input:focus{
+    outline:none;}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+
+.pass{
+    box-sizing: border-box;
+    border: none;
+    position: relative;
+    top: 51vh;
+    left: 45vw;
+        z-index: 5;
+        color:rgba(87, 61, 61, 0.822);
+        background-color:transparent;
+        font-family: 'BookkMyungjo-Bd';
+}
 .btn{
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 2px 0 -1px rgba(0,0,0,0.13), 
+                0 3px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #74675c;  
+      padding: 4px 12px;  
+      font-size: 12px;
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+        top: 50vh;
+        left:45vw;
+        z-index: 5;
+
+}
+
+.btn:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    top: 50vh;
+    left:45vw;
+    z-index: 5;}
+
+.btn2{
     color: white; 
     padding: 15px 25px;
     display: inline-block;
@@ -19,134 +133,45 @@ body{
       font-size: 12px;
       font-family: 'BookkMyungjo-Bd';
       position: relative;
-        top: 580px;
-        left: 50%;
-        z-index: 5;
+      top: 75vh;
+      left: 92vw;
+      z-index: 5;
 
 }
-
-.btn:active{top: 1px;
+.btn2:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top: 580px;
-    left: 50%;
+    top:75vh;
+    left: 92vw;
     z-index: 5;}
 
-.btn2{
-        color: white; 
-        padding: 15px 25px;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,0.21);
-        border-bottom-color: rgba(0,0,0,0.34);
-        text-shadow:0 1px 0 rgba(0,0,0,0.15);
-        box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                    0 2px 0 -1px rgba(0,0,0,0.13), 
-                    0 3px 0 -1px rgba(0,0,0,0.08), 
-                    0 3px 13px -1px rgba(0,0,0,0.21);
-          background-color: #74675c;  
-          padding: 4px 12px;  
-          font-size: 12px;
-          font-family: 'BookkMyungjo-Bd';
-          position: relative;
-          top:680px;
-          left: 93%;;
-    
-    }
-
-.btn2:active{top: 1px;
-        border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-        box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-        position: relative;
-        top: 680px;
-        left: 93%;}
-
 .btn3{
-            color: white; 
-            padding: 15px 25px;
-            display: inline-block;
-            border: 1px solid rgba(0,0,0,0.21);
-            border-bottom-color: rgba(0,0,0,0.34);
-            text-shadow:0 1px 0 rgba(0,0,0,0.15);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                        0 2px 0 -1px rgba(0,0,0,0.13), 
-                        0 3px 0 -1px rgba(0,0,0,0.08), 
-                        0 3px 13px -1px rgba(0,0,0,0.21);
-              background-color: #74675c;  
-              padding: 4px 12px;  
-              font-size: 12px;
-              font-family: 'BookkMyungjo-Bd';
-              position: relative;
-              top: 680px;
-              left: 93%;
-        
-        }
+    color: white; 
+    padding: 15px 25px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 2px 0 -1px rgba(0,0,0,0.13), 
+                0 3px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #74675c;  
+      padding: 4px 14px;  
+      font-size: 12px;
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+      top:75vh;
+      left: 92vw;
+      z-index: 5;
 
+}
 .btn3:active{top: 1px;
-            border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-            box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-            position: relative;
-            top: 680px;
-            left: 93%;}
-
-
-.title{
-    font-family: 'Pacifico', cursive;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-              top: 230px;
-              left: 42%;
-              font-size: 40px;
-    z-index: 5;
+    top:75vh;
+    left: 92vw;
+    z-index: 5;}
 
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather:ital,wght@0,300;1,700&family=Pacifico&family=Pangolin&display=swap');
-
-.login{
-    font-family: 'BookkMyungjo-Bd';
-    position: relative;
-              top: 500px;
-              left: 45%;
-  
-}
-
-.id {
-    width: 10%;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    position: relative;
-        top: 590px;
-        left: 45%;
-        z-index: 5;
-        background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
-        
-}
-
-.pass{
-    width: 10%;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    position: relative;
-        top: 600px;
-        left: 45%;
-        z-index: 5;
-        background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
-}
-
-.bookcover{
-    
-    width: 600px;
-    height: 800px;
-    object-fit: cover;
-    position: relative;
-        top: -200px;
-        left: 35%;
-        z-index: 1;
-       
-  }

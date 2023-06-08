@@ -1,21 +1,25 @@
-
 import {Link} from "react-router-dom"
 import styles from "./Login.module.css"
-//import DHM from "../../../../Modules/DHModule"
+
 
 function Login() {
+  const onChange = (event) => {
+    console.log(event.target.value);
+}
+
   return <div><h1 className={styles.title}>Debutante Housing</h1>
       <div/>
      <div>
-       
-       
             <input className={styles.id} 
             type="text" 
-            placeholder="ID" />
+            placeholder="ID"
+            onChange={onChange} />
             <div>
-            <input className={styles.pass} type="text" 
-            placeholder="PASSWORD" />
-            <Link to="/Home"><button className={styles.btn} >
+            <input className={styles.pass} 
+            type="text" 
+            placeholder="PASSWORD"
+            onChange={onChange} />
+            <Link to="/Home"><button className={styles.btn}>
             login</button></Link>
             </div>
             </div>
