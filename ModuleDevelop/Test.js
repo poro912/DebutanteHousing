@@ -1,9 +1,11 @@
-// const http = require('http');
+
 import http from 'http';
 // import express from 'express';
-//const dhm = require('./DHModule');
 import dhm from './DHModule.js';
-//import dhm from './TestDHM.js';
+
+import db from './DB/DB_Module.js';
+
+
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -15,7 +17,7 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
 
-  dhm.join("user","1234");
+  //dhm.join("user","1234");
   var user = dhm.login("user","1234");
   console.log(user);
 });

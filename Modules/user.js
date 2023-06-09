@@ -7,13 +7,13 @@
 * @date     2023/05/30
 * @version  0.1
 */
-var mod = {};
+var user = {};
 
-mod.init = () =>
+user.init = () =>
 {
 	console.log("module");
 
 }
 
 
-export default mod;
+export default user;

@@ -77,5 +77,5 @@ room.load = (room_code) => {
 }
 
 
-module.exports = room;
+export default room;
 
