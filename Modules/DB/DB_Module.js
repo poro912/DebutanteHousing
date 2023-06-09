@@ -14,13 +14,16 @@
 // 모듈 정의
 var database = {};
 
+var db_data;
+
 // require
-const mysql = require('mysql2');
-database.user = require('./user');
-database.room = require('./room');
-database.friend = require('./friend');
-database.transcation = require('./transaction');
-database.comment = require('./comment');
+import mysql from 'mysql2';
+import DBuser from './user.js';
+import DBroom from './room.js';
+import DBfriend from './friend.js';
+import DBtranscation from './transaction.js';
+import DBcomment from './comment.js';
+
 
 // 상수 정의
 const DB_NAME = 'Debutante Housing';
@@ -34,11 +37,12 @@ const IDENTIFICATION = "db_identification";
 
 // 변수 정의
 // 데이터베이스 연결 정보
+// 182.220.199.210
 var connection = {
 	host: 'localhost',
 	port: 3306,
 	user: 'root',
-	password: '1234',
+	password: 'A12345678!',
 	database: CURRENT
 };
 
@@ -71,7 +75,7 @@ database.setLoginInfo = (id, pw) => {
  */
 database.connect = () => {
 	// 데이터베이스에 연결
-	var db_data = mysql.createConnection(connection);
+	db_data = mysql.createConnection(connection);
 
 	db_data.connect((err) => {
 		if (err) {
@@ -79,6 +83,7 @@ database.connect = () => {
 			console.log(err);
 			return null;
 		}
+		console.log('success db connect');
 	});
 	console.log('return db_data');
 	return db_data;
@@ -107,6 +112,9 @@ database.status = () => {
  * @todo	작업 전
 */
 database.login = (id, pw) => {
+	
+	
+	
 	/*
 	// 사용자 정보 조회
 	const query = 'SELECT * FROM users WHERE username = ?';
@@ -197,11 +205,12 @@ database.selectAllUserTable = (db_data) => {
 * @brief    디버깅용 콘솔 출력함수
 * @details  입력받은 메시지를 출력시킴
 */
-printerror = (msg) => {
+var printerror = (msg) => {
 	console.log('error occured');
 	console.log('DB_Moudle : ' + msg);
 	console.log();
 }
 
 
-module.exports = database;
+// module.exports = database;
+export default database;
