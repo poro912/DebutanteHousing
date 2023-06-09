@@ -41,6 +41,22 @@ const AIpicker = () => {
       >
         <img src= './img/move3.png' />
         </button>
+        <button
+        onClick={(btn) => {
+          const arrB =[0, 1.55, 0];
+          state.url2[state.click][3] = state.url2[state.click][3].map((x, y) => x + arrB[y])
+        }}
+      >
+        <img src= './img/right.png' />
+        </button>
+        <button
+        onClick={(btn) => {
+          const arrB =[0, -1.55, 0];
+          state.url2[state.click][3] = state.url2[state.click][3].map((x, y) => x + arrB[y])
+        }}
+      >
+        <img src= './img/left.png' />
+        </button>
       {console.log(state.obj)}
         
       

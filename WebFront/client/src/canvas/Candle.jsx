@@ -11,7 +11,7 @@ import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
 
 import state from '../store';
 
-const Candle = ({idx, url, mtl, pos}) => {
+const Candle = ({idx, url, mtl, pos, rotation}) => {
     const snap = useSnapshot(state);
 
     const material = useLoader(MTLLoader, mtl);
@@ -21,6 +21,7 @@ const Candle = ({idx, url, mtl, pos}) => {
         });
         
     
+    //useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta))
 
     const stateString = JSON.stringify(snap)
     return (
@@ -31,7 +32,7 @@ const Candle = ({idx, url, mtl, pos}) => {
         <primitive
             object={obj}
             position={pos}
-            
+            rotation={rotation}
         ></primitive>
         </mesh>
         </group>

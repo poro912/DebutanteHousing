@@ -23,6 +23,7 @@ const HomePage = () => {
         <div className="home">
           <header>
             <h3>Serbia </h3>
+            <img></img>
             <Link to="/shop"><button className={styles.shop}>상점</button></Link>
             <Link to="/friends"><button className={styles.shop}>친구 방문</button></Link>
           </header>

@@ -8,7 +8,6 @@ import state from '../store'
 import Backdrop from './Backdrop'
 import CameraRig from './CameraRig'
 
-
 import Room from './Room'
 import Candle from './Candle'
 
@@ -18,7 +17,7 @@ const CanvasModel = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [160,90,160], fov:18 }}
+      camera={{ position: [160,90,160], fov:25 }}
       
       className=''
     >
@@ -35,7 +34,7 @@ const CanvasModel = () => {
           {
             url.map((url, index) => {
               
-              return <Candle idx={index} url={url[0]} mtl={url[1]} pos={url[2]}/>
+              return <Candle idx={index} url={url[0]} mtl={url[1]} pos={url[2]} rotation={url[3]}/>
               
             })
           }
