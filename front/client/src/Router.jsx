@@ -1,4 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import './App.css'
+import Home from "./routes/Home"
 import Login from './routes/Login'
 import Nonmem from './routes/Nonmem'
 import Storage from './routes/Storage'
@@ -6,7 +8,6 @@ import Shop from './routes/Shop'
 import Shopdetail from './routes/Shopdetail'
 import Join from './routes/Join'
 import Friends from './routes/Friends'
-import Homec from './routes/Homecopy';
 
 
 const RouterPage = () => {
@@ -15,7 +16,7 @@ const RouterPage = () => {
     <BrowserRouter>
     <Switch>
         <Route path="/" exact={true} component={Login} />
-        <Route path="/Home" component={Homec} />
+        <Route path="/Home" component={Home} />
         <Route path="/Non" component={Nonmem} />
         <Route path="/Storage" component={Storage} />
         <Route path="/Shop" component={Shop} />

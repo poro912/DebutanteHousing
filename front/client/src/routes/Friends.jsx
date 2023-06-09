@@ -15,38 +15,25 @@ function Friends() {
     setfriend("");
   };
   return <div>
-    
-    
-    <h1 className={styles.fname}>Serbia</h1>
-    <h1 className={styles.ffname}>Debut</h1>
-
-
-<hr className={styles.line} />
-<hr className={styles.linee}/>
+     <Link to="Home"><button className={styles.btn}>뒤로가기</button></Link>
+  
+ <h1 className={styles.search}>친구 검색 ({friends.length})</h1>
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}
           value={friend}
           type="text"
-          placeholder=""
+          placeholder="이름을 검색하세요"
         />
-        
+        <button className={styles.btn2}>검색</button>
       </form>
-     
+      <hr />
       <ul>
         {friends.map((fri, index) => (
           <li key={index}>{fri}</li>
         ))}
       </ul>
-     
-      <hr />
-      <div className={styles.box}></div>
-      <img className={styles.Aro} alt="Aro" src="./img/Aro.png" />
-      <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
- <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
- <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />
- <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
- <Link to="Home"><img className={styles.back} alt="back" src="./img/back.png" /></Link>
+ <button className={styles.btn3}>친구방이동</button>
   </div>;
 }
 

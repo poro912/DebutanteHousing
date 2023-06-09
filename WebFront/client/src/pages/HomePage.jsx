@@ -18,18 +18,17 @@ const HomePage = () => {
     const snap = useSnapshot(state);
 
   return (
-    <AnimatePresence>
+    <div>
       {snap.intro && (
-        <motion.section className="home" {...slideAnimation('left')}>
-          <motion.header {...slideAnimation("down")}>
+        <div className="home">
+          <header>
             <h3>Serbia </h3>
             <Link to="/shop"><button className={styles.shop}>상점</button></Link>
             <Link to="/friends"><button className={styles.shop}>친구 방문</button></Link>
-          </motion.header>
+          </header>
 
-          <motion.div
+          <div
             className='absolute z-10 top-5 right-5'
-            {...fadeAnimation} 
           >
             <CustomButton
               type="filled"
@@ -37,10 +36,10 @@ const HomePage = () => {
               handleClick={() => state.intro = false}
               customStyles="w-fit px-4 py-2.5 font-bold text-sm"
             />
-          </motion.div>
-        </motion.section>
+          </div>
+        </div>
       )}
-    </AnimatePresence>
+    </div>
   )
 }
 

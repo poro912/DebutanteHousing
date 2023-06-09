@@ -71,7 +71,7 @@ const Customizer = () => {
             />
           </motion.div>
 
-          <motion.div
+          {/* <motion.div
             className='filtertabs-container'
             {...slideAnimation('up')}
           >
@@ -84,7 +84,7 @@ const Customizer = () => {
                 handleClick={() => {}} /> 
             ))}
 
-          </motion.div>
+          </motion.div> */}
 
         </>
       )}
