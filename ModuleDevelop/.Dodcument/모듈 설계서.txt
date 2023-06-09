@@ -33,9 +33,11 @@ nft 모듈
 join(id, pw, ph ...)      // 회원가입
 login(id, pw)         // 로그인
 logout()         // 로그아웃
-loadUserData(user_code)      // 유저 정보 가져오기
-loadRoom(user_code)      // 유저가 소유한 방 (리스트) 가져오기
 
+user.getInfo(user_code)      // 유저 정보 가져오기
+user.setInfo(user_data		// 유저 정보 수정
+
+room.get(user_code)      // 유저가 소유한 방 (리스트) 가져오기
 room.loadList()         // 방 리스트 불러오기
 room.load(room_code)      // 방 불러오기
 room.edit(room_code)      // 방꾸미기 모드 진입

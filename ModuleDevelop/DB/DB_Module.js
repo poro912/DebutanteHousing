@@ -57,12 +57,10 @@ var connection = {
  * @details	public 변수에 저장되며 이후 connect를 바로 진행하면 된다.
  * @todo    작업 전
  */
-database.setLoginInfo = (id, pw) => {
+ database.setLoginInfo = async(id, pw) => {
 	connection.user = id;
 	connection.password = pw;
 }
-
-
 
 // DB 연결 함수
 // return db data
@@ -111,9 +109,8 @@ database.status = () => {
  * @details	
  * @todo	작업 전
 */
-database.login = (id, pw) => {
-	
-	
+database.login = async(id, pw) => {
+	var result = await connection.query(`SELECT * FROM user WHERE id = "${id}" and pw = "${pw}";`);
 	
 	/*
 	// 사용자 정보 조회
