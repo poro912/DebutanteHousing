@@ -6,4 +6,6 @@ import download from "./download.png";
 import logoShirt from "./logo-tshirt.png";
 import stylishShirt from "./stylish-tshirt.png";
 
-export { ai, fileIcon, swatch, download, logoShirt, stylishShirt };
+import move from './move.png';
+
+export { ai, fileIcon, swatch, download, logoShirt, stylishShirt, move };
