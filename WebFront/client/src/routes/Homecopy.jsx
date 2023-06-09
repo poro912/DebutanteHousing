@@ -7,7 +7,7 @@ function Homec() {
   
     <div className="app transition-all ease-in">
         <HomePage />
-        <CanvasModel />
+        {/* <CanvasModel /> */}
         <Customizer />
     </div>
   )

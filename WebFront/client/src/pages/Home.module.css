@@ -1,3 +1,12 @@
+.fonts{
+  font-family: 'Dancing Script';
+}
+
+.name{
+  font-family: 'Dancing Script';
+  font-size: 4rem;
+}
+
 .storage{
     
     color: white; 
@@ -85,4 +94,22 @@ left: 70%;}
 .main{
 font-family: 'BookkMyungjo-Bd';
 font-size: 30px;
+}
+
+.shopImg {
+  width: 4vw;
+  position: relative;
+  top: 40vh;
+  left: 10vw;
+}
+
+.firendImg{
+  width: 4vw;
+  position: relative;
+  top: 35vh;
+  left: 70vw;
+}
+
+.backImg{
+  width : 5vw
 }
