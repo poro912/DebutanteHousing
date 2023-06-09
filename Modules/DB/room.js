@@ -6,7 +6,10 @@
 * @date     2023/05/30
 * @version  0.1
 */
+var room = {};
 
-exports.room =()=>{
+room.load = () => {
     console.log('this is room module');
 }
+
+export default room;
