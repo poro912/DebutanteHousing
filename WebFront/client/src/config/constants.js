@@ -1,4 +1,4 @@
-import { swatch, fileIcon, move, logoShirt, stylishShirt } from "../assets";
+import { swatch, fileIcon, move, logoShirt, stylishShirt, furnitureicon } from "../assets";
 
 export const EditorTabs = [
   {
@@ -7,7 +7,7 @@ export const EditorTabs = [
   },
   {
     name: "filepicker",
-    icon: fileIcon,
+    icon: furnitureicon,
   },
   {
     name: "aipicker",
