@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-.bgimg{
-  position: fixed; 
-  background-color: #74992e;
-  top: 0; 
-  left: 0; 
-  min-width: 100%;
-  min-height: 100%;
-=======
+
 .fonts{
   font-family: 'Dancing Script';
 }
@@ -14,7 +6,6 @@
 .name{
   font-family: 'Dancing Script';
   font-size: 4rem;
->>>>>>> 6fb0eb5943e5f0d17d8bfd57f573bbde48415eb1
 }
 
 .storage{
@@ -121,5 +112,29 @@ font-size: 30px;
 }
 
 .backImg{
-  width : 5vw
+  width : 3vw
+}
+
+.verti{
+  position: relative;
+  display: inline-block;
+}
+
+.varti div {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+
+.varti img {
+  line-height: 20px;
+}
+
+.bgimg{
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -9999;
 }

@@ -22,24 +22,20 @@ const HomePage = () => {
       {snap.intro && (
         <div className="home">
           <header>
-            <h3 className={styles.name}>Serbia </h3>
-            <CustomButton
-              handleClick={() => state.intro = false}
-              src = "\img\Customize.png"
-            />
+            <div className={styles.verti}>
+              <h3 className={styles.name}>Serbia </h3>
+              <img
+                  src="\img\Customize.png"
+                  onClick={() => state.intro = false}
+              > 
+              </img>
+            </div>
             <Link to="/shop"><img src="\img\shop.png" className={styles.shopImg}></img></Link>
             <Link to="/friends"><img src="\img\friend.png" className={styles.firendImg}></img></Link>
           </header>
-
-          <div
-            className='absolute z-10 top-5 right-5'
-          >
-            {/* <CustomButton
-              handleClick={() => state.intro = false}
-              src = "\img\Customize.png"
-            /> */}
-          </div>
+          
         </div>
+        
       )}
     </div>
   )

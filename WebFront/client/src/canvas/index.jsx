@@ -17,17 +17,18 @@ const CanvasModel = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [160,90,160], fov:25 }}
+      camera={{ position: [160,90,160], fov:18 }}
       
       className=''
     >
       {state.intro === true ? <OrbitControls /> : <></>}
       
-      <ambientLight intensity={2} />
+      <ambientLight intensity={1} />
+      <pointLight position={[0, 10, 10]} intensity={1.1} />
       <Environment preset='city' />
 
       {/* <CameraRig> */}
-        {/* <Backdrop /> */}
+        <Backdrop />
           {state.intro === true ? <OrbitControls /> : <gridHelper args={[40, 10] } position={[0,-20,0]}/>}
           
           <Room pos={[0,0,0]} />

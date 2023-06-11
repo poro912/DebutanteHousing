@@ -65,13 +65,12 @@ const Customizer = () => {
             className='absolute z-10 top-5 right-5'
             {...fadeAnimation} 
           >
-            <CustomButton
-              type="filled"
-              
-              handleClick={() => state.intro = true}
+            <img
               src = "\img\back.png"
+              onClick={() => state.intro = true}
               className = {styles.backImg}
-            />
+            >
+            </img>
           </motion.div>
 
           {/* <motion.div
