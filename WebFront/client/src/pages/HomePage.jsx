@@ -27,6 +27,7 @@ const HomePage = () => {
               <img
                   src="\img\Customize.png"
                   onClick={() => state.intro = false}
+                  className={styles.varti_img}
               > 
               </img>
             </div>

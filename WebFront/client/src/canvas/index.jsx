@@ -24,7 +24,7 @@ const CanvasModel = () => {
       {state.intro === true ? <OrbitControls /> : <></>}
       
       <ambientLight intensity={1} />
-      <pointLight position={[0, 10, 10]} intensity={1.1} />
+      <pointLight position={[0, 10, 10]} intensity={1.4} />
       <Environment preset='city' />
 
       {/* <CameraRig> */}

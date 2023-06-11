@@ -1,11 +1,17 @@
+body {
+  background-color: rgb(238, 238, 238);
+}
 
 .fonts{
   font-family: 'Dancing Script';
 }
 
 .name{
+  position: relative;
+  display: inline-block;
   font-family: 'Dancing Script';
   font-size: 4rem;
+  vertical-align: top;
 }
 
 .storage{
@@ -120,14 +126,14 @@ font-size: 30px;
   display: inline-block;
 }
 
-.varti div {
+.varti h3 {
   width: 20px;
   height: 20px;
   vertical-align: top;
 }
 
-.varti img {
-  line-height: 20px;
+.varti_img {
+  line-height: 0px;
 }
 
 .bgimg{
