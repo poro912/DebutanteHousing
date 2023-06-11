@@ -4,13 +4,14 @@ import { useSnapshot } from 'valtio'
 
 import state from '../store'
 import { color } from 'framer-motion';
+import styles from "./text.module.css"
 
 const AIpicker = () => {
   const snap = useSnapshot(state);
 
   return (
     <div className='absolute left-full ml-3'>
-      <div className='text-white'>ddkdk</div>
+      <div className={styles.a}>ddkdk</div>
       <button
         onClick={(btn) => {
           const arrB =[-4, 0, 0];

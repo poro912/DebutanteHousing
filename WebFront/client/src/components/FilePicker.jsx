@@ -2,13 +2,14 @@ import React from 'react'
 import { useSnapshot } from 'valtio'
 
 import state from '../store'
+import styles from "./text.module.css"
 
 const FilePicker = () => {
   const snap = useSnapshot(state);
 
   return (
     <div className='absolute left-full ml-3'>
-      <div className='text-white'>
+      <div className={styles.a}>
         dgdgdfgdgddggdgdasd</div>
       <img src='./img/furniture/chair.png' onClick={(btn) => state.url2.push(["/sm_chair_final.obj", "/sm_chair_final.mtl", [0,-12,0], [0, 0, 0]])}></img>
       
