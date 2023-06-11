@@ -1,3 +1,15 @@
+.nbox{
+    position: relative;
+    width: 5vw;
+    height: 5vh;
+    background-color: white;
+    top: 30vh;
+    left: 45vw;
+    
+}
+
+
+
 .searchbar{
     position: relative;
     padding:0;
@@ -6,10 +18,11 @@
     width: 15vw;
     height: 5vh;
     top: 26.3vh;
-    left: 44.3vw;
+    left: 44.7vw;
     z-index: 6;
-    font-size: 25px;
+    font-size: 40px;
     background-color:transparent;
+    font-family: 'Dancing Script';
 }
 
 .search{
@@ -30,8 +43,8 @@
 
 .box{
     position: relative;
-    width: 850px;
-        height: 400px;
+    width: 44vw;
+        height: 45vh;
         overflow: auto;
         z-index: 8;
         background-color: white;

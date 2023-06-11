@@ -7,7 +7,7 @@ import Shopdetail from './routes/Shopdetail'
 import Join from './routes/Join'
 import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
-
+import Friendss from './routes/Friendss'
 
 const RouterPage = () => {
   return (
@@ -22,6 +22,7 @@ const RouterPage = () => {
         <Route path="/Shopdetail" component={Shopdetail} />
         <Route path="/Join" component={Join} />
         <Route path="/Friends" component={Friends} />
+        <Route path="/Friendss" component={Friendss} />
     </Switch>
 </BrowserRouter>
   )

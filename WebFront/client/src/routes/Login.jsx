@@ -10,7 +10,7 @@ function Login() {
 <h1 className={styles.titlee}>Housing</h1>
 
       <div>
-     
+      <div className={styles.nbox}></div>
       </div>
      <div>
        
@@ -19,6 +19,7 @@ function Login() {
             placeholder="ID" />
             </div>
             <div>
+             
             <input className={styles.pass} type="Password" 
             placeholder="PASSWORD"
             autoComplete="current-password" />

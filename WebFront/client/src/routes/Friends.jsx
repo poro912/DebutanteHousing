@@ -17,12 +17,13 @@ function Friends() {
   return <div>
     
     
-    <h1 className={styles.fname}>Serbia</h1>
+    <h1 className={styles.fname}>Mare</h1>
     <h1 className={styles.ffname}>Debut</h1>
 
 
 <hr className={styles.line} />
 <hr className={styles.linee}/>
+
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}
@@ -41,7 +42,7 @@ function Friends() {
      
       <hr />
       <div className={styles.box}></div>
-      <img className={styles.Aro} alt="Aro" src="./img/Aro.png" />
+      <Link to="Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
       <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
  <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
  <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />

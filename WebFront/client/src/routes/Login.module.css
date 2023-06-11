@@ -1,46 +1,43 @@
+
+
 .title{
     position: relative;
-    padding:0;
-    margin: 0;
-    border: 0;
     width: 25vw;
-    height: 5vh;
-    top: 30vh;
+    height: 0vh;
+    top: 36vh;
     left: 45vw;
     font-family: 'Dancing Script';
-    font-size: 60px;
+    font-size: 7vh;
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
-    text-underline-offset : 14px;
-    text-decoration-thickness: 3.5px;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
 }
+
 
 .titlee{
     position: relative;
-    padding:0;
-    margin: 0;
-    border: 0;
     width: 25vw;
-    height: 5vh;
-    top: 33vh;
-    left: 46.5vw;
+    height: 0vh;
+    top: 45vh;
+    left: 46vw;
     font-family: 'Dancing Script';
-    font-size: 60px;
+    font-size: 7vh;
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
-    text-underline-offset : 18px;
-    text-decoration-thickness: 3.5px;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
 }
 
 
 .bookcover {
     width: 27.5vw;
-    height: 85.5vh;
+    height: 87.5vh;
     object-fit: cover;
     position: relative;
-        top: -17vh;
+        top: -6vh;
         left: 37.5vw;
         z-index: -1;
         box-shadow: -2px -2px 2px rgb(255, 255, 255),
@@ -60,18 +57,18 @@
   }
 
 
-
 .id {
     box-sizing: border-box;
     border: none;
     position: relative;
-        top:  47vh;
-        left: 45vw;
+        top:  60vh;
+        left: 46vw;
         z-index: 5;
         color:#131212;
         background-color:transparent;
         font-family: 'Dancing Script';
-        
+        font-size: 20px;
+        text-align:center;
 }
 
 input:focus{
@@ -96,12 +93,14 @@ input:focus::placeholder{
     box-sizing: border-box;
     border: none;
     position: relative;
-    top: 48vh;
-    left: 45vw;
+    top: 61vh;
+    left: 46vw;
         z-index: 5;
         color:#131212;
-        background-color:transparent;
         font-family: 'Dancing Script';
+        font-size: 20px;
+        background-color:transparent;
+        text-align:center;
 }
 .btn{
     color: white; 
@@ -109,7 +108,8 @@ input:focus::placeholder{
     border: 1px solid rgba(0,0,0,0.21);
     border-bottom-color: rgba(0,0,0,0.34);
     text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(0,0,0,0.08), 
                 0 3px 13px -1px rgba(0,0,0,0.21);
@@ -118,18 +118,18 @@ input:focus::placeholder{
       font-size: 12px;
       font-family: 'BookkMyungjo-Bd';
       position: relative;
-        top: 46.2vh;
-        left: 49vw;
+        top: 66vh;
+        left: 39.3vw;
         z-index: 5;
 
 }
 
 .btn:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top: 46vh;
-    left:48vw;
+    top: 66vh;
+    left:39.3vw;
     z-index: 5;}
 
 .btn2{
@@ -139,7 +139,8 @@ input:focus::placeholder{
     border: 1px solid rgba(0,0,0,0.21);
     border-bottom-color: rgba(0,0,0,0.34);
     text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
                 0 2px 0 -1px rgba(0,0,0,0.13), 
                 0 3px 0 -1px rgba(0,0,0,0.08), 
                 0 3px 13px -1px rgba(0,0,0,0.21);
@@ -148,16 +149,16 @@ input:focus::placeholder{
       font-size: 12px;
       font-family: 'BookkMyungjo-Bd';
       position: relative;
-      top: 75vh;
+      top: 86vh;
       left: 92vw;
       z-index: 5;
 
 }
 .btn2:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top:75vh;
+    top: 86vh;
     left: 92vw;
     z-index: 5;}
 
@@ -168,7 +169,8 @@ input:focus::placeholder{
     border: 1px solid rgba(0,0,0,0.21);
     border-bottom-color: rgba(0,0,0,0.34);
     text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
                 0 2px 0 -1px rgba(0,0,0,0.13), 
                 0 3px 0 -1px rgba(0,0,0,0.08), 
                 0 3px 13px -1px rgba(0,0,0,0.21);
@@ -177,17 +179,17 @@ input:focus::placeholder{
       font-size: 12px;
       font-family: 'BookkMyungjo-Bd';
       position: relative;
-      top:75vh;
+      top: 86vh;
       left: 92vw;
       z-index: 5;
 
 }
 
 .btn3:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    border-color: 3px 3px 2px rgb(114, 102, 102), rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top:75vh;
+    top: 86vh;
     left: 92vw;
     z-index: 5;}
 
