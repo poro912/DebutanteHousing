@@ -10,6 +10,8 @@ import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation,slideAnimation } from '../config/motion';
 import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../components';
 
+import styles from "./Home.module.css"
+
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -65,9 +67,10 @@ const Customizer = () => {
           >
             <CustomButton
               type="filled"
-              title="Go Back"
+              
               handleClick={() => state.intro = true}
-              customStyles="w-fit px-4 py-2.5 font-bold text-sm"
+              src = "\img\back.png"
+              className = {styles.backImg}
             />
           </motion.div>
 
