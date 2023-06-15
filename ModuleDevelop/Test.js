@@ -21,8 +21,17 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
   
-  var result = dhm.login("id1","pw1");
-  console.log(result);
+  var result1 = dhm.login("id1","pw101", function(){
+    console.log("실패 결과 출력");
+    console.log(arguments);
+  });
+  console.log("result1",result1);
+
+  var result2 = dhm.login("id1","pw1", function(){
+    console.log("성공 결과 출력");
+    console.log(arguments);
+  });
+  console.log("result2",result2);
 });
 
 

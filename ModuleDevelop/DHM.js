@@ -49,7 +49,7 @@ DHM.init = () => {
 * @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
 * @todo	작업 전
 */
-DHM.login = async(id, pw) => {
+DHM.login = async(id, pw, callback) => {
 	var result = {
 		code: Number,
 		nick: String,
@@ -70,16 +70,18 @@ DHM.login = async(id, pw) => {
 	result.nick = temp["nick"];
 	console.log("DHM login result : ", result);
 
+	if("function" === typeof callback){
+		callback(result.code, result.nick);
+	}
+	
 	return result;
 }
 
-DHM.logout = () => {
-	console.log("DHM.logout");
-	console.log("attempt logout");
-	console.log();
-}
-
-DHM.join = (id, pw) => {
+DHM.join = (id, pw, callback) => {
+	result = {
+		code : Number,
+		msg : String
+	};
 	console.log("DHM.join");
 	console.log("attempt join");
 	console.log("회원가입 시도");
@@ -93,6 +95,18 @@ DHM.join = (id, pw) => {
 	console.log(userdata[0]);
 	console.log();
 	// db code
+
+
+	if("function" === typeof callback){
+		callback();
+	}
+}
+
+
+DHM.logout = () => {
+	console.log("DHM.logout");
+	console.log("attempt logout");
+	console.log();
 }
 
 // DHM.user------------------------------------------------------------------------------
