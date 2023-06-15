@@ -1,3 +1,8 @@
+seq 테이블 트리거 작성하기
+
+
+
+
 메인페이지
 - [○] 친구방 방문하기      loadRoom
 - [○] 상점 방문하기      store.loadItemList
