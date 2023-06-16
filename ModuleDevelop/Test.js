@@ -1,10 +1,8 @@
 
 import http from 'http';
-// import express from 'express';
-import dhm from './DHModule.js';
+import dhm from './DHM.js';
 
-import db from './DB/DB_Module.js';
-
+import testdb from './DB/TestDB.js';
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -17,26 +15,23 @@ const server = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
 
-  //dhm.join("user","1234");
-  var user = dhm.login("user","1234");
-  console.log(user);
 });
 
 // 서버 생성 시
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
-  dhm.init ();
-  dhm.join("user","1234");
-  dhm.join("test","5678");
- 
-/*
-  //db.room.room();
-  //user = dhm.login('asd','123');
-  console.log(user);
-  console.log(user.code); 
-  //room = dhm.loadRoom(user.code);
-  console.log(room);
-*/
+  
+  var result1 = dhm.login("id1","pw101", function(){
+    console.log("실패 결과 출력");
+    console.log(arguments);
+  });
+  console.log("result1",result1);
+
+  var result2 = dhm.login("id1","pw1", function(){
+    console.log("성공 결과 출력");
+    console.log(arguments);
+  });
+  console.log("result2",result2);
 });
 
 

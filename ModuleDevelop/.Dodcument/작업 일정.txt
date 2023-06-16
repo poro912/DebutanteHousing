@@ -1,0 +1,66 @@
+DB 목록
+db_identification
+	seq
+	comment
+
+db_personal
+	user
+
+db_current
+	user
+	wallet
+	room
+	nft
+	item
+	room_ITEM
+	friend
+
+db_transaction
+	transaction
+
+db_record
+	`join`
+	comment
+
+
+6/12	~	6/18
+	db_personal.user
+	db_current.user
+	회원가입
+	로그인
+
+6/19	~	6/25
+	db_current.room
+	db_current.item
+	db_current.room_item
+	방 생성
+	방 내의 아이템 제어 (추가, 삭제, 옮기기, 돌리기)
+
+6/26	~	7/2
+	db_current.nft
+	db_current.item
+	NFT 생성
+	아이템 공급
+	3D 오브젝트 저장 형태 정형화 및 적용
+
+7/3	~	7/9
+	mysql functoin 적용
+	connectoin pool 적용
+
+7/10	~	7/16
+	SEQ 테이블 적용 및 트리거 적용(회원가입, 방 생성, 댓글)
+
+7/17	~	7/23
+	db_transaction.transaction
+	db_current.wallet
+	거래 기능 및 트렌젝션 구현
+
+7/24	~	7/30
+	부족한 기능 구현
+
+7/31	~	8/7
+	환경설정이 용이하도록 sql 파일 작성 및 메뉴얼화
+
+8/8	~	etc
+	추가 기능개발
+	친구, 로그, 댓글
