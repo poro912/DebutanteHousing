@@ -14,6 +14,31 @@ const FILE = "user.js";
 let USER_MODULE = {};
 
 /**
+ * @param	
+ * @param	
+ * @return	
+ * @brief	
+ * @details	
+ * @todo	작업 전
+*/
+USER_MODULE.joinIn = async (id, pw, name, nick, email, phone) => {
+	
+	var result;
+	var conn = await DB_system.getConnection();
+	await DB_system.usePersonal(conn);
+	result = await DB_system.execQuery(conn, 
+		`insert into user (code, id, pw, name, email, phone) 
+		values("${code}","${id}","${pw}","${name}","${email}","${phone}");`);
+	
+	
+	await DB_system.useCurrent(conn);
+	result = await DB_system.execQuery(conn, 
+		`insert into user (code, id, nick) 
+		values("${code}","${id}","${nick}");`);
+}
+
+
+/**
  * @param	{*} id 유저가 입력한 ID
  * @param	{*} pw 유저가 입력한 PW
  * @return	초기화면을 구성하는데 필요한 데이터를 반환함
