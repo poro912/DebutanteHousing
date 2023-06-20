@@ -20,8 +20,6 @@ const TRANSCTION = "db_transaction";
 const RECORD = "db_record";
 const IDENTIFICATION = "db_identification";
 
-const DEBUG = true;
-
 let DB_system = {};
 
 let connection = await mysql.createConnection({
@@ -89,29 +87,5 @@ let useIdentification = (conn) => {
 }
 DB_system.useIdentification = useIdentification;
 
-
-/**
-* @brief    디버깅용 콘솔 출력함수
-* @details  입력받은 메시지를 출력시킴
-*/
-DB_system.debugPrintError = (error_spot , ...messages) => {
-	console.log('error occured');
-	process.stdout.write(error_spot + ' : ');
-	for(const msg of messages){
-		console.log(msg);
-	}
-	console.log();
-}
-
-
-DB_system.debugPrint = (...messages) => {
-	if (!DEBUG) return;
-
-	for(const msg of messages){
-		console.log(msg);
-	}
-	console.log();
-	return;
-}
 
 export default DB_system;
