@@ -14,6 +14,7 @@ let DHM = {};
 var userdata = [];
 
 // module declare
+import System from './System/DHM_system.js';
 
 import M_user from './DB/user.js';
 //import M_room from './room.js';
@@ -23,6 +24,7 @@ import M_user from './DB/user.js';
 //import M_nft from './nft.js';
 //import M_item from './item.js';
 
+DHM.System = System;
 DHM.user = M_user;
 DHM.inventory = {};
 DHM.room = {};
@@ -50,7 +52,7 @@ DHM.init = () => {
 * @todo	작업 전
 */
 DHM.login = async(id, pw, callback) => {
-	var result = {
+	let result = {
 		code: Number,
 		nick: String,
 		profile: String
@@ -71,16 +73,17 @@ DHM.login = async(id, pw, callback) => {
 	console.log("DHM login result : ", result);
 
 	if("function" === typeof callback){
-		callback(result.code, result.nick);
+		callback(result);
 	}
 	
 	return result;
 }
 
-DHM.join = (id, pw, callback) => {
-	result = {
+DHM.join = async(id, pw, name, nick, email, phone, callback) => {
+	let result = {
 		code : Number,
-		msg : String
+		id : String,
+		nick : String
 	};
 	console.log("DHM.join");
 	console.log("attempt join");
@@ -95,11 +98,14 @@ DHM.join = (id, pw, callback) => {
 	console.log(userdata[0]);
 	console.log();
 	// db code
-
+	
+	result = await DHM.user.joinIn(id,pw,name,nick,email,phone);
+	if(-1 == result.code) return false;
 
 	if("function" === typeof callback){
-		callback();
+		callback(result);
 	}
+	return result;
 }
 
 

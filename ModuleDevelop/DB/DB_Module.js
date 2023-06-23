@@ -14,7 +14,7 @@
 let DB_MODULE = {};
 
 // require
-import DB_system from './DB_Systeam.js';
+import DB_system from '../System/DB_Systeam.js';
 
 /*
 import mysql from 'mysql2/promise.js';
