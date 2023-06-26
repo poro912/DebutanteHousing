@@ -7,6 +7,7 @@
 * @date     2023/06/22
 * @version  0.2
 	result = await DB_system.e
+* @todo		유저 정보를 얻을 수 있는 모듈을 제작해야 함
 * @todo		유저 정보를 변경하는 모듈을 제작해야 함
 * @todo		반환 값 설계 진행 후 함께 변경해야 함
 * @details	회원가입, 로그인 모듈의 개발이 완료됨
@@ -119,6 +120,14 @@ USER_MODULE.getNick = async (code = 0) => {
 	result = temp["nick"];
 
 	return result;
+}
+
+USER_MODULE.getInfo = async(code = 0) => {
+	var result;
+	var temp;
+	if (code <= 0 || code == undefined) {
+		return "";
+	}
 }
 
 

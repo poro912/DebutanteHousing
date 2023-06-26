@@ -8,6 +8,42 @@
 * @version  0.1
 * @exports	DHM
 * @module	DB_Module
+* @todo		객체 전달 시 처리 방법 조사하기
+*/
+/*개발 현황
+login	기본 기능 구현완료
+join	기본 기능 구현완료
+logout	관련 지식 필표
+USER
+	Info	
+	setInfo	
+INVENTORY
+	Items	
+	sellItems	
+	sellNfts	
+ROOM
+	code	다중값 반환 형태를 고려해야 함
+	codes	다중값 반환 형태를 고려해야 함
+	info	다중값 반환 형태를 고려해야 함
+	load	다중값 반환 형태를 고려해야 함
+	loadByUcode	대표 방 정보를 저장할 수 있어야 함
+	edit	
+EDIT
+	moveItem	
+	rotateItem	
+	placeItem	
+	removeItem	
+	clear		
+STORE
+	items	
+	nfts	
+	buyItem	
+	buyNft	
+NFT
+	regist	
+	supply	
+	info	
+	stock	
 */
 
 let DHM = {};
@@ -17,7 +53,7 @@ var userdata = [];
 import System from './System/DHM_system.js';
 
 import M_user from './DB/user.js';
-//import M_room from './room.js';
+import M_room from './room.js';
 //import M_inventory './inventory.js';
 //import M_edit from './edit.js';
 //import M_store from './store.js';
@@ -32,9 +68,6 @@ DHM.edit = {};
 DHM.store = {};
 DHM.nft = {};
 DHM.item = {};
-
-//DHM.getRoomCode = DHM.ROOM.getRoomCodeByUserCode;
-//DHM.loadRoom = DHM.ROOM.load;
 
 var db_data = null;
 
