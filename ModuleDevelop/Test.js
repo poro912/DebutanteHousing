@@ -2,8 +2,6 @@
 import http from 'http';
 import dhm from './DHM.js';
 
-import testdb from './DB/TestDB.js';
-
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -20,7 +18,12 @@ const server = http.createServer((req, res) => {
 // 서버 생성 시
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
+  //test_user();
   
+});
+
+function test_user()
+{
   var result1 = dhm.login("id1","pw101", (result)=>{
     console.log("실패 결과 출력");
     
@@ -39,6 +42,6 @@ server.listen(port, hostname, () => {
   });
 
   console.log("result2",result2);
-});
+}
 
 

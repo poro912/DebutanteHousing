@@ -102,6 +102,15 @@ USER_MODULE.login = async (id, pw) => {
 	return result;
 }
 
+
+/**
+ * @param	
+ * @param	
+ * @return	
+ * @brief	
+ * @details	
+ * @todo	작업 전
+*/
 USER_MODULE.getNick = async (code = 0) => {
 	//if(code == undefined) return "";
 	var result;
@@ -122,12 +131,50 @@ USER_MODULE.getNick = async (code = 0) => {
 	return result;
 }
 
-USER_MODULE.getInfo = async(code = 0) => {
-	var result;
+
+/**
+ * @param	
+ * @param	
+ * @return	
+ * @brief	
+ * @details	
+ * @todo	작업 전
+*/
+USER_MODULE.getInfo = async (code = 0) => {
+    var result = {
+		code: Number,
+		nick: String,
+	};
 	var temp;
-	if (code <= 0 || code == undefined) {
-		return "";
+	var row, fields;
+    
+    console.log('USER : getInfo');
+
+
+    // SQL commands
+	// user table 정보 가져오기
+	var conn = await DB_system.getConnection();
+	await DB_system.useCurrent(conn);
+	temp = await DB_system.execQuery(conn, ``);
+
+
+	// 조회 결과 값 없음
+	if (DB_system.checkNodate(temp)) {
+		DHM_system.Debug.printError(FILE + " login()", "sql no data")
+		// set error data
+        result.code = -1;
+		result.nick = "";
+		return result;
 	}
+	// 단일 값 
+	temp = temp[0];
+
+	DHM_system.Debug.print(temp, temp["code"]);
+	result.code = temp['code'];
+
+	console.log("result : ", result);
+
+	return result;
 }
 
 
