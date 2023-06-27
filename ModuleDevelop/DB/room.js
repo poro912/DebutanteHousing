@@ -10,7 +10,7 @@ const FILE = 'room.js';
 const MODULE_NAME = "ROOM_MOUDLE";
 let ROOM_MODULE = {};
 
-/*
+/* 현황
 code	다중값 반환 형태를 고려해야 함
 codes	다중값 반환 형태를 고려해야 함
 info	다중값 반환 형태를 고려해야 함

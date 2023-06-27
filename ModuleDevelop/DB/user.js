@@ -26,7 +26,7 @@ let USER_MODULE = {};
  * @return	
  * @brief	
  * @details	
- * @todo	작업 전
+ * @todo	검증전
 */
 USER_MODULE.joinIn = async (id, pw, name, nick, email, phone) => {
 	let result = {
@@ -66,7 +66,7 @@ USER_MODULE.joinIn = async (id, pw, name, nick, email, phone) => {
  * @param	{*} pw 유저가 입력한 PW
  * @return	초기화면을 구성하는데 필요한 데이터를 반환함
  * @brief	로그인을 시도함
- * @details	
+ * @details	로그인에 성공하면 true 실패하면 false
  * @todo	작업 전
 */
 USER_MODULE.login = async (id, pw) => {

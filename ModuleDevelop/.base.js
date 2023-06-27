@@ -1,9 +1,12 @@
+// 개발 단계
+// 개발 전 -> 검증 전 -> 검증 완료 
+//        <- 오류 발생 <-
+
 // DB 모듈 베이스
 import DHM_system from '../System/DHM_system.js';
 
 const FIEL = '';
 const MODULE_NAME = "";
-
 
 
 /**
