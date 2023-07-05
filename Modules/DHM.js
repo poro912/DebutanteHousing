@@ -1,36 +1,66 @@
 /**
 * @file     DHMoudle.js
 * @brief    데뷔탕트 하우징의 모든 기능을 모아놓은 모듈
-* @details  프론트에서 사용할 기능 및 세부적인 백엔드 모듈을 모아놓음
-* @details	다른 곳에 선언된 함수를 쉽게 사용할 수 있도록 모아놓은 모듈(프록시) 모든 함수의 반환형태를 보여줌
+* @details  프론트에서 사용할 모든 모듈을 모아놓음, 다른 파일에 선언된 함수를 쉽게 사용할 수 있도록 모아놓음,
+* @details	모든 함수의 반환형태를 정확한 형태로 보여줄 수 있도록 함
 * @author   PORO
 * @date     2023/06/06
 * @version  0.1
 * @exports	DHM
 * @module	DB_Module
+* @todo		객체 전달 시 처리 방법 조사하기
+*/
+/*개발 현황
+login	기본 기능 구현완료
+join	기본 기능 구현완료
+logout	관련 지식 필표
+USER
+	Info	
+	setInfo	
+INVENTORY
+	Items	
+	sellItems	
+	sellNfts	
+ROOM
+	code	다중값 반환 형태를 고려해야 함
+	codes	다중값 반환 형태를 고려해야 함
+	info	다중값 반환 형태를 고려해야 함
+	load	다중값 반환 형태를 고려해야 함
+	loadByUcode	대표 방 정보를 저장할 수 있어야 함
+	edit	
+EDIT
+	moveItem	
+	rotateItem	
+	placeItem	
+	removeItem	
+	clear		
+STORE
+	items	
+	nfts	
+	buyItem	
+	buyNft	
+NFT
+	regist	
+	supply	
+	info	
+	stock	
 */
 
-// import extern module
-import db_module from './DB/DB_Module.js';
+let DHM = {};
+var userdata = [];
 
-
-
-import room_module from './room.js';
-
-var DHM = {};
-
-var userdata =[];
 // module declare
-DHM.DB = db_module;
-DHM.ROOM = room_module;
+import System from './System/DHM_system.js';
 
-import M_user from './user.js';
-//import M_room from './room.js';
-//import M_inventory './inventory.js';
-//import M_edit from './edit.js';
-//import M_store from './store.js';
-//import M_nft from './nft.js';
-//import M_item from './item.js';
+import M_user from './DB/user.js';
+//import M_room from './DB/room.js';
+//import M_inventory './DB/inventory.js';
+//import M_edit from './DB/edit.js';
+//import M_store from './DB/store.js';
+//import M_nft from './DB/nft.js';
+//import M_item from './DB/item.js';
+
+DHM.System = System;
 DHM.user = M_user;
 DHM.inventory = {};
 DHM.room = {};
@@ -39,17 +69,10 @@ DHM.store = {};
 DHM.nft = {};
 DHM.item = {};
 
-
-
-DHM.getRoomCode = DHM.ROOM.getRoomCodeByUserCode;
-DHM.loadRoom = DHM.ROOM.load;
-
 var db_data = null;
 
 DHM.init = () => {
-	console.log("DHM.init");
-	console.log();
-	db_data = DHM.DB.connect();
+	
 }
 
 /**
@@ -61,60 +84,68 @@ DHM.init = () => {
 * @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
 * @todo	작업 전
 */
-DHM.login = (id, pw) => {
-	var user_code = -1;
+DHM.login = async(id, pw, callback) => {
+	let result = {
+		code: Number,
+		nick: String,
+		profile: String
+	};
+	// currentTB에서 nick을 가져와야함
+	var user_code = 0;
 	var nick = "";
 	var profile = "";
 
 	console.log("DHM.login");
 	console.log("attempt login");
 	console.log();
-	//db_data.login(id,pw);
-	DHM.DB.login(id, pw);
+	var temp = await DHM.user.login(id, pw);
 
 	// dummy
-	user_code = 5;
-	nick = "test_user";
-	profile = "test.png"
+	result.code = temp["code"];
+	result.nick = temp["nick"];
+	console.log("DHM login result : ", result);
 
-	// non db code
-	for(var i = 0 ; i < userdata.length ; i++)
-	{
-		if(userdata[i].id != id) continue;
-
-		if(userdata[i].pw == pw){
-			console.log('로그인 성공');
-			break;
-		}
+	if("function" === typeof callback){
+		callback(result);
 	}
-
-
-	// db code
-
-
-	return { "code": user_code, "nick": nick, "profile": profile };
+	
+	return result;
 }
 
-DHM.logout = () => {
-	console.log("DHM.logout");
-	console.log("attempt logout");
-	console.log();
-}
-
-DHM.join = (id, pw) => {
+DHM.join = async(id, pw, name, nick, email, phone, callback) => {
+	let result = {
+		code : Number,
+		id : String,
+		nick : String
+	};
 	console.log("DHM.join");
 	console.log("attempt join");
 	console.log("회원가입 시도");
 	console.log();
 
 	// non db code
-	userdata.push({'id':id,'pw':pw});
+	userdata.push({ 'id': id, 'pw': pw });
 
 	console.log(userdata);
 	console.log();
 	console.log(userdata[0]);
 	console.log();
 	// db code
+	
+	result = await DHM.user.joinIn(id,pw,name,nick,email,phone);
+	if(-1 == result.code) return false;
+
+	if("function" === typeof callback){
+		callback(result);
+	}
+	return result;
+}
+
+
+DHM.logout = () => {
+	console.log("DHM.logout");
+	console.log("attempt logout");
+	console.log();
 }
 
 // DHM.user------------------------------------------------------------------------------
@@ -140,7 +171,7 @@ DHM.inventory.getItems = (user_code) => {
 DHM.inventory.sellItem = (user_code, item_code) => {
 	console.log("유저가 소유한 아이템을 판매함");
 }
-DHM.inventory.sellNFT  = () =>{
+DHM.inventory.sellNFT = () => {
 	console.log("유저가 소유한 NFT를 판매함");
 }
 // DHM.room------------------------------------------------------------------------------
