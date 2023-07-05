@@ -19,7 +19,7 @@ insert into user (code, id, pw, name, email, phone) values("${code}","${id}","${
 
 
 # delete
-delete from user where code = 999;
+delete from user where code = 901;
 
 
 use DB_current;

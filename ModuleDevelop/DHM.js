@@ -8,21 +8,59 @@
 * @version  0.1
 * @exports	DHM
 * @module	DB_Module
+* @todo		객체 전달 시 처리 방법 조사하기
+*/
+/*개발 현황
+login	기본 기능 구현완료
+join	기본 기능 구현완료
+logout	관련 지식 필표
+USER
+	Info	
+	setInfo	
+INVENTORY
+	Items	
+	sellItems	
+	sellNfts	
+ROOM
+	code	다중값 반환 형태를 고려해야 함
+	codes	다중값 반환 형태를 고려해야 함
+	info	다중값 반환 형태를 고려해야 함
+	load	다중값 반환 형태를 고려해야 함
+	loadByUcode	대표 방 정보를 저장할 수 있어야 함
+	edit	
+EDIT
+	moveItem	
+	rotateItem	
+	placeItem	
+	removeItem	
+	clear		
+STORE
+	items	
+	nfts	
+	buyItem	
+	buyNft	
+NFT
+	regist	
+	supply	
+	info	
+	stock	
 */
 
 let DHM = {};
 var userdata = [];
 
 // module declare
+import System from './System/DHM_system.js';
 
 import M_user from './DB/user.js';
-//import M_room from './room.js';
-//import M_inventory './inventory.js';
-//import M_edit from './edit.js';
-//import M_store from './store.js';
-//import M_nft from './nft.js';
-//import M_item from './item.js';
+//import M_room from './DB/room.js';
+//import M_inventory './DB/inventory.js';
+//import M_edit from './DB/edit.js';
+//import M_store from './DB/store.js';
+//import M_nft from './DB/nft.js';
+//import M_item from './DB/item.js';
 
+DHM.System = System;
 DHM.user = M_user;
 DHM.inventory = {};
 DHM.room = {};
@@ -30,9 +68,6 @@ DHM.edit = {};
 DHM.store = {};
 DHM.nft = {};
 DHM.item = {};
-
-//DHM.getRoomCode = DHM.ROOM.getRoomCodeByUserCode;
-//DHM.loadRoom = DHM.ROOM.load;
 
 var db_data = null;
 
@@ -50,7 +85,7 @@ DHM.init = () => {
 * @todo	작업 전
 */
 DHM.login = async(id, pw, callback) => {
-	var result = {
+	let result = {
 		code: Number,
 		nick: String,
 		profile: String
@@ -71,16 +106,17 @@ DHM.login = async(id, pw, callback) => {
 	console.log("DHM login result : ", result);
 
 	if("function" === typeof callback){
-		callback(result.code, result.nick);
+		callback(result);
 	}
 	
 	return result;
 }
 
-DHM.join = (id, pw, callback) => {
-	result = {
+DHM.join = async(id, pw, name, nick, email, phone, callback) => {
+	let result = {
 		code : Number,
-		msg : String
+		id : String,
+		nick : String
 	};
 	console.log("DHM.join");
 	console.log("attempt join");
@@ -95,11 +131,14 @@ DHM.join = (id, pw, callback) => {
 	console.log(userdata[0]);
 	console.log();
 	// db code
-
+	
+	result = await DHM.user.joinIn(id,pw,name,nick,email,phone);
+	if(-1 == result.code) return false;
 
 	if("function" === typeof callback){
-		callback();
+		callback(result);
 	}
+	return result;
 }
 
 
