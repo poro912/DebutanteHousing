@@ -19,7 +19,7 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
   //test_user();
-  
+  test_room();
 });
 
 function test_user()
@@ -31,6 +31,7 @@ function test_user()
   });
   console.log("result1",result1);
 
+  //get 
   var result2 = dhm.login("id1","pw1", (result)=>{
     console.log("성공 결과 출력");
     console.log(result);
@@ -42,6 +43,11 @@ function test_user()
   });
 
   console.log("result2",result2);
+}
+
+function test_room()
+{
+  
 }
 
 

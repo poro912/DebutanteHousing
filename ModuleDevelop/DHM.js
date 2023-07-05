@@ -53,12 +53,12 @@ var userdata = [];
 import System from './System/DHM_system.js';
 
 import M_user from './DB/user.js';
-import M_room from './room.js';
-//import M_inventory './inventory.js';
-//import M_edit from './edit.js';
-//import M_store from './store.js';
-//import M_nft from './nft.js';
-//import M_item from './item.js';
+//import M_room from './DB/room.js';
+//import M_inventory './DB/inventory.js';
+//import M_edit from './DB/edit.js';
+//import M_store from './DB/store.js';
+//import M_nft from './DB/nft.js';
+//import M_item from './DB/item.js';
 
 DHM.System = System;
 DHM.user = M_user;

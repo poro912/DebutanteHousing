@@ -10,7 +10,7 @@ const FILE = 'room.js';
 const MODULE_NAME = "ROOM_MOUDLE";
 let ROOM_MODULE = {};
 
-/* 현황
+/*
 code	다중값 반환 형태를 고려해야 함
 codes	다중값 반환 형태를 고려해야 함
 info	다중값 반환 형태를 고려해야 함
@@ -148,7 +148,6 @@ ROOM_MODULE.info = async (args) => {
 
 /**
  * @param	`room_code`	방 코드
- * @param	
  * @return	
  * @brief	방 모습 출력에 필요한 정보를 불러온다.
  * @details	방 코드를 바탕으로 방 출력에 필요한 모든 정보를 불러온다.
@@ -190,11 +189,10 @@ ROOM_MODULE.load = async (args) => {
 
 
 /**
- * @param	
- * @param	
+ * @param	`user_code`
  * @return	
- * @brief	
- * @details	
+ * @brief	유저의 대표 방을 출력하기 위한 정보를 불러온다.
+ * @details	유저 코드를 바탕으로 대표방의 출력에 필요한 모든 정보를 불러온다.
  * @todo	작업 전
 */
 ROOM_MODULE.loadByUcode = async (args) => {
@@ -233,11 +231,11 @@ ROOM_MODULE.loadByUcode = async (args) => {
 
 
 /**
- * @param	
- * @param	
+ * @param	`user_code` 유저 코드
+ * @param	`room_code` 방 코드 
  * @return	
- * @brief	
- * @details	
+ * @brief	방 꾸미기에 필요한 정보를 반환한다.
+ * @details	user_code와 room_code에 대한 권한을 확인한 후 방꾸미기 모드로 진입하기위한 정보를 반환한다.
  * @todo	작업 전
 */
 ROOM_MODULE.edit = async (args) => {

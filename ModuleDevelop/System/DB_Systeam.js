@@ -21,21 +21,25 @@ const TRANSCTION = "db_transaction";
 const RECORD = "db_record";
 const IDENTIFICATION = "db_identification";
 
-let DB_system = {};
+//const DBHOST ="localhost";
+const DBHOST ="182.220.199.210";
+const DBPORT = 3306;
 
+let DB_system = {};
+/*
 let connection = await mysql.createConnection({
-	host: "localhost",
+	host: DBHOST,
 	user: "root",
 	password: "A12345678!",
 	database: "db_personal",
 });
 DB_system.connection = connection;
-
+*/
 let getConnection = async () => {
 	var conn;
 	conn = await mysql.createConnection({
-		host: "localhost",
-		user: "root",
+		host: DBHOST,
+		user: "webuser",
 		password: "A12345678!",
 		database: "db_personal",
 	});
