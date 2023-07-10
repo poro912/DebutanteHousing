@@ -1,0 +1,223 @@
+
+
+.title{
+    position: relative;
+    width: 25vw;
+    height: 0vh;
+
+    top: 35vh;
+    left: 43vw;
+    font-family: 'Dancing Script';
+    font-size: 8vh;
+    color: #302b26;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
+
+    z-index: 4;
+    animation : fadein 5s;
+    animation-direction: alternate;
+}
+
+
+.titlee{
+    position: relative;
+    width: 25vw;
+    height: 0vh;
+    top: 45vh;
+
+    left: 44.5vw;
+    font-family: 'Dancing Script';
+    font-size: 8vh;
+
+    color: #302b26;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
+
+    z-index: 4;
+    animation : fadein 5s;
+    animation-direction: alternate;
+
+}
+
+.ui{
+    position: fixed;
+    top: 18vh; 
+    left: 25vw;  
+    width: 50vw;
+    height: 60vh;
+    z-index: 3;
+    background-color:transparent;
+    animation : fadein 5s;
+    animation-direction: alternate;
+    
+}
+
+@keyframes fadein {
+    /* 효과를 동작시간 동안 0 ~ 1까지 */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fadeout {
+        /* 효과를 동작시간 동안 0 ~ 1까지 */
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+.background{
+    position: fixed; 
+    top: -30vh; 
+    left: 0vw; 
+    min-width: 207vh;
+    min-height: 30vh;
+    z-index: -5;
+    
+  }
+
+
+.id {
+    box-sizing: border-box;
+    border: none;
+    position: relative;
+        top:  60vh;
+        left: 46vw;
+        z-index: 5;
+        color:#131212;
+        background-color:transparent;
+        font-family: 'Dancing Script';
+        font-size: 20px;
+        text-align:center;
+}
+
+input:focus{
+    outline:none;}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+.id::placeholder {
+    color: #000000;
+    
+}
+.pass::placeholder {
+    color: #000000;
+    
+}
+
+
+
+.pass{
+    box-sizing: border-box;
+    border: none;
+    position: relative;
+    top: 61vh;
+    left: 46vw;
+        z-index: 5;
+        color:#131212;
+        font-family: 'Dancing Script';
+        font-size: 20px;
+        background-color:transparent;
+        text-align:center;
+}
+.btn{
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #74675c;  
+      padding: 4px 12px;  
+      font-size: 12px;
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+        top: 66vh;
+        left: 39.3vw;
+        z-index: 5;
+
+}
+
+.btn:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    top: 66vh;
+    left:39.3vw;
+    z-index: 5;}
+
+.btn2{
+    color: white; 
+    padding: 15px 25px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 2px 0 -1px rgba(0,0,0,0.13), 
+                0 3px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #74675c;  
+      padding: 4px 12px;  
+      font-size: 12px;
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+      top: 86vh;
+      left: 92vw;
+      z-index: 5;
+
+}
+.btn2:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    top: 86vh;
+    left: 92vw;
+    z-index: 5;}
+
+.btn3{
+    color: white; 
+    padding: 15px 25px;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 2px 0 -1px rgba(0,0,0,0.13), 
+                0 3px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #74675c;  
+      padding: 4px 14px;  
+      font-size: 12px;
+      font-family: 'BookkMyungjo-Bd';
+      position: relative;
+      top: 86vh;
+      left: 92vw;
+      z-index: 5;
+
+}
+
+.btn3:active{top: 1px;
+    border-color: 3px 3px 2px rgb(114, 102, 102), rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    top: 86vh;
+    left: 92vw;
+    z-index: 5;}
+
