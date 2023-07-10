@@ -4,18 +4,16 @@
     position: relative;
     width: 25vw;
     height: 0vh;
-    top: 35vh;
-    left: 43vw;
+    top: 36vh;
+    left: 45vw;
     font-family: 'Dancing Script';
-    font-size: 8vh;
+    font-size: 7vh;
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
     text-underline-offset : 2vh;
     text-decoration-thickness: 0.2vh;
     z-index: 4;
-    animation : fadein 5s;
-    animation-direction: alternate;
 }
 
 
@@ -24,59 +22,28 @@
     width: 25vw;
     height: 0vh;
     top: 45vh;
-    left: 44.5vw;
+    left: 46vw;
     font-family: 'Dancing Script';
-    font-size: 8vh;
+    font-size: 7vh;
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
     text-underline-offset : 2vh;
     text-decoration-thickness: 0.2vh;
     z-index: 4;
-    animation : fadein 5s;
-    animation-direction: alternate;
 }
 
 .ui{
     position: fixed;
-    top: 18vh; 
-    left: 25vw;  
-    width: 50vw;
-    height: 60vh;
+    top: 10vh; 
+    left: 40vw;  
+    width: 25vw;
+    height: 70vh;
+    transform: rotate(90deg);
     z-index: 3;
-    background-color:transparent;
-    animation : fadein 5s;
-    animation-direction: alternate;
-    
 }
 
-@keyframes fadein {
-    /* 효과를 동작시간 동안 0 ~ 1까지 */
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-    @keyframes fadeout {
-        /* 효과를 동작시간 동안 0 ~ 1까지 */
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-.background{
-    position: fixed; 
-    top: -30vh; 
-    left: 0vw; 
-    min-width: 207vh;
-    min-height: 30vh;
-    z-index: -5;
-    
-  }
+
 
 
 .id {

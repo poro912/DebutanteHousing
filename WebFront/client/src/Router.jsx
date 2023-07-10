@@ -8,6 +8,7 @@ import Join from './routes/Join'
 import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
 import Friendss from './routes/Friendss'
+import Login1 from './routes/Login1'
 
 const RouterPage = () => {
   return (
@@ -15,6 +16,7 @@ const RouterPage = () => {
     <BrowserRouter>
     <Switch>
         <Route path="/" exact={true} component={Login} />
+        <Route path="/test" component={Login1} />
         <Route path="/Home" component={Homec} />
         <Route path="/Non" component={Nonmem} />
         <Route path="/Storage" component={Storage} />
