@@ -1,0 +1,179 @@
+.nbox{
+    position: relative;
+    width: 5vw;
+    height: 5vh;
+    background-color: white;
+    top: 30vh;
+    left: 45vw;
+    
+}
+
+
+
+.searchbar{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 15vw;
+    height: 5vh;
+    top: 26.3vh;
+    left: 44.7vw;
+    z-index: 6;
+    font-size: 40px;
+    background-color:transparent;
+    font-family: 'Dancing Script';
+}
+
+.search{
+    
+    font-family: 'BookkMyungjo-Bd';
+    font-size: 25px;
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 20vh;
+    left: 37vw;
+    z-index: 6;
+  
+}
+
+.box{
+    position: relative;
+    width: 44vw;
+        height: 45vh;
+        overflow: auto;
+        z-index: 8;
+        background-color: white;
+        top: 34vh;
+        left: 28vw;
+        z-index: 6;
+        opacity: 0.6;
+        border-radius: 30px;
+}
+
+hr {
+    position: relative;
+    width: 18vw;
+    height: 5vh;
+    top: 26.5vh;
+    left: 41.5vw;
+    z-index: 6;
+    border: solid 3px #242322;
+    
+}
+
+
+
+.fname{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 52vh;
+    left: 35vw;
+    font-family: 'Dancing Script';
+    font-size: 43px;
+    z-index: 7;
+
+}
+
+.ffname{
+    position: relative;
+    padding:0;
+    margin: 0;
+    border: 0;
+    width: 25vw;
+    height: 5vh;
+    top: 57vh;
+    left: 35vw;
+    font-family: 'Dancing Script';
+    font-size: 43px;
+    z-index: 7;
+}
+
+.Aro {
+    position: fixed;
+    top: 53vh; 
+    left: 63vw;  
+    width: 3.3vw;
+    height: 4vh;
+    z-index:7;
+}
+
+.Aroo {
+    position: fixed;
+    top: 63vh; 
+    left: 63vw;  
+    width: 3.3vw;
+    height: 4vh;
+    z-index:7;
+}
+
+.line {
+    position: relative;
+    top: 49vh;
+    left: 30vw;
+    width: 38vw;
+    border: solid 2px #74675c;
+    z-index: 7;
+}
+
+.linee {
+    position: relative;
+    top: 58.5vh;
+    left: 30vw;
+    width: 38vw;
+    border: solid 2px #74675c;
+    z-index: 7;
+}
+
+
+
+@font-face {
+    font-family: 'BookkMyungjo-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+.Fbgimg{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -5;
+}
+
+
+.back{
+    position: fixed;
+    top: 46vh; 
+    left: 1vw;  
+    width: 3.5vw;
+    height:10vh;
+}
+
+.Doorplate{
+    position: fixed;
+    top: 30vh; 
+    left: 37vw;  
+    width: 27vw;
+    height: 18vh;
+    z-index: 5;
+}
+
+.Mag{
+    position: fixed;
+    width: 1.8vw;
+    height: 3.5vh;
+    top: 38vh;
+    left: 42vw;
+    z-index: 6;
+}

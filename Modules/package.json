@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.3"
+  },
+  "name": "moduledevelop",
+  "version": "1.1.0",
+  "main": "DHModule.js",
+  "main-t":"TestDHM.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "extends": [
+    "plugin:vue/recommended",
+    "eslint:recommended"
+  ]
+}

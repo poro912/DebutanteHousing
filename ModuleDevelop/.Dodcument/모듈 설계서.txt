@@ -1,0 +1,102 @@
+seq 테이블 트리거 작성하기
+
+
+
+
+메인페이지
+- [○] 친구방 방문하기      loadRoom
+- [○] 상점 방문하기      store.loadItemList
+- [○] 창고 들어가기      inventory.loadItem
+- [○] 내 닉네임 불러오기   loadUserData
+로그인
+- [○] 아이디 비밀번호로 로그인   login
+회원가입
+- [○] 아이디 비밀번호로 가입   join
+창고
+- [○] 내가 가지고있는 가구들 확인하기   inventory.loadItem
+- [○] 내가 가지고있는 가구 불러오기   inventory.loadItem
+- [△] 지금 방 상태 저장하기      옮길 때 마다 저장할 것 인가? 롤백 기능을 지원 할 것인가?
+- [△] 방 확대, 축소하기         가연이가 구현해줄거야 ㅎ
+- [△] 방 초기화시키기         롤백 기능 방 상태 저장하기와 연관
+- [○] 가구 회전시키기         edit.rotateItem
+상점
+- [○] 상점에 올라와있는 가구 불러오기   store.loadItemList
+- [○] 상점에 올라와있는 가구 구입하기   store.buyItem
+- [ ] 상점에 올라와있는 가구 구매 수량 바꾸기      NFT.supplyItem
+- [○] 상점에 올라와있는 가구 미리보기   store.loadItem
+
+
+함수   : camel case   ex) setUserData
+
+user 모듈
+room 모듈
+edit 모듈
+inventory 모듈
+store 모듈
+nft 모듈
+
+join(id, pw, ph ...)      // 회원가입
+login(id, pw)         // 로그인
+logout()         // 로그아웃
+
+user.getInfo(user_code)      // 유저 정보 가져오기
+user.setInfo(user_data		// 유저 정보 수정
+
+room.get(user_code)      // 유저가 소유한 방 (리스트) 가져오기
+room.loadList()         // 방 리스트 불러오기
+room.load(room_code)      // 방 불러오기
+room.edit(room_code)      // 방꾸미기 모드 진입
+
+edit.moveItem(room_code, item_code, position)         // 방의 아이템 옮기기
+edit.rotateItem(room_code, item_code, rotation)         // 방의 아이템 각도 변경
+edit.placeItem(room_code, item_code, position, rotation)   // 방에 새로운 아이템 배치
+edit.removeItem(room_code, item_code)            // 방에 배치된 아이템 제거
+
+inventory.loadItem(user_code)   // 유저가 소유한 아이템 리스트 불러오기
+inventory.sellItem(item_code)   // 유저가 소유한 아이템 판매
+
+store.loadNFTList()      // 상점 NFT 목록 불러오기
+store.loadNFT(nft_code)      // 상점 NFT 하나의 정보 불러오기
+store.loadItemList()      // 상점 아이템 목록 불러오기
+store.loadItem(item_code);   // 상점 아이템 하나의 정보 불러오기
+store.search(string);      // 이름 기반 아이템 탐색
+store.search(tag);      // 태그 기반 아이템 탐색
+store.buyItem(item_code)   // 상점의 아이템 구매
+
+NFT.loadItemList(user_code)   // 소유한 NFT 정보를 불러옴
+NFT.supplyItem(nft_code)   // 아이템을 상점에 더 공급한다.
+NFT.stock(nft_code)      // NFT 아이템의 거래가를 확인한다.
+
+06/01
+금요일까지 호출이 가능한 형태로 작성하기 + 가능한 경우 더미데이터(반환 예시)를 반환하도록 작성함
+일요일까지 실제 DB를 기반으로 동작이 가능하도록 만들기
+
+최우선 진행 예정				호출 가능			구현
+   로그인					O	DHM.login		X
+   개인 소유 방 코드 반환			O	DHM.getRoomCode		X
+   방 코드 기반으로 방의 오브젝트 리스트 반환	O	DHM.loadRoom		X
+   상점에 등록된 아이템 목록 반환		O	DHM.store.items		X
+
+회의 상 진행 사항
+   로그인 코드 완성하기
+   테스트 데이터 입력하기 (완)
+   파일 구조 정립
+   프론트에서 필요로 하는 모듈 리스트 작성 (완) 
+   더미데이터를 반환하도록 만들어 놓기
+
+가연 요청 사항
+   필수
+      유저가 갖고 있는 가구 목록을 반환 및 저장해야 함
+      가구를 방에 추가할 때 obj, mtl 파일 경로를 지정할 수 있어야 함
+      가구를 방에 추가할 때 위치(x,y,z)와 각도를 저장할 수 있어야 함
+   권장
+      방에서 가구 위치를 옮길 때 즉시 DB에 적용되면 좋을 것 같음
+      방에서 가구를 지울 수 있어야 함
+
+추후 진행 예정 (~6/12)
+   파일 구조 정립 및 문서화(txt)
+   connection pool 적용
+   반환이 없는 함수에 대해 더미데이터 반환 코드 작성
+   독시젠 작성
+   
+

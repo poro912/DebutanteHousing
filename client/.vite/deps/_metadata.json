@@ -1,0 +1,110 @@
+{
+  "hash": "7715a0b0",
+  "browserHash": "05cec129",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "0b464cde",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "c883dd8b",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/esm/react-router-dom.js",
+      "file": "react-router-dom.js",
+      "fileHash": "165440d5",
+      "needsInterop": false
+    },
+    "@react-three/fiber": {
+      "src": "../../node_modules/@react-three/fiber/dist/react-three-fiber.esm.js",
+      "file": "@react-three_fiber.js",
+      "fileHash": "bdc06e56",
+      "needsInterop": false
+    },
+    "@react-three/drei": {
+      "src": "../../node_modules/@react-three/drei/index.js",
+      "file": "@react-three_drei.js",
+      "fileHash": "4e40510d",
+      "needsInterop": false
+    },
+    "valtio": {
+      "src": "../../node_modules/valtio/esm/index.mjs",
+      "file": "valtio.js",
+      "fileHash": "d5f2d9db",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "c500687e",
+      "needsInterop": false
+    },
+    "maath": {
+      "src": "../../node_modules/maath/dist/maath.esm.js",
+      "file": "maath.js",
+      "fileHash": "dfcbc3bb",
+      "needsInterop": false
+    },
+    "three": {
+      "src": "../../node_modules/three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "106c6fc4",
+      "needsInterop": false
+    },
+    "three/examples/jsm/loaders/GLTFLoader": {
+      "src": "../../node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "file": "three_examples_jsm_loaders_GLTFLoader.js",
+      "fileHash": "68963951",
+      "needsInterop": false
+    },
+    "three/examples/jsm/loaders/OBJLoader": {
+      "src": "../../node_modules/three/examples/jsm/loaders/OBJLoader.js",
+      "file": "three_examples_jsm_loaders_OBJLoader.js",
+      "fileHash": "3908c8ce",
+      "needsInterop": false
+    },
+    "three/examples/jsm/loaders/MTLLoader": {
+      "src": "../../node_modules/three/examples/jsm/loaders/MTLLoader.js",
+      "file": "three_examples_jsm_loaders_MTLLoader.js",
+      "fileHash": "83faff3b",
+      "needsInterop": false
+    },
+    "react-color": {
+      "src": "../../node_modules/react-color/es/index.js",
+      "file": "react-color.js",
+      "fileHash": "58e8a2cd",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-E3XZRJC5": {
+      "file": "chunk-E3XZRJC5.js"
+    },
+    "chunk-WDFTZEMQ": {
+      "file": "chunk-WDFTZEMQ.js"
+    },
+    "chunk-WZQPIKTG": {
+      "file": "chunk-WZQPIKTG.js"
+    },
+    "chunk-LIFLJJ5H": {
+      "file": "chunk-LIFLJJ5H.js"
+    },
+    "chunk-PQEZCWQY": {
+      "file": "chunk-PQEZCWQY.js"
+    },
+    "chunk-FLAVOKRJ": {
+      "file": "chunk-FLAVOKRJ.js"
+    },
+    "chunk-QT623XEX": {
+      "file": "chunk-QT623XEX.js"
+    },
+    "chunk-AC2VUBZ6": {
+      "file": "chunk-AC2VUBZ6.js"
+    }
+  }
+}
