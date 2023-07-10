@@ -1,8 +1,0 @@
-DELIMITER $$
-	CREATE TRIGGER trigger_name
-	{BEFORE | AFTER} {INSERT | UPDATE| DELETE }
-	ON table_name FOR EACH ROW
-	BEGIN
-		-- 트리거 내용
-	END
-DELIMITER ;
