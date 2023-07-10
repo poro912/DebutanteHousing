@@ -4,15 +4,20 @@
     position: relative;
     width: 25vw;
     height: 0vh;
-    top: 36vh;
-    left: 45vw;
+
+    top: 35vh;
+    left: 43vw;
     font-family: 'Dancing Script';
-    font-size: 7vh;
+    font-size: 8vh;
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
     text-underline-offset : 2vh;
     text-decoration-thickness: 0.2vh;
+
+    z-index: 4;
+    animation : fadein 5s;
+    animation-direction: alternate;
 }
 
 
@@ -21,39 +26,62 @@
     width: 25vw;
     height: 0vh;
     top: 45vh;
-    left: 46vw;
+
+    left: 44.5vw;
     font-family: 'Dancing Script';
-    font-size: 7vh;
+    font-size: 8vh;
+
     color: #302b26;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-decoration : underline;
     text-underline-offset : 2vh;
     text-decoration-thickness: 0.2vh;
+
+    z-index: 4;
+    animation : fadein 5s;
+    animation-direction: alternate;
+
 }
 
+.ui{
+    position: fixed;
+    top: 18vh; 
+    left: 25vw;  
+    width: 50vw;
+    height: 60vh;
+    z-index: 3;
+    background-color:transparent;
+    animation : fadein 5s;
+    animation-direction: alternate;
+    
+}
 
-.bookcover {
-    width: 27.5vw;
-    height: 87.5vh;
-    object-fit: cover;
-    position: relative;
-        top: -6vh;
-        left: 37.5vw;
-        z-index: -1;
-        box-shadow: -2px -2px 2px rgb(255, 255, 255),
-                    -3px -3px 5px rgb(56, 48, 48),
-                    -28px -25px 2px rgb(148, 132, 132),
-                     2px 2px 2px rgb(255, 255, 255), 
-                     3px 3px 5px rgb(114, 102, 102)
-  } 
-
-.bgimg{
+@keyframes fadein {
+    /* 효과를 동작시간 동안 0 ~ 1까지 */
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fadeout {
+        /* 효과를 동작시간 동안 0 ~ 1까지 */
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+.background{
     position: fixed; 
-    top: 0; 
-    left: 0; 
-    min-width: 100%;
-    min-height: 100%;
+    top: -30vh; 
+    left: 0vw; 
+    min-width: 207vh;
+    min-height: 30vh;
     z-index: -5;
+    
   }
 
 

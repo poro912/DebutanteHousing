@@ -42,7 +42,9 @@ function Friends() {
      
       <hr />
       <div className={styles.box}></div>
-      <Link to="/DeHaPrototype/Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
+
+      <Link to="Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
+
       <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
  <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
  <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />

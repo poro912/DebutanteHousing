@@ -26,15 +26,15 @@ function Login() {
             <Link to="/DeHaPrototype/Home"><button className={styles.btn}>Enter</button></Link>
             </div>
             
-  <div>
+ 
     <br />
             <Link to="/DeHaPrototype/non"><button className={styles.btn2}>Guest</button></Link>
     <Link to="/DeHaPrototype/Join"><button className={styles.btn3}>Join</button></Link>
 
     </div>
     <div>
-  <img className={styles.bookcover} alt="bookcover" src="./img/bookcover.jpg" />
-  <img className={styles.bgimg} alt="bgimg" src="./img/bgimg.png" />
+    <img className={styles.background} alt="background" src="./img/background." />
+  <img className={styles.ui} alt="ui" src="./img/ui.png" />
   </div>
   </div>;
 }

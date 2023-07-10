@@ -4,8 +4,7 @@ import {Link} from "react-router-dom"
 function Friendss() {
   return <div>
  
- <Link to="/DeHaPrototype/Friends"><img className={styles.Fbgimg} alt="FRIENDSROOM" src="./img/FRIENDROOM.png" /></Link>
-
+ <Link to="Friends"><img className={styles.Fbgimg} alt="FRIENDSROOM" src="./img/FRIENDROOM.png" /></Link>
 
   </div>;
 }
