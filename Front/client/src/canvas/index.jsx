@@ -7,10 +7,10 @@ import state from '../store'
 
 import Backdrop from './Backdrop'
 import CameraRig from './CameraRig'
-
-import Room from './Room'
-import Candle from './Candle'
 import Glb from './Glb'
+import RoomGlb from './RoomGlb'
+import Test from './Test'
+
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
@@ -18,7 +18,7 @@ const CanvasModel = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [160,90,160], fov:18 }}
+      camera={{ position: [16,9,16], fov:2 }}
       
       className=''
     >
@@ -26,22 +26,17 @@ const CanvasModel = () => {
       
       <ambientLight intensity={1} />
       <pointLight position={[0, 10, 10]} intensity={1.4} />
-      <Environment preset='city' />
+      <Environment preset='warehouse' />
 
       {/* <CameraRig> */}
         <Backdrop />
-          {state.intro === true ? <OrbitControls /> : <gridHelper args={[40, 10] } position={[0,-20,0]}/>}
+        {state.intro === true ? <OrbitControls /> : <group scale={[0.04, 0.04, 0.04]}><gridHelper args={[10, 10]} position={[0, -5, 0]} /></group>}
           
-          <Room pos={[0,0,0]} />
+        <OrbitControls />
+         
+          <RoomGlb />
           <Glb />
-          {
-            url.map((url, index) => {
-              
-              return <Candle idx={index} url={url[0]} mtl={url[1]} pos={url[2]} rotation={url[3]}/>
-              
-            })
-          }
-          
+          <Test />
         
       {/* </CameraRig> */}
 
