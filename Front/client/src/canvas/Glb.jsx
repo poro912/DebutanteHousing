@@ -11,7 +11,7 @@ import state from '../store';
 const Glb = () => {
   const snap = useSnapshot(state);
   //const { nodes, materials } = useGLTF('./jewelbox.glb');
-  const gltf = useLoader(GLTFLoader, './closet.glb')
+  const gltf = useLoader(GLTFLoader, './desk_center.glb')
 
 //   const logoTexture = useTexture(snap.logoDecal);
 //   const fullTexture = useTexture(snap.fullDecal);
@@ -25,7 +25,7 @@ const Glb = () => {
     <mesh>
       <primitive
         object={gltf.scene}
-        position={[-10,-20,-14]}
+        position={[-0.12,-0.2,-0.14]}
         
       />
       </mesh>
