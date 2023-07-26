@@ -3,9 +3,9 @@ const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const router = require('./routes/route')
-const Controller = require('./controllers/controller');
+//const Controller = require('./controllers/controller');
 
-router(app);
+router.route(app);
 
 io.on('connection', (socket)=>Controller.socket(io, socket));
 

@@ -1,11 +1,11 @@
-const userRouter = require('./user/user')
-const friendRouter = require('./friend/friend')
-const roomRouter = require('./room/room')
-const storeRouter = require('./store/store')
-const nftRouter = require('./nft/nft')
-const itemRouter = require('./item/item')
-const editRouter = require('./edit/edit')
-const etcRouter = require('./etc/etc')
+const userRouter = require('./user/controller')
+const friendRouter = require('./friend/controller')
+const roomRouter = require('./room/controller')
+const storeRouter = require('./store/controller')
+const nftRouter = require('./nft/controller')
+const itemRouter = require('./item/controller')
+const editRouter = require('./edit/controller')
+const etcRouter = require('./etc/controller')
 
 
 /**
@@ -14,12 +14,12 @@ const etcRouter = require('./etc/etc')
  *       ex) 회원가입 등록 => '/user/signup' 요런 느낌
  */
 exports.route = (app)=>{
-    app.use('/user', userRouter);
-    app.use('/friend', friendRouter);
-    app.use('/room', roomRouter);
-    app.use('/store', storeRouter);
-    app.use('/nft', nftRouter);
-    app.use('/item', itemRouter);
-    app.use('/edit', editRouter);
-    app.use('*', etcRouter);
+    app.use('/user',      userRouter);
+    //app.use('/friend',    friendRouter);
+    //app.use('/room',      roomRouter);
+    //app.use('/store',     storeRouter);
+    //app.use('/nft',       nftRouter);
+    //app.use('/item',      itemRouter);
+    //app.use('/edit',      editRouter);
+    //app.use('*',          etcRouter);
 }

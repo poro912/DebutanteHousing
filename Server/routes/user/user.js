@@ -1,6 +1,6 @@
 const express = require('express');
 const Router = express();
-const Controller = require('./controller')
+const Controller = require('./controller');
 
 /**
  * 회원가입 등록
@@ -13,7 +13,7 @@ Router.post('/signup', Controller.postSignup)
 Router.get('/member', Controller.getMember)
 
 /**
- * 회원정보 수정
+ * 회원정보 수정W
  */
 Router.post('/member', Controller.editMember)
 

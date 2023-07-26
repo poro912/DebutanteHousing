@@ -50,15 +50,39 @@ let DHM = {};
 var userdata = [];
 
 // module declare
-import System from './System/DHM_system.js';
+//import System from './System/DHM_system.js';
 
-import M_user from './DB/user.js';
+//import M_user from './DB/user.js';
 //import M_room from './DB/room.js';
 //import M_inventory './DB/inventory.js';
 //import M_edit from './DB/edit.js';
 //import M_store from './DB/store.js';
 //import M_nft from './DB/nft.js';
 //import M_item from './DB/item.js';
+
+
+const System = require('./System/DHM_system.js');
+
+const M_user = require('./DB/user.js');
+//const M_room = require('./DB/room.js');
+//const M_inventory = require('./DB/inventory.js');
+//const M_edit = require('./DB/edit.js');
+//const M_store = require('./DB/store.js');
+//const M_nft = require('./DB/nft.js');
+//const M_item = require('./DB/item.js');
+
+/*
+module.exports = {
+  System,
+  M_user,
+  //M_room,
+  //M_inventory,
+  //M_edit,
+  //M_store,
+  //M_nft,
+  //M_item,
+};
+*/
 
 DHM.System = System;
 DHM.user = M_user;
@@ -321,5 +345,5 @@ DHM.item.getInfo = (item_code) => {
 }
 
 
-export default DHM;
-
+//export default DHM;
+module.exports = DHM;
