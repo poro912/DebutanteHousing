@@ -1,0 +1,198 @@
+body {
+    background-color:rgb(247, 241, 235)
+}
+
+
+.heartp{
+    position: relative;
+    width: 6vw;
+    height: 13vh;
+    top: 39vh;
+    left: 47vw;
+    opacity: 0;
+    animation: fadeInOut 6s 1;
+}
+
+.Login{
+    position: fixed;
+    width: 26vw;
+    top: 30vh;
+    left: 45.3vw;
+    font-family: 'Dancing Script';
+    font-size: 9vh;
+    color: #302b26;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-underline-offset: 2vh;
+    text-decoration-thickness: 0.2vh;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 11s; 
+}
+
+
+
+.title{
+    position: relative;
+    width: 25vw;
+    height: 0vh;
+    top: 32vh;
+    left: 41.5vw;
+    font-family: 'Dancing Script';
+    font-size: 10.5vh;
+    color: #302b26;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInOut 5s 1;
+    animation-delay: 6s;
+    
+}
+
+
+.titlee{
+    position: relative;
+    width: 25vw;
+    height: 0vh;
+    top: 43vh;
+    left: 43vw;
+    font-family: 'Dancing Script';
+    font-size: 10.5vh;
+    color: #302b26;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-decoration : underline;
+    text-underline-offset : 2vh;
+    text-decoration-thickness: 0.2vh;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInOut 5s 1;
+    animation-delay: 6s;
+}
+
+.ui{
+    position: fixed;
+    top: 14vh; 
+    left: 20vw;  
+    width: 60vw;
+    height: 70vh;
+    background-color:transparent;    
+    animation: fadeInAndStay 3s forwards;
+    animation-delay: 6s;
+    opacity: 0;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0; /* 시작과 끝에서 투명한 상태 (사라짐) */
+    }
+    50% {
+      opacity: 1; /* 중간에서 불투명한 상태 (나타남) */
+    }
+  }
+  @keyframes fadeInAndStay {
+    from {
+        opacity: 0; /* 시작에서 투명한 상태 (사라짐) */
+    }
+    to {
+        opacity: 1; /* 끝에서 불투명한 상태 (나타남) */
+    }
+}
+
+
+
+input:focus{
+    outline:none;}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+.id::placeholder {
+    color: #000000;
+    
+}
+.pass::placeholder {
+    color: #000000;
+    
+}
+
+
+.btn{
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+      background-color: #8b7561;   
+      padding: 1.2vh 13.2vw;  
+      font-size: 1.7vh;
+      font-family: 'BookkMyungjo-Bd';
+      position: fixed;
+        top: 45vh;
+        left: 36vw;
+        z-index: 5;
+        animation: fadeInAndStay 2s forwards 11s; 
+        opacity: 0;
+        border-radius: 24px;
+
+}
+
+.btn:hover{
+    background-color: #796654;  
+}
+
+.btn:active{
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: fixed;
+    top: 45vh;
+    left: 36vw;
+    z-index: 5;
+    background-color: #685748;  
+}
+
+.btn2{
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.21);
+    border-bottom-color: rgba(0,0,0,0.34);
+    text-shadow:0 1px 0 rgba(0,0,0,0.15);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(0,0,0,0.08), 
+                0 3px 13px -1px rgba(0,0,0,0.21);
+    background-color: #8b7561;   
+      padding: 1.2vh 12.9vw;  
+      font-size: 1.7vh;
+      font-family:'BookkMyungjo-Bd';
+      position: fixed;
+        top: 54vh;
+        left: 36vw;
+        z-index: 5;
+        animation: fadeInAndStay 2s forwards 11s; 
+        opacity: 0;
+        border-radius: 24px;
+}
+
+.btn2:hover{
+    background-color: #796654;  
+}
+
+.btn2:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: relative;
+    top: 54vh;
+        left: 36vw;
+    z-index: 5;
+    background-color: #685748;  
+}
+
