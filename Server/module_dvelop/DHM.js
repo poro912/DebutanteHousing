@@ -156,7 +156,8 @@ DHM.join = async(id, pw, name, nick, email, phone, callback) => {
 	console.log();
 	// db code
 	
-	result = await DHM.user.joinIn(id,pw,name,nick,email,phone);
+	result = await M_user.module.joinIn(id,pw,name,nick,email,phone);
+	
 	if(-1 == result.code) return false;
 
 	if("function" === typeof callback){

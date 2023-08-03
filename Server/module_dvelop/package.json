@@ -12,7 +12,7 @@
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "extends": [
     "plugin:vue/recommended",
     "eslint:recommended"

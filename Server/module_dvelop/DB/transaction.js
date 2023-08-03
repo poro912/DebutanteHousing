@@ -15,5 +15,4 @@ mod.init = () =>
 
 }
 
-
-export default mod;
+exports.module = mod;

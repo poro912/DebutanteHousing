@@ -1,3 +1,4 @@
+//const userRouter = require('./user/controller')
 const userRouter = require('./user/controller')
 const friendRouter = require('./friend/controller')
 const roomRouter = require('./room/controller')

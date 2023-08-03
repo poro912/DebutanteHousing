@@ -1,6 +1,10 @@
 
-import http from 'http';
-import dhm from './DHM.js';
+//import http from 'http';
+//import dhm from './DHM.js';
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const dhm = require('./DHM.js');
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -12,7 +16,6 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello World');
-
 });
 
 // 서버 생성 시

@@ -272,6 +272,5 @@ ROOM_MODULE.edit = async (args) => {
 	return result;
 }
 
-
-export default ROOM_MODULE;
+exports.module = ROOM_MODULE;
 

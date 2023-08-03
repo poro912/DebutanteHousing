@@ -13,9 +13,9 @@
 * @details	회원가입, 로그인 모듈의 개발이 완료됨
 */
 
-import DB_system from '../System/DB_Systeam.js';
-import System from '../System/DHM_system.js';
-import DHM_system from '../System/DHM_system.js';
+const DB_system = require('../System/DB_Systeam.js').module;
+const System = require('../System/DHM_system.js').module;
+const DHM_system = require('../System/DHM_system.js').module;
 
 const FILE = "user.js";
 let USER_MODULE = {};
@@ -177,5 +177,4 @@ USER_MODULE.getInfo = async (code = 0) => {
 	return result;
 }
 
-
-export default USER_MODULE;
+exports.module = USER_MODULE;

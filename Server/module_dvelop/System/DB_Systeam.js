@@ -10,7 +10,9 @@
 * @module	mysql2
 */
 
-import mysql from 'mysql2/promise.js';
+// import mysql from 'mysql2/promise.js';
+
+const mysql = require('mysql2/promise.js');
 
 // 상수 정의
 const DB_NAME = 'Debutante Housing';
@@ -95,4 +97,4 @@ let useIdentification = (conn) => {
 DB_system.useIdentification = useIdentification;
 
 
-export default DB_system;
+exports.module = DB_system;

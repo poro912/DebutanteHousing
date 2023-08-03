@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="617f4f5e-6c59-4848-975a-82a2027d4ab0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../DataBase/Init_functions.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../DataBase/Init_functions.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.base.js" beforeDir="false" afterPath="$PROJECT_DIR$/.base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/friend.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/friend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/room.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/transaction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/DB/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DHM.js" beforeDir="false" afterPath="$PROJECT_DIR$/DHM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/DB_Systeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/System/DB_Systeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/System/DHM_system.js" beforeDir="false" afterPath="$PROJECT_DIR$/System/DHM_system.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2TMMxSwwaV7L8dPDqflaCTcwYKd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="617f4f5e-6c59-4848-975a-82a2027d4ab0" name="Changes" comment="" />
+      <created>1690848750577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690848750577</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -39,5 +39,8 @@ System.Debug.print = (...messages) => {
 }
 
 
-export default System;
+//export default System;
+
+exports.module = System;
+
 

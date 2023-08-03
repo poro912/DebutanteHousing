@@ -3,7 +3,7 @@
 //        <- 오류 발생 <-
 
 // DB 모듈 베이스
-import DHM_system from '../System/DHM_system.js';
+const DHM_system = require('../System/DHM_system.js');
 
 const FIEL = '';
 const MODULE_NAME = "";
