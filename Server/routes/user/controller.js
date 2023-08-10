@@ -5,21 +5,50 @@ Router.use(express.json());
 const Model = require('../../models/user').module;
 const system = require('../../utils/DHM_system').module;
 
+const checkFillForm = (form) =>
+{
+	for (const key in form) {
+		if(form[key] === undefined){
+			return false;
+		}
+	}
+	return true;
+}
 
 const Controller = {
     postSignup : (req, res) => {
         // 회원가입 등록 처리 코드
         system.debug.print('postSignup');
-        let id = req.body.id;
-        let pw = req.body.pw;
-        let data = req.body;
 
-        system.debug.print('id : ', id);
-        system.debug.print('pw : ', pw);
-        
-        //Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{})
-        
-        Model.joinIn(id,pw,'test','poro','','',(result)=>{
+        let data = req.body;
+        const temp = {
+            id : data.id,
+            pw : data.pw,
+            name : data.name,
+            nick : data.nick,
+            email : data.email,
+            phone : data.phone,
+        };
+
+        system.debug.print('id : ', data.id);
+        system.debug.print('pw : ', data.pw);
+
+		// 폼이 전부 채워져 있지 않다면
+		if(!checkFillForm(temp))
+		{
+			// 모두 초기화 반환
+			for (const key in temp) {
+				temp[key] = "";
+			}
+			temp.result = false;
+			// 결과 메시지 반환
+			temp.msg = "please follow this form";
+			return res.json(temp);
+		}
+
+		
+		Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{})
+               Model.joinIn(temp,id, temp.pw,'test','poro','','',(result)=>{
             // 결과를 제이슨 형태로 반환한다.
             return res.json(result);
         });
@@ -33,7 +62,7 @@ const Controller = {
     },
     postLogin : (req, res) => {
         // 로그인 처리 코드
-        let ret = false;
+        let ret = true;
         let result = {
             'success' : Boolean,
             'id' : String,
