@@ -5,15 +5,6 @@ Router.use(express.json());
 const Model = require('../../models/user').module;
 const system = require('../../utils/DHM_system').module;
 
-const checkFillForm = (form) =>
-{
-	for (const key in form) {
-		if(form[key] === undefined){
-			return false;
-		}
-	}
-	return true;
-}
 
 const Controller = {
     postSignup : (req, res) => {
@@ -21,7 +12,7 @@ const Controller = {
         system.debug.print('postSignup');
 
         let data = req.body;
-        const temp = {
+        let form = {
             id : data.id,
             pw : data.pw,
             name : data.name,
@@ -34,21 +25,20 @@ const Controller = {
         system.debug.print('pw : ', data.pw);
 
 		// 폼이 전부 채워져 있지 않다면
-		if(!checkFillForm(temp))
+		if(!system.form.checkFill(form))
 		{
 			// 모두 초기화 반환
-			for (const key in temp) {
-				temp[key] = "";
-			}
-			temp.result = false;
-			// 결과 메시지 반환
-			temp.msg = "please follow this form";
-			return res.json(temp);
+			form = syste.form.init(from);
+			form = system.form.addResult(form,false, "please follow this form");
+			return res.json(form);m
 		}
 
+		Model.joinIn(res,form,(res, result)=>{
+			return res.json(result);
+		});
 		
-		Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{})
-               Model.joinIn(temp,id, temp.pw,'test','poro','','',(result)=>{
+		//Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{});
+        Model.joinIn(form,id, form.pw,'test','poro','','',(result)=>{
             // 결과를 제이슨 형태로 반환한다.
             return res.json(result);
         });

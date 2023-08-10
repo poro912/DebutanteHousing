@@ -32,6 +32,27 @@ const system = {
 			return;
 		}
 	},
+	form : {
+		init : (form) =>{
+			for (const key in form) {
+				form[key] = "";
+			}
+			return form;
+		},
+		checkFill : (form) =>{
+			for (const key in form) {
+				if(form[key] === undefined){
+					return false;
+				}
+			}
+			return true;
+		},
+		addResult : (form, state, message) =>{
+			form[result] = state;
+			form[msg] = message;
+			return form;
+		}
+	},
 }
 
 exports.module = system;

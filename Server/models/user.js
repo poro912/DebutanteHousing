@@ -21,6 +21,43 @@ const user ={
 	info : {
 		FILE : "module/user.js",
 	},
+
+	joinIn : async(res, form, callback) => {
+		let ret = {
+			code : Number,
+			id : String,
+			nick : String,
+			result : Boolean,
+		};
+
+		system.debug.print("DHM.join");
+		system.debug.print("attempt join");
+		system.debug.print("회원가입 시도");
+		system.debug.print();
+
+		// non db code
+		//userdata.push({ 'id': id, 'pw': pw });
+
+		system.debug.print(userdata);
+		system.debug.print();
+		system.debug.print(userdata[0]);
+		system.debug.print();
+		// db code
+		
+		//ret = await db.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
+
+		//ret = await M_user.module.joinIn(id,pw,name,nick,email,phone);
+		
+		if(-1 == ret.code || false == ret.result ) return false;
+
+		if("function" === typeof callback){
+			callback(ret);
+		}
+		else{
+			return ret;
+		}
+	},
+
 	/**
 	* @param    {*} id 아이디
 	* @param    {*} pw 비밀번호
@@ -41,15 +78,15 @@ const user ={
 		var nick = "";
 		var profile = "";
 
-		console.log("DHM.login");
-		console.log("attempt login");
-		console.log();
+		system.debug.print("DHM.login");
+		system.debug.print("attempt login");
+		system.debug.print();
 		var temp = await DHM.user.login(id, pw);
 
 		// dummy
 		result.code = temp["code"];
 		result.nick = temp["nick"];
-		console.log("DHM login result : ", result);
+		system.debug.print("DHM login result : ", result);
 
 		if("function" === typeof callback){
 			callback(result);
@@ -58,41 +95,13 @@ const user ={
 		return result;
 	},
 
-	joinIn : async(id, pw, name, nick, email, phone, callback) => {
-		let result = {
-			code : Number,
-			id : String,
-			nick : String
-		};
-		console.log("DHM.join");
-		console.log("attempt join");
-		console.log("회원가입 시도");
-		console.log();
-
-		// non db code
-		userdata.push({ 'id': id, 'pw': pw });
-
-		console.log(userdata);
-		console.log();
-		console.log(userdata[0]);
-		console.log();
-		// db code
-		
-		result = await M_user.module.joinIn(id,pw,name,nick,email,phone);
-		
-		if(-1 == result.code) return false;
-
-		if("function" === typeof callback){
-			callback(result);
-		}
-		return result;
-	},
+	
 
 
 	logout : () => {
-		console.log("DHM.logout");
-		console.log("attempt logout");
-		console.log();
+		system.debug.print("DHM.logout");
+		system.debug.print("attempt logout");
+		system.debug.print();
 	},
 }
 exports.module = user;
