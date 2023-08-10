@@ -2,11 +2,8 @@ import {Link} from "react-router-dom"
 import styles from "./Login.module.css"
 
 
+
 function Login() {
-
-   
-
-    
   
   return <div>
 <h1 className={styles.title}>Debutant</h1>
@@ -21,7 +18,7 @@ function Login() {
        
          <div>
     
-            
+           
             
             </div>
  
@@ -35,6 +32,7 @@ function Login() {
     
     <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
   <img className={styles.ui} alt="ui" src="./img/ui.png" />
+  <img className={styles.Fbg} alt="Fbg2" src="./img/Fbg2.png" />
   <audio src= "./img/bgm.mp3"
         autoPlay={true}>
       </audio>

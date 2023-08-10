@@ -1,0 +1,20 @@
+.Fbg{
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+
+.dui{
+    position: fixed;
+      top: 20vh;
+      left: 15vw;
+      width: 20vw;
+      height: 60vh;
+      z-index: -1;
+      overflow: hidden;
+    }

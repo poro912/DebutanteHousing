@@ -1,60 +1,85 @@
-.btn {
-    color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd';
-}
 
-.btn:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
-    
-.btn2{   color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd'
-
-}
-.btn2:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
-    
 
 .searchbar{
-    position: relative;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    width: 330px;
-    height: 40px;
-    font-family: 'BookkMyungjo-Bd'
+    position: fixed;
+    top: 13vh;
+    left: 38vw;
+    width: 20vw;
+    height: 4vh;
+    font-family: 'Dancing Script';
+    border-radius: 0px;
+    outline: 2px rgb(126, 104, 104) solid;
+    background-color: transparent;
+    text-align: center;
 }
+
+.searchbar:hover{
+  outline: 2px rgb(41, 8, 8) solid;
+}
+.searchbar:focus{
+  outline: 3px rgb(83, 65, 65) solid;
+}
+
 .search{
     font-family: 'BookkMyungjo-Bd'
 }
 
+.Fbg{
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
 
+.dui{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 10vw;
+    height: 30vh;
+}
+.flexContainer {
+    display: flex;
+    flex-direction: row; /* 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
+  
+  .listContainer {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .imageContainer {
+    display: flex;
+    
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
 
+  .itemsContainer {
+    display: flex;
+    flex-wrap: wrap; /* 아이템이 넘칠 경우 아래로 넘어가도록 설정 */
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
 
+  .heartp{
+    position: fixed;
+    width: 3vw;
+    height: 6vh;
+    top: 12vh;
+    left: 59vw;
+  
+}
+
+.backarrow {
+  position: fixed;
+  top: 3vh;
+  left: 4vh;
+  font-size: 2.5rem;
+  transform: rotate(180deg);
+  color:#302b26;
+}

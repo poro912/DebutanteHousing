@@ -62,7 +62,7 @@ function Login() {
    
     
    <img className={styles.ui} alt="ui" src="./img/ui.png"/>
-
+   <img className={styles.Fbg} alt="Fbg2" src="./img/Fbg2.png" />
   </div>
   </div>;
 }

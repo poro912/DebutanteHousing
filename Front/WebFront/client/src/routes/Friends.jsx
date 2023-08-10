@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom"
 import styles from "./Friends.module.css"
+import FriendsCom from './FriendsCom';
 
 function Friends() {
   const [friend, setfriend] = useState("");
@@ -16,13 +17,7 @@ function Friends() {
   };
   return <div>
     
-    
-    <h1 className={styles.fname}>Mare</h1>
-    <h1 className={styles.ffname}>Debut</h1>
 
-
-<hr className={styles.line} />
-<hr className={styles.linee}/>
 
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
@@ -34,20 +29,24 @@ function Friends() {
         
       </form>
      
-      <ul>
+     <div className={styles.listContainer}>
+     <div className={styles.listWrapper}>
+      <ul className={styles.friendList} >
         {friends.map((fri, index) => (
-          <li key={index}>{fri}</li>
+          <li className={styles.list} key={index}>{fri}</li>
         ))}
       </ul>
-     
+     </div>
+     </div>
       <hr />
-      <div className={styles.box}></div>
-      <Link to="Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
-      <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
- <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
- <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />
- <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
- <Link to="Home"><img className={styles.back} alt="back" src="./img/back.png" /></Link>
+      
+      <FriendsCom />
+      
+      <img className={styles.Fbg} alt="Fbg" src="./img/Fbg2.png" />
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
+      <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+      <div className={styles.box}></div> {/* 흰색 불투명한 박스 */}
 
   </div>;
 }

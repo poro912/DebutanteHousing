@@ -7,8 +7,8 @@ import Shopdetail from './routes/Shopdetail'
 import Join from './routes/Join'
 import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
-import Friendss from './routes/Friendss'
 import Login1 from './routes/Login1'
+import Mypage from './routes/Mypage'
 
 const RouterPage = () => {
   return (
@@ -24,7 +24,7 @@ const RouterPage = () => {
         <Route path="/Shopdetail" component={Shopdetail} />
         <Route path="/Join" component={Join} />
         <Route path="/Friends" component={Friends} />
-        <Route path="/Friendss" component={Friendss} />
+        <Route path="/Mypage" component={Mypage} />
     </Switch>
 </BrowserRouter>
   )
