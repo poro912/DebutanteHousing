@@ -13,7 +13,7 @@
 * @details	회원가입, 로그인 모듈의 개발이 완료됨
 */
 
-const db = require('../utils/user').module;
+const db_user = require('../utils/user').module;
 const system = require('../utils/DHM_system').module;
 
 
@@ -35,23 +35,23 @@ const user ={
 		system.debug.print("회원가입 시도");
 		system.debug.print();
 
-		// non db code
-		//userdata.push({ 'id': id, 'pw': pw });
+		// // non db code
+		// //userdata.push({ 'id': id, 'pw': pw });
 
-		system.debug.print(userdata);
-		system.debug.print();
-		system.debug.print(userdata[0]);
-		system.debug.print();
+		// system.debug.print(userdata);
+		// system.debug.print();
+		// system.debug.print(userdata[0]);
+		// system.debug.print();
 		// db code
 		
-		//ret = await db.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
+		ret = await db_user.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
 
 		//ret = await M_user.module.joinIn(id,pw,name,nick,email,phone);
 		
 		if(-1 == ret.code || false == ret.result ) return false;
 
 		if("function" === typeof callback){
-			callback(ret);
+			callback(res, ret);
 		}
 		else{
 			return ret;

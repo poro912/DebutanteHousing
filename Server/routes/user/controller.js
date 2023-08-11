@@ -20,6 +20,7 @@ const Controller = {
             email : data.email,
             phone : data.phone,
         };
+		let result = {};
 
         system.debug.print('id : ', data.id);
         system.debug.print('pw : ', data.pw);
@@ -28,20 +29,21 @@ const Controller = {
 		if(!system.form.checkFill(form))
 		{
 			// 모두 초기화 반환
-			form = syste.form.init(from);
+			form = system.form.init(form);
 			form = system.form.addResult(form,false, "please follow this form");
-			return res.json(form);m
+			return res.json(form);
 		}
 
 		Model.joinIn(res,form,(res, result)=>{
 			return res.json(result);
 		});
-		
+		/*
 		//Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{});
-        Model.joinIn(form,id, form.pw,'test','poro','','',(result)=>{
+        Model.joinIn(form.id, form.pw,'test','poro','','',(res, result)=>{
             // 결과를 제이슨 형태로 반환한다.
             return res.json(result);
         });
+		*/
         //return res.json({'name':'test'});
     },
     getMember : (req, res) => {

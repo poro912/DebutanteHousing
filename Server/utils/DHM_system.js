@@ -48,8 +48,8 @@ const system = {
 			return true;
 		},
 		addResult : (form, state, message) =>{
-			form[result] = state;
-			form[msg] = message;
+			form['result'] = state;
+			form['msg'] = message;
 			return form;
 		}
 	},

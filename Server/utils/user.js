@@ -36,9 +36,19 @@ const user = {
 			nick: String
 		};
 		var conn = await db.getConnection();
-		var code = 901;
+		//var code = 901;
 		var temp;
-	
+		
+		//await db.use.personal(conn);
+		await db.use.identification(conn);
+		temp = await db.execQuery(conn,
+			`call user_join("${id}","${pw}","${name}","${nick}");`
+		);
+
+		system.debug.print(temp);
+
+
+		/*
 		await db.use.personal(conn);
 		temp = await db.execQuery(conn,
 			`insert into user (code, id, pw, name, email, phone) 
@@ -52,6 +62,8 @@ const user = {
 			`insert into user (code, id, nick) 
 			values("${code}","${id}","${nick}");`
 		);
+		*/
+
 		if(false === temp) return false;
 	
 		system.Debug.print(temp);
