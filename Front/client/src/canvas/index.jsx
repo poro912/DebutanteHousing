@@ -14,7 +14,8 @@ import Test from './Test'
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
-  const url = state.url2
+  const url = state.morden
+  
   return (
     <Canvas
       shadows
@@ -25,7 +26,7 @@ const CanvasModel = () => {
       {state.intro === true ? <OrbitControls /> : <></>}
       
       <ambientLight intensity={1} />
-      <pointLight position={[0, 10, 10]} intensity={1.4} />
+      <pointLight position={[0, 10, 10]} intensity={1.2} />
       <Environment preset='warehouse' />
 
       {/* <CameraRig> */}
@@ -35,8 +36,15 @@ const CanvasModel = () => {
         <OrbitControls />
          
           <RoomGlb />
-          <Glb />
-          <Test />
+          {/* <Glb /> */}
+          {
+            url.map((url, index) => {
+              console.log(url[0])
+              return <Glb key={index} url={url[0]} pos={url[1]}/>
+              
+            })
+          } 
+          {/* <Test /> */}
         
       {/* </CameraRig> */}
 
