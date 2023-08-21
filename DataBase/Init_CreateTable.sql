@@ -1,7 +1,7 @@
-# create tables
-# Run "DeleteTables.sql" and use it.
+-- create tables
+-- Run "DeleteTables.sql" and use it.
 
-# create db
+-- create db
 /*
 CREATE database db_identification;
 CREATE database db_personal;
@@ -10,8 +10,8 @@ CREATE database db_transaction;
 CREATE database db_record;
 */
 
-# setup db_identification
-# save sequence numbers for identification
+-- setup db_identification
+-- save sequence numbers for identification
 USE db_identification;
 CREATE TABLE `SEQ` (
   `data`		INT				NOT NULL,
@@ -29,8 +29,8 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-# setup db_personal
-# save personal information
+-- setup db_personal
+-- save personal information
 USE db_personal;
 CREATE TABLE user (
   code			INT				NOT NULL	UNIQUE,
@@ -44,9 +44,9 @@ CREATE TABLE user (
   PRIMARY KEY (code)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-# setup db_current
-# save current usage information
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- setup db_current
+-- save current usage information
 USE db_current;
 CREATE TABLE user (
   code			INT				NOT NULL AUTO_INCREMENT,
@@ -117,10 +117,10 @@ CREATE TABLE friend (
   FOREIGN KEY (target)			REFERENCES user(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-# setup db_transaction
-# save transaction information
+-- setup db_transaction
+-- save transaction information
 USE db_transaction;
 CREATE TABLE `transaction` (
   code			BIGINT			NOT NULL	UNIQUE,
@@ -136,8 +136,8 @@ CREATE TABLE `transaction` (
   FOREIGN KEY (I_code)			REFERENCES DB_current.item (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# setup db_record
-# save history about error, login, comment, etc
+-- setup db_record
+-- save history about error, login, comment, etc
 USE db_record;
 CREATE TABLE `JOIN` (
   `U_code`		INT				NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE `comment` (
   `deleted`		BOOL			NOT NULL,
   
   PRIMARY KEY (`code`)
-#  ,FOREIGN KEY (R_code)			REFERENCES db_current.room (code)
-#  ,FOREIGN KEY (U_code)			REFERENCES db_current.item (code)
+--  ,FOREIGN KEY (R_code)			REFERENCES db_current.room (code)
+--  ,FOREIGN KEY (U_code)			REFERENCES db_current.item (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

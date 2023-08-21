@@ -27,9 +27,16 @@ const system = {
 		},
 		print : (...messages) => {
 			if (!system.DEBUG) return;
-			console.log(messages.join(' '));
-  			//console.log();
-			return;
+			if (typeof messages[0] === 'object') {
+				const obj = messages[0];
+				for (const key in obj) {
+					if (obj.hasOwnProperty(key)) {
+						console.log(`${key}: ${obj[key]}`);
+					}
+				}
+			} else {
+				console.log(messages.join(' '));
+			}
 		}
 	},
 	form : {

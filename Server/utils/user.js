@@ -31,45 +31,41 @@ const user = {
 	*/
 	joinIn : async (id, pw, name, nick, email, phone) => {
 		let result = {
+			result : Boolean,
 			code: Number,
 			id: String,
 			nick: String
 		};
 		var conn = await db.getConnection();
-		//var code = 901;
 		var temp;
-		
-		//await db.use.personal(conn);
-		await db.use.identification(conn);
+
+		await db.use.func(conn);
 		temp = await db.execQuery(conn,
 			`call user_join("${id}","${pw}","${name}","${nick}");`
 		);
-
 		system.debug.print(temp);
 
+		if(false === temp) {
+			result.result = false;
+			result.code = -1;
+			result.id = "";
+			result.nick = "";
+		}
+		else{
+			await db.use.personal(conn);
+			temp = await db.execQuery(conn,
+				`select code from user where id = "${id}";`
+			);
+			system.debug.print(temp);
+			result.result = true;
+			result.code = temp[0].code;
+			result.id = id;
+			result.nick = nick;
 
-		/*
-		await db.use.personal(conn);
-		temp = await db.execQuery(conn,
-			`insert into user (code, id, pw, name, email, phone) 
-			values("${code}","${id}","${pw}","${name}","${email}","${phone}");`
-		);
-		system.debug.print(temp);
-		if(false === temp) return false;
-	
-		await db.use.current(conn);
-		temp = await db.execQuery(conn,
-			`insert into user (code, id, nick) 
-			values("${code}","${id}","${nick}");`
-		);
-		*/
-
-		if(false === temp) return false;
-	
-		system.Debug.print(temp);
-		result.code = 901;
-		result.id = id;
-		result.nick = nick;
+			user.setEmail(result.code,email);
+			user.setPhone(result.code,phone);
+		}
+		system.debug.print(result);
 		return result;
 	},
 	
@@ -81,37 +77,27 @@ const user = {
 	 * @details	로그인에 성공하면 true 실패하면 false
 	 * @todo	작업 전
 	*/
-		login : async (id, pw) => {
+	login : async (id, pw) => {
 		var result = {
-			code: Number,
-			nick: String,
+			result : Boolean,
+			code : Number,
+			nick : String,
+			room : Number,
 		};
 		var temp;
-		var row, fields;
 
 		// user table 정보 가져오기
 		var conn = await db.getConnection();
 		await db.use.personal(conn);
-		temp = await db.execQuery(conn, `SELECT * FROM user WHERE id = "${id}" and pw = "${pw}";`);
+		temp = await db.execQuery(conn, `SELECT code FROM user WHERE id = "${id}" and pw = "${pw}";`);
 
+		system.debug.print("print temp");
+		system.debug.print(temp[0]);
+		
+		if(undefined === temp[0]) temp = -1;
+		else temp = temp[0].code;
 
-		// 조회 결과 값 없음
-		if (db.checkNodate(temp)) {
-			DHM_system.Debug.printError(user.info.FILE + " login()", "sql no data")
-			result.code = -1;
-			result.nick = "";
-			return result;
-		}
-		// 단일 값 
-		temp = temp[0];
-
-		DHM_system.Debug.print(temp, temp["code"]);
-		result.code = temp['code'];
-		result.nick = await USER_MODULE.getNick(result.code);
-
-		console.log("result : ", result);
-
-		return result;
+		return await user.getInfo(temp);
 	},
 
 	/**
@@ -122,22 +108,24 @@ const user = {
 	 * @details	
 	 * @todo	작업 전
 	*/
-	getNick : async (code = 0) => {
+	getNick : async (code) => {
 		//if(code == undefined) return "";
 		var result;
 		var temp;
 		if (code <= 0) {
 			return "";
 		}
-		console.log("get usercode : ", code);
+		system.debug.print("getNick");
+		system.debug.print("usercode : ", code);
+
 		var conn = await db.getConnection();
 		await db.use.current(conn);
 		temp = await db.execQuery(conn, `SELECT nick FROM user WHERE code = "${code}";`);
-		
-		if(false === temp) return false;
+
+		if(false === temp) return "";
 		temp = temp[0];
 
-		result = temp["nick"];
+		result = temp.nick;
 
 		return result;
 	},
@@ -149,41 +137,54 @@ const user = {
 	 * @details	
 	 * @todo	작업 전
 	*/
-	getInfo : async (code = 0) => {
+	getInfo : async (code) => {
 		var result = {
-			code: Number,
-			nick: String,
+			result : Boolean,
+			code : Number,
+			nick : String,
+			room : Number,
 		};
 		var temp;
-		var row, fields;
 		
-		console.log('USER : getInfo');
+		system.debug.print("getInfo");
+		system.debug.print("usercode : ", code);
 
-
-		// SQL commands
-		// user table 정보 가져오기
 		var conn = await db.getConnection();
 		await db.use.current(conn);
-		temp = await db.execQuery(conn, ``);
+		temp = await db.execQuery(conn, `select * from user where code = "${code}"`);
 
 
 		// 조회 결과 값 없음
-		if (db.checkNodate(temp)) {
-			DHM_system.Debug.printError(user.info.FILE + " login()", "sql no data")
+		if (db.checkNodate(temp) || code <= 0) {
+			system.debug.printError(user.info.FILE + " login()", "sql no data")
 			// set error data
+			result.result = false;
 			result.code = -1;
 			result.nick = "";
-			return result;
+			result.room = -1;
 		}
-		// 단일 값 
-		temp = temp[0];
-
-		DHM_system.Debug.print(temp, temp["code"]);
-		result.code = temp['code'];
-
-		console.log("result : ", result);
-
+		else{
+			result.result = true;
+			result.code = code;
+			result.nick = await user.getNick(result.code);
+			result.room = -1;
+		}
 		return result;
-	}
+	},
+
+	setEmail : async(code, email) =>{
+		var conn = await db.getConnection();
+		await db.use.personal(conn);
+		temp = await db.execQuery(conn,
+			`update user set email = "${email}" where code = "${code}";`
+		);
+	},
+	setPhone : async(code, phone) =>{
+		var conn = await db.getConnection();
+		await db.use.personal(conn);
+		temp = await db.execQuery(conn,
+			`update user set phone = "${phone}" where code = "${code}";`
+		);
+	},
 }
 exports.module = user;

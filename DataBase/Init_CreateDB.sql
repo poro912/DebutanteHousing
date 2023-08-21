@@ -1,6 +1,7 @@
-# create db
-CREATE database db_personal;
-CREATE database db_transaction;
-CREATE database db_record;
-CREATE database db_identification;
-CREATE database db_current;
+-- create db
+create database db_personal;
+create database db_transaction;
+create database db_record;
+create database db_identification;
+create database db_current;
+create database db_function;

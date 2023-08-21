@@ -24,10 +24,10 @@ const user ={
 
 	joinIn : async(res, form, callback) => {
 		let ret = {
+			result : Boolean,
 			code : Number,
 			id : String,
 			nick : String,
-			result : Boolean,
 		};
 
 		system.debug.print("DHM.join");
@@ -35,21 +35,11 @@ const user ={
 		system.debug.print("회원가입 시도");
 		system.debug.print();
 
-		// // non db code
-		// //userdata.push({ 'id': id, 'pw': pw });
-
-		// system.debug.print(userdata);
-		// system.debug.print();
-		// system.debug.print(userdata[0]);
-		// system.debug.print();
-		// db code
 		
 		ret = await db_user.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
-
-		//ret = await M_user.module.joinIn(id,pw,name,nick,email,phone);
 		
-		if(-1 == ret.code || false == ret.result ) return false;
-
+		//if(-1 == ret.code || false == ret.result ) return false;
+		
 		if("function" === typeof callback){
 			callback(res, ret);
 		}
@@ -67,22 +57,29 @@ const user ={
 	* @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
 	* @todo	작업 전
 	*/
-	login : async(id, pw, callback) => {
+	login : async(res, form, callback) => {
 		let result = {
-			code: Number,
-			nick: String,
-			profile: String
+			result: Boolean,
+			code : Number,
+			nick : String,
+			profile : String
 		};
-		// currentTB에서 nick을 가져와야함
-		var user_code = 0;
-		var nick = "";
-		var profile = "";
 
 		system.debug.print("DHM.login");
 		system.debug.print("attempt login");
 		system.debug.print();
-		var temp = await DHM.user.login(id, pw);
 
+		ret = await db_user.login(form.id, form.pw);
+
+		//if(-1 == ret.code || false == ret.result ) return false;
+
+		if("function" === typeof callback){
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
+		/*
 		// dummy
 		result.code = temp["code"];
 		result.nick = temp["nick"];
@@ -93,6 +90,7 @@ const user ={
 		}
 		
 		return result;
+		*/
 	},
 
 	

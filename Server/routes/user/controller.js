@@ -20,7 +20,6 @@ const Controller = {
             email : data.email,
             phone : data.phone,
         };
-		let result = {};
 
         system.debug.print('id : ', data.id);
         system.debug.print('pw : ', data.pw);
@@ -37,56 +36,72 @@ const Controller = {
 		Model.joinIn(res,form,(res, result)=>{
 			return res.json(result);
 		});
-		/*
-		//Model.joinIn(data.id,data.pw,data.name,data.nick,data.email,data.phone,()=>{});
-        Model.joinIn(form.id, form.pw,'test','poro','','',(res, result)=>{
-            // 결과를 제이슨 형태로 반환한다.
-            return res.json(result);
-        });
-		*/
-        //return res.json({'name':'test'});
-    },
-    getMember : (req, res) => {
-        // 회원 정보 조회 처리 코드
-    },
-    editMember : (req, res) => {
-        // 회원 정보 수정 처리 코드
     },
     postLogin : (req, res) => {
         // 로그인 처리 코드
-        let ret = true;
-        let result = {
-            'success' : Boolean,
-            'id' : String,
-            'nick' : String,
-        }
-        result.success = false;
-        if (true == ret){
-            result.success = true;
-            result.id = "test"
-            result.nick = "test nick";
-        }
+        let data = req.body;
+        let form = {
+            id : data.id,
+            pw : data.pw,
+        };
 
-        return res.json(result);
-        /*
-        Model.login(req.id, req.pw, ()=>{
-            let ret = false;
-            let result = {
-                'success' : Boolean,
-                'id' : String,
-                'nick' : String,
-            }
-            result.success = false;
-            if (true == ret){
-                result.success = true;
-                result.id = "test"
-                result.nick = "test nick";
-            }
-    
-            return res.json(result);
-        })
-        */
-    }
+        // 폼이 전부 채워져 있지 않다면
+		if(!system.form.checkFill(form))
+		{
+			// 모두 초기화 반환
+			form = system.form.init(form);
+			form = system.form.addResult(form,false, "please follow this form");
+			return res.json(form);
+		}
+
+		Model.login(res,form,(res, result)=>{
+			return res.json(result);
+		});
+    },
+    getMember : (req, res) => {
+        // 회원 정보 조회 처리 코드
+        system.debug.print('');
+
+        let data = req.body;
+        let form = {
+        };
+		let result = {};
+
+		// 폼이 전부 채워져 있지 않다면
+		if(!system.form.checkFill(form))
+		{
+			// 모두 초기화 반환
+			form = system.form.init(form);
+			form = system.form.addResult(form,false, "please follow this form");
+			return res.json(form);
+		}
+
+		Model.functoin(res,form,(res, result)=>{
+			return res.json(result);
+		});
+    },
+    editMember : (req, res) => {
+        // 회원 정보 수정 처리 코드
+        system.debug.print('');
+
+        let data = req.body;
+        let form = {
+        };
+		let result = {};
+
+		// 폼이 전부 채워져 있지 않다면
+		if(!system.form.checkFill(form))
+		{
+			// 모두 초기화 반환
+			form = system.form.init(form);
+			form = system.form.addResult(form,false, "please follow this form");
+			return res.json(form);
+		}
+
+		Model.function(res,form,(res, result)=>{
+			return res.json(result);
+		});
+    },
 }
 
 /**

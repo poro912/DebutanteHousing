@@ -19,6 +19,7 @@ const db={
 		TRANSCTION	: "db_transaction",
 		RECORD		: "db_record",
 		IDENTIFICATION	: "db_identification",
+		FUNCTION	: "db_function",
 		//DBHOST		: "localhost",
 		DBHOST		: "182.220.199.210",
 		DBPORT		: 3306,
@@ -29,6 +30,7 @@ const db={
 		transcation		: (conn) => {return db.execQuery(conn, `use ${db.info.TRANSCTION}`)},
 		record			: (conn) => {return db.execQuery(conn, `use ${db.info.RECORD}`)},
 		identification	: (conn) => {return db.execQuery(conn, `use ${db.info.IDENTIFICATION}`)},
+		func	: (conn) => {return db.execQuery(conn, `use ${db.info.FUNCTION}`)},
 	},
 
 	getConnection : async () => {
@@ -49,7 +51,7 @@ const db={
 			console.log(error);
 			return false;
 		}
-		console.log(row);
+		//console.log(row);
 		return row;
 	},
 	checkNodate : (target) =>{

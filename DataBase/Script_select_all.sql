@@ -5,7 +5,7 @@ select * from user;
 select * from user where id = "id1" and pw = "pw1";
 
 
-# * select 
+-- * select 
 USE db_identification;
 select * from seq;
 select * from comment;
