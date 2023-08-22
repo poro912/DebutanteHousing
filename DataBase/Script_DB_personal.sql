@@ -1,6 +1,6 @@
 USE DB_personal;
 
---desc
+-- desc
 desc user;
 
 -- Select

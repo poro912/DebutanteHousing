@@ -10,8 +10,8 @@ data	name
 
 USE db_identification;
 
-insert into seq values( 0, "user", 1);
-insert into seq values( 1, "room", 1);
-insert into seq values( 2, "nft", 1);
-insert into seq values( 3, "item", 1);
-insert into seq values( 4, "transaction", 1);
+insert into seq values( 0, "user", 100);
+insert into seq values( 1, "room", 100);
+insert into seq values( 2, "nft", 100);
+insert into seq values( 3, "item", 100);
+insert into seq values( 4, "transaction", 100);

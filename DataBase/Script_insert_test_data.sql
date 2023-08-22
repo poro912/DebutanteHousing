@@ -49,3 +49,26 @@ INSERT INTO room (code, current_U_code, name, `like`)VALUES
 ( 8, 8, 'jang', 800),
 ( 9, 9, 'jack', 900),
 ( 10, 10, 'ted', 1000);
+
+-- 함수를 이용한 데이터 삽입
+use db_function;
+set sql_safe_updates=0;
+-- 유저 추가
+call user_join('function_test_01','test01','test001','A');
+call user_join('function_test_02','test02','test002','B');
+call user_join('function_test_03','test03','test003','C');
+call user_join('function_test_04','test04','test004','D');
+call user_join('function_test_05','test05','test005','E');
+call user_join('function_test_06','test06','test006','F');
+call user_join('function_test_07','test07','test007','G');
+call user_join('function_test_08','test08','test008','H');
+call user_join('function_test_09','test09','test009','I');
+call user_join('function_test_10','test10','test010','J');
+
+SET @tmp = NULL;
+-- 방 추가
+call create_room('second room', 101, @tmp);
+call create_room('second room', 102, @tmp);
+call create_room('second room', 103, @tmp);
+
+-- 아이템 등록

@@ -90,7 +90,7 @@ const user = {
 		var conn = await db.getConnection();
 		await db.use.personal(conn);
 		temp = await db.execQuery(conn, `SELECT code FROM user WHERE id = "${id}" and pw = "${pw}";`);
-
+		
 		system.debug.print("print temp");
 		system.debug.print(temp[0]);
 		

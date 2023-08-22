@@ -1,3 +1,4 @@
+-- drop db
 drop database db_personal;
 drop database db_transaction;
 drop database db_record;
