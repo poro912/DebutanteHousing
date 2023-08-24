@@ -11,7 +11,7 @@ import state from '../store';
 const RoomGlb = () => {
   const snap = useSnapshot(state);
   //const { nodes, materials } = useGLTF('./jewelbox.glb');
-  const gltf = useLoader(GLTFLoader, './glb/room/room_blue.glb')
+  const gltf = useLoader(GLTFLoader, './glb/room/room_green.glb')
 
 //   const logoTexture = useTexture(snap.logoDecal);
 //   const fullTexture = useTexture(snap.fullDecal);

@@ -9,13 +9,14 @@ import state from '../store'
 import Backdrop from './Backdrop'
 import CameraRig from './CameraRig'
 import Glb from './Glb'
+import Glb1 from './Glb1'
 import RoomGlb from './RoomGlb'
 import Test from './Test'
 
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
-  const url = state.morden
+  const url = state.green
   const [glburl, setGlburl] = useState("")
   useEffect(() => {
     const fetchData = async () => {
@@ -34,31 +35,34 @@ const CanvasModel = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [16,9,16], fov:2 }}
+      camera={{ position: [16,12,16], fov:1.7 }}
       
       className=''
+      onContextMenu={(event) => {
+        event.preventDefault();
+      }}
     >
-      {state.intro === true ? <OrbitControls /> : <></>}
       
-      <ambientLight intensity={1} />
-      <pointLight position={[0, 10, 10]} intensity={1.2} />
-      <Environment preset='warehouse' />
+      
+      <ambientLight intensity={0.5} />
+      <spotLight position={[0, 50, 50]} intensity={1} penumbra={1} castShadow />
+      <Environment preset="warehouse" />
 
       {/* <CameraRig> */}
-        <Backdrop />
-        {state.intro === true ? <OrbitControls /> : <group scale={[0.04, 0.04, 0.04]}><gridHelper args={[10, 10]} position={[0, -5, 0]} /></group>}
+        
+        {state.intro === true ? <OrbitControls enablePan={false}/> : <></>}
           
-        <OrbitControls />
+        
          
           <RoomGlb />
-          <Glb url={glburl} pos={[0,-0.2,0] }/>
-          {/* {
+          {/* <Glb url={"/glb/closet1/closet1_lightgreen.glb"} pos={[0,-0.2,0] }/> */}
+          {
             url.map((url, index) => {
               console.log(url[0])
-              return <Glb key={index} url={url[0]} pos={url[1]}/>
+              return <Glb1 key={index} url={url[0]} initialPos={url[1]} initialRot={[0,0,0]}/>
               
             })
-          }  */}
+          } 
           {/* <Test /> */}
         
       {/* </CameraRig> */}
