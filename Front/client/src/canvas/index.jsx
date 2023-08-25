@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {Canvas} from '@react-three/fiber'
-import {Environment, Center, OrbitControls} from '@react-three/drei'
+import {Environment, Center, OrbitControls, PerspectiveCamera} from '@react-three/drei'
 import { useGLTF } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
+import { useDispatch, useSelector } from 'react-redux';
+import { addFurniture, updateFurniture, removeFurniture } from '../Redux/furnitureSlice';
 import state from '../store'
 
 
@@ -17,7 +19,11 @@ import Test from './Test'
 const CanvasModel = () => {
   const snap = useSnapshot(state);
   const url = state.green
-  const [glburl, setGlburl] = useState("")
+
+  const dispatch = useDispatch();
+  const furnitureList = useSelector(state => state.furniture.furnitureList);
+
+  const [glburl, setGlburl] = useState("") //링크로 불러오기 성공
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,13 +35,16 @@ const CanvasModel = () => {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
   }, []);
+//링크
+  
+
   return (
+    
     <Canvas
       shadows
-      camera={{ position: [16,12,16], fov:1.7 }}
+      camera={{ position: [16, 10, 16], fov:1.7 } }
       
       className=''
       onContextMenu={(event) => {
@@ -51,18 +60,25 @@ const CanvasModel = () => {
       {/* <CameraRig> */}
         
         {state.intro === true ? <OrbitControls enablePan={false}/> : <></>}
+        
           
         
          
           <RoomGlb />
-          {/* <Glb url={"/glb/closet1/closet1_lightgreen.glb"} pos={[0,-0.2,0] }/> */}
+          {/* <Glb url={urls[0]} pos={[0,-0.2,0] }/> */}
+
           {
+            furnitureList.map((furnitur) =>{
+              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} />
+            })
+          }
+          {/* {
             url.map((url, index) => {
               console.log(url[0])
               return <Glb1 key={index} url={url[0]} initialPos={url[1]} initialRot={[0,0,0]}/>
               
             })
-          } 
+          }  */}
           {/* <Test /> */}
         
       {/* </CameraRig> */}

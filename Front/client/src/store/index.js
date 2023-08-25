@@ -7,7 +7,7 @@ const state = proxy({
     isFullTexture : false,
     logoDecal : './threejs.png',
     fullDecal : './DuckCM.png',
-    green : [['/glb/chair/chair1_green.glb',[-0.1,-0.2,-0.]],['/glb/drawer/drawer_lightgreen.glb', [-0.12,-0.2,-0.14]],
+    green : [['/glb/chair/chair1_green.glb',[-0.1,-0.2,-0]],['/glb/drawer/drawer_lightgreen.glb', [-0.12,-0.2,-0.14]],
             ['/glb/table/table_lightgreen.glb',[0.16,-0.2,-0.14]], ['/glb/closet1/closet1_lightgreen.glb',[0.01,-0.2,-0.14]],
             ['/glb/closet2/closet2_lightgreen.glb',[-0.16,-0.2,-0.16]]],
     pink : [['/glb/chair/chair1_pink.glb',[0.12,-0.2,-0.14]],['/glb/drawer/drawer_pink.glb', [-0.12,-0.2,-0.14]],

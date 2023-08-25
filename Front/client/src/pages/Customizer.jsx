@@ -1,96 +1,42 @@
-import React, {useState, useEffect} from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { useSnapshot } from 'valtio';
-
-import config from '../config/config';
+import React, { useState, useEffect } from 'react';
 import state from '../store';
-import { download } from '../assets';
-import { downloadCanvasToImage, reader } from '../config/helpers';
-import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
-import { fadeAnimation,slideAnimation } from '../config/motion';
-import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../components';
+import { useSnapshot } from 'valtio'
 
-import styles from "./Home.module.css"
+import styles from "./Customizer.module.css"
 
 
 const Customizer = () => {
   const snap = useSnapshot(state);
-
-  const [file, setFile] = useState('');
-
-  const [prompt, setPrompt] = useState("")
-  const [generatingImg, setGeneratingImg] = useState('');
-  
-  const [activeEditorTab, setActiveEditorTab] = useState('')
-  const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt : true,
-    stylishShirt : false,
-  })
-
-  const generateTabContent = () => {
-    switch (activeEditorTab) {
-      case "colorpicker" :
-        return <ColorPicker />
-      case "filepicker" :
-        return <FilePicker />
-      case "aipicker" :
-        return <AIpicker />
-      default :
-        return null;
-    }
-  }
+  const [index, setIndex] = useState(snap.intro)
+  useEffect(() => {
+    setIndex(snap.intro ? -1 : 1)
+  },[])
 
   return (
-    <AnimatePresence>
-      {!snap.intro && (
-        <>
-          <motion.div 
-            key={"custom"}
-            className='absolute top-0 left-0 z-10'
-            {...slideAnimation("left")}>
-              <div className='flex items-center min-h-screen'>
-                <div className='editortabs-container tabs'>
-                  {EditorTabs.map((tab) => (
-                    <Tab
-                      key={tab.name}
-                      tab={tab}
-                      handleClick={() => setActiveEditorTab(tab.name)} /> 
-                  ))}
-                  {generateTabContent()}
-                </div>
-              </div>
-          </motion.div>
+    <>
+   
+    {snap.intro ?
+    <div className={styles.customizerContainer} style={{ zIndex: -1 }}>
+    </div>
+    : <div className={styles.customizerContainer} style={{ zIndex: 1 }}>
+      <div className={styles.buttonContainer }>
+        <div className={styles.backBtn} onClick={() => state.intro = true} >뒤로가기 버튼</div>
+        <div className={styles.saveBtn}>저장 버튼</div>
+      </div>
+      <div className={styles.fuListContainer}>
+        <div className={styles.furniture}><img src='./img/furniture/chair.png'/></div>
+        <div className={styles.furniture}><img src='./img/furniture/closet.png'/></div>
+        <div className={styles.furniture}><img src='./img/furniture/closet.png'/></div>
+        <div className={styles.furniture}><img src='./img/furniture/closet.png'/></div>
+        <div className={styles.furniture}><img src='./img/furniture/closet.png'/></div>
+        <div className={styles.furniture}><img src='./img/furniture/closet.png'/></div>
+        
+      </div>
+      
+      </div>}
+    
 
-          <motion.div
-            className='absolute z-10 top-5 right-5'
-            {...fadeAnimation} 
-          >
-            <img
-              src = ".\img\back.png"
-              onClick={() => state.intro = true}
-              className = {styles.backImg}
-            >
-            </img>
-          </motion.div>
-
-          {/* <motion.div
-            className='filtertabs-container'
-            {...slideAnimation('up')}
-          >
-            {FilterTabs.map((tab) => (
-              <Tab
-                key={tab.name}
-                tab={tab}
-                isFilterTab
-                isActiveTab=""
-                handleClick={() => {}} /> 
-            ))}
-
-          </motion.div> */}
-
-        </>
-      )}
-    </AnimatePresence>
+   </>
   )
 }
 
