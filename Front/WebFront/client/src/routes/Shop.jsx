@@ -40,8 +40,14 @@ function Shop() {
         </div>
         <FurnitureCom />
       </div>
-      <img className={styles.Fbg} alt="Fbg" src="./img/Fbg2.png" />
-      <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+      
+  
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      <div className={styles.box}></div>
+      <h1 className={styles.Shop}>Shop</h1>
+      <hr className={styles.hrr} />
+      <img className={styles.upheart} alt="upheart" src="./img/upheart.gif" />
+      <img className={styles.upheart2} alt="upheart" src="./img/upheart.gif" />
     </div>
   );
             }

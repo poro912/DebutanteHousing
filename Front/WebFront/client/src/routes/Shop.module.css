@@ -1,46 +1,60 @@
 
 
 .searchbar{
-    position: fixed;
-    top: 13vh;
-    left: 38vw;
-    width: 20vw;
-    height: 4vh;
-    font-family: 'Dancing Script';
-    border-radius: 0px;
-    outline: 2px rgb(126, 104, 104) solid;
-    background-color: transparent;
-    text-align: center;
+  position: fixed;
+  padding:0;
+  margin: 0;
+  border: 0;
+  width: 19vw;
+  height: 5vh;
+  top: 15.5vh;
+  left: 41vw;
+  z-index: 6;
+  font-size: 40px;
+  text-align:center;
+  font-family: 'Dancing Script';
+  background-color: transparent;
+  
+  
+}
+.box {
+  position: fixed;
+  top: 12vh; /* 원하는 수치로 조정 */
+  left: 105vh;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: 85vh;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: rgb(255, 244, 246);
+  border-radius: 10px; /* 둥근 테두리 */
+  box-shadow: 5px 5px 10px rgb(196, 179, 182),
+              -5px -5px 10px rgb(196, 179, 182),
+              0px 0px 3px rgb(226, 208, 211),
+              -0px -0px 3px rgb(226, 208, 211);
+  z-index:-1;
+  overflow-y: scroll;
+  padding: 20px; /* 내용의 위아래 여백 추가 */
+
+
 }
 
-.searchbar:hover{
-  outline: 2px rgb(41, 8, 8) solid;
-}
-.searchbar:focus{
-  outline: 3px rgb(83, 65, 65) solid;
+::-webkit-scrollbar { width: 1vw; } /* 스크롤 바 */
+::-webkit-scrollbar-track { background-color:#ffffff; } /* 스크롤 바 밑의 배경 */
+::-webkit-scrollbar-thumb { background: #ffffff; } /* 실질적 스크롤 바 */
+
+
+.Mag{
+  position: fixed;
+  top: 16.8vh;
+  left: 82vh;
+  height: 3vh;
+  color:rgb(228, 30, 83);
 }
 
-.search{
-    font-family: 'BookkMyungjo-Bd'
-}
 
-.Fbg{
-position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-}
 
-.dui{
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 10vw;
-    height: 30vh;
-}
 .flexContainer {
     display: flex;
     flex-direction: row; /* 가로로 배치 */
@@ -77,9 +91,54 @@ position: fixed;
 
 .backarrow {
   position: fixed;
-  top: 3vh;
+  top: 2vh;
   left: 4vh;
   font-size: 2.5rem;
   transform: rotate(180deg);
   color:#302b26;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.Shop{
+  font-size: 3.5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 1vh;
+    left: 95vh;
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color:rgb(255, 198, 213);
+    text-shadow: 3px 3px 3px rgb(161, 123, 133),
+                3px 3px 2px rgb(255, 255, 255);
+    
+    
+}
+
+.hrr {
+  position: fixed;
+  width: 23vw;
+  height: 5vh;
+  top: 21vh;
+  left: 39vw;
+  z-index: 4;
+  border-top : 4px solid rgb(92, 81, 84);
+  
+  
+}
+
+.upheart{
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  left: 0vh;
+  top: 0vh;
+  z-index: -2;
+}
+.upheart2{
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  left: 110vh;
+  top: 0vh;
+  z-index: -2;
 }

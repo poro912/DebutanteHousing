@@ -6,9 +6,10 @@ class FurnitureCom extends Component {
     render() {
       return (
         <div className={styles.duiContainer}>
-          <img className={styles.dui} alt="dui" src="./img/dui.png" />
+          <div className={styles.sbox} />
           <img className={`${styles.fu} ${styles.fuImage}`} alt="fu" src="./img/fu.png" />
-          <div className={styles.text}>문</div>
+          <div className={styles.text}>Whtie Door</div>
+          <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
         </div>
       );
     }

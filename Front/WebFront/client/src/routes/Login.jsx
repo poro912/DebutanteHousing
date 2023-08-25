@@ -32,7 +32,7 @@ function Login() {
     
     <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
   <img className={styles.ui} alt="ui" src="./img/ui.png" />
-  <img className={styles.Fbg} alt="Fbg2" src="./img/Fbg2.png" />
+
   <audio src= "./img/bgm.mp3"
         autoPlay={true}>
       </audio>

@@ -38,15 +38,19 @@ function Friends() {
       </ul>
      </div>
      </div>
-      <hr />
+      <hr className={styles.hrr} />
       
       <FriendsCom />
-      
-      <img className={styles.Fbg} alt="Fbg" src="./img/Fbg2.png" />
+      <h1 className={styles.fr}>Friends List</h1>
+     
       <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
       <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
-      <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
       <div className={styles.box}></div> {/* 흰색 불투명한 박스 */}
+      <img className={styles.star} alt="star" src="./img/star.gif" />
+      <img className={styles.upstar} alt="downstar" src="./img/upstar.gif" />
+      <img className={styles.upstarr} alt="downstarr" src="./img/upstar.gif" />
+      <img className={styles.upstarrr} alt="downstarrr" src="./img/upstar.gif" />
+      <img className={styles.upstarrrr} alt="downstarrrr" src="./img/upstar.gif" />
 
   </div>;
 }
