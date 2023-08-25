@@ -171,7 +171,9 @@ const user = {
 		}
 		return result;
 	},
+	getAllUserInfo : async () => {
 
+	},
 	setEmail : async(code, email) =>{
 		var conn = await db.getConnection();
 		await db.use.personal(conn);
@@ -186,5 +188,6 @@ const user = {
 			`update user set phone = "${phone}" where code = "${code}";`
 		);
 	},
+	
 }
 exports.module = user;

@@ -28,17 +28,15 @@ const user ={
 			code : Number,
 			id : String,
 			nick : String,
+			wallet : Number,
 		};
 
-		system.debug.print("DHM.join");
+		system.debug.print("model user.join");
 		system.debug.print("attempt join");
 		system.debug.print("회원가입 시도");
 		system.debug.print();
-
 		
 		ret = await db_user.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
-		
-		//if(-1 == ret.code || false == ret.result ) return false;
 		
 		if("function" === typeof callback){
 			callback(res, ret);
@@ -58,14 +56,16 @@ const user ={
 	* @todo	작업 전
 	*/
 	login : async(res, form, callback) => {
-		let result = {
+		let ret = {
 			result: Boolean,
 			code : Number,
+			id : String,
 			nick : String,
-			profile : String
+			profile : String,
+			wallet : Number,
 		};
 
-		system.debug.print("DHM.login");
+		system.debug.print("model user.login");
 		system.debug.print("attempt login");
 		system.debug.print();
 
@@ -79,27 +79,52 @@ const user ={
 		else{
 			return ret;
 		}
-		/*
-		// dummy
-		result.code = temp["code"];
-		result.nick = temp["nick"];
-		system.debug.print("DHM login result : ", result);
-
-		if("function" === typeof callback){
-			callback(result);
-		}
-		
-		return result;
-		*/
 	},
 
 	
-
-
 	logout : () => {
-		system.debug.print("DHM.logout");
+		system.debug.print("model user.logout");
 		system.debug.print("attempt logout");
 		system.debug.print();
+	},
+
+
+	getUser : async(res, form, callback) =>{
+		let ret = {
+			result : Boolean,
+			count : Number,
+			users : [
+				{
+					code : Number,
+					id : String,
+					nick : String,
+					profile : String,
+					wallet : Number,
+				}
+			],
+		}
+
+		system.debug.print("model user.getUser");
+		system.debug.print("attempt get userInfo");
+		system.debug.print();
+
+		ret = await db_user.login(form.id, form.pw);
+		if(form.user !== undefined || form.user != 0 || form.user != -1)		{
+			db_user.getInfo(form.id, form.pw);
+			ret.count = 1;
+		}
+		else{
+			db_user.getAllUserInfo();
+			ret.count = 10;
+		}
+		
+		
+		if("function" === typeof callback){
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
 	},
 }
 exports.module = user;
