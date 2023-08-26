@@ -23,19 +23,74 @@
   
   .backBtn {
     margin: 0;
+    width : 50px
   }
   
   .saveBtn {
     margin: 0;
   }
   
-  .fuListContainer{
-    background-color: antiquewhite;
-    padding: 1%;
-    margin-top: 1%;
-  }
 
-  .furniture {
-    width: 200px;
-    height: 200px;
-  }
+
+.fuListContainer {
+  /* Your existing styles for the furniture list container */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.furnitureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two items in each row */
+  grid-gap: 0px; /* Gap between items */
+  justify-items: center;
+  max-width: 400px; /* Set a maximum width for the grid */
+  margin: 0 auto; /* Center the grid horizontally */
+  height: 80vh; /* Set a fixed height for the grid */
+}
+
+.furniture {
+  /* Your existing styles for each furniture item */
+  width: 100%; /* Adjust the width to fill the grid cell */
+  text-align: center;
+}
+
+
+#furnitureGridMargin{
+  margin-top: 10vh;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.pagination button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.pageIndicator {
+  display: flex;
+  align-items: center;
+}
+
+.pageIndicator span {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.currentPage {
+  background-color: #007bff;
+  color: #fff;
+}

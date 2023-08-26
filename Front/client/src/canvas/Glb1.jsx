@@ -56,6 +56,8 @@ const Glb = ({ url, initialPos, initialRot }) => {
   return (
     <group>
       <mesh
+        castShadow  // 이 메쉬가 그림자를 만들어낸다고 지정
+        receiveShadow  // 이 메쉬가 그림자를 받아들인다고 지정
         onPointerDown={(e) => {
           e.stopPropagation();
           if (e.buttons === 1) {
@@ -72,7 +74,7 @@ const Glb = ({ url, initialPos, initialRot }) => {
           setIsRotating(false)
         }}
       >
-        {/* 모델의 위치와 회전값을 적용 */}
+
         <primitive object={gltf.scene} position={modelPosition} rotation={modelRotation} />
       </mesh>
     </group>

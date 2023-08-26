@@ -8,17 +8,16 @@ import { addFurniture, updateFurniture, removeFurniture } from '../Redux/furnitu
 import state from '../store'
 
 
-import Backdrop from './Backdrop'
-import CameraRig from './CameraRig'
-import Glb from './Glb'
+
+
 import Glb1 from './Glb1'
 import RoomGlb from './RoomGlb'
-import Test from './Test'
+
 
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
-  const url = state.green
+  //const url = state.green
 
   const dispatch = useDispatch();
   const furnitureList = useSelector(state => state.furniture.furnitureList);
@@ -51,10 +50,10 @@ const CanvasModel = () => {
         event.preventDefault();
       }}
     >
+
       
       
-      <ambientLight intensity={0.5} />
-      <spotLight position={[0, 50, 50]} intensity={1} penumbra={1} castShadow />
+      
       <Environment preset="warehouse" />
 
       {/* <CameraRig> */}
@@ -64,12 +63,12 @@ const CanvasModel = () => {
           
         
          
-          <RoomGlb />
+          <RoomGlb receiveShadow />
           {/* <Glb url={urls[0]} pos={[0,-0.2,0] }/> */}
 
           {
             furnitureList.map((furnitur) =>{
-              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} />
+              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
             })
           }
           {/* {
