@@ -20,6 +20,7 @@ const db={
 		RECORD		: "db_record",
 		IDENTIFICATION	: "db_identification",
 		FUNCTION	: "db_function",
+		VIEW		: "db_views",
 		//DBHOST		: "localhost",
 		DBHOST		: "182.220.199.210",
 		DBPORT		: 3306,
@@ -30,6 +31,7 @@ const db={
 		transcation		: (conn) => {return db.execQuery(conn, `use ${db.info.TRANSCTION}`)},
 		record			: (conn) => {return db.execQuery(conn, `use ${db.info.RECORD}`)},
 		identification	: (conn) => {return db.execQuery(conn, `use ${db.info.IDENTIFICATION}`)},
+		view	: (conn) => {return db.execQuery(conn, `use ${db.info.VIEW}`)},
 		func	: (conn) => {return db.execQuery(conn, `use ${db.info.FUNCTION}`)},
 	},
 

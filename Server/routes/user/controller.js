@@ -80,7 +80,7 @@ const Controller = {
 			return res.json(form);
 		}
 
-		Model.functoin(res,form,(res, result)=>{
+		Model.getUser(res,form,(res, result)=>{
 			return res.json(result);
 		});
     },

@@ -108,16 +108,31 @@ const user ={
 		system.debug.print("attempt get userInfo");
 		system.debug.print();
 
-		ret = await db_user.login(form.id, form.pw);
-		if(form.user !== undefined || form.user != 0 || form.user != -1)		{
-			db_user.getInfo(form.id, form.pw);
-			ret.count = 1;
+		// 전체 데이터 탐색
+		if(form.usercode === undefined || form.usercode <= 0)		{
+			let temp = await db_user.getAllUserInfo();
+			
+			if(temp.result){
+				ret.result = temp.result;
+				ret.count = 10;
+				ret.users = temp.users;
+			}
+			else{
+				system.form.addResult(form,false,"error, data not found");
+			}
 		}
+		// 특정 유저 데이터 탐색
 		else{
-			db_user.getAllUserInfo();
-			ret.count = 10;
+			let temp = await db_user.getInfo(form.usercode);
+			if(temp.result){
+				ret.result = temp.result;
+				ret.count = 10;
+				ret.users = temp.users;
+			}
+			else{
+				system.form.addResult(form,false,"error, data not found");
+			}
 		}
-		
 		
 		if("function" === typeof callback){
 			callback(res, ret);

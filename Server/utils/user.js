@@ -148,15 +148,20 @@ const user = {
 		
 		system.debug.print("getInfo");
 		system.debug.print("usercode : ", code);
-
+		/*
 		var conn = await db.getConnection();
 		await db.use.current(conn);
 		temp = await db.execQuery(conn, `select * from user where code = "${code}"`);
+*/
+		var conn = await db.getConnection();
+		await db.use.view(conn);
+		temp = await db.execQuery(conn, `select * from room_view where user_code = "${code}"`);
 
+		system.debug.print(temp[0]);
 
 		// 조회 결과 값 없음
 		if (db.checkNodate(temp) || code <= 0) {
-			system.debug.printError(user.info.FILE + " login()", "sql no data")
+			system.debug.printError(user.info.FILE + " getInfo()", "sql no data")
 			// set error data
 			result.result = false;
 			result.code = -1;
@@ -165,13 +170,43 @@ const user = {
 		}
 		else{
 			result.result = true;
-			result.code = code;
-			result.nick = await user.getNick(result.code);
-			result.room = -1;
+			result.users = temp[0];
 		}
 		return result;
 	},
 	getAllUserInfo : async () => {
+		var result = {
+			result : Boolean,
+			users : [],
+			code : Number,
+			nick : String,
+			room : Number,
+		};
+		system.debug.print("getAllInfo");
+
+		var conn = await db.getConnection();
+		await db.use.view(conn);
+		temp = await db.execQuery(conn, `select * from room_view`);
+
+		system.debug.print(temp);
+
+		for (const item of temp) {
+			console.log(item);
+		}
+
+		if (db.checkNodate(temp)) {
+			system.debug.printError(user.info.FILE + " login()", "sql no data")
+			// set error data
+			//result.result = false;
+			//result.code = -1;
+			//result.nick = "";
+			//result.room = -1;
+		}
+		else{
+			result.result = true;
+			result.users = temp;
+		}
+		return result;
 
 	},
 	setEmail : async(code, email) =>{
