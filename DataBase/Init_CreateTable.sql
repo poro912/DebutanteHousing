@@ -58,26 +58,26 @@ CREATE TABLE user (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE wallet (
-  U_code		INT				NOT NULL,
+  u_code		INT				NOT NULL,
   balance		BIGINT			NOT NULL,
-  
-  PRIMARY KEY (U_code),
-  FOREIGN KEY (U_code)			REFERENCES user (code)
+  code			INT				NOT NULL,
+  PRIMARY KEY (u_code),
+  FOREIGN KEY (u_code)			REFERENCES user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE room (
   code			INT				NOT NULL ,
-  current_U_code	INT			NOT NULL,
+  current_u_code	INT			NOT NULL,
   name			VARCHAR(50)		NOT NULL,
   `like`		INT				NOT NULL,
   
   PRIMARY KEY (code),
-  FOREIGN KEY (current_U_code)	REFERENCES DB_current.user (code)
+  FOREIGN KEY (current_u_code)	REFERENCES DB_current.user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE NFT (
   code			BIGINT			NOT NULL,
-  U_code		VARCHAR(20)		NOT NULL,
+  u_code		VARCHAR(20)		NOT NULL,
   name			VARCHAR(20)		NOT NULL,
   copy_count	INT				NOT NULL,
   path			VARCHAR(50)		NOT NULL,
@@ -88,22 +88,22 @@ CREATE TABLE NFT (
 
 CREATE TABLE ITEM (
   code			BIGINT			NOT NULL,
-  N_code		BIGINT			NOT NULL,
+  n_code		BIGINT			NOT NULL,
   currnt_U_code	INT				NOT NULL,
   
   PRIMARY KEY (code),
-  FOREIGN KEY (N_code)			REFERENCES NFT(code)
+  FOREIGN KEY (n_code)			REFERENCES NFT(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE ROOM_ITEM (
-  R_code		INT				NOT NULL,
-  I_code		BIGINT			NOT NULL,
+  r_code		INT				NOT NULL,
+  i_code		BIGINT			NOT NULL,
   position		SMALLINT		NOT NULL,
   rotate		SMALLINT		NOT NULL,
   
-  PRIMARY KEY (R_code, I_code),
-  FOREIGN KEY (R_code)			REFERENCES room(code),
-  FOREIGN KEY (I_code)			REFERENCES item(code)
+  PRIMARY KEY (r_code, i_code),
+  FOREIGN KEY (r_code)			REFERENCES room(code),
+  FOREIGN KEY (i_code)			REFERENCES item(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE friend (

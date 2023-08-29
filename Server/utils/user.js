@@ -40,9 +40,7 @@ const user = {
 		var temp;
 
 		await db.use.func(conn);
-		temp = await db.execQuery(conn,
-			`call user_join("${id}","${pw}","${name}","${nick}");`
-		);
+		temp = await db.execQuery(conn,`call user_join("${id}","${pw}","${name}","${nick}");`);
 		system.debug.print(temp);
 
 		if(false === temp) {
@@ -56,14 +54,19 @@ const user = {
 			temp = await db.execQuery(conn,
 				`select code from user where id = "${id}";`
 			);
+			var code = temp[0].code;
+			
 			system.debug.print(temp);
 			result.result = true;
 			result.code = temp[0].code;
 			result.id = id;
 			result.nick = nick;
 
-			user.setEmail(result.code,email);
-			user.setPhone(result.code,phone);
+			user.setEmail(code,email);
+			user.setPhone(code,phone);
+
+			temp = user.getInfo(temp[0].code);
+			result.user = temp.users;
 		}
 		system.debug.print(result);
 		return result;

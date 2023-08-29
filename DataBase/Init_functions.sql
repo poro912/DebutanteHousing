@@ -145,7 +145,7 @@ BEGIN
   INSERT INTO db_current.user (code, id, nick) VALUES (v_user_seq, v_id, v_nick);
 
   -- wallet 테이블
-  INSERT INTO db_current.wallet (U_code, balance) VALUES (v_user_seq, 0);
+  CALL create_wallet(v_user_seq, v_user_seq);
 
   -- room 테이블 (create_room 함수를 이용해 생성한다.)
   CALL create_room(CONCAT(v_nick,"'s room"), v_user_seq, v_room_seq);
@@ -157,7 +157,44 @@ END $$
 DELIMITER ;
 
 -- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 지갑 등록
+DROP PROCEDURE IF EXISTS create_wallet
+DELIMITER $$
+
+CREATE PROCEDURE create_wallet (
+  IN v_u_code INT,
+  IN v_w_code INT,
+)
+BEGIN
+  
+  -- db_personal의 user 테이블에 유저가 입력한 정보를 등록한다.
+  INSERT INTO db_current.wallet (u_code, balance, code) VALUES (v_u_code, 100, v_w_code);
+
+END $$
+
+DELIMITER ;
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 -- 댓글 등록
+DROP PROCEDURE IF EXISTS comment_register;
+DELIMITER $$
+CREATE PROCEDURE comment_register (
+  IN v_r_code VARCHAR(255),
+  IN v_comment_text VARCHAR(255),
+  OUT v_result INT
+)
+BEGIN
+  DECLARE v_seq INT;
+
+  
+END $$
+DELIMITER ;
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- NFT 등록
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 아이템 등록
 DROP PROCEDURE IF EXISTS comment_register;
 DELIMITER $$
 CREATE PROCEDURE comment_register (
@@ -179,6 +216,8 @@ BEGIN
 END $$
 DELIMITER ;
 
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 아이템 배치
 
 
 
