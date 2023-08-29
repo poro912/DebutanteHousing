@@ -1,10 +1,12 @@
-rem 환경을 설정하는 스크립트를 통합한 파일
+rem 환경을 재설치하는 스크립트
 rem 수정 일자 : 2023-06-28
 
 @echo off
-
-rem 비밀번호 입력
 set /p MYSQL_PASSWORD=Enter MySQL Password: 
+
+
+rem DB 삭제
+mysql -h localhost -u root -p%MYSQL_PASSWORD% < Init_DropDB.sql
 
 rem DB 생성
 mysql -h localhost -u root -p%MYSQL_PASSWORD% < Init_CreateDB.sql
@@ -26,4 +28,3 @@ mysql -h localhost -u root -p%MYSQL_PASSWORD% < Init_InsertBaseData.sql
 
 rem 임시데이터 삽입
 mysql -h localhost -u root -p%MYSQL_PASSWORD% < Script_InsertTestData.sql
-

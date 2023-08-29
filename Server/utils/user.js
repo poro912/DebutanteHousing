@@ -148,11 +148,7 @@ const user = {
 		
 		system.debug.print("getInfo");
 		system.debug.print("usercode : ", code);
-		/*
-		var conn = await db.getConnection();
-		await db.use.current(conn);
-		temp = await db.execQuery(conn, `select * from user where code = "${code}"`);
-*/
+
 		var conn = await db.getConnection();
 		await db.use.view(conn);
 		temp = await db.execQuery(conn, `select * from room_view where user_code = "${code}"`);
@@ -197,10 +193,8 @@ const user = {
 		if (db.checkNodate(temp)) {
 			system.debug.printError(user.info.FILE + " login()", "sql no data")
 			// set error data
-			//result.result = false;
-			//result.code = -1;
-			//result.nick = "";
-			//result.room = -1;
+			result.result = false;
+			result.code = -1;
 		}
 		else{
 			result.result = true;
