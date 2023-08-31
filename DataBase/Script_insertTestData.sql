@@ -25,17 +25,17 @@ INSERT INTO user (code, id, nick, profile_path) VALUES
 (10, 'id10', 'nick10', NULL);
 
 USE DB_current;
-INSERT INTO wallet (u_code, balance) VALUES
-(1, 50000),
-(2, 200),
-(3, 3000),
-(4, 44),
-(5, 555),
-(6, 666),
-(7, 777),
-(8, 888),
-(9, 999),
-(10, 1000);
+INSERT INTO wallet (u_code, balance, code) VALUES
+(1, 50000, 1),
+(2, 200, 2),
+(3, 3000, 3),
+(4, 44, 4),
+(5, 555, 5),
+(6, 666, 6),
+(7, 777, 7),
+(8, 888, 8),
+(9, 999, 9),
+(10, 1000, 10);
 
 USE DB_current;
 INSERT INTO room (code, current_U_code, name, `like`)VALUES 
@@ -71,4 +71,40 @@ call create_room('second room', 101, @tmp);
 call create_room('second room', 102, @tmp);
 call create_room('second room', 103, @tmp);
 
+
+-- NFT 등록
+use db_current;
+INSERT INTO NFT (code, u_code, name)VALUES 
+(1, 1, '원목 책상'),
+(2, 1, '원목 의자'),
+(3, 1, '원목 옷장'),
+(4, 1, '촛대'),
+(5, 1, '현대식 초록 의자'),
+(6, 1, '현대식 회색 의자'),
+(7, 1, '현대식 파란색 의자'),
+(8, 1, '현대식 초록 옷장'),
+(9, 1, '현대식 회색 옷장'),
+(10, 1, '현대식 파란색 옷장');
+
 -- 아이템 등록
+-- user, nft, count
+use db_function;
+call supply_item(1, 1, 5);
+call supply_item(1, 1, 1);
+call supply_item(1, 2, 1);
+call supply_item(1, 3, 1);
+call supply_item(1, 4, 1);
+
+-- 아이템 배치
+use db_current
+insert room_item (r_code, i_code, position, rotate) values
+(1,106,120206,1),
+(1,107,010206,0),
+(1,108,051004,1),
+(1,109,160201,0);
+
+
+
+-- select * from db_current.room;
+-- select * from db_current.item;
+-- select * from db_current.room_item;

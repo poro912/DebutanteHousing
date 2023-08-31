@@ -17,7 +17,7 @@ const etcRouter = require('./etc/controller')
 exports.route = (app)=>{
     app.use('/user',      userRouter);
     //app.use('/friend',    friendRouter);
-    //app.use('/room',      roomRouter);
+    app.use('/room',      roomRouter);
     //app.use('/store',     storeRouter);
     //app.use('/nft',       nftRouter);
     //app.use('/item',      itemRouter);

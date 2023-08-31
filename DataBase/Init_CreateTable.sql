@@ -69,7 +69,7 @@ CREATE TABLE room (
   code			INT				NOT NULL ,
   current_u_code	INT			NOT NULL,
   name			VARCHAR(50)		NOT NULL,
-  `like`		INT				NOT NULL,
+  `like`		INT				NOT NULL DEFAULT 0,
   
   PRIMARY KEY (code),
   FOREIGN KEY (current_u_code)	REFERENCES DB_current.user (code)
@@ -79,9 +79,9 @@ CREATE TABLE NFT (
   code			BIGINT			NOT NULL,
   u_code		VARCHAR(20)		NOT NULL,
   name			VARCHAR(20)		NOT NULL,
-  copy_count	INT				NOT NULL,
-  path			VARCHAR(50)		NOT NULL,
-  sha			VARCHAR(64)		NOT NULL,
+  copy_count	INT				NOT NULL DEFAULT 0,
+  path			VARCHAR(50),
+  sha			VARCHAR(64),
   
   PRIMARY KEY (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -89,7 +89,7 @@ CREATE TABLE NFT (
 CREATE TABLE ITEM (
   code			BIGINT			NOT NULL,
   n_code		BIGINT			NOT NULL,
-  currnt_U_code	INT				NOT NULL,
+  current_u_code	INT			NOT NULL,
   
   PRIMARY KEY (code),
   FOREIGN KEY (n_code)			REFERENCES NFT(code)
@@ -98,8 +98,8 @@ CREATE TABLE ITEM (
 CREATE TABLE ROOM_ITEM (
   r_code		INT				NOT NULL,
   i_code		BIGINT			NOT NULL,
-  position		SMALLINT		NOT NULL,
-  rotate		SMALLINT		NOT NULL,
+  position		INT				NOT NULL DEFAULT 0,
+  rotate		SMALLINT		NOT NULL DEFAULT 0,
   
   PRIMARY KEY (r_code, i_code),
   FOREIGN KEY (r_code)			REFERENCES room(code),
