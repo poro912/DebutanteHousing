@@ -35,12 +35,13 @@ const Controller = {
 	},
     
 	postItemReplace: (req, res) => {
-		// 방 정보 획득 코드
+		// 아이템 위치 공간 전부 수정
         system.debug.print('postItemReplace');
 
         let data = req.body;
         let form = {
             code : data.code,
+			room_data : data.room_data,
         };
 
         system.debug.print('id : ', data.code);

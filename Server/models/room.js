@@ -48,7 +48,29 @@ const room ={
 		else{
 			return ret;
 		}
-	}
+	},
+
+	replaceItems : async(res, form, callback) => {
+		let ret = {
+			result: Boolean,
+			code : Number,
+			nick : String,
+			profile : String,
+		};
+
+		system.debug.print("model room.replaceItems");
+		system.debug.print("attempt replace item");
+		system.debug.print();
+
+		ret = await db_user.login(form.room_code, form.items);
+
+		if("function" === typeof callback){
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
+	},
 }
 
 exports.module = room;

@@ -28,15 +28,13 @@ const room = {
 			user_nick : String,
 			profile : String,
 			room_name : String,
-			room_data : [],
+			items : [],
 		};
 		system.debug.print("getRoomInfo function");
 
 		var temp;
 		var conn = await db.getConnection();
-		var user_temp, room_temp;
-
-		system.debug.print("getconn");
+		var user_temp, items_temp;
 
 		//user_nick, profile, room_name
 		await db.use.view(conn);
@@ -44,11 +42,9 @@ const room = {
 		
 		system.debug.print(user_temp[0]);
 
-		//room_data
-		room_temp = await db.execQuery(conn, `select item_code, nft_code, item_name, item_path, position, rotate from room_item_nft_view where room_code = "${code}";`);
-		room_temp = room.convertPositionArray(room_temp);
-
-		system.debug.print(room_temp[0]);
+		//item_data
+		items_temp = await db.execQuery(conn, `select item_code, nft_code, item_name, item_path, position, rotate from room_item_nft_view where room_code = "${code}";`);
+		items_temp = room.convertPositionArray(items_temp);
 
 		// 조회 결과 값 없음
 		if (db.checkNodate(user_temp) || code <= 0 ) {
@@ -62,7 +58,7 @@ const room = {
 		else{
 			result.result = true;
 			result.room_info = user_temp;
-			result.room_data = room_temp;
+			result.items = items_temp;
 		}
 		return result;
 	},
@@ -105,6 +101,45 @@ const room = {
 
 		return [x, y, z];
 	},
+
+	placeItem : async (conn, room_code, item_code) =>{
+		system.debug.print("place Item function");
+		await db.use.current(conn);
+		result = user_temp = await db.execQuery(conn, 
+			`insert into 
+			room_item(r_code, i_code, position, rotate) 
+			values ( ${room_code}, ${item_code}, 0, 0);`);
+		system.debug.print(result);
+		system.debug.print(result[0]);
+	},
+
+	removeItem : async (conn, room_code, item_code) =>{
+		system.debug.print("removeItem function");
+		await db.use.current(conn);
+		result = user_temp = await db.execQuery(conn, 
+			`delete from room_item 
+			where r_code = ${room_code} and i_code = ${item_code};`);
+		system.debug.print(result);
+		system.debug.print(result[0]);
+	},
+
+	replaceItem : async (conn, room_code, item_code, position, rotate) =>{
+		system.debug.print("removeItem function");
+		await db.use.current(conn);
+		result = user_temp = await db.execQuery(conn, 
+			`update room_item 
+			set 
+			position = ${position}, 
+			rotate = ${rotate} 
+			where 
+			r_code = ${room_code} and 
+			i_code = ${item_code};`);
+		
+		system.debug.print(result);
+		system.debug.print(result[0]);
+	},
+
+	
 }
 
 exports.module = room;
