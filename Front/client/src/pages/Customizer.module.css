@@ -22,8 +22,9 @@
   }
   
   .backBtn {
-    margin: 0;
-    width : 50px
+    margin-top: -20px;
+    margin-left: -20px;
+    width : 120px
   }
   
   .saveBtn {
@@ -54,6 +55,15 @@
   text-align: center;
 }
 
+.fuList{
+  border: 2px solid rgb(255, 215, 222);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px pink;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin: 3%;
+}
+
 
 #furnitureGridMargin{
   margin-top: 10vh;
@@ -66,13 +76,6 @@
   margin-top: 16px;
 }
 
-.pagination button {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 8px 16px;
-  margin: 0 4px;
-  cursor: pointer;
-}
 
 .pageIndicator {
   display: flex;
@@ -93,4 +96,13 @@
 .currentPage {
   background-color: #007bff;
   color: #fff;
+}
+
+.leftarrow{
+  width: 90px;
+}
+
+.rightarrow{
+  width: 90px;
+  transform: scaleX(-1);
 }

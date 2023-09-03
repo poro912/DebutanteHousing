@@ -96,7 +96,7 @@ const Customizer = () => {
                   <div className={styles.furnitureGrid}>
                     {images.slice(startIndex, endIndex).map((imagePath, index) => (
                       <div key={startIndex + index} className={styles.furniture}>
-                        <div><img src={imagePath} alt={`Furniture ${startIndex + index + 1}`} /></div>
+                        <div className={styles.fuList}><img src={imagePath} alt={`Furniture ${startIndex + index + 1}`} />chair</div>
                       </div>
                     ))}
                   </div>
@@ -106,13 +106,13 @@ const Customizer = () => {
             {/* Pagination controls */}
             <div className={styles.pagination}>
               <button onClick={handlePrevPage} disabled={currentPage === 1}>
-                이전
+                <img src='.\img\arrowPu.png' className={styles.leftarrow}></img>
               </button>
               <span>
                 {currentPage} / {totalPages}
               </span>
               <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                다음
+                <img src='.\img\arrowPu.png' className={styles.rightarrow}></img>
               </button>
             </div>
           </motion.div>
@@ -120,7 +120,7 @@ const Customizer = () => {
           <div></div>
           <motion.div className='absolute z-10 top-5 left-5' {...fadeAnimation}>
             <img
-              src='./img/back.png'
+              src='./img/arrowPu.png'
               onClick={() => (state.intro = true)}
               className={styles.backBtn}
               alt="Back Button"
@@ -128,7 +128,7 @@ const Customizer = () => {
           </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
             <img
-              src='./img/back.png'
+              src='./img/arrowPu.png'
               onClick={() => (state.intro = true)}
               className={styles.backBtn}
               alt="Back Button"
