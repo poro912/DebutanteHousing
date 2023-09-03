@@ -12,7 +12,7 @@ SELECT
     u.id AS user_id,
     u.nick AS user_nick,
     u.profile_path AS user_profile,
-	r.code AS room_code,
+    r.code AS room_code,
     r.name AS room_name,
     r.like AS room_like
 FROM db_current.user AS u
