@@ -1,36 +1,42 @@
-import React from 'react'
-import { easing } from 'maath';
-import { useSnapshot } from 'valtio';
-import { useFrame } from '@react-three/fiber';
-import { Decal, useGLTF, useTexture } from '@react-three/drei';
-import { useLoader } from "@react-three/fiber";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import React from 'react';
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { useDispatch, useSelector } from 'react-redux';
 
-import state from '../store';
+import Glb1 from './Glb1'
 
 const RoomGlb = () => {
-  const snap = useSnapshot(state);
-  //const { nodes, materials } = useGLTF('./jewelbox.glb');
-  const gltf = useLoader(GLTFLoader, './glb/room/room_blue.glb')
-
-//   const logoTexture = useTexture(snap.logoDecal);
-//   const fullTexture = useTexture(snap.fullDecal);
-
-//   useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
-
-  //const stateString = JSON.stringify(snap);
+  const gltf = useLoader(GLTFLoader, './glb/room/room_green.glb');
+  const dispatch = useDispatch();
+  const furnitureList = useSelector(state => state.furniture.furnitureList);
 
   return (
     <group>
-    <mesh>
-      <primitive
-        object={gltf.scene}
-        position={[0,0,0]}
-        
-      />
+      <mesh 
+        castShadow
+        receiveShadow
+      >
+        <primitive object={gltf.scene} position={[0, 0, 0]} />
       </mesh>
+      <pointLight
+        intensity={2}
+        width={0.1}
+        height={0.1}
+        position={[5, 0, 0]}
+        lookAt={[0, 0, 0]}
+        shadow-bias={-0.001} // 그림자의 외곽 선명도를 높입니다.
+      />
+      <directionalLight
+        position={[10, 50, 10]}
+        intensity={1}
+        castShadow
+        shadow-mapSize-width={1024} // 그림자 맵의 너비를 높입니다.
+        shadow-mapSize-height={1024} // 그림자 맵의 높이를 높입니다.
+        shadow-camera-near={0.1} // 그림자 카메라의 가까운 면을 높입니다.
+        shadow-camera-far={150} // 그림자 카메라의 먼 면을 높입니다.
+      />
     </group>
-  )
-}
+  );
+};
 
-export default RoomGlb
+export default RoomGlb;

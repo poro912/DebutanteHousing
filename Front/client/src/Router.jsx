@@ -8,6 +8,7 @@ import Join from './routes/Join'
 import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
 import Friendss from './routes/Friendss'
+import UploadAndDisplayGLB from './routes/UploadAndDisplayGLB'
 
 
 const RouterPage = () => {
@@ -24,6 +25,7 @@ const RouterPage = () => {
         <Route path="/DeHaPrototype/Join" component={Join} />
         <Route path="/DeHaPrototype/Friends" component={Friends} />
         <Route path="/DeHaPrototype/Friendss" component={Friendss} />
+        <Route path="/DeHaPrototype/UploadAndDisplayGLB" component={UploadAndDisplayGLB} />
     </Switch>
 </BrowserRouter>
   )

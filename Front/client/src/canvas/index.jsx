@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import {Canvas} from '@react-three/fiber'
-import {Environment, Center, OrbitControls} from '@react-three/drei'
+import {Environment, Center, OrbitControls, PerspectiveCamera} from '@react-three/drei'
 import { useGLTF } from '@react-three/drei'
 import { useSnapshot } from 'valtio'
+import { useDispatch, useSelector } from 'react-redux';
+import { addFurniture, updateFurniture, removeFurniture } from '../Redux/furnitureSlice';
 import state from '../store'
 
 
-import Backdrop from './Backdrop'
-import CameraRig from './CameraRig'
-import Glb from './Glb'
+
+
+import Glb1 from './Glb1'
 import RoomGlb from './RoomGlb'
-import Test from './Test'
+
 
 
 const CanvasModel = () => {
   const snap = useSnapshot(state);
-  const url = state.morden
-  const [glburl, setGlburl] = useState("")
+  //const url = state.green
+
+  const dispatch = useDispatch();
+  const furnitureList = useSelector(state => state.furniture.furnitureList);
+
+  const [glburl, setGlburl] = useState("") //링크로 불러오기 성공
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,34 +34,47 @@ const CanvasModel = () => {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
   }, []);
+//링크
+  
+
   return (
+    
     <Canvas
       shadows
-      camera={{ position: [16,9,16], fov:2 }}
+      camera={{ position: [16, 10, 16], fov:1.7 } }
       
       className=''
+      onContextMenu={(event) => {
+        event.preventDefault();
+      }}
     >
-      {state.intro === true ? <OrbitControls /> : <></>}
+
       
-      <ambientLight intensity={1} />
-      <pointLight position={[0, 10, 10]} intensity={1.2} />
-      <Environment preset='warehouse' />
+      
+      
+      <Environment preset="warehouse" />
 
       {/* <CameraRig> */}
-        <Backdrop />
-        {state.intro === true ? <OrbitControls /> : <group scale={[0.04, 0.04, 0.04]}><gridHelper args={[10, 10]} position={[0, -5, 0]} /></group>}
+        
+        {state.intro === true ? <OrbitControls enablePan={false}/> : <></>}
+        
           
-        <OrbitControls />
+        
          
-          <RoomGlb />
-          <Glb url={glburl} pos={[0,-0.2,0] }/>
+          <RoomGlb receiveShadow />
+          {/* <Glb url={urls[0]} pos={[0,-0.2,0] }/> */}
+
+          {
+            furnitureList.map((furnitur) =>{
+              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
+            })
+          }
           {/* {
             url.map((url, index) => {
               console.log(url[0])
-              return <Glb key={index} url={url[0]} pos={url[1]}/>
+              return <Glb1 key={index} url={url[0]} initialPos={url[1]} initialRot={[0,0,0]}/>
               
             })
           }  */}

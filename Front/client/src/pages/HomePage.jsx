@@ -18,7 +18,7 @@ const HomePage = () => {
     const snap = useSnapshot(state);
 
   return (
-    <div>
+    <div className={styles.homcon}>
       {snap.intro && (
         <div className="home">
           <header>
@@ -31,8 +31,10 @@ const HomePage = () => {
               > 
               </img>
             </div>
-            <Link to="/DeHaPrototype/shop"><img src=".\img\shop.png" className={styles.shopImg}></img></Link>
-            <Link to="/DeHaPrototype/friends"><img src=".\img\friend.png" className={styles.firendImg}></img></Link>
+            <div className={styles.iconCon}>
+              <div className={styles.shopImg}><Link to="/DeHaPrototype/shop"><img src=".\img\cart.png"></img>shop</Link></div>
+              <div className={styles.firendImg}><Link to="/DeHaPrototype/friends"><img src=".\img\friend.png"></img>friend</Link></div>
+            </div>
           </header>
           
         </div>
