@@ -138,8 +138,6 @@ const room = {
 		system.debug.print(result);
 		system.debug.print(result[0]);
 	},
-
-	
 }
 
 exports.module = room;
