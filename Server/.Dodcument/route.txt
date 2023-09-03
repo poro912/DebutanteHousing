@@ -1,0 +1,39 @@
+http://182.220.199.210:3310/user/signup
+http://182.220.199.210:3310/user/login
+
+/user
+유저 정보에 접근한다.
+/user/signup
+	post	:회원가입
+		완성
+	
+	http://182.220.199.210:3310/user/signup
+
+
+/user/login
+	post	: 로그인
+		완성
+	http://182.220.199.210:3310/user/login
+
+/user/member
+	get		: 회원정보 획득
+		다중 정보 획득
+			완성
+		단정 정보 획득
+			완성
+	post	: 회원정보 수정
+	
+	http://182.220.199.210:3310/user/member
+
+/room
+방 정보에 접근한다. 
+/room/info
+	get		: 방 정보를 가져온다
+/room/item/replace
+	post	: 아이템들의 위치 정보를 전부 수정한다.
+/room/item/remove
+	post	: 아이템을 방에서 제거한다.
+/room/item/move
+	post	: 단일 아이템의 위치를 변경한다.
+/room/item/rotate
+	post	: 단일 아이템의 각도를 변경한다.

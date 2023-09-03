@@ -1,7 +1,7 @@
-# create tables
-# Run "DeleteTables.sql" and use it.
+-- create tables
+-- Run "DeleteTables.sql" and use it.
 
-# create db
+-- create db
 /*
 CREATE database db_identification;
 CREATE database db_personal;
@@ -10,8 +10,8 @@ CREATE database db_transaction;
 CREATE database db_record;
 */
 
-# setup db_identification
-# save sequence numbers for identification
+-- setup db_identification
+-- save sequence numbers for identification
 USE db_identification;
 CREATE TABLE `SEQ` (
   `data`		INT				NOT NULL,
@@ -29,8 +29,8 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-# setup db_personal
-# save personal information
+-- setup db_personal
+-- save personal information
 USE db_personal;
 CREATE TABLE user (
   code			INT				NOT NULL	UNIQUE,
@@ -44,9 +44,9 @@ CREATE TABLE user (
   PRIMARY KEY (code)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-# setup db_current
-# save current usage information
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- setup db_current
+-- save current usage information
 USE db_current;
 CREATE TABLE user (
   code			INT				NOT NULL AUTO_INCREMENT,
@@ -58,52 +58,52 @@ CREATE TABLE user (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE wallet (
-  U_code		INT				NOT NULL,
+  u_code		INT				NOT NULL,
   balance		BIGINT			NOT NULL,
-  
-  PRIMARY KEY (U_code),
-  FOREIGN KEY (U_code)			REFERENCES user (code)
+  code			INT				NOT NULL,
+  PRIMARY KEY (u_code),
+  FOREIGN KEY (u_code)			REFERENCES user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE room (
   code			INT				NOT NULL ,
-  current_U_code	INT			NOT NULL,
+  current_u_code	INT			NOT NULL,
   name			VARCHAR(50)		NOT NULL,
-  `like`		INT				NOT NULL,
+  `like`		INT				NOT NULL DEFAULT 0,
   
   PRIMARY KEY (code),
-  FOREIGN KEY (current_U_code)	REFERENCES DB_current.user (code)
+  FOREIGN KEY (current_u_code)	REFERENCES DB_current.user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE NFT (
   code			BIGINT			NOT NULL,
-  U_code		VARCHAR(20)		NOT NULL,
+  u_code		VARCHAR(20)		NOT NULL,
   name			VARCHAR(20)		NOT NULL,
-  copy_count	INT				NOT NULL,
-  path			VARCHAR(50)		NOT NULL,
-  sha			VARCHAR(64)		NOT NULL,
+  copy_count	INT				NOT NULL DEFAULT 0,
+  path			VARCHAR(50),
+  sha			VARCHAR(64),
   
   PRIMARY KEY (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE ITEM (
   code			BIGINT			NOT NULL,
-  N_code		BIGINT			NOT NULL,
-  currnt_U_code	INT				NOT NULL,
+  n_code		BIGINT			NOT NULL,
+  current_u_code	INT			NOT NULL,
   
   PRIMARY KEY (code),
-  FOREIGN KEY (N_code)			REFERENCES NFT(code)
+  FOREIGN KEY (n_code)			REFERENCES NFT(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE ROOM_ITEM (
-  R_code		INT				NOT NULL,
-  I_code		BIGINT			NOT NULL,
-  position		SMALLINT		NOT NULL,
-  rotate		SMALLINT		NOT NULL,
+  r_code		INT				NOT NULL,
+  i_code		BIGINT			NOT NULL,
+  position		INT				NOT NULL DEFAULT 0,
+  rotate		SMALLINT		NOT NULL DEFAULT 0,
   
-  PRIMARY KEY (R_code, I_code),
-  FOREIGN KEY (R_code)			REFERENCES room(code),
-  FOREIGN KEY (I_code)			REFERENCES item(code)
+  PRIMARY KEY (r_code, i_code),
+  FOREIGN KEY (r_code)			REFERENCES room(code),
+  FOREIGN KEY (i_code)			REFERENCES item(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE friend (
@@ -117,10 +117,10 @@ CREATE TABLE friend (
   FOREIGN KEY (target)			REFERENCES user(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-# setup db_transaction
-# save transaction information
+-- setup db_transaction
+-- save transaction information
 USE db_transaction;
 CREATE TABLE `transaction` (
   code			BIGINT			NOT NULL	UNIQUE,
@@ -136,8 +136,8 @@ CREATE TABLE `transaction` (
   FOREIGN KEY (I_code)			REFERENCES DB_current.item (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-# setup db_record
-# save history about error, login, comment, etc
+-- setup db_record
+-- save history about error, login, comment, etc
 USE db_record;
 CREATE TABLE `JOIN` (
   `U_code`		INT				NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE `comment` (
   `deleted`		BOOL			NOT NULL,
   
   PRIMARY KEY (`code`)
-#  ,FOREIGN KEY (R_code)			REFERENCES db_current.room (code)
-#  ,FOREIGN KEY (U_code)			REFERENCES db_current.item (code)
+--  ,FOREIGN KEY (R_code)			REFERENCES db_current.room (code)
+--  ,FOREIGN KEY (U_code)			REFERENCES db_current.item (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
