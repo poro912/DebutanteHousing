@@ -35,18 +35,15 @@
               -0px -0px 3px rgb(226, 208, 211);
   z-index:-1;
   overflow-y: scroll;
-  padding: 20px; /* 내용의 위아래 여백 추가 */
+  padding: 10px; /* 내용의 위아래 여백 추가 */
 
 
 }
 
-::-webkit-scrollbar { width: 1vw; } /* 스크롤 바 */
-::-webkit-scrollbar-track { background-color:#ffffff; } /* 스크롤 바 밑의 배경 */
-::-webkit-scrollbar-thumb { background: #ffffff; } /* 실질적 스크롤 바 */
 
 
 .Mag{
-  position: fixed;
+  position: absolute;
   top: 16.8vh;
   left: 82vh;
   height: 3vh;
@@ -141,4 +138,15 @@
   left: 110vh;
   top: 0vh;
   z-index: -2;
+}
+
+.furnitureWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 5vw;
+  grid-row-gap: 10vh;
+  justify-content: start;
+  position: absolute;
+  top: 0%;
+  left: -2%;
 }

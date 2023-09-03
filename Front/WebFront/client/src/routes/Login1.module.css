@@ -38,7 +38,7 @@
     left: 45.3vw;
     font-family: 'Dancing Script';
     font-size: 9vh;
-    color: #302b26;
+    color: #ffffff;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     text-underline-offset: 2vh;
     z-index: 4;
@@ -52,7 +52,7 @@
     left: 41.5vw;
     width : 18vh;
         z-index: 5;
-        color:#131212;
+        color:#ffffff;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
         font-size: 2rem;
@@ -71,7 +71,7 @@
         left: 56vw;
         width : 18vh;
             z-index: 5;
-            color:#131212;
+            color:#ffffff;
             font-family: 'Dancing Script';
             font-size: 2rem;
             background-color: rgb(255, 255, 255);
@@ -85,14 +85,7 @@
 
 
 
-.ui{
-    position: fixed;
-    top: 14vh; 
-    left: 20vw;  
-    width: 60vw;
-    height: 70vh;
-    background-color:transparent;    
-}
+
 
 @keyframes fadeInOut {
     0%, 100% {
@@ -139,27 +132,27 @@ input:focus::placeholder{
 }
 
 .id::placeholder {
-    color: #000000;
+    color: #ffffff;
     
 }
 .pass::placeholder {
-    color: #000000;
+    color: #ffffff;
     
 }
 
 
 .btn{
-    color: white; 
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 3px 3px 2px rgb(114, 102, 102),
-                0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 3px 0 -1px rgba(0,0,0,0.13), 
-                0 4px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #8b7561;   
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+              0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 3px 0 -1px rgba(0,0,0,0.13), 
+              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+              0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);      
       padding: 1.2vh 13.2vw;  
       font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
@@ -175,17 +168,17 @@ input:focus::placeholder{
 
 
 .btn2{
-    color: white; 
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 3px 3px 2px rgb(114, 102, 102),
-                0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 3px 0 -1px rgba(0,0,0,0.13), 
-                0 4px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-    background-color: #8b7561;   
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+              0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 3px 0 -1px rgba(0,0,0,0.13), 
+              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+              0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);   
       padding: 1.2vh 12.9vw;  
       font-size: 1.7vh;
       font-family:'BookkMyungjo-Bd';
@@ -200,17 +193,17 @@ input:focus::placeholder{
 
 
 .btn3{
-    color: white; 
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 3px 3px 2px rgb(114, 102, 102),
-                0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #8b7561; 
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+              0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 3px 0 -1px rgba(0,0,0,0.13), 
+              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+              0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);   
       padding: 1vh 10vw; 
       font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
@@ -224,18 +217,18 @@ input:focus::placeholder{
 }
 
 .btn3:hover{
-    background-color: #796654;  
+  background-color: rgba(214, 93, 122, 0.452); 
 }
 
 
 .btn3:active{top: 1px;
-    border-color: 3px 3px 2px rgb(114, 102, 102), rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
     top: 54vh;
     left: 39vw;
     z-index: 5;
-    background-color: #685748;  
+    background-color: rgba(168, 73, 96, 0.452);  
 }
 
 .ID{
@@ -243,7 +236,7 @@ input:focus::placeholder{
     top:  45vh;
     left: 38vw;
     z-index: 5;
-    color:#131212;
+    color:#ffffff;
     background-color: rgb(255, 255, 255);
     font-family: 'Dancing Script';
     font-size: 2rem;
@@ -258,7 +251,7 @@ input:focus::placeholder{
         top: 45vh;
         left: 51vw;
         z-index: 5;
-        color:#131212;
+        color:#ffffff;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
         font-size: 2rem;
@@ -279,14 +272,22 @@ input:focus::placeholder{
     animation: fadeInAndStay 2s forwards 1s;
   }
   
-  
-  .Fbg{
+  .sbox{
     position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      overflow: hidden;
-    }
-
+    box-sizing: border-box;
+    height: 40vh;
+    width: 40vw;
+    top: 27.6vh;
+    left: 30vw;
+    background-color: rgba(255, 209, 220, 0.651);
+    border-radius: 0px; /* 둥근 테두리 */
+    box-shadow: 0px 0px 5px rgb(255, 255, 255),
+                0px 0px 5px rgb(255, 255, 255),
+                5px 5px 10px rgb(255, 168, 189),
+                -5px -5px 10px rgb(255, 168, 189);
+    
+    z-index:0;
+    margin: 0px;
+    padding-bottom: 0vh;
+    
+}

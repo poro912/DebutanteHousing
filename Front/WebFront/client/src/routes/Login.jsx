@@ -31,11 +31,9 @@ function Login() {
    
     
     <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
-  <img className={styles.ui} alt="ui" src="./img/ui.png" />
-
-  <audio src= "./img/bgm.mp3"
-        autoPlay={true}>
-      </audio>
+  
+  <div className={styles.sbox}>
+  </div>
   </div>
   </div>;
 }

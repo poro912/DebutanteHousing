@@ -1,19 +1,22 @@
-import styles from "./Mypage.module.css"
-import {Link} from "react-router-dom"
-import { useState } from "react";
+import styles from "./Mypage.module.css";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import FurnitureCom from "./FurnitureCom";
 
 function Mypage() {
   const [copied, setCopied] = useState(false);
+  const [nickname, setNickname] = useState("Chaeyeon");
+  
 
   const handleCopyClick = () => {
     // 복사할 텍스트를 담을 textarea 엘리먼트 생성
     const textarea = document.createElement("textarea");
     textarea.value = "ASDF1234";
 
-     // textarea를 DOM에 추가
+    // textarea를 DOM에 추가
     document.body.appendChild(textarea);
 
-     // textarea 안의 텍스트 선택
+    // textarea 안의 텍스트 선택
     textarea.select();
 
     // 선택한 텍스트를 클립보드에 복사
@@ -31,22 +34,44 @@ function Mypage() {
     }, 1500);
   };
 
- 
   return (
     <div>
-      <div className={styles.box}></div>
-      <Link to="Home">
-        <button className={styles.backarrow}>➤</button>
-      </Link>
+      <div className={styles.box}>
+        <Link to="Home"></Link>
+
+        <div className={styles.sbox} />
+
+        <h1 className={styles.name}>{nickname}</h1>
+        <img
+          onClick={handleCopyClick}
+          title="지갑주소 복사하기"
+          className={styles.copy}
+          alt="copy"
+          src="./img/copy.gif"
+        />
+
+        <h1 className={styles.Money}>Wallet :</h1>
+        <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+        <div className={styles.vertLine}></div>
+        <h1 className={styles.have}>Storage</h1>
+        <h1 className={styles.sale}>On sale</h1>
+        
+        <div className={styles.furnitureWrapper}>
+        <FurnitureCom />
+        <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+        </div>
+        {copied}
+      </div>
+      <button className={styles.backarrow}>➤</button>
       <h1 className={styles.Mypage}>My Page</h1>
-      <div className={styles.sbox} />
-      <h1 className={styles.name}>Gayeon</h1>
-      <h1 className={styles.Money}>Wallet :</h1>
-      <img className={styles.heartp} alt="heartp" src="./img/heartp.gif"/>
+
       <img className={styles.heartb} alt="heartb" src="./img/bheart.gif" />
-      <img className={styles.heartbb} alt="heartbb" src="./img/bheart.gif"/>
-      <img onClick={handleCopyClick} title="지갑주소 복사하기" className={styles.copy} alt="copy" src="./img/copy.gif"/>
-      {copied}
+      <img className={styles.heartbb} alt="heartbb" src="./img/bheart.gif" />
     </div>
   );
 }

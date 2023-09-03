@@ -22,7 +22,7 @@ function Join() {
   return <div>
 
     <div>
-    <button className={styles.backarrow}>➤</button>
+    <Link to="/"><button className={styles.backarrow}>➤</button></Link>
     <h4 className={styles.ID}>ID :</h4>
     <h4 className={styles.PASS}>PASS :</h4>
     <h4 className={styles.NAME}>NAME :</h4>
@@ -33,21 +33,21 @@ function Join() {
         <form onSubmit={LogSubmit}>
             <input className={styles.id}
             type="text" 
-            placeholder="애오"
+            placeholder=""
             name="id"
             value={id}
             onChange={onChangeid} />
 
             <input className={styles.nname}
             type="text" 
-            placeholder="애애애오"
+            placeholder=""
             name=""
             value={nname}
             onChange={onChangenname} />
             
             <input className={styles.pass}
             type="text" 
-            placeholder="애애애오"
+            placeholder=""
             name="pass"
             value={pass}
             onChange={onChangepass} />
@@ -56,8 +56,8 @@ function Join() {
             </form>
             
             </div>
-            <img className={styles.ui} alt="ui" src="./img/ui.png" />
-            <img className={styles.Fbg} alt="Fbg2" src="./img/Fbg2.png" />
+          
+            <div className={styles.sbox}></div>
          </div>
            
       

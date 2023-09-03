@@ -22,7 +22,7 @@ function Login() {
   
   return <div>
 
-  <button className={styles.backarrow}>➤</button>
+<Link to="/"><button className={styles.backarrow}>➤</button></Link>
      <div>
      <h1 className={styles.Login}>Login</h1>
      <button className={styles.btn}>Join</button>
@@ -57,12 +57,9 @@ function Login() {
           
 
     </div>
-    <div>
+    <div className={styles.sbox}>
    
-   
-    
-   <img className={styles.ui} alt="ui" src="./img/ui.png"/>
-   <img className={styles.Fbg} alt="Fbg2" src="./img/Fbg2.png" />
+  
   </div>
   </div>;
 }

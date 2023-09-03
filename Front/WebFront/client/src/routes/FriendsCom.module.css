@@ -1,47 +1,43 @@
-h1{
-    position: fixed;
-    top: 29vh;
-    left: 70vh;
-    font-size: 1.5rem;
+.container {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  transform: translate(-50%, -50%);
 }
 
 .Name {
-    font-size: 3rem;
-    font-weight: bold;
-    position: absolute;
-    display: inline-block;
-    left: 80vh;
-    font-family: 'Dancing Script';
-    color:rgb(255, 233, 162);
-    text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
-    
-  }
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: 'Dancing Script';
+  color: rgb(255, 233, 162);
+  text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
+}
 
 .Name::after {
-    content: "";
-    position: absolute;
-    bottom: -0.2vh;
-    left: -6.5vh;
-    width: 29vw; /* 언더라인 길이 */
-    height: 0.5vh;
-    background-color: rgba(75, 62, 29, 0.753); 
-    border-radius: 10px;
-  }
-  
-  .goarrow{
-    position: absolute;
-    top: 30.5vh;
-    left: 127vh;
-    font-size: 2.5rem;
-    color:rgba(56, 50, 17, 0.808);
-    text-shadow: 3px 3px 2px rgb(172, 151, 151);
-    
-  }
-
-  .heartp{
-    position: absolute;
-    width: 2.5vw;
-    height: 5vh;
-    top: 30.7vh;
-    left: 35.5vw;
+  content: "";
+  position: absolute;
+  bottom: -0.2vh;
+  left: -6.5vh;
+  width: 29vw;
+  height: 0.5vh;
+  background-color: rgba(75, 62, 29, 0.753);
+  border-radius: 10px;
 }
+
+.goarrow {
+  position: absolute;
+  top: 1.5vh;
+  right: -15vw; /* Name 요소와 수평 정렬 및 오른쪽에 위치하도록 수정 */
+  font-size: 2.5rem;
+  color: rgba(56, 50, 17, 0.808);
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.heartp {
+  position: absolute;
+  top: 2vh; /* Name 요소와 수평 정렬 */
+  left: -3vw; /* Name 요소의 왼쪽에 위치하도록 조정 */
+  width: 2.5vw;
+  height: 5vh;
+}
+

@@ -28,22 +28,30 @@ function Shop() {
       </form>
       
       <div className={styles.itemsContainer}>
-        <ul className={styles.listContainer}>
-          {Sitems.map((sitem, index) => (
-            <li key={index}>{sitem}</li>
-          ))}
-        </ul>
-        <div className={styles.imageContainer}>
-          {Sitems.map((sitem, index) => (
-            <img key={index} className={styles.dui} alt="dui" src="./img/dui.png" />
-          ))}
-        </div>
+      <div className={styles.box}>
+        <div className={styles.furnitureWrapper}>
+        
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
         <FurnitureCom />
+        <FurnitureCom /> 
+        <FurnitureCom /> 
       </div>
-      
+      </div>
+
+      </div>
   
       <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
-      <div className={styles.box}></div>
+      
       <h1 className={styles.Shop}>Shop</h1>
       <hr className={styles.hrr} />
       <img className={styles.upheart} alt="upheart" src="./img/upheart.gif" />

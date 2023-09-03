@@ -9,10 +9,12 @@
     top: 45%;
     left: 53%;
     transform: translate(-50%, -50%);
+    margin: 0;
   }
 
 .sbox{
     position: relative;
+    box-sizing: border-box;
     height: 30vh;
     width: 12vw;
     background-color: rgba(255, 255, 255, 0.897);
@@ -22,6 +24,8 @@
                 5px 5px 10px rgb(255, 168, 189),
                 -5px -5px 10px rgb(255, 168, 189);
     z-index:0;
+    margin: 0px;
+    padding-bottom: 0vh;
    
     
 }
@@ -30,6 +34,7 @@
     position: absolute;
     height: 13vh;
     width: 7vw;
+    margin: 0;
 }
 .text {
     position: absolute;
@@ -40,8 +45,9 @@
     font-size: 1.6rem;
     color:rgb(255, 177, 190);
     text-shadow: 2px 2px 2px rgb(255, 254, 254),
-    2px 2px 2px rgb(255, 133, 151)
-    ;
+    2px 2px 2px rgb(255, 133, 151);
+    margin: 0;
+    
   }
 
   .heartp{
