@@ -24,10 +24,26 @@
     
 }
 
-.div{
-    width: 150px;
-    height: 150px;
-    border: 1px solid #dcdcdc;
-    line-height: 150px;
-    text-align:center
+.one{
+    text-align: left;
+    margin-bottom: 3em;
+
 }
+
+.two{
+    text-align: right;
+}
+
+.three{
+    text-align: left;
+}
+
+.four{
+    text-align: right;
+}
+
+.one:last-child {
+  
+ 
+    margin-bottom: 9em;
+    }

@@ -1,27 +1,63 @@
-
+import { useState } from "react";
 import {Link} from "react-router-dom"
 import styles from "./Join.module.css"
 
 function Join() {
-  return <div>
-   <p> <Link to="/"><button className={styles.btn}>뒤로가기</button></Link>
+  const [id, setid] = useState();
+  const onChangeid = (event) => {
+    setid(event.target.value);
+  }
+  const [nname, setnname] = useState();
+  const onChangenname = (event) => {
+    setnname(event.target.value);
+  }
+  const [pass, setpass] = useState();
+  const onChangepass = (event) => {
+    setpass(event.target.value);
+  }
 
-   </p>
+  const LogSubmit = (event) => {
+    event.preventDefault();
+  }
+  return <div>
 
     <div>
-    <h1 className={styles.title}>Debutante Housing</h1>
-        <b></b>
+    <Link to="/DeHaPrototype/"><button className={styles.backarrow}>➤</button></Link>
+    <h4 className={styles.ID}>ID :</h4>
+    <h4 className={styles.PASS}>PASS :</h4>
+    <h4 className={styles.NAME}>NAME :</h4>
+    <button className={styles.btn2}>Join</button>
+    <button className={styles.btn3}>Login</button>
+    <h1 className={styles.Login}>Login</h1>
+        
+        <form onSubmit={LogSubmit}>
             <input className={styles.id}
             type="text" 
-            placeholder="ID" />
-            <div>
+            placeholder=""
+            name="id"
+            value={id}
+            onChange={onChangeid} />
+
+            <input className={styles.nname}
+            type="text" 
+            placeholder=""
+            name=""
+            value={nname}
+            onChange={onChangenname} />
+            
             <input className={styles.pass}
             type="text" 
-            placeholder="PASSWORD" />
-            <Link to="/Home"><button className={styles.btn3}>Join</button></Link>
+            placeholder=""
+            name="pass"
+            value={pass}
+            onChange={onChangepass} />
+            <button className={styles.btn}>Join</button>
+            
+            </form>
+            
             </div>
-            </div>
-            <img className={styles.bookcover} alt="bookcover" src="./img/bookcover.jpg" />
+          
+            <div className={styles.sbox}></div>
          </div>
            
       

@@ -7,9 +7,8 @@ import Shopdetail from './routes/Shopdetail'
 import Join from './routes/Join'
 import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
-import Friendss from './routes/Friendss'
-import UploadAndDisplayGLB from './routes/UploadAndDisplayGLB'
-
+import Login1 from './routes/Login1'
+import Mypage from './routes/Mypage'
 
 const RouterPage = () => {
   return (
@@ -17,6 +16,7 @@ const RouterPage = () => {
     <BrowserRouter>
     <Switch>
         <Route path="/DeHaPrototype/" exact={true} component={Login} />
+        <Route path="/DeHaPrototype/test" component={Login1} />
         <Route path="/DeHaPrototype/Home" component={Homec} />
         <Route path="/DeHaPrototype/Non" component={Nonmem} />
         <Route path="/DeHaPrototype/Storage" component={Storage} />
@@ -24,8 +24,7 @@ const RouterPage = () => {
         <Route path="/DeHaPrototype/Shopdetail" component={Shopdetail} />
         <Route path="/DeHaPrototype/Join" component={Join} />
         <Route path="/DeHaPrototype/Friends" component={Friends} />
-        <Route path="/DeHaPrototype/Friendss" component={Friendss} />
-        <Route path="/DeHaPrototype/UploadAndDisplayGLB" component={UploadAndDisplayGLB} />
+        <Route path="/DeHaPrototype/Mypage" component={Mypage} />
     </Switch>
 </BrowserRouter>
   )

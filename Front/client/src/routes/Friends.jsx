@@ -1,56 +1,76 @@
 import { useState } from 'react';
-import {Link} from "react-router-dom"
-import styles from "./Friends.module.css"
+import { Link } from "react-router-dom"
+import styles from "./Friends.module.css";
+import FriendsCom from './FriendsCom';
 
 function Friends() {
-  const [friend, setfriend] = useState("");
-  const [friends, setfriends] = useState([]);
-  const onChange = (event) => setfriend(event.target.value);
+  const [friend, setFriend] = useState("");
+  const [friends, setFriends] = useState([]);
+  const [name, setName] = useState("chaeyeon"); // 이름을 저장할 상태 변수 추가
+
+  const onChange = (event) => setFriend(event.target.value);
+
   const onSubmit = (event) => {
     event.preventDefault();
     if (friend === "") {
       return;
     }
-    setfriends((currentArray) => [friend, ...currentArray]);
-    setfriend("");
+    setFriends((currentArray) => [friend, ...currentArray]);
+    setFriend("");
   };
-  return <div>
-    
-    
-    <h1 className={styles.fname}>Mare</h1>
-    <h1 className={styles.ffname}>Debut</h1>
 
+  // 이름을 저장하는 함수
+  const saveName = () => {
+    setName(friend);
+    setFriend(""); // 입력 필드 초기화
+  };
 
-<hr className={styles.line} />
-<hr className={styles.linee}/>
-
+  return (
+    <div className={styles.friendsContainer}>
       <form onSubmit={onSubmit}>
-        <input className={styles.searchbar}
+        <input
+          className={styles.searchbar}
           onChange={onChange}
           value={friend}
           type="text"
           placeholder=""
         />
-        
+      
       </form>
-     
-      <ul>
+
+      <div className={styles.listContainer}>
+        <div className={styles.listWrapper}>
+          <ul className={styles.friendList} >
+            {friends.map((fri, index) => (
+              <li className={styles.list} key={index}>{fri}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <hr className={styles.hrr} />
+      <div className={styles.box}>
         {friends.map((fri, index) => (
-          <li key={index}>{fri}</li>
+          <FriendsCom key={index} name={fri} />
         ))}
-      </ul>
-     
-      <hr />
-      <div className={styles.box}></div>
+        </div>
+        <div className={styles.furnitureWrapper}>
+        
+        <FriendsCom name={name} />
+        </div>
+ 
+      
 
-      <Link to="Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
-
-      <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
- <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
- <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />
- <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
- <Link to="/DeHaPrototype/Home"><img className={styles.back} alt="back" src="./img/back.png" /></Link>
-  </div>;
+      <h1 className={styles.fr}>Friends List</h1>
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
+      
+      <img className={styles.star} alt="star" src="./img/star.gif" />
+      <img className={styles.upstar} alt="downstar" src="./img/upstar.gif" />
+      <img className={styles.upstarr} alt="downstarr" src="./img/upstar.gif" />
+      <img className={styles.upstarrr} alt="downstarrr" src="./img/upstar.gif" />
+      <img className={styles.upstarrrr} alt="downstarrrr" src="./img/upstar.gif" />
+    </div>
+  );
 }
 
 export default Friends;

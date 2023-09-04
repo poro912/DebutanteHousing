@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {Link} from "react-router-dom"
 import styles from "./Shop.module.css"
+import FurnitureCom from './FurnitureCom';
 
 function Shop() {
   const [Sitem, setSitem] = useState("");
@@ -14,29 +15,49 @@ function Shop() {
     setSitems((currentArray) => [Sitem, ...currentArray]);
     setSitem("");
   };
-  return <div>
-     <Link to="Home"><button className={styles.btn}>뒤로가기</button></Link>
-  
-     <h1 className={styles.search}>가구 검색 ({Sitem.length})</h1>
+  return (
+    <div>
+      <Link to="Home"><button className={styles.backarrow}>➤</button></Link>
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}
           value={Sitem}
           type="text"
-          placeholder="가구를 검색하세요"
+          placeholder=""
         />
-        <button className={styles.btn2}>검색</button>
       </form>
-      <hr />
-      <ul>
-        {Sitems.map((sitem, index) => (
-          <li key={index}>{sitem}</li>
-        ))}
-      </ul>
- <div>
+      
+      <div className={styles.itemsContainer}>
+      <div className={styles.box}>
+        <div className={styles.furnitureWrapper}>
+        
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+        <FurnitureCom />
+        <FurnitureCom /> 
+        <FurnitureCom /> 
+      </div>
+      </div>
 
- </div>
-  </div>;
-}
+      </div>
+  
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      
+      <h1 className={styles.Shop}>Shop</h1>
+      <hr className={styles.hrr} />
+      <img className={styles.upheart} alt="upheart" src="./img/upheart.gif" />
+      <img className={styles.upheart2} alt="upheart" src="./img/upheart.gif" />
+    </div>
+  );
+            }
 
 export default Shop;

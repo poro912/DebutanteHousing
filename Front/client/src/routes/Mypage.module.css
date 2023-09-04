@@ -1,0 +1,163 @@
+.box {
+  position: relative;
+  top: 12vh;
+  left: 50%; /* 변경: 화면 안에 들어가도록 좌표를 조정 */
+  transform: translateX(-50%);
+  width: 80vw;
+  min-height: 85vh;
+  padding: 10px;
+  background-color: rgb(244, 247, 255);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(197, 202, 218),
+              -5px -5px 10px rgb(197, 202, 218),
+              0px 0px 3px rgb(102, 105, 114),
+              -0px -0px 3px rgb(102, 105, 114);
+  z-index: -1;
+ overflow-y: auto;
+}
+
+  .backarrow {
+    position: fixed;
+    top: 2vh;
+    left: 4vh;
+    font-size: 2.5rem;
+    transform: rotate(180deg);
+    color:#302b26;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  }
+
+
+  .Mypage{
+    font-size: 3.5rem;
+      font-weight: bold;
+      position: fixed;
+      top: 0vh;
+      left: 95vh;
+      font-family: 'Dancing Script';
+      z-index: 2;
+      color:rgb(196, 211, 255);
+      text-shadow: 3px 3px 3px rgb(100, 112, 143),
+                  3px 3px 2px rgb(255, 255, 255);
+      
+      
+  }
+
+
+.name{
+    font-size: 4.5rem;
+    font-weight: bold;
+    position: fixed;
+    top: 0vh;
+    left: 15vh;
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color:rgb(196, 211, 255);
+    text-shadow: 3px 3px 3px rgb(100, 112, 143),
+                3px 3px 2px rgb(255, 255, 255);
+}
+
+
+.Money{
+    font-size:4rem;
+    font-weight: bold;
+    position: fixed;
+    top: 1vh;
+    left: 90vh;
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color:rgb(196, 211, 255);
+    text-shadow: 3px 3px 3px rgb(100, 112, 143),
+                3px 3px 2px rgb(255, 255, 255);
+}
+
+.heartp{
+    position: fixed;
+    width: 4.5vw;
+    height: 9vh;
+    top: 2vh;
+    left: 2vw;
+  
+}
+
+.heartb{
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
+    left: 0vh;
+    top: 0vh;
+    z-index: -2;
+}
+.heartbb{
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
+    left: 105vh;
+    top: 0vh;
+    z-index: -2;
+}
+.heartbbb{
+    position: fixed;
+    width: 30vw;
+    height: 100vh;
+    left: 145vh;
+    top: 0vh;
+    z-index: -2;
+}
+
+.copy {
+    position: relative;
+    width: 3.5vw;
+    height: 7vh;
+    left: 21vw;
+    top: 1.5vh;
+}
+
+.have {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute;
+    top: 15%;
+    left: 30vh;
+    transform: translate(-15%);
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color: rgb(196, 211, 255);
+    text-shadow: 3px 3px 3px rgb(100, 112, 143), 3px 3px 2px rgb(255, 255, 255);
+  }
+  
+
+  .sale {
+    font-size: 5rem;
+    font-weight: bold;
+    position: absolute; /* .sale를 absolute로 설정 */
+    top: 16%; /* 세로 중앙 정렬을 위해 top을 50%로 설정 */
+    left: 115vh;
+    transform: translate(-20%); /* 가로 중앙 정렬을 위해 transform 사용 */
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color: rgb(196, 211, 255);
+    text-shadow: 3px 3px 3px rgb(100, 112, 143), 3px 3px 2px rgb(255, 255, 255);
+  }
+
+  .vertLine {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px; /* 너비를 백분율로 설정 */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    transition: width 0.3s; /* 너비 변경 시 부드럽게 애니메이션 적용 */
+  }
+
+  .furnitureWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 8vh;
+    grid-row-gap: 5vh;
+    justify-content: start;
+    position: absolute;
+    top: 10%;
+    left: -2%;
+  }
