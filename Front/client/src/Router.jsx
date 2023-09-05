@@ -9,6 +9,7 @@ import Friends from './routes/Friends'
 import Homec from './routes/Homecopy';
 import Login1 from './routes/Login1'
 import Mypage from './routes/Mypage'
+import APITest from './routes/APITest';
 
 const RouterPage = () => {
   return (
@@ -25,6 +26,7 @@ const RouterPage = () => {
         <Route path="/DeHaPrototype/Join" component={Join} />
         <Route path="/DeHaPrototype/Friends" component={Friends} />
         <Route path="/DeHaPrototype/Mypage" component={Mypage} />
+        <Route path="/DeHaPrototype/APITest" component={APITest} />
     </Switch>
 </BrowserRouter>
   )
