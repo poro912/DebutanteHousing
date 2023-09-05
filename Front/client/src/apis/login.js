@@ -6,7 +6,7 @@ import axios from 'axios';
 export function login(id, pw, callback) {
     //@notion 콜백함수로 처리하여 err 핸들링
   axios
-    .post('http://localhost:8080/user/login', {
+    .post('http://182.220.199.210:3310/user/login', {
       id: id,
       pw: pw,
     })

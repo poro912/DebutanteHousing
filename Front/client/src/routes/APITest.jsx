@@ -7,7 +7,7 @@ const APITest = () => {
     function API(){
         //API 함수 실행
         //id, pw를 변수로 안쓰고 진짜 아이디 직접 넣어도됨
-        login(id, pw, (error, responseData) => {
+        login("id1", "pw1", (error, responseData) => {
             if(error){
                 console.log("API실패")
                 console.log(error)
