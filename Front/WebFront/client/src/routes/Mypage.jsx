@@ -52,7 +52,7 @@ function Mypage() {
 
         <h1 className={styles.Money}>Wallet :</h1>
         <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
-        <div className={styles.vertLine}></div>
+        
         <h1 className={styles.have}>Storage</h1>
         <h1 className={styles.sale}>On sale</h1>
         

@@ -14,6 +14,10 @@
               -0px -0px 3px rgb(102, 105, 114);
   z-index: -1;
  overflow-y: auto;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr); /* 두 개의 컬럼을 만듭니다. */
+ grid-column-gap: 20px; /* 두 컬럼 사이의 간격을 조정합니다. */
+ position: relative;
 }
 
   .backarrow {
@@ -139,17 +143,7 @@
     text-shadow: 3px 3px 3px rgb(100, 112, 143), 3px 3px 2px rgb(255, 255, 255);
   }
 
-  .vertLine {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1px; /* 너비를 백분율로 설정 */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: -1;
-    transition: width 0.3s; /* 너비 변경 시 부드럽게 애니메이션 적용 */
-  }
+
 
   .furnitureWrapper {
     display: grid;
@@ -160,4 +154,14 @@
     position: absolute;
     top: 10%;
     left: -2%;
+  }
+
+  .vertLine {
+    position: absolute;
+    left: 50%; /* 가운데 정렬 */
+    width: 1px; /* 수직선의 너비 */
+    height: 100%; /* 세로 전체 높이 */
+    background-color: rgba(0, 0, 0, 0.2); /* 선의 색상 */
+    z-index: -1;
+    transform: translateX(-50%); /* 가운데 정렬을 위한 추가 설정 */
   }
