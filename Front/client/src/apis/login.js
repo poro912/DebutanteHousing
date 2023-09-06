@@ -1,3 +1,4 @@
+/*
 // api.js
 import axios from 'axios';
 
@@ -16,4 +17,15 @@ export function login(id, pw, callback) {
     .catch(error => {
       callback(error, null); // 실패 시 콜백 호출
     });
+}
+*/
+
+import {post} from './axiosSystem';
+
+//함수명 기능명뒤에 API붙이기
+//변수명이랑 라벨명이랑 같게 처리
+export function login(id, pw, callback) {
+	post('user/login',
+	{id: id, pw: pw}
+		,callback);
 }
