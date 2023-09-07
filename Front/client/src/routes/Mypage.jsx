@@ -1,12 +1,11 @@
 import styles from "./Mypage.module.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import FurnitureCom from "./FurnitureCom";
 
 function Mypage() {
   const [copied, setCopied] = useState(false);
   const [nickname, setNickname] = useState("Chaeyeon");
-  
 
   const handleCopyClick = () => {
     // 복사할 텍스트를 담을 textarea 엘리먼트 생성
@@ -37,8 +36,7 @@ function Mypage() {
   return (
     <div>
       <div className={styles.box}>
-        <Link to="Home"></Link>
-
+      <div className={styles.separator}></div>
         <div className={styles.sbox} />
 
         <h1 className={styles.name}>{nickname}</h1>
@@ -49,25 +47,33 @@ function Mypage() {
           alt="copy"
           src="./img/copy.gif"
         />
-
+{copied && <p>클립보드에 복사되었습니다!</p>}
         <h1 className={styles.Money}>Wallet :</h1>
-        <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
-        <div className={styles.vertLine}></div>
+        
+
         <h1 className={styles.have}>Storage</h1>
         <h1 className={styles.sale}>On sale</h1>
         
-        <div className={styles.furnitureWrapper}>
-        <FurnitureCom />
-        <FurnitureCom />
+        <div className={styles.contentContainer}>
+          <div className={styles.leftContent}>
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          </div>
+          <div className={styles.rightContent}>
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          </div>
         </div>
-        {copied}
+        
       </div>
-      <button className={styles.backarrow}>➤</button>
+      <Link to="Home"><button className={styles.backarrow}>➤</button></Link>
       <h1 className={styles.Mypage}>My Page</h1>
 
       <img className={styles.heartb} alt="heartb" src="./img/bheart.gif" />
