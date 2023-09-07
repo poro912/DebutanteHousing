@@ -30,7 +30,7 @@ http://182.220.199.210:3310/user/login
 /room/info
 	get		: 방 정보를 가져온다	(완성)
 /room/item/place	
-			: 방에 아이템을 배치한다 (함수 완성)
+	post	: 방에 아이템을 배치한다 (함수 완성)
 /room/item/replace
 	post	: 아이템들의 위치 정보를 전부 수정한다. (함수 완성)
 			move, rotate
