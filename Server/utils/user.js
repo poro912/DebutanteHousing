@@ -16,6 +16,8 @@
 const db = require('./DB_systeam').module;
 const system = require('./DHM_system').module;
 //const DHM_system = require('../System/DHM_system.js').module;
+const Web3 = require('web3');
+const web3 = new Web3(process.env.INFURA_URL);
 
 const user = {
 	info : {
@@ -30,6 +32,7 @@ const user = {
 	 * @todo	검증전
 	*/
 	joinIn : async (id, pw, name, nick, email, phone) => {
+		
 		let result = {
 			result : Boolean,
 			code: Number,
@@ -50,6 +53,16 @@ const user = {
 			result.nick = "";
 		}
 		else{
+			const createAccount = async() => {
+				try{
+					const newAccount = await web3.eth.accounts.create();
+					console.log(`New Account Address: ${newAccount.address}, New Account privateKey: ${newAccount.privateKey}`)
+					return newAccount;
+				}catch(e){
+					console.error(e);
+				}
+			}
+			const newAccount = createAccount();
 			await db.use.personal(conn);
 			temp = await db.execQuery(conn,
 				`select code from user where id = "${id}";`
