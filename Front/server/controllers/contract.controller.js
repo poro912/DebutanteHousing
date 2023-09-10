@@ -38,19 +38,26 @@ module.exports = {
             res.status(500).send(e.message || e);
         }
     },
-    setToken : async(req,res,next) => {
-        try{
-            const {account ,tokenAddress} = req.body;
-            
-            const result = await DHT721Se.methods.setToken(tokenAddress).send({ from: account });
-            
-            console.log(result);
-            res.send(result);
-        }catch(e){
-            console.error(e);
-            res.status(500).send(e.message || e);
+    setToken: async (req, res, next) => {
+        try {
+          const { tokenAddress } = req.body;
+          
+		  const userWallet = web3.eth.accounts.privateKeyToAccount("1477052570c06e7a0577249cbb749e0a3b13bf78f5fea982aadc981c170d336d");
+		  const connectedContract = DHT721Se.clone();
+		  connectedContract.options.address = "0x84Bb947CFCb2AE9cd47bE0D7489490C6F9AeE3C6";
+		  connectedContract.options.from = userWallet.address;
+
+		  web3.eth.accounts.wallet.add(userWallet);
+		  const result = await DHT721Se.methods.setToken(tokenAddress).send({ from: userWallet.address, gas: 3000000 });	
+		  console.log(result);
+		  res.send(result);
+
+		} catch (error) {
+          //console.error('Transaction error:', error);
+          res.status(500).send(error.message || error);
         }
-    },
+      },
+      
     mintNFT: async (req, res, next) => {
         try {
           const { recipient , tokenURI, price } = req.body;
@@ -99,7 +106,7 @@ module.exports = {
       
     getAllNftList : async(req, res, next) => {
         try{
-            const result = await DHT721.methods.getAllNftList().call()
+            const result = await DHT721Se.methods.getAllNftList().call()
             
             console.log(result);
             res.status(200).json({
@@ -168,7 +175,7 @@ module.exports = {
         try{
             const { account } = req.body;
 
-            const result = await DHT20.methods.balanceOf(account).call()
+            const result = await DHT20Se.methods.balanceOf(account).call()
             
             console.log(result);
             res.status(200).json({

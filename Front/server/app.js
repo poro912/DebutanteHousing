@@ -9,7 +9,7 @@ const routes = require("./routes");
 
 app.use("/", routes);
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3310;
 
 module.exports = app.listen(PORT, () => {
     console.log(`🚀 server is working on ${PORT}`);
