@@ -12,8 +12,8 @@ function Login() {
       <div>
       </div>
      <div>
-     <Link to="/DeHaPrototype/Join"><button className={styles.btn}>Join</button></Link>
-     <Link to="/DeHaPrototype/test"><button className={styles.btn2}>Login</button></Link>
+     <Link to="/Join"><button className={styles.btn}>Join</button></Link>
+     <Link to="/test"><button className={styles.btn2}>Login</button></Link>
      
        
          <div>

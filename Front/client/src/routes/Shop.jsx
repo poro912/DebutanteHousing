@@ -17,7 +17,7 @@ function Shop() {
   };
   return (
     <div>
-      <Link to="Home"><button className={styles.backarrow}>➤</button></Link>
+      <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       <div>
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}

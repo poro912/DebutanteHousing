@@ -32,8 +32,8 @@ const HomePage = () => {
               </img>
             </div>
             <div className={styles.iconCon}>
-              <div className={styles.shopImg}><Link to="/DeHaPrototype/shop"><img src=".\img\cart.png"></img>shop</Link></div>
-              <div className={styles.firendImg}><Link to="/DeHaPrototype/friends"><img src=".\img\friend.png"></img>friend</Link></div>
+              <div className={styles.shopImg}><Link to="/shop"><img src=".\img\cart.png"></img>shop</Link></div>
+              <div className={styles.firendImg}><Link to="/friends"><img src=".\img\friend.png"></img>friend</Link></div>
             </div>
           </header>
           

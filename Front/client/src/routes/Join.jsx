@@ -22,7 +22,7 @@ function Join() {
   return <div>
 
     <div>
-    <Link to="/DeHaPrototype/"><button className={styles.backarrow}>➤</button></Link>
+    <Link to="/"><button className={styles.backarrow}>➤</button></Link>
     <h4 className={styles.ID}>ID :</h4>
     <h4 className={styles.PASS}>PASS :</h4>
     <h4 className={styles.NAME}>NAME :</h4>

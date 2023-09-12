@@ -20,7 +20,7 @@ const CanvasModel = () => {
   //const url = state.green
 
   const dispatch = useDispatch();
-  const furnitureList = useSelector(state => state.furniture.furnitureList);
+  const furnitureList = useSelector(state => state.furniture.items);
 
   const [glburl, setGlburl] = useState("") //링크로 불러오기 성공
   useEffect(() => {

@@ -1,6 +1,6 @@
 import styles from "./Login1.module.css"
 import { useState } from "react";
-import {Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin, setProfileImg } from '../Redux/userSlice';
 
@@ -10,6 +10,7 @@ import { login } from "../apis/user"
 function Login() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [id, setid] = useState();
     const onChangeid = (event) => {
@@ -47,6 +48,7 @@ function Login() {
                   user_profile,
                 })
               )
+              navigate('/Home')
           }
       }) 
   }
