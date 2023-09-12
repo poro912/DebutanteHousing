@@ -1,13 +1,13 @@
 import React from 'react'
 //API불러 오기
-import { login } from "../apis/login"
+import { login } from "../apis/user"
 
 const APITest = () => {
     // API 실행 함수
     function API(){
         //API 함수 실행
         //id, pw를 변수로 안쓰고 진짜 아이디 직접 넣어도됨
-        login("0x006f96E335DB48C05f1f23D3137b02982b1cef71", (error, responseData) => {
+        login("id1", "pw1", (error, responseData) => {
             if(error){
                 console.log("API실패")
                 console.log(error)

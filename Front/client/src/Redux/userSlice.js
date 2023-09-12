@@ -1,35 +1,46 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
-  name: 'user',
+  name: 'users',
   initialState: {
-    email:'',
-    nickname: '',
-    address: '',
-    token_amount: '',
-    eth_amount: '',
-    profileImg : "",
+    room_code:null,
+    room_like: null,
+    room_name: '',
+    user_code: null,
+    user_id: '',
+    user_nick : '',
+    user_profile: null,
+    //token_amount : null,
+    //eth_amount : null,
     isLoggedIn: false,
   },
   reducers: {
     setLogout: (state) => {
-      state.email = '';
-      state.nickname = '';
-      state.address = '';
-      state.token_amount = '';
-      state.eth_amount = '';
+      state.room_code = null;
+      state.room_like = null;
+      state.room_name = '';
+      state.user_code = null;
+      state.user_id = '';
+      state.user_nick = '';
+      state.user_profile = null;
+      //state.token_amount = null;
+      //state.eth_amount = null;
       state.isLoggedIn = false;
-      console.log('실제 상태:', state.email, state.nickname, state.address, state.token_amount, state.eth_amount, state.isLoggedIn);
+      console.log('실제 상태:', state.user_id, state.user_nick, state.user_code, state.token_amount, state.eth_amount, state.isLoggedIn);
     },
     setLogin: (state, action) => {
-      const { email, nickname, address, token_amount, eth_amount } = action.payload;
-      state.email = email;
-      state.nickname = nickname;
-      state.address = address;
-      state.token_amount = token_amount;
-      state.eth_amount = eth_amount;
+      const { room_code, room_like, room_name, user_code, user_id, user_nick, user_profile, token_amount, eth_amount } = action.payload;
+      state.room_code = room_code;
+      state.room_like = room_like;
+      state.room_name = room_name;
+      state.user_code = user_code;
+      state.user_id = user_id;
+      state.user_nick = user_nick;
+      state.user_profile = user_profile;
+      //state.token_amount = token_amount;
+      //state.eth_amount = eth_amount;
       state.isLoggedIn = true;
-      console.log('실제 상태:', state.email, state.nickname, state.address, state.token_amount, state.eth_amount, state.isLoggedIn); // 실제 상태 출력 '_' 프로퍼티는 프록시 객체의 실제 상태를 나타내는 프로퍼티
+      console.log('실제 상태:', state.user_id, state.user_nick, state.room_code, state.room_name, state.user_profile, state.isLoggedIn); // 실제 상태 출력 '_' 프로퍼티는 프록시 객체의 실제 상태를 나타내는 프로퍼티
     },
     setNickname: (state, action) => {
       state.nickname = action.payload;
