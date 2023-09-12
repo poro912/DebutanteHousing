@@ -5,7 +5,7 @@ import FurnitureCom from "./FurnitureCom";
 
 function Mypage() {
   const [copied, setCopied] = useState(false);
-  const [nickname, setNickname] = useState("Chaeyeon");
+  const [nickname, setNickname] = useState("nyaaaaaaa");
 
   const handleCopyClick = () => {
     // 복사할 텍스트를 담을 textarea 엘리먼트 생성
@@ -37,8 +37,9 @@ function Mypage() {
     <div>
       <div className={styles.box}>
       <div className={styles.separator}></div>
-        <div className={styles.sbox} />
-
+    
+<div>
+<div>
         <h1 className={styles.name}>{nickname}</h1>
         <img
           onClick={handleCopyClick}
@@ -47,24 +48,22 @@ function Mypage() {
           alt="copy"
           src="./img/copy.gif"
         />
-{copied && <p>클립보드에 복사되었습니다!</p>}
-        <h1 className={styles.Money}>Wallet :</h1>
-        
-
+        {copied && <p>클립보드에 복사되었습니다!</p>}
+        </div>
         <h1 className={styles.have}>Storage</h1>
+        </div>
+
+
+
+<div>
+        <h1 className={styles.Money}>Wallet :</h1>
         <h1 className={styles.sale}>On sale</h1>
-        
+        </div>
         <div className={styles.contentContainer}>
           <div className={styles.leftContent}>
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
+          
           </div>
           <div className={styles.rightContent}>
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />

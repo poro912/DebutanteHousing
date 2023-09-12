@@ -22,7 +22,7 @@
     position: fixed;
     top: 2vh;
     left: 4vh;
-    font-size: 2.5rem;
+    font-size: 5vh;
     transform: rotate(180deg);
     color:#302b26;
     text-shadow: 3px 3px 2px rgb(172, 151, 151);
@@ -30,11 +30,11 @@
 
 
   .Mypage{
-    font-size: 3.5rem;
+    font-size: 7vh;
       font-weight: bold;
       position: fixed;
-      top: 0vh;
-      left: 95vh;
+      top: 0%;
+      left: 45%;
       font-family: 'Dancing Script';
       z-index: 2;
       color:rgb(196, 211, 255);
@@ -46,10 +46,10 @@
 
 
 .name{
-    font-size: 4.5rem;
+    font-size: 8vh;
     font-weight: bold;
     position: fixed;
-    top: 0vh;
+    top: -1vh;
     left: 11vh;
     font-family: 'Dancing Script';
     z-index: 2;
@@ -60,11 +60,11 @@
 
 
 .Money{
-    font-size:4rem;
+    font-size: 7vh;
     font-weight: bold;
     position: fixed;
-    top: 1vh;
-    left: 90vh;
+    top: 0vh;
+    left: 85vh;
     font-family: 'Dancing Script';
     z-index: 2;
     color:rgb(196, 211, 255);
@@ -111,15 +111,15 @@
     width: 3.5vw;
     height: 7vh;
     left: 0.5vw;
-    top: 1vh;
+    top: 0.5vh;
 }
 
 .have {
-    font-size: 5rem;
+    font-size: 10vh;
     font-weight: bold;
     position: absolute;
     top: 15%;
-    left: 20%;
+    left: 19%;
     transform: translate(-15%);
     font-family: 'Dancing Script';
     z-index: 2;
@@ -129,11 +129,11 @@
   
 
   .sale {
-    font-size: 5rem;
+    font-size: 10vh;
     font-weight: bold;
     position: absolute; /* .sale를 absolute로 설정 */
     top: 16%; /* 세로 중앙 정렬을 위해 top을 50%로 설정 */
-    left: 70%;
+    left: 71%;
     transform: translate(-20%); /* 가로 중앙 정렬을 위해 transform 사용 */
     font-family: 'Dancing Script';
     z-index: 2;

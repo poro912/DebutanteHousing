@@ -18,6 +18,7 @@ function Shop() {
   return (
     <div>
       <Link to="Home"><button className={styles.backarrow}>➤</button></Link>
+      <div>
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}
@@ -29,31 +30,28 @@ function Shop() {
       
       <div className={styles.itemsContainer}>
       <div className={styles.box}>
+      <hr className={styles.hrr} />
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
         <div className={styles.furnitureWrapper}>
-        
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
-        <FurnitureCom /> 
         <FurnitureCom />
-        <FurnitureCom /> 
-        <FurnitureCom /> 
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
+        <FurnitureCom />
       </div>
       </div>
 
       </div>
   
-      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
       
       <h1 className={styles.Shop}>Shop</h1>
-      <hr className={styles.hrr} />
+      </div>
       <img className={styles.upheart} alt="upheart" src="./img/upheart.gif" />
       <img className={styles.upheart2} alt="upheart" src="./img/upheart.gif" />
     </div>

@@ -12,12 +12,12 @@
     0 4px 0 -1px rgba(51, 46, 46, 0.08), 
     0 3px 13px -1px rgba(14, 11, 11, 0.21);
     background-color: rgba(255, 114, 147, 0.452);
-      padding: 1vh 7vw; 
+      padding: 1vh 12vw; 
       font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
       position: fixed;
-      top: 56vh;
-      left: 42vw;
+      top: 57vh;
+      left: 37.5vw;
       z-index: 5;
       border-radius: 24px;
       opacity: 0;
@@ -28,8 +28,8 @@
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top: 56vh;
-    left: 42vw;}
+    top: 57vh;
+    left: 37.5vw;}
 
 .btn3{
         color: white; 
@@ -43,7 +43,7 @@
                     0 3px 0 -1px rgba(0,0,0,0.08), 
                     0 3px 13px -1px rgba(0,0,0,0.21);
           background-color: #74675c;  
-          padding: 4px 12px;  
+          padding: 4px 24px;  
           font-size: 12px;
           font-family: 'BookkMyungjo-Bd';
           position: relative;
@@ -135,7 +135,7 @@
     color:#ffffff;
     background-color: rgb(255, 255, 255);
     font-family: 'Dancing Script';
-    font-size: 1.5rem;
+    font-size: 3vh;
     text-align: center;
     background-color: transparent;
     opacity: 0;
@@ -150,7 +150,7 @@
     color:#ffffff;
     background-color: rgb(255, 255, 255);
     font-family: 'Dancing Script';
-    font-size: 1.5rem;
+    font-size: 3vh;
     text-align: center;
     background-color: transparent;
     opacity: 0;
@@ -164,7 +164,7 @@
     color:#ffffff;
     background-color: rgb(255, 255, 255);
     font-family: 'Dancing Script';
-    font-size: 1.5rem;
+    font-size: 3vh;
     text-align: center;
     background-color: transparent;
     opacity: 0;
@@ -267,11 +267,12 @@
     position: fixed;
     top: 3vh;
     left: 4vh;
-    font-size: 2.5rem;
+    font-size: 5vh;
     transform: rotate(180deg);
     color:#302b26;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
   }
   .Fbg{
     position: fixed;
@@ -288,7 +289,7 @@
       box-sizing: border-box;
       height: 40vh;
       width: 40vw;
-      top: 27.6vh;
+      top: 29.2vh;
       left: 30vw;
       background-color: rgba(255, 209, 220, 0.651);
       border-radius: 0px; /* 둥근 테두리 */
