@@ -10,7 +10,7 @@
   top: 15.5vh;
   left: 41vw;
   z-index: 6;
-  font-size: 40px;
+  font-size: 4vh;
   text-align:center;
   font-family: 'Dancing Script';
   background-color: transparent;
@@ -34,19 +34,16 @@
               0px 0px 3px rgb(226, 208, 211),
               -0px -0px 3px rgb(226, 208, 211);
   z-index:-1;
-  overflow-y: scroll;
-  padding: 10px; /* 내용의 위아래 여백 추가 */
-
-
 }
 
 
 
 .Mag{
-  position: absolute;
-  top: 16.8vh;
-  left: 82vh;
-  height: 3vh;
+  position: fixed;
+  top: 6vh;
+  left: 70vh;
+  height: 4vh;
+  width: 2vw;
   color:rgb(228, 30, 83);
 }
 
@@ -90,18 +87,18 @@
   position: fixed;
   top: 2vh;
   left: 4vh;
-  font-size: 2.5rem;
+  font-size: 5vh;
   transform: rotate(180deg);
   color:#302b26;
   text-shadow: 3px 3px 2px rgb(172, 151, 151);
 }
 
 .Shop{
-  font-size: 3.5rem;
+  font-size: 7vh;
     font-weight: bold;
     position: absolute;
     top: 1vh;
-    left: 95vh;
+    left: 98vh;
     font-family: 'Dancing Script';
     z-index: 2;
     color:rgb(255, 198, 213);
@@ -113,10 +110,10 @@
 
 .hrr {
   position: fixed;
-  width: 23vw;
+  width: 26vw;
   height: 5vh;
-  top: 21vh;
-  left: 39vw;
+  top: 12vh;
+  left: 33vw;
   z-index: 4;
   border-top : 4px solid rgb(92, 81, 84);
   
@@ -143,10 +140,10 @@
 .furnitureWrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 5vw;
-  grid-row-gap: 10vh;
+  grid-column-gap: 3vw;
+  grid-row-gap: 3.5vh;
   justify-content: start;
   position: absolute;
-  top: 0%;
+  top: -3%;
   left: -2%;
 }

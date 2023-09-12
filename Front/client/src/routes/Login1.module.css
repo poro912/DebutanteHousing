@@ -49,8 +49,8 @@
     border: none;
     position: fixed;
     top:  45vh;
-    left: 41.5vw;
-    width : 18vh;
+    left: 39vw;
+    width : 20vh;
         z-index: 5;
         color:#ffffff;
         background-color: rgb(255, 255, 255);
@@ -61,14 +61,15 @@
         animation: fadeInAndStay 2s forwards 1s;
         border-radius: 15px;
         background-color: transparent;
+    
     }
 
     .pass{
         box-sizing: border-box;
         border: none;
         position: fixed;
-        top:  45vh;
-        left: 56vw;
+        top:  44.7vh;
+        left: 58vw;
         width : 18vh;
             z-index: 5;
             color:#ffffff;
@@ -204,12 +205,12 @@ input:focus::placeholder{
               0 4px 0 -1px rgba(51, 46, 46, 0.08), 
               0 3px 13px -1px rgba(14, 11, 11, 0.21);
     background-color: rgba(255, 114, 147, 0.452);   
-      padding: 1vh 10vw; 
+      padding: 1vh 12vw; 
       font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
       position: fixed;
-      top: 54vh;
-      left: 39vw;
+      top: 57vh;
+      left: 37vw;
       z-index: 5;
       border-radius: 24px;
       animation: fadeInAndStay 2s forwards 1s;
@@ -225,8 +226,8 @@ input:focus::placeholder{
   border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 54vh;
-    left: 39vw;
+    top: 57vh;
+    left: 37vw;
     z-index: 5;
     background-color: rgba(168, 73, 96, 0.452);  
 }
@@ -234,12 +235,12 @@ input:focus::placeholder{
 .ID{
     position: fixed;
     top:  45vh;
-    left: 38vw;
+    left: 34vw;
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
     font-family: 'Dancing Script';
-    font-size: 2rem;
+    font-size: 5vh;
     text-align: center;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
@@ -254,7 +255,7 @@ input:focus::placeholder{
         color:#ffffff;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
-        font-size: 2rem;
+        font-size: 5vh;
         text-align: center;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
@@ -265,11 +266,12 @@ input:focus::placeholder{
     position: fixed;
     top: 3vh;
     left: 4vh;
-    font-size: 2.5rem;
+    font-size: 5vh;
     transform: rotate(180deg);
     color:#302b26;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
   }
   
   .sbox{
@@ -277,7 +279,7 @@ input:focus::placeholder{
     box-sizing: border-box;
     height: 40vh;
     width: 40vw;
-    top: 27.6vh;
+    top: 29.2vh;
     left: 30vw;
     background-color: rgba(255, 209, 220, 0.651);
     border-radius: 0px; /* 둥근 테두리 */

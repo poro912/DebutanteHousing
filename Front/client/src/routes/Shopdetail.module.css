@@ -1,18 +1,17 @@
 .sbox{
       position: relative;
       top: 43vh;
-      left: 45vh;
+      left: 40vh;
       height: 45vh;
-      width: 20vw;
+      width: 22.5vw;
       background-color: rgba(255, 255, 255, 0.918);
       border-radius: 35px; /* 둥근 테두리 */
-      box-shadow: 0px 0px 5px rgb(255, 168, 189),
-                  0px 0px 5px rgb(255, 168, 189),
-                  5px 5px 10px rgb(255, 168, 189),
-                  -5px -5px 10px rgb(255, 168, 189);
-      z-index:0;
+      box-shadow: 0px 0px 10px rgb(255, 255, 255),
+      5px 5px 3px rgba(255, 169, 199, 0.808),
+      5px 5px 10px rgba(255, 206, 223, 0.808),
+      -3px -3px 10px rgba(255, 238, 244, 0.719);
+      z-index: -1;
      
-      
   }
 
   .heartp{
@@ -20,25 +19,26 @@
     width: 7vw;
     height: 14vh;
     top: 36vh;
-    left: 28vw;
+    left: 27vw;
   z-index: 2;
 }
 
 .text{
   position: fixed;
-  top: 75vh;
-  left: 53vh;
+  top: 60vh;
+  left: 14vw;
   font-family: 'Dancing Script';
-    font-size: 3.5rem;
+    font-size: 6vh;
     color:rgb(255, 177, 190);
     text-shadow: 2px 2px 2px rgb(255, 254, 254),
                  2px 2px 2px rgb(255, 133, 151);
+   z-index: 1;
 }
 
 .fu{
   position: fixed;
   top: 54vh;
-  left: 57vh;
+  left: 55vh;
   width: 10vw;
   height: 16vh;
 }
@@ -58,26 +58,26 @@
               -5px -5px 10px rgb(196, 179, 182),
               0px 0px 3px rgb(226, 208, 211),
               -0px -0px 3px rgb(226, 208, 211);
-  z-index:-1;
+  z-index:-2;
 
 }
 
 .titletext{
   position: fixed;
-  top: 14vh;
-  left: 27vh;
+  top: 1vh;
+  left: 5vh;
   font-family: 'Dancing Script';
-    font-size: 6rem;
+    font-size: 11vh;
     color:rgb(255, 214, 214);
     text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
 }
 
 .detailtext{
   position: fixed;
-  top: 27vh;
-  left: 32vh;
+  top: 14vh;
+  left: 10vh;
   font-family: 'Dancing Script';
-    font-size: 3rem;
+    font-size: 6vh;
     color:rgb(255, 255, 255);
     text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
 }
@@ -86,18 +86,18 @@
   position: fixed;
   top: 2vh;
   left: 4vh;
-  font-size: 2.5rem;
+  font-size: 5vh;
   transform: rotate(180deg);
   color:#302b26;
   text-shadow: 3px 3px 2px rgb(172, 151, 151);
 }
 
 .FurnitureDetails{
-  font-size: 3.5rem;
+  font-size: 7vh;
   font-weight: bold;
   position: absolute;
   top: 1vh;
-  left: 86vh;
+  left: 83vh;
   font-family: 'Dancing Script';
   z-index: 2;
   color:rgb(255, 198, 213);
@@ -120,41 +120,41 @@
               0 3px 1px  rgba(0,0,0,0.21),
               0px 0px 1px rgb(161, 123, 133);
     background-color: rgb(255, 255, 255);  
-    padding: 0.3vh 10vw;  
+    padding: 0.3vh 12vw;  
     font-size: 1.5rem;
     font-weight: bolder;
     font-family: 'Dancing Script';
     position: fixed;
-    top: 85vh;
-    left: 115vh; 
-    border-radius: 15px;
+    top: 73vh;
+    left: 90vh; 
+    border-radius: 20px;
 }
 
 .buy:active{top: 1px;
   border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
   box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
   position: fixed;
-  top: 85vh;
-  left: 115vh;
+  top: 73vh;
+  left: 90vh;
   }
     
 
 .price{
   position: fixed;
-    top: 65vh;
-    left: 105vh;
+    top: 55vh;
+    left: 86vh;
     font-family: 'Dancing Script';
-    font-size: 3rem;
+    font-size: 6vh;
     color:rgb(255, 216, 216);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
 }
 .name{
   position: fixed;
-    top: 50vh;
-    left: 105vh;
+    top: 40vh;
+    left: 86vh;
     font-family: 'Dancing Script';
-    font-size: 3rem;
+    font-size: 6vh;
     color:rgb(255, 216, 216);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
@@ -165,8 +165,8 @@
   position: fixed;
   width: 30vw;
   height: 5vh;
-  top: 58vh;
-  left: 50.5vw;
+  top: 49vh;
+  left: 41vw;
   z-index: 6;
   border-top :4px solid rgba(105, 84, 84, 0.76);
 }
@@ -175,8 +175,8 @@
   position: fixed;
   width: 30vw;
   height: 5vh;
-  top: 72.5vh;
-  left: 50.5vw;
+  top: 64vh;
+  left: 41vw;
   z-index: 6;
   border-top :4px solid rgba(105, 84, 84, 0.76);
 }
@@ -187,7 +187,7 @@
   height: 100vh;
   left: 0vh;
   top: 0vh;
-  z-index: -2;
+  z-index: -3;
 }
 
 .upheart2{
@@ -196,5 +196,5 @@
   height: 100vh;
   left: 110vh;
   top: 0vh;
-  z-index: -2;
+  z-index: -3;
 }

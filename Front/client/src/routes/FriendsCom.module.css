@@ -1,16 +1,18 @@
 .container {
   position: absolute;
   top: 20%;
-  left: 35%;
+  left: 30%;
   transform: translate(-50%, -50%);
 }
 
 .Name {
-  font-size: 3rem;
+  font-size: 7vh;
   font-weight: bold;
   font-family: 'Dancing Script';
   color: rgb(255, 233, 162);
   text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
+  position: relative;
+  
 }
 
 .Name::after {
@@ -26,16 +28,16 @@
 
 .goarrow {
   position: absolute;
-  top: 1.5vh;
-  right: -15vw; /* Name 요소와 수평 정렬 및 오른쪽에 위치하도록 수정 */
-  font-size: 2.5rem;
+  top: 5vh;
+  right: -23vw; /* Name 요소와 수평 정렬 및 오른쪽에 위치하도록 수정 */
+  font-size: 4vh;
   color: rgba(56, 50, 17, 0.808);
   text-shadow: 3px 3px 2px rgb(172, 151, 151);
 }
 
 .heartp {
   position: absolute;
-  top: 2vh; /* Name 요소와 수평 정렬 */
+  top: 0vh; /* Name 요소와 수평 정렬 */
   left: -3vw; /* Name 요소의 왼쪽에 위치하도록 조정 */
   width: 2.5vw;
   height: 5vh;

@@ -56,6 +56,8 @@ function Friends() {
         <div className={styles.furnitureWrapper}>
         
         <FriendsCom name={name} />
+
+        
         </div>
  
       
