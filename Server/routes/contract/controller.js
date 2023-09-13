@@ -5,7 +5,7 @@ Router.use(express.json());
 const Web3 = require('web3');
 require('dotenv').config();
 
-const connWallte = require('../../utils/contract').module;
+//const connWallte = require('../../utils/contract').module;
 
 //@notion web3 설정
 //const web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545'))

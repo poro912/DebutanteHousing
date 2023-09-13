@@ -40,7 +40,7 @@ const room ={
 		system.debug.print("attempt login");
 		system.debug.print();
 
-		ret = await db_user.login(form.id, form.pw);
+		//ret = await db_room.getRoom
 
 		if("function" === typeof callback){
 			callback(res, ret);
@@ -62,8 +62,12 @@ const room ={
 		system.debug.print("attempt replace item");
 		system.debug.print();
 
-		ret = await db_user.login(form.room_code, form.items);
+		ret = await db_room.replaceItems(form.code, form.items);	
 
+		if(ret) {
+			ret = await db_room.getRoomInfo(form.code);
+		}
+		
 		if("function" === typeof callback){
 			callback(res, ret);
 		}
@@ -83,7 +87,11 @@ const room ={
 		system.debug.print("attempt place item");
 		system.debug.print();
 
-		ret = await db_user.login(form.room_code, form.items);
+		ret = await db_room.placeItems(form.code, form.items);	
+
+		if(ret) {
+			ret = await db_room.getRoomInfo(form.code);
+		}
 
 		if("function" === typeof callback){
 			callback(res, ret);
@@ -104,7 +112,11 @@ const room ={
 		system.debug.print("attempt delete item");
 		system.debug.print();
 
-		ret = await db_user.login(form.room_code, form.items);
+		ret = await db_room.removeItems(form.code, form.items);	
+
+		if(ret) {
+			ret = await db_room.getRoomInfo(form.code);
+		}
 
 		if("function" === typeof callback){
 			callback(res, ret);

@@ -3,23 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="b2e7a2c1-f66e-4d43-a074-ac7f7a3f4155" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.Dodcument/route.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.Dodcument/route.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/room.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contract/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contract/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/room/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/room/controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/room.js" beforeDir="false" afterPath="$PROJECT_DIR$/utils/room.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="2V489RwfiHL1UFoex0glaCm8dv3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

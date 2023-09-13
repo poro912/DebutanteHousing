@@ -43,7 +43,7 @@ const room = {
 		system.debug.print(user_temp[0]);
 
 		//item_data
-		items_temp = await db.execQuery(conn, `select item_code, nft_code, item_name, item_path, position, rotate from room_item_nft_view where room_code = "${code}";`);
+		items_temp = await db.execQuery(conn, `select item_code, nft_code, item_name, item_path, position as pos, rotate as rot from room_item_nft_view where room_code = "${code}";`);
 		items_temp = room.convertPositionArray(items_temp);
 		items_temp = room.convertRotateArray(items_temp);
 
@@ -64,74 +64,137 @@ const room = {
 		return result;
 	},
 
+	placeItems : async (room_code, items) => {
+		system.debug.print("place Items function");
+		let result = false;
+
+		var conn = await db.getConnection();
+		await db.use.current(conn);
+
+		for (const item of items) {
+			system.debug.print(item);
+			temp = await room.placeItem(conn, room_code, item);
+			//affectedRows
+			//if(!temp) result = false;
+		}
+
+		system.debug.print(result);
+		system.debug.print();
+		return result;
+	},
+	removeItems : async (room_code, items) => {
+		system.debug.print("remove Items function");
+		let result = false;
+
+		var conn = await db.getConnection();
+		await db.use.current(conn);
+		var cnt = 0;
+
+		for (const item of items) {
+			system.debug.print(item);
+			temp = await room.removeItem(conn, room_code, item);
+			if(temp["affectedRows"] != 0) cnt++;
+		}
+
+		system.debug.print(result);
+		system.debug.print();
+		return result;
+	},
+	replaceItems : async (room_code, items) => {
+		system.debug.print("replace Items function");
+		let result = false;
+
+		if(items.length == 0 || items === undefined) return false;
+
+		var conn = await db.getConnection();
+		await db.use.current(conn);
+
+		items = room.convertPositionINT(items);
+		items = room.convertRotateINT(items);
+		
+		var cnt = 0;
+		for (const item of items) {	
+			temp = await room.replaceItem(conn, room_code, item.code, item.pos, item.rot);
+			system.debug.print(item);
+			if(temp["changedRows"] != 0) cnt++;
+		}
+
+		system.debug.print("cnt :", cnt);
+
+		if(cnt == items.length) result = true;
+
+		system.debug.print("result ",result);
+		system.debug.print();
+		return result;
+	},
+
 	placeItem : async (conn, room_code, item_code) => {
 		system.debug.print("place Item function");
 		await db.use.current(conn);
-		result = user_temp = await db.execQuery(conn, 
+		result  = await db.execQuery(conn, 
 			`insert into 
 			room_item(r_code, i_code, position, rotate) 
 			values ( ${room_code}, ${item_code}, 0, 0);`);
 		system.debug.print(result);
 		system.debug.print(result[0]);
+		return result;
 	},
 
 	removeItem : async (conn, room_code, item_code) =>{
 		system.debug.print("removeItem function");
 		await db.use.current(conn);
-		result = user_temp = await db.execQuery(conn, 
+		result  = await db.execQuery(conn, 
 			`delete from room_item 
 			where r_code = ${room_code} and i_code = ${item_code};`);
 		system.debug.print(result);
 		system.debug.print(result[0]);
+		return result;
 	},
 
 	replaceItem : async (conn, room_code, item_code, position, rotate) =>{
-		system.debug.print("removeItem function");
+		system.debug.print("replaceItem function");
 		await db.use.current(conn);
-		result = user_temp = await db.execQuery(conn, 
-			`update room_item 
-			set 
-			position = ${position}, 
-			rotate = ${rotate} 
-			where 
-			r_code = ${room_code} and 
-			i_code = ${item_code};`);
-		
+		result  = await db.execQuery(conn, 
+			`update room_item set position = ${position}, rotate = ${rotate} where r_code = ${room_code} and i_code = ${item_code};`
+		);
 		system.debug.print(result);
 		system.debug.print(result[0]);
+		return result;
 	},
 
-
+	// 정수를 배열로 변환
 	convertPositionArray : (obj)  =>{
+		system.debug.print(obj);
 		for (let i = 0; i < obj.length; i++) {
-			if(obj[i]["position"] === undefined) continue;
-			obj[i]["position"] = room.itoaVector(obj[i]["position"]);
+			if(obj[i]["pos"] === undefined) continue;
+			obj[i]["pos"] = room.itoaVector(obj[i]["pos"]);
 		}
 		return obj
 	},
 
-	convertPositionINT : (arr) => {
+	// 배열을 정수로 변환
+	convertPositionINT : (obj) => {
 		for (let i = 0; i < obj.length; i++) {
-			if(obj[i]["position"] === undefined) continue;
-			obj[i]["position"] = room.atoiVector(obj[i]["position"]);
+			if(obj[i]["pos"] === undefined) continue;
+			obj[i]["pos"] = room.atoiVector(obj[i]["pos"]);
 		}
-		return obj
+		return obj;
 	},
 
 	convertRotateArray : (obj)  =>{
 		for (let i = 0; i < obj.length; i++) {
-			if(obj[i]["rotate"] === undefined) continue;
-			obj[i]["rotate"] = room.itoaVector(obj[i]["rotate"]);
+			if(obj[i]["rot"] === undefined) continue;
+			obj[i]["rot"] = room.itoaVector(obj[i]["rot"]);
 		}
-		return obj
+		return obj;
 	},
 
-	convertRotateINT : (arr) => {
+	convertRotateINT : (obj) => {
 		for (let i = 0; i < obj.length; i++) {
-			if(obj[i]["rotate"] === undefined) continue;
-			obj[i]["rotate"] = room.atoiVector(obj[i]["rotate"]);
+			if(obj[i]["rot"] === undefined) continue;
+			obj[i]["rot"] = room.atoiVector(obj[i]["rot"]);
 		}
-		return obj
+		return obj;
 	},
 
 	// array to int, 배열을 정수로 변환하여 반환함

@@ -18,7 +18,6 @@ exports.route = (app)=>{
     //app.use('/friend',    friendRouter);
     app.use('/room',		roomRouter);
     //app.use('/store',     storeRouter);
-    //app.use('/nft',       nftRouter);
     //app.use('/item',      itemRouter);
     //app.use('/edit',      editRouter);
     //app.use('*',          etcRouter);

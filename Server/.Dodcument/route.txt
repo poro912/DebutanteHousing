@@ -27,12 +27,12 @@ http://182.220.199.210:3310/user/login
 
 /room
 방 정보에 접근한다. 
-/room/info
+/room/
 	get		: 방 정보를 가져온다	(완성)
-/room/item/place	
+/room/item	
 	post	: 방에 아이템을 배치한다 (함수 완성)
-/room/item/replace
-	post	: 아이템들의 위치 정보를 전부 수정한다. (함수 완성)
+/room/item
+	put		: 아이템들의 위치 정보를 전부 수정한다. (함수 완성)
 			move, rotate
-/room/item/remove
-	post	: 아이템을 방에서 제거한다.	(함수 완성)
+/room/item
+	delete	: 아이템을 방에서 제거한다.	(함수 완성)

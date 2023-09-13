@@ -33,7 +33,7 @@ const Controller = {
 		});
 	},
     
-	postReplaceItem : (req, res) => {
+	putReplaceItem : (req, res) => {
 		// 아이템 위치 공간 전부 수정
         system.debug.print('postItemReplace');
 
@@ -43,13 +43,18 @@ const Controller = {
 			items : data.items,
         };
 
-        system.debug.print('id : ', data.code);
+        // system.debug.print('id : ', data.code);
 
 		// 폼이 전부 채워져 있지 않다면
 		if(!system.form.checkFill(form))
 		{
 			// 모두 초기화 반환
 			form = system.form.init(form);
+			form["items"] = [{
+				code : 0,
+				pos : ["x","y","z"],
+				rot : ["x","y","z"]
+			}];
 			form = system.form.addResult(form,false, "please follow this form");
 			return res.json(form);
 		}
@@ -69,7 +74,7 @@ const Controller = {
 			items : data.items
         };
 
-        system.debug.print('code : ', data.code);
+        // system.debug.print('code : ', data.code);
 
 		// 폼이 전부 채워져 있지 않다면
 		if(!system.form.checkFill(form))
@@ -95,7 +100,7 @@ const Controller = {
 			items : data.items
         };
 
-        system.debug.print('code : ', data.code);
+        // system.debug.print('code : ', data.code);
 
 		// 폼이 전부 채워져 있지 않다면
 		if(!system.form.checkFill(form))
@@ -115,21 +120,21 @@ const Controller = {
 /**
  * 방 정보 획득
  */
-Router.get('/info', Controller.getInfo)
+Router.get('/', Controller.getInfo)
 
 /**
  * 방 아이템 위치 변경
  */
-Router.post('/item/replace', Controller.postReplaceItem)
+Router.put('/item', Controller.putReplaceItem)
 
 /**
  * 방 아이템 등록
  */
-Router.post('/item/place', Controller.postPlaceItem)
+Router.post('/item', Controller.postPlaceItem)
 
 /**
  * 방 아이템 삭제 
  */
-Router.delete('/item/remove', Controller.deleteItem)
+Router.delete('/item', Controller.deleteItem)
 
 module.exports = Router;
