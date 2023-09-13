@@ -2,13 +2,10 @@
 
 .searchbar{
   position: fixed;
-  padding:0;
-  margin: 0;
-  border: 0;
-  width: 19vw;
-  height: 5vh;
-  top: 15.5vh;
-  left: 41vw;
+  width: 19%;
+  height: 5%;
+  top: 18%; 
+  left: 41%; 
   z-index: 6;
   font-size: 4vh;
   text-align:center;
@@ -20,7 +17,7 @@
 .box {
   position: fixed;
   top: 12vh; /* 원하는 수치로 조정 */
-  left: 105vh;
+  left: 104vh;
   transform: translateX(-50%);
   width: 90vw;
   height: 85vh;
@@ -40,8 +37,8 @@
 
 .Mag{
   position: fixed;
-  top: 6vh;
-  left: 70vh;
+  top: 8%;
+  left: 36%;
   height: 4vh;
   width: 2vw;
   color:rgb(228, 30, 83);
@@ -113,7 +110,7 @@
   width: 26vw;
   height: 5vh;
   top: 12vh;
-  left: 33vw;
+  left: 32vw;
   z-index: 4;
   border-top : 4px solid rgb(92, 81, 84);
   

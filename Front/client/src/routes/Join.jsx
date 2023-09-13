@@ -23,6 +23,7 @@ function Join() {
 
     <div>
     <Link to="/"><button className={styles.backarrow}>➤</button></Link>
+    <div className={styles.sbox}>
     <h4 className={styles.ID}>ID :</h4>
     <h4 className={styles.PASS}>PASS :</h4>
     <h4 className={styles.NAME}>NAME :</h4>
@@ -57,7 +58,7 @@ function Join() {
             
             </div>
           
-            <div className={styles.sbox}></div>
+            </div>
          </div>
            
       

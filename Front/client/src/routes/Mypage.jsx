@@ -36,7 +36,7 @@ function Mypage() {
   return (
     <div>
       <div className={styles.box}>
-      <div className={styles.separator}></div>
+     
     
 <div>
 <div>
