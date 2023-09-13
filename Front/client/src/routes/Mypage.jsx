@@ -59,20 +59,28 @@ function Mypage() {
         <h1 className={styles.Money}>Wallet :</h1>
         <h1 className={styles.sale}>On sale</h1>
         </div>
-        <div className={styles.contentContainer}>
+        
           <div className={styles.leftContent}>
-          
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
           </div>
+          <div className={styles.separator}></div>
           <div className={styles.rightContent}>
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
           <FurnitureCom />
+          <FurnitureCom />
+          <FurnitureCom />
           </div>
-        </div>
+        
         
       </div>
-      <Link to="Home"><button className={styles.backarrow}>➤</button></Link>
+      <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       <h1 className={styles.Mypage}>My Page</h1>
 
       <img className={styles.heartb} alt="heartb" src="./img/bheart.gif" />

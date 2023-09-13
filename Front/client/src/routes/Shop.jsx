@@ -30,6 +30,7 @@ function Shop() {
       
       <div className={styles.itemsContainer}>
       <div className={styles.box}>
+      
       <hr className={styles.hrr} />
       <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
         <div className={styles.furnitureWrapper}>
