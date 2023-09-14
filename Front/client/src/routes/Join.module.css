@@ -16,7 +16,7 @@
       font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
       position: fixed;
-      top: 57vh;
+      top: 58vh;
       left: 37.5vw;
       z-index: 5;
       border-radius: 24px;
@@ -28,8 +28,8 @@
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: relative;
-    top: 57vh;
-    left: 37.5vw;}
+    top: 30.5vh;
+    left: 7.5vw;}
 
 .btn3{
         color: white; 
@@ -74,63 +74,83 @@
     box-sizing: border-box;
     border: none;
     position: fixed;
-    top:  43vh;
-    left: 42vw;
-    width : 18vh;
+    top:  44.5vh;
+    left: 45%;
+    width : 20vh;
         z-index: 5;
-        color:#ffffff;
+
+        color:#a1ffd0;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
-        font-size: 1.5rem;
-        text-align: left;
+        font-size: 3.5vh;
+        text-align: center;
         border-radius: 15px;
         background-color: transparent;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
+.id::placeholder {
+  color:#fff5d6;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
+
+.nname::placeholder {
+  color:#d5ebff;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+  font-size: 3.5vh;
+}
+
+.pass::placeholder {
+  color:#a1ffd0;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
 .id {
     box-sizing: border-box;
     border: none;
     position: fixed;
-    top:  38vh;
-    left: 42vw;
+    top:  39vh;
+    left: 45.7%;
     width : 18vh;
         z-index: 5;
-        color:#ffffff;
+        color:#fff5d6;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
-        font-size: 1.5rem;
-        text-align: left;
+        font-size: 3.5vh;
+        text-align: center;
         border-radius: 15px;
         background-color: transparent;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+       
 }
 
 .nname{
     box-sizing: border-box;
     border: none;
     position: fixed;
-    top:  48vh;
-    left: 42vw;
+    top:  50vh;
+    left: 45.5%;
     width : 18vh;
         z-index: 5;
-        color:#ffffff;
+        color:#d5ebff;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
-        font-size: 1.5rem;
-        text-align: left;
+        font-size: 4vh;
+        text-align: center;
         border-radius: 15px;
         background-color: transparent;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
 .ID{
     position: fixed;
-    top:  38vh;
-    left: 38vw;
+    top:  39.5vh;
+    left: 45vw;
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
@@ -144,8 +164,8 @@
 
 .PASS{
     position: fixed;
-    top:  43vh;
-    left: 36.5vw;
+    top:  44vh;
+    left: 40.2vw;
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
@@ -158,8 +178,8 @@
 }
 .NAME{
     position: fixed;
-    top:  48vh;
-    left: 36vw;
+    top:  49vh;
+    left: 39.5vw;
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
@@ -251,7 +271,7 @@
     position: fixed;
     width: 25vw;
     height: 0vh;
-    top: 30vh;
+    top: 28vh;
     left: 45.3vw;
     font-family: 'Dancing Script';
     font-size: 9vh;
@@ -285,12 +305,12 @@
     }
 
     .sbox{
-      position: fixed;
+      position: relative;
       box-sizing: border-box;
       height: 40vh;
-      width: 40vw;
-      top: 29.2vh;
-      left: 30vw;
+    width: 40vw;
+    top: 27.6vh;
+    left: 30vw;
       background-color: rgba(255, 209, 220, 0.651);
       border-radius: 0px; /* 둥근 테두리 */
       box-shadow: 0px 0px 5px rgb(255, 255, 255),
@@ -303,3 +323,20 @@
       padding-bottom: 0vh;
       
   }
+
+  .Join{
+    position: fixed;
+    width: 26vw;
+    top: 27vh;
+    left: 47%;
+    font-family: 'Dancing Script';
+    font-size: 9vh;
+    color: #ffffff;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-underline-offset: 2vh;
+    text-decoration-thickness: 0.2vh;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+  }
+  

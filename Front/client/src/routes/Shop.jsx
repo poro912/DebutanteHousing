@@ -19,6 +19,10 @@ function Shop() {
     <div>
       <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       <div>
+      
+      
+      <div className={styles.itemsContainer}>
+      <div className={styles.box}>
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}
@@ -27,9 +31,6 @@ function Shop() {
           placeholder=""
         />
       </form>
-      
-      <div className={styles.itemsContainer}>
-      <div className={styles.box}>
       <hr className={styles.hrr} />
       <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
         <div className={styles.furnitureWrapper}>

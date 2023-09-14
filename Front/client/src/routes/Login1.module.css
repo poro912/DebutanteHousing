@@ -34,7 +34,7 @@
     position: fixed;
     width: 25vw;
     height: 0vh;
-    top: 30vh;
+    top: 28vh;
     left: 45.3vw;
     font-family: 'Dancing Script';
     font-size: 9vh;
@@ -47,40 +47,46 @@
 .id {
     box-sizing: border-box;
     border: none;
-    position: fixed;
-    top:  45vh;
-    left: 39vw;
+    position: relative;
+    top:  18.5vh;
+    left: 9vw;
     width : 20vh;
         z-index: 5;
-        color:#ffffff;
+        color:#fff5d6;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
-        font-size: 2rem;
+        font-size: 4vh;
         text-align: left;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
         border-radius: 15px;
         background-color: transparent;
+          text-shadow: 3px 2px 1px rgb(161, 145, 145);
+        }
+        
     
-    }
+    
+
+  
 
     .pass{
         box-sizing: border-box;
         border: none;
         position: fixed;
-        top:  44.7vh;
-        left: 58vw;
+        top:  46vh;
+        left: 58.5vw;
         width : 18vh;
             z-index: 5;
-            color:#ffffff;
+            color:#a1ffd0;
             font-family: 'Dancing Script';
-            font-size: 2rem;
+            font-size: 4vh;
             background-color: rgb(255, 255, 255);
             text-align:left;
             animation: fadeInAndStay 2s forwards 1s;
             opacity: 0;
             border-radius: 15px;
             background-color: transparent;
+            text-shadow: 3px 2px 1px rgb(161, 145, 145);
     }
 
 
@@ -185,7 +191,7 @@ input:focus::placeholder{
       font-family:'BookkMyungjo-Bd';
       position: fixed;
         top: 54vh;
-        left: 36vw;
+        left: 36.1vw;
         z-index: 5;
         animation: fadeOut 2s forwards;
         opacity: 0;
@@ -245,6 +251,7 @@ input:focus::placeholder{
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
     background-color: transparent;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
 .PASS{
@@ -260,6 +267,7 @@ input:focus::placeholder{
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
         background-color: transparent;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
 .backarrow {
@@ -279,7 +287,7 @@ input:focus::placeholder{
     box-sizing: border-box;
     height: 40vh;
     width: 40vw;
-    top: 29.2vh;
+    top: 27.6vh;
     left: 30vw;
     background-color: rgba(255, 209, 220, 0.651);
     border-radius: 0px; /* 둥근 테두리 */
@@ -293,3 +301,4 @@ input:focus::placeholder{
     padding-bottom: 0vh;
     
 }
+

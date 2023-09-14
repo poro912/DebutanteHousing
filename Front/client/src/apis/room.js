@@ -1,26 +1,28 @@
-import {post} from './axiosSystem';
 import {get} from './axiosSystem';
+import {put} from './axiosSystem';
+import {post} from './axiosSystem';
+import {dele} from './axiosSystem';
 
 
 export function info(code, callback) {
-	get('/room/info',
+	get('/room',
 		{code: code}
 		,callback);
 }
 export function place(code, items, callback) {
-	post('/room/info',
+	post('/room/item',
 		{code: code
 		,items:items}
 		,callback);
 }
 export function replace(code, items, callback) {
-	post('/room/info',
+	put('/room/item',
 		{code: code
 		,items:items}
 		,callback);
 }
 export function remove(code, items, callback) {
-	post('/room/info',
+	dele('/room/item',
 		{code: code
 		,items:items}
 		,callback);

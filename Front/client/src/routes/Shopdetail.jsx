@@ -14,11 +14,12 @@ function Shopdetail() {
 
 
  </div>
- <div className={styles.sbox} />
+ 
  <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
 
  <img className={styles.fu} alt="fu" src="./img/fu.png" />
  <div className={styles.box}>
+ <div className={styles.sbox} />
  <h1 className={styles.detailtext}>It can be placed on the white wall with a modern and neat feel</h1>
  <h1 className={styles.name}>Name:</h1>
  <h1 className={styles.price}>Price:</h1>
