@@ -26,9 +26,9 @@ const CanvasModel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://gateway.pinata.cloud/ipfs/QmP25FavCnPjQpuvM9noxxfZNNRKW6cmUYsEg3LwSJ22gm/1.json');
+        const response = await fetch('https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/1.json');
         const jsonData = await response.json();
-        console.log(jsonData.animation_url); // JSON 데이터를 콘솔에 출력
+        console.log(jsonData); // JSON 데이터를 콘솔에 출력
         setGlburl(jsonData.animation_url);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -68,7 +68,8 @@ const CanvasModel = () => {
 
           {
             furnitureList.map((furnitur) =>{
-              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
+
+              return <Glb1 key={furnitur.id} id={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
             })
           }
           {/* {

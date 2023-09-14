@@ -4,18 +4,23 @@ import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Vector3, Euler, MathUtils  } from 'three';
 
-const Glb = ({ url, initialPos, initialRot }) => {
+import { useDispatch, useSelector } from 'react-redux';
+import { updateFurniture } from '../Redux/furnitureSlice';
+
+const Glb = ({ id, url, initialPos, initialRot }) => {
   const { camera, mouse, raycaster, scene } = useThree();
   const [isMoving, setIsMoving] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
   const [modelPosition, setModelPosition] = useState(initialPos);
   const [modelRotation, setModelRotation] = useState(initialRot);
   const gltf = useLoader(GLTFLoader, url);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isRotating) {
       const arrB =[0, 1.57, 0];
       setModelRotation(modelRotation.map((x, y) => x + arrB[y]))
+      dispatch(updateFurniture({ id: id, url: url, pos: initialPos, rot: modelRotation }));
     }
   }, [isRotating]);
 
@@ -45,7 +50,8 @@ const Glb = ({ url, initialPos, initialRot }) => {
         }
 
         setModelPosition(clampedPosition);
-        console.log('Model Position:', clampedPosition);
+        //console.log('Model Position:', clampedPosition);
+        dispatch(updateFurniture({ id: id, url: url, pos: [clampedPosition.x, clampedPosition.y, clampedPosition.z], rot: initialRot }));
 
         
       }

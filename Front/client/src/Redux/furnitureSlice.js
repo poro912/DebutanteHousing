@@ -3,11 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const furnitureSlice = createSlice({
   name: 'furniture',
   initialState: {
-    items: [{ id: 0, url: '/glb/drawer/drawer_lightgreen.glb', pos: [-0.1,-0.2,-0], rot: [0, 0, 0] },
-            { id: 0, url: '/glb/chair/chair1_green.glb', pos: [-0.1,-0.2,-0], rot: [0, 0, 0] },
-            { id: 0, url: '/glb/closet1/closet1_lightgreen.glb', pos: [-0.1,-0.2,-0], rot: [0, 0, 0] },
-            { id: 0, url: '/glb/bed/bed1_lightgreen_green.glb', pos: [-0.1,-0.2,-0], rot: [0, 0, 0] },
-            { id: 0, url: '/glb/bed/bed1_lightgreen.glb', pos: [-0.1,-0.2,-0], rot: [0, 0, 0] }],
+    items: [{ id: 0, name:"closet1_lightgreen", url: "https://gateway.pinata.cloud/ipfs/QmarxKJnbMik44zmFVuGarf8f1u9ZvassbkwBMrUCUzpJx/closet1_lightgreen.glb", pos: [-0.1,-0.2,-0], rot: [0, 0, 0] },
+            // { id: 0, url: "https://gateway.pinata.cloud/ipfs/QmarxKJnbMik44zmFVuGarf8f1u9ZvassbkwBMrUCUzpJx/bed1_lightgreen.glb", pos: [-0.1,-0.2,-0], rot: [0, 0, 0] }
+          ],
   },
   reducers: {
     addFurniture: (state, action) => {
@@ -22,6 +20,12 @@ const furnitureSlice = createSlice({
         furnitureToUpdate.pos = pos;
         furnitureToUpdate.rot = rot;
       }
+      console.log('Updated items after adding:', state.items.map(item => ({
+        ...item,
+        pos: { ...item.pos },
+        rot: { ...item.rot }
+      })));
+      
     },
     removeFurniture: (state, action) => {
       const idToRemove = action.payload;
