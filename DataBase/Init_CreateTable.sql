@@ -67,12 +67,13 @@ CREATE TABLE wallet (
 
 CREATE TABLE new_wallet (
   u_code		INT				NOT NULL,
-  account		VARCHAR(30)		NOT NULL UNIQUE,
-  private_key	VARCHAR(30),
+  account		VARCHAR(42)		NOT NULL UNIQUE,
+  private_key	VARCHAR(66),
 
   PRIMARY KEY (u_code),
   FOREIGN KEY (u_code)			REFERENCES user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- account		VARCHAR(30)		NOT NULL UNIQUE,
 
 CREATE TABLE room (
   code			INT				NOT NULL ,
@@ -117,11 +118,13 @@ CREATE TABLE ROOM_ITEM (
 
 CREATE TABLE NEW_ROOM_ITEM (
   r_code		INT				NOT NULL,
-  i_code		VARCHAR(30)		NOT NULL,
+  code			INT				NOT NULL,
+  i_url			VARCHAR(100)	NOT NULL,
   position		INT				NOT NULL DEFAULT 0,
   rotate		SMALLINT		NOT NULL DEFAULT 0,
-  
-  PRIMARY KEY (r_code, i_code),
+  name			VARCHAR(20)		,
+
+  PRIMARY KEY (r_code, code),
   FOREIGN KEY (r_code)			REFERENCES room(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

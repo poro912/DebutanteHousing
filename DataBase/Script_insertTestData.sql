@@ -103,17 +103,25 @@ insert into room_item (r_code, i_code, position, rotate) values
 (1,108,051004,1),
 (1,109,160201,0);
 
-insert into new_room_item (r_code, i_code, position, rotate) values
-(1,106,120206,1),
-(1,107,010206,0),
-(1,108,051004,1),
-(1,109,160201,0);
+/*insert into new_room_item (r_code, i_url, position, rotate) values
+(1,"106",120206,1),
+(1,"107",010206,0),
+(1,"108",051004,1),
+(1,"109",160201,0);*/
 
-INSERT INTO new_wallet (u_code, account, private_key) VALUES
+/*INSERT INTO new_wallet (u_code, account, private_key) VALUES
 (1,"1","1"),
 (2,"2","1"),
 (3,"3","1"),
 (4,"4","1");
+*/
+
+use db_function;
+set sql_safe_updates=0;
+call create_item(1, '', '원목 책상');
+call create_item(1, '', '원목 의자');
+call create_item(1, '', '원목 옷장');
+
 
 -- select * from db_current.room;
 -- select * from db_current.item;

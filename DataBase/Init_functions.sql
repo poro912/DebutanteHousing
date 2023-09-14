@@ -212,13 +212,6 @@ CREATE PROCEDURE supply_item (
 BEGIN
   DECLARE v_item_seq INT;
   DECLARE i INT;
-
-  -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
-  -- BEGIN
-  --  ROLLBACK;
-  --  SIGNAL SQLSTATE '45000'
-  --    SET MESSAGE_TEXT = 'An error occurred during supply item procedure';
-  -- END;
   
   -- 만약 v_count가 0이하 또는 99초과라면 오류 처리
   IF v_count <= 0 OR v_count > 99 THEN
@@ -244,6 +237,41 @@ BEGIN
     INSERT INTO db_current.item (code, current_u_code, n_code) VALUES (v_item_seq - i, v_u_code, v_n_code);
     SET i = i + 1;
   END WHILE;
+
+  -- 모든 작업이 정상적으로 완료되었을 때만 커밋
+  COMMIT;
+END $$
+DELIMITER ;
+
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 아이템 생성
+  
+DROP PROCEDURE IF EXISTS create_item;
+set sql_safe_updates=0;
+DELIMITER $$
+CREATE PROCEDURE create_item (
+  IN v_r_code INT,
+  IN v_i_url VARCHAR(80),
+  IN v_name VARCHAR(50)
+)
+BEGIN
+  DECLARE v_item_seq INT;
+
+  -- 트랜잭션 시작
+  START TRANSACTION;
+
+  -- select_seq 함수를 통해 seq 번호를 얻는다.
+  CALL select_seq('item', 1, v_item_seq);
+
+  -- 만약 v_item_seq가 null 이라면 오류 처리
+  IF v_item_seq IS NULL THEN
+    SIGNAL SQLSTATE '45000'
+      SET MESSAGE_TEXT = 'Failed to obtain sequence number';
+  END IF;
+
+  -- db_current.item 테이블에 v_count 개수 만큼 item을 생성한다.
+  INSERT INTO db_current.new_room_item (r_code, code, i_url, name) VALUES (v_r_code, v_item_seq, v_i_url, v_name);
 
   -- 모든 작업이 정상적으로 완료되었을 때만 커밋
   COMMIT;
