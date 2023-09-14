@@ -60,6 +60,7 @@ function Login() {
 <Link to="/"><button className={styles.backarrow}>➤</button></Link>
      <div>
      <div className={styles.sbox}>
+ 
      <h1 className={styles.Login}>Login</h1>
      <button className={styles.btn}>Join</button>
      <button className={styles.btn2}>Login</button>

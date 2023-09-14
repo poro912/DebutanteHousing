@@ -1,7 +1,7 @@
 .sbox{
       position: relative;
-      top: 43vh;
-      left: 40vh;
+      top: 35%;
+      left: 10%;
       height: 45vh;
       width: 22.5vw;
       background-color: rgba(255, 255, 255, 0.918);
@@ -25,8 +25,8 @@
 
 .text{
   position: fixed;
-  top: 60vh;
-  left: 14vw;
+  top: 72%;
+  left: 18%;
   font-family: 'Dancing Script';
     font-size: 6vh;
     color:rgb(255, 177, 190);
@@ -37,15 +37,15 @@
 
 .fu{
   position: fixed;
-  top: 54vh;
-  left: 53vh;
+  top: 53%;
+  left: 26%;
   width: 10vw;
   height: 16vh;
 }
 .box {
   position: fixed;
-  top: 12vh; /* 원하는 수치로 조정 */
-  left: 105vh;
+  top: 12%; /* 원하는 수치로 조정 */
+  left: 51%;
   transform: translateX(-50%);
   width: 80vw;
   height: 85vh;
@@ -96,8 +96,8 @@
   font-size: 7vh;
   font-weight: bold;
   position: absolute;
-  top: 1vh;
-  left: 83vh;
+  top: 0%;
+  left: 41%;
   font-family: 'Dancing Script';
   z-index: 2;
   color:rgb(255, 198, 213);

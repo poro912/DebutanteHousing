@@ -1,7 +1,7 @@
 .box {
   position: fixed;
-  top: 12vh; /* 원하는 수치로 조정 */
-  left: 105vh;
+  top: 12%; /* 원하는 수치로 조정 */
+  left: 51%;
   transform: translateX(-50%);
   width: 85vw;
   height: 85vh;
@@ -35,7 +35,7 @@
       font-weight: bold;
       position: fixed;
       top: 0%;
-      left: 45%;
+    left: 45%;
       font-family: 'Dancing Script';
       z-index: 2;
       color:rgb(196, 211, 255);
@@ -50,8 +50,8 @@
     font-size: 8vh;
     font-weight: bold;
     position: fixed;
-    top: -1vh;
-    left: 11vh;
+    top: -1.5%;
+    left: 7%;
     font-family: 'Dancing Script';
     z-index: 2;
     color:rgb(196, 211, 255);
@@ -64,8 +64,8 @@
     font-size: 7vh;
     font-weight: bold;
     position: fixed;
-    top: 0vh;
-    left: 95vh;
+    top: 1%;
+    left: 53%;
     font-family: 'Dancing Script';
     z-index: 2;
     color:rgb(196, 211, 255);

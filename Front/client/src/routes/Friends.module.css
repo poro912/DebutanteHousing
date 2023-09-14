@@ -29,12 +29,13 @@ body{
 
 .hrr {
   position: fixed;
-  width: 21vw;
-  height: 5vh;
-  top: 20vh;
-  left: 40.5vw;
-  z-index: 6;
-  border-top :4px solid #3a3935;
+  width: 22vw;
+  height: 3vh;
+  top: 10%;
+  left: 30%;
+  z-index: 4;
+  border-top : 4px solid rgb(92, 81, 84);
+  
   
 }
 
@@ -54,10 +55,10 @@ body{
 
 .Mag{
   position: fixed;
-  top: 15.8vh;
-  left: 85vh;
+  top: 5%;
+  left: 31%;
   height: 3vh;
-  color:#302b26;
+  width: 1.5vw;
 }
 
 
@@ -112,8 +113,8 @@ body{
     flex-wrap: wrap; /* 넘칠 경우 줄바꿈 */
     justify-content: flex-start; /* 요소들을 왼쪽으로 정렬 (원하는 정렬 방향으로 수정) */
   position: fixed;
-  top: 12vh; /* 원하는 수치로 조정 */
-  left: 104vh;
+  top: 12%; /* 원하는 수치로 조정 */
+  left: 51%;
   transform: translateX(-50%);
   width: 50vw;
   height: 85vh;
@@ -126,7 +127,7 @@ body{
               -5px -5px 10px rgba(10, 10, 10, 0.247),
               1px 1px 3px rgba(10, 10, 10, 0.281);
   z-index:-1;
-  overflow-y: scroll;
+  
 }
 
 
@@ -136,8 +137,8 @@ body{
   font-size: 7vh;
     font-weight: bold;
     position: absolute;
-    top: 1vh;
-    left: 90vh;
+    top: 0%;
+    left: 43%;
     font-family: 'Dancing Script';
     z-index: 2;
     color:rgb(255, 235, 171);

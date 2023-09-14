@@ -61,21 +61,11 @@ function Mypage() {
         </div>
         
           <div className={styles.leftContent}>
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
+       
           </div>
           <div className={styles.separator}></div>
           <div className={styles.rightContent}>
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
-          <FurnitureCom />
+       
           </div>
         
         

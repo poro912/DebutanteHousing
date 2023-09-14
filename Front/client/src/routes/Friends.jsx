@@ -47,23 +47,25 @@ function Friends() {
           </ul>
         </div>
       </div>
-      <hr className={styles.hrr} />
+      
       <div className={styles.box}>
+      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      <hr className={styles.hrr} />
         {friends.map((fri, index) => (
           <FriendsCom key={index} name={fri} />
         ))}
-        </div>
+        
         <div className={styles.furnitureWrapper}>
         
         <FriendsCom name={name} />
-
+        </div>
         
         </div>
  
       
 
       <h1 className={styles.fr}>Friends List</h1>
-      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+      
       <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       
       <img className={styles.star} alt="star" src="./img/star.gif" />

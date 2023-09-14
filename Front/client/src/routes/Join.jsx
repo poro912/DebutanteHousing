@@ -23,10 +23,10 @@ function Join() {
 
     <div>
     <Link to="/"><button className={styles.backarrow}>➤</button></Link>
+    <div>
     <div className={styles.sbox}>
-    <h4 className={styles.ID}>ID :</h4>
-    <h4 className={styles.PASS}>PASS :</h4>
-    <h4 className={styles.NAME}>NAME :</h4>
+    <h1 className={styles.Join}>Join</h1>
+ 
     <button className={styles.btn2}>Join</button>
     <button className={styles.btn3}>Login</button>
     <h1 className={styles.Login}>Login</h1>
@@ -34,28 +34,28 @@ function Join() {
         <form onSubmit={LogSubmit}>
             <input className={styles.id}
             type="text" 
-            placeholder=""
+            placeholder="ID"
             name="id"
             value={id}
             onChange={onChangeid} />
 
             <input className={styles.nname}
             type="text" 
-            placeholder=""
+            placeholder="NAME"
             name=""
             value={nname}
             onChange={onChangenname} />
             
             <input className={styles.pass}
-            type="text" 
-            placeholder=""
+            type="Password" 
+            placeholder="PASSWORD"
             name="pass"
             value={pass}
             onChange={onChangepass} />
             <button className={styles.btn}>Join</button>
             
             </form>
-            
+            </div>
             </div>
           
             </div>

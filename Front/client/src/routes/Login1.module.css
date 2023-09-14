@@ -34,7 +34,7 @@
     position: fixed;
     width: 25vw;
     height: 0vh;
-    top: 30vh;
+    top: 28vh;
     left: 45.3vw;
     font-family: 'Dancing Script';
     font-size: 9vh;
@@ -52,7 +52,7 @@
     left: 9vw;
     width : 20vh;
         z-index: 5;
-        color:#ffffff;
+        color:#fff5d6;
         background-color: rgb(255, 255, 255);
         font-family: 'Dancing Script';
         font-size: 4vh;
@@ -61,8 +61,13 @@
         animation: fadeInAndStay 2s forwards 1s;
         border-radius: 15px;
         background-color: transparent;
+          text-shadow: 3px 2px 1px rgb(161, 145, 145);
+        }
+        
     
-    }
+    
+
+  
 
     .pass{
         box-sizing: border-box;
@@ -72,7 +77,7 @@
         left: 58.5vw;
         width : 18vh;
             z-index: 5;
-            color:#ffffff;
+            color:#a1ffd0;
             font-family: 'Dancing Script';
             font-size: 4vh;
             background-color: rgb(255, 255, 255);
@@ -81,6 +86,7 @@
             opacity: 0;
             border-radius: 15px;
             background-color: transparent;
+            text-shadow: 3px 2px 1px rgb(161, 145, 145);
     }
 
 
@@ -245,6 +251,7 @@ input:focus::placeholder{
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
     background-color: transparent;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
 .PASS{
@@ -260,6 +267,7 @@ input:focus::placeholder{
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
         background-color: transparent;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 
 .backarrow {
@@ -293,3 +301,4 @@ input:focus::placeholder{
     padding-bottom: 0vh;
     
 }
+
