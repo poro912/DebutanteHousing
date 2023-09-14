@@ -15,8 +15,8 @@ const nftRouter = require('./contract/controller')
  */
 exports.route = (app)=>{
     app.use('/user',		userRouter);
-    //app.use('/friend',    friendRouter);
     app.use('/room',		roomRouter);
+    //app.use('/friend',    friendRouter);
     //app.use('/store',     storeRouter);
     //app.use('/item',      itemRouter);
     //app.use('/edit',      editRouter);

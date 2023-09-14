@@ -32,6 +32,27 @@ INNER JOIN db_current.nft AS n ON n.code = i.n_code
 INNER JOIN db_current.room_item AS r_i ON r_i.i_code = i.code;
 
 
+CREATE VIEW user_wallet_view AS
+SELECT 
+    u.code AS user_code,
+    u.nick AS nick,
+    u.profile_path AS 'profile',
+	w.account AS account,
+	w.private_key AS 'key'
+FROM db_current.user AS u
+INNER JOIN db_current.new_wallet AS w ON u.code = w.u_code;
+
+CREATE VIEW room_item_view AS
+SELECT 
+	r.code AS room_code,
+	i.i_code AS item_url,
+	i.position AS pos,
+	i.rotate AS rot
+FROM db_current.room AS r
+INNER JOIN db_current.new_room_item AS i ON r.code = i.r_code;
+
+
+
 -- select * from room_view;
 
 /*

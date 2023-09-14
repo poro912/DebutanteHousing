@@ -97,13 +97,23 @@ call supply_item(1, 4, 1);
 
 -- 아이템 배치
 use db_current
-insert room_item (r_code, i_code, position, rotate) values
+insert into room_item (r_code, i_code, position, rotate) values
 (1,106,120206,1),
 (1,107,010206,0),
 (1,108,051004,1),
 (1,109,160201,0);
 
+insert into new_room_item (r_code, i_code, position, rotate) values
+(1,106,120206,1),
+(1,107,010206,0),
+(1,108,051004,1),
+(1,109,160201,0);
 
+INSERT INTO new_wallet (u_code, account, private_key) VALUES
+(1,"1","1"),
+(2,"2","1"),
+(3,"3","1"),
+(4,"4","1");
 
 -- select * from db_current.room;
 -- select * from db_current.item;

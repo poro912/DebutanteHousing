@@ -61,8 +61,6 @@ const Controller = {
     getMember : (req, res) => {
         // 회원 정보 조회 처리 코드
 		// 1인 조회, 다중조회(페이지)
-        system.debug.print('');
-
         let data = req.body;
         let form = {
 			usercode : data.usercode,
@@ -121,6 +119,7 @@ Router.get('/member', Controller.getMember)
 /**
  * 회원정보 수정
  */
+// put
 Router.post('/member', Controller.editMember)
 
 /**

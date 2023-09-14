@@ -8,6 +8,15 @@ const system = require('../../utils/DHM_system').module;
 // const Model = require('../../models/대충 쿼리들어있는 모델')
 
 const Controller = {
+	example : {
+		items :[
+			{
+				code : 0,
+				pos : ["x","y","z"],
+				rot : ["x","y","z"]
+			}
+		]
+	},
     getInfo : (req, res) => {
 		// 방 정보 획득 코드
         system.debug.print('getInfo');
@@ -50,12 +59,8 @@ const Controller = {
 		{
 			// 모두 초기화 반환
 			form = system.form.init(form);
-			form["items"] = [{
-				code : 0,
-				pos : ["x","y","z"],
-				rot : ["x","y","z"]
-			}];
 			form = system.form.addResult(form,false, "please follow this form");
+			form["items"] = example.items;
 			return res.json(form);
 		}
 
@@ -82,6 +87,7 @@ const Controller = {
 			// 모두 초기화 반환
 			form = system.form.init(form);
 			form = system.form.addResult(form,false, "please follow this form");
+			form["items"] = example.items;
 			return res.json(form);
 		}
 
@@ -108,6 +114,7 @@ const Controller = {
 			// 모두 초기화 반환
 			form = system.form.init(form);
 			form = system.form.addResult(form,false, "please follow this form");
+			form["items"] = example.items;
 			return res.json(form);
 		}
 

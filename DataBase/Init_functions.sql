@@ -161,6 +161,7 @@ BEGIN
   -- user 테이블
   INSERT INTO db_current.user (code, id, nick) VALUES (v_user_seq, v_id, v_nick);
 
+  -- ! 추후 삭제 예정
   -- wallet 테이블
   CALL create_wallet(v_user_seq, v_user_seq);
 
