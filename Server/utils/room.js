@@ -32,20 +32,15 @@ const room = {
 		};
 		system.debug.print("getRoomInfo function");
 
-		var temp;
-		var conn = await db.getConnection();
+		var temp;	
 		var user_temp, items_temp;
-
 		//user_nick, profile, room_name
+
+		var conn = await db.getConnection();
 		await db.use.view(conn);
 		user_temp = await db.execQuery(conn, `select user_nick, room_name from room_view where room_code = "${code}";`);
 		
 		system.debug.print(user_temp[0]);
-
-		//item_data
-		items_temp = await db.execQuery(conn, `select item_code, nft_code, item_name, item_path, position as pos, rotate as rot from room_item_nft_view where room_code = "${code}";`);
-		items_temp = room.convertPositionArray(items_temp);
-		items_temp = room.convertRotateArray(items_temp);
 
 		// 조회 결과 값 없음
 		if (db.checkNodate(user_temp) || code <= 0 ) {
@@ -59,24 +54,24 @@ const room = {
 		else {
 			result.result = true;
 			result.room_info = user_temp;
-			result.items = items_temp;
+			result.items = await room.getRoomItems(conn, code);
 		}
 		return result;
 	},
 
 	placeItems : async (room_code, items) => {
 		system.debug.print("place Items function");
-		let result = false;
+		let result = true;
 
 		var conn = await db.getConnection();
 		await db.use.current(conn);
+		var cnt = 0;
 
 		for (const item of items) {
 			system.debug.print(item);
-			temp = await room.placeItem(conn, room_code, item);
-			//affectedRows
-			//if(!temp) result = false;
+			temp = await room.placeItem(conn, room_code, item.url, item.name);
 		}
+		//if(items.length == cnt) result = true;
 
 		system.debug.print(result);
 		system.debug.print();
@@ -93,8 +88,10 @@ const room = {
 		for (const item of items) {
 			system.debug.print(item);
 			temp = await room.removeItem(conn, room_code, item);
-			if(temp["affectedRows"] != 0) cnt++;
+			if(temp["affectedRows"] != 0) cnt += temp["affectedRows"];
 		}
+
+		if(items.length == cnt) result = true;
 
 		system.debug.print(result);
 		system.debug.print();
@@ -116,25 +113,23 @@ const room = {
 		for (const item of items) {	
 			temp = await room.replaceItem(conn, room_code, item.code, item.pos, item.rot);
 			system.debug.print(item);
-			if(temp["changedRows"] != 0) cnt++;
+			if(temp["changedRows"] != 0) cnt += temp["changedRows"];
 		}
 
 		system.debug.print("cnt :", cnt);
 
-		if(cnt == items.length) result = true;
+		if(items.length == cnt) result = true;
 
 		system.debug.print("result ",result);
 		system.debug.print();
 		return result;
 	},
 
-	placeItem : async (conn, room_code, item_code) => {
+	placeItem : async (conn, room_code, item_url, item_name) => {
 		system.debug.print("place Item function");
-		await db.use.current(conn);
+		await db.use.func(conn);
 		result  = await db.execQuery(conn, 
-			`insert into 
-			room_item(r_code, i_code, position, rotate) 
-			values ( ${room_code}, ${item_code}, 0, 0);`);
+			`call create_item(${room_code}, '${item_url}', '${item_name}');`);
 		system.debug.print(result);
 		system.debug.print(result[0]);
 		return result;
@@ -144,8 +139,8 @@ const room = {
 		system.debug.print("removeItem function");
 		await db.use.current(conn);
 		result  = await db.execQuery(conn, 
-			`delete from room_item 
-			where r_code = ${room_code} and i_code = ${item_code};`);
+			`delete from new_room_item 
+			where r_code = ${room_code} and code = ${item_code};`);
 		system.debug.print(result);
 		system.debug.print(result[0]);
 		return result;
@@ -155,7 +150,7 @@ const room = {
 		system.debug.print("replaceItem function");
 		await db.use.current(conn);
 		result  = await db.execQuery(conn, 
-			`update room_item set position = ${position}, rotate = ${rotate} where r_code = ${room_code} and i_code = ${item_code};`
+			`update new_room_item set position = ${position}, rotate = ${rotate} where r_code = ${room_code} and code = ${item_code};`
 		);
 		system.debug.print(result);
 		system.debug.print(result[0]);
@@ -220,6 +215,18 @@ const room = {
 
 		return [x, y, z];
 	},
+
+	getRoomItems : async(conn, code) =>{
+		items_temp = await db.execQuery(conn, `select code, url, name, pos, rot from room_item_view where room_code = "${code}";`);
+		items_temp = room.convertPositionArray(items_temp);
+		items_temp = room.convertRotateArray(items_temp);
+
+
+		// items_temp = await db.execQuery(conn, `select item_code as id , nft_code, item_name, item_path, position as pos, rotate as rot from room_item_nft_view where room_code = "${code}";`);
+		// items_temp = room.convertPositionArray(items_temp);
+		// items_temp = room.convertRotateArray(items_temp);
+		return items_temp
+	}
 }
 
 exports.module = room;
