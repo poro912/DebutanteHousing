@@ -6,15 +6,8 @@ import { CustomButton } from '../components';
 import {Link} from "react-router-dom"
 import styles from "./Home.module.css"
 
-import{
-    headContainerAnimation,
-    headContentAnimation,
-    headTextAnimation,
-    slideAnimation,
-    fadeAnimation
-} from '../config/motion';
 
-const HomePage = () => {
+const FriendPage = () => {
     const snap = useSnapshot(state);
 
   return (
@@ -25,13 +18,6 @@ const HomePage = () => {
             <div className={styles.verti}>
               <button>
                 <Link to="/mypage"><h3 className={styles.name}>Serbia</h3></Link>
-              </button>
-              <button>
-                <img
-                    src=".\img\setting.png"
-                    className={styles.setting}
-                    onClick={() => state.intro = false}
-                /> 
               </button>
                 
               
@@ -49,4 +35,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default FriendPage

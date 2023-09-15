@@ -10,7 +10,11 @@ import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../components';
 
+import { useSelector } from 'react-redux';
+
 import FuItem from './FuItem';
+
+import { place, replace } from '../apis/room';
 
 import styles from './Customizer.module.css';
 
@@ -40,6 +44,8 @@ const Customizer = () => {
     }
   };
 
+  //ipfs로 가구 데이터 불러오기
+  
   const meataurl = [
     'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/1.json',
     'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/2.json'
@@ -76,35 +82,64 @@ const Customizer = () => {
   useEffect(() => {
     console.log(fuItems);
   }, [fuItems]);
+
+  //리덕스에서 가구 리스트 불러오기
+
+  const furnitureItems = useSelector((state) => state.furniture);
+  const usersItems = useSelector((state) => state.users);
+
   
-  
+  // place 함수
+  async function placeFurniture(roomCode, furnitureArray) {
+    return new Promise((resolve, reject) => {
+      place(roomCode, furnitureArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
+        }
+      });
+    });
+  }
 
-  const images = [
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
+  // replace 함수
+  async function replaceFurniture(roomCode, furnitureArray) {
+    return new Promise((resolve, reject) => {
+      replace(roomCode, furnitureArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
+        }
+      });
+    });
+  }
 
-  ];
+  // saveHandle 함수
+  async function saveHandle() {
+    try {
+      const furnitureArray = Array.from(furnitureItems); // furnitureItems 배열을 반복 가능한 객체로 변환
+      
+      // place 함수 호출 및 대기
+      const placeResponse = await placeFurniture(1, furnitureArray);
+      console.log('Place Response:', placeResponse);
 
+      // replace 함수 호출 및 대기
+      // const replaceResponse = await replaceFurniture(1, furnitureArray);
+      // console.log('Replace Response:', replaceResponse);
+
+      // 서버 응답에 따른 처리를 수행할 수 있습니다.
+
+      console.log(furnitureItems);
+      console.log(usersItems);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+
+
+  //페이지 네이션
   const itemsPerPage = 8;
   const totalItems = fuItems.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -122,9 +157,6 @@ const Customizer = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
-    useEffect(() => {
-      console.log('Component Rendered');
-    });
 
   return (
     <>
@@ -155,33 +187,36 @@ const Customizer = () => {
             {/* Pagination controls */}
             <div className={styles.pagination}>
               <button onClick={handlePrevPage} disabled={currentPage === 1}>
-                <img src='.\img\arrowPu.png' className={styles.leftarrow}></img>
+                <div className={styles.leftarrow}> ➤ </div>
               </button>
               <span>
                 {currentPage} / {totalPages}
               </span>
               <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                <img src='.\img\arrowPu.png' className={styles.rightarrow}></img>
+              <div className={styles.rightarrow}> ➤ </div>
+                
               </button>
             </div>
           </motion.div>
 
           <div></div>
           <motion.div className='absolute z-10 top-5 left-5' {...fadeAnimation}>
-            <img
-              src='./img/arrowPu.png'
-              onClick={() => (state.intro = true)}
-              className={styles.backBtn}
-              alt="Back Button"
-            />
+            <button>
+              <div className={styles.backarrow} onClick={() => (state.intro = true)}>
+                ➤
+              </div>
+            </button>
           </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
-            <img
-              src='./img/arrowPu.png'
-              onClick={() => (state.intro = true)}
-              className={styles.backBtn}
-              alt="Back Button"
-            />
+            <button>
+              <img
+                src='./img/saveicon.png'
+                onClick={saveHandle}
+                className={styles.backBtn}
+                alt="Back Button"
+              />
+              save
+            </button>
           </motion.div>
         </>
       )}

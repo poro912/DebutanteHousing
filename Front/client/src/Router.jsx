@@ -22,7 +22,7 @@ const RouterPage = () => {
         <Route path="/Non" element={<Nonmem />} />
         <Route path="/Storage" element={<Storage />} />
         <Route path="/Shop" element={<Shop />} />
-        <Route path="/Shopdetail" element={<Shopdetail />} />
+        <Route path="/Shopdetail/:id" element={<Shopdetail />} />
         <Route path="/Join" element={<Join />} />
         <Route path="/Friends" element={<Friends />} />
         <Route path="/Mypage" element={<Mypage />} />

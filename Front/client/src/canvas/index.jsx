@@ -69,7 +69,7 @@ const CanvasModel = () => {
           {
             furnitureList.map((furnitur) =>{
 
-              return <Glb1 key={furnitur.id} id={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
+              return <Glb1 key={furnitur.code} code={furnitur.code} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
             })
           }
           {/* {

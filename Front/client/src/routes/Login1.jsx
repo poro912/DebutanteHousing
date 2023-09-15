@@ -3,8 +3,10 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
 import { setLogin, setProfileImg } from '../Redux/userSlice';
+import { setFurniture } from "../Redux/furnitureSlice";
 
 import { login } from "../apis/user"
+import { info } from "../apis/room";
 
 
 function Login() {
@@ -20,23 +22,33 @@ function Login() {
     const onChangepass = (event) => {
       setpass(event.target.value);
     }
-  
-    const LogSubmit = (event) => {
-      event.preventDefault();
-      logins(id, pass)
-    }
+    const [roomCode, setRoomCode] = useState();
 
-    function logins(id, pass){
-      //API 함수 실행
-      //id, pw를 변수로 안쓰고 진짜 아이디 직접 넣어도됨
-      login(id, pass, (error, responseData) => {
-          if(error){
-              console.log("로그인 실패")
-              console.log(error)
-          }
-          else{
-              console.log("로그인 성공 :", responseData.users);
-              const { room_code , room_like, room_name , user_code, user_id, user_nick, user_profile } = responseData.users;
+    const LogSubmit = async (event) => {
+      event.preventDefault();
+      try {
+        await logins(id, pass);
+        await roomInfo(1)
+      } catch (error) {
+        console.error("로그인 또는 룸 정보 처리 실패", error);
+      }
+    };
+
+    
+    
+    async function logins(id, pass) {
+      try {
+        await new Promise((resolve, reject) => {
+          login(id, pass, (error, responseData) => {
+            if (error) {
+              console.log("로그인 실패");
+              console.log(error);
+              reject(error);
+            } else {
+              console.log("로그인 성공 :", responseData);
+              const { user_code, user_id, user_nick, user_profile, room_code, room_name, room_like } = responseData.users;
+              const { account, privateKey } = responseData.wallet;
+              setRoomCode(room_code)
               dispatch(
                 setLogin({
                   room_code,
@@ -46,12 +58,52 @@ function Login() {
                   user_id,
                   user_nick,
                   user_profile,
+                  account,
+                  privateKey
                 })
-              )
-              navigate('/Home')
-          }
-      }) 
-  }
+              );
+              resolve(responseData); // 로그인 성공 시 프로미스를 성공 상태로 해결
+            }
+          });
+        });
+    
+         // responseData에 room_code가 있다고 가정
+        
+      } catch (error) {
+        console.error("로그인 또는 룸 정보 처리 실패", error);
+        throw error;
+      }
+    }
+    
+    async function roomInfo(room_code) {
+      try {
+        await new Promise((resolve, reject) => {
+          console.log(room_code)
+          info(room_code, (error, responseData) => {
+            if (error) {
+              console.log("룸 정보 실패");
+              console.log(error);
+              reject(error);
+            } else {
+              console.log("룸 정보 성공 :", responseData);
+              //const { items } = responseData;
+              // dispatch(
+              //   setFurniture({
+              //     items
+              //   })
+              // );
+              navigate('/Home');
+              resolve(responseData); // 룸 정보 성공 시 프로미스를 성공 상태로 해결
+            }
+          });
+        });
+      } catch (error) {
+        console.error("룸 정보 처리 실패", error);
+        throw error;
+      }
+    }
+    
+    
 
     
   

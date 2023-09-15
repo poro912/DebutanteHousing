@@ -5,24 +5,24 @@ import {dele} from './axiosSystem';
 
 
 export function info(code, callback) {
-	get('/room',
+	get('room',
 		{code: code}
 		,callback);
 }
 export function place(code, items, callback) {
-	post('/room/item',
+	post('room/item',
 		{code: code
 		,items:items}
 		,callback);
 }
 export function replace(code, items, callback) {
-	put('/room/item',
+	put('room/item',
 		{code: code
 		,items:items}
 		,callback);
 }
 export function remove(code, items, callback) {
-	dele('/room/item',
+	dele('room/item',
 		{code: code
 		,items:items}
 		,callback);

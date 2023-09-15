@@ -11,7 +11,7 @@ export function login(id, pw, callback) {
 }
 
 export function signup(id, pw, name, nick, email, phone, callback) {
-	post('/user/signup',
+	post('user/signup',
 		{id: id,
 		pw: pw,
 		name: name,
@@ -22,7 +22,7 @@ export function signup(id, pw, name, nick, email, phone, callback) {
 }
 
 export function member(code, page, count, callback) {
-	get('/user/member',
+	get('user/member',
 		{usercode: code,
 		page: page,
 		count: count}
