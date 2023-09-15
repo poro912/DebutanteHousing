@@ -197,9 +197,17 @@ const room = {
 	// 00 00 00
 	atoiVector : (data) => {
 		// 0 <= x y z <= 20
-		var x = Number.isInteger(data[0]) ? data[0] : 0;
-  		var y = Number.isInteger(data[1]) ? data[1] : 0;
-  		var z = Number.isInteger(data[2]) ? data[2] : 0;
+		//var x = Number.isInteger(data[0]) ? data[0] : 0;
+  		//var y = Number.isInteger(data[1]) ? data[1] : 0;
+  		//var z = Number.isInteger(data[2]) ? data[2] : 0;
+
+		var x = data[0] ;
+  		var y = data[1] ;
+  		var z = data[2] ;
+
+		x = (x * 100) + 50;
+		y = (y * 100) + 50;
+		z = (z * 100) + 50;
 
   		return x * 10000 + y * 100 + z;
 	},
@@ -212,6 +220,10 @@ const room = {
 		var y = data % 100;
 		data = Math.floor(data / 100);
 		var x = data % 100;
+
+		x = (x - 50) / 100;
+		y = (y - 50) / 100;
+		z = (z - 50) / 100;
 
 		return [x, y, z];
 	},

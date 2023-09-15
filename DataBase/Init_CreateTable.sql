@@ -109,7 +109,7 @@ CREATE TABLE ROOM_ITEM (
   r_code		INT				NOT NULL,
   i_code		BIGINT			NOT NULL,
   position		INT				NOT NULL DEFAULT 0,
-  rotate		SMALLINT		NOT NULL DEFAULT 0,
+  rotate		INT		NOT NULL DEFAULT 0,
   
   PRIMARY KEY (r_code, i_code),
   FOREIGN KEY (r_code)			REFERENCES room(code),
@@ -120,8 +120,8 @@ CREATE TABLE NEW_ROOM_ITEM (
   r_code		INT				NOT NULL,
   code			INT				NOT NULL,
   i_url			VARCHAR(100)	NOT NULL,
-  position		INT				NOT NULL DEFAULT 0,
-  rotate		SMALLINT		NOT NULL DEFAULT 0,
+  position	INT				NOT NULL DEFAULT 0,
+  rotate		INT		    NOT NULL DEFAULT 0,
   name			VARCHAR(20)		,
 
   PRIMARY KEY (r_code, code),
