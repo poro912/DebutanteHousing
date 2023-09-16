@@ -2,6 +2,8 @@ import { useState } from "react";
 import {Link} from "react-router-dom"
 import styles from "./Join.module.css"
 
+import { signup } from "../apis/user"
+
 function Join() {
   const [id, setid] = useState();
   const onChangeid = (event) => {
@@ -15,8 +17,20 @@ function Join() {
   const onChangepass = (event) => {
     setpass(event.target.value);
   }
+  function signups(inid, inpass, inname){
+    signup(inid, inpass, inname, inname, `${id}@email.com`, "01012345678",  (error, responseData) => {
+      if (error) {
+        console.error('회원가입 실패');
+      } else {
+        console.log('회원가입 성공: ', responseData);
+        navigate('/test');
+      }
+    });
+  
+  }
 
   const LogSubmit = (event) => {
+    signups(id, pass, nname)
     event.preventDefault();
   }
   return <div>

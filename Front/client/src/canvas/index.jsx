@@ -37,8 +37,6 @@ const CanvasModel = () => {
     fetchData();
   }, []);
 //링크
-  
-
   return (
     
     <Canvas
@@ -56,7 +54,6 @@ const CanvasModel = () => {
       
       <Environment preset="warehouse" />
 
-      {/* <CameraRig> */}
         
         {state.intro === true ? <OrbitControls enablePan={false}/> : <></>}
         
@@ -64,24 +61,14 @@ const CanvasModel = () => {
         
          
           <RoomGlb receiveShadow />
-          {/* <Glb url={urls[0]} pos={[0,-0.2,0] }/> */}
 
           {
-            furnitureList.map((furnitur) =>{
 
+            furnitureList.map((furnitur) =>{
               return <Glb1 key={furnitur.code} code={furnitur.code} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
             })
           }
-          {/* {
-            url.map((url, index) => {
-              console.log(url[0])
-              return <Glb1 key={index} url={url[0]} initialPos={url[1]} initialRot={[0,0,0]}/>
-              
-            })
-          }  */}
-          {/* <Test /> */}
-        
-      {/* </CameraRig> */}
+
 
     </Canvas>
   )

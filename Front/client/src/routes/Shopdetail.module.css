@@ -26,7 +26,7 @@
 .text{
   position: fixed;
   top: 72%;
-  left: 18%;
+  left: 13%;
   font-family: 'Dancing Script';
     font-size: 6vh;
     color:rgb(255, 177, 190);
@@ -38,9 +38,8 @@
 .fu{
   position: fixed;
   top: 53%;
-  left: 26%;
-  width: 10vw;
-  height: 16vh;
+  left: 21%;
+  width: 20vw;
 }
 .box {
   position: fixed;
@@ -149,12 +148,50 @@
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
 }
+.priceInput {
+  position: fixed;
+  top: 65%;
+  left: 62%;
+  width: 15%;
+  font-size: 4vh;
+  opacity: 0.8; /* 투명도 조절 (0.0부터 1.0까지 가능) */
+  border-radius: 20px; /* 모서리 둥글게 설정 */
+  background-color: rgba(255, 255, 255, 0.9); /* 배경색 및 투명도 설정 */
+  padding: 10px; /* 내부 여백 추가 (선택 사항) */
+  font-family: 'Dancing Script';
+  color: rgb(255, 216, 216);
+  text-shadow: 3px 3px 2px rgb(161, 123, 133), 3px 3px 2px rgb(255, 255, 255);
+  box-shadow: 0 0 5px rgba(151, 98, 119, 0.3); /* 그림자 설정 */
+}
+
+.dht{
+  position: fixed;
+  top: 64%;
+  left: 78%;
+  font-family: 'Dancing Script';
+  font-size: 6vh;
+  color:rgb(255, 216, 216);
+  text-shadow: 3px 3px 2px rgb(161, 123, 133),
+              3px 3px 2px rgb(255, 255, 255);
+}
+
 .name{
   position: fixed;
-    top: 47%;
+    top: 43%;
     left: 52%;
     font-family: 'Dancing Script';
     font-size: 6vh;
+    color:rgb(255, 216, 216);
+    text-shadow: 3px 3px 2px rgb(161, 123, 133),
+                3px 3px 2px rgb(255, 255, 255);
+}
+
+.owner{
+  position: fixed;
+    top: 51%;
+    left: 52%;
+    font-family: 'Dancing Script';
+    font-size: 2.7vh;
     color:rgb(255, 216, 216);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
@@ -198,3 +235,4 @@
   top: 0vh;
   z-index: -3;
 }
+

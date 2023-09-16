@@ -5,6 +5,7 @@ import {dele} from './axiosSystem';
 
 
 export function info(code, callback) {
+	console.log("룸 인포", code)
 	post('room',
 		{code: code}
 		,callback);

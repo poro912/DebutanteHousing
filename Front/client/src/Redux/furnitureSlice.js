@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const furnitureSlice = createSlice({
   name: 'furniture',
   initialState: {
-    items: [{ code: 402, name: "closet1_lightgreen", url: "https://gateway.pinata.cloud/ipfs/QmarxKJnbMik44zmFVuGarf8f1u9ZvassbkwBMrUCUzpJx/closet1_lightgreen.glb", pos: [-0.1,-0.2,-0], rot: [0, 1, 0] }, 
-          ],
+    items: [],
   },
   reducers: {
     addFurniture: (state, action) => {

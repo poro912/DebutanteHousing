@@ -66,6 +66,38 @@ export function getSaleOwnerNftList(account, callback) {
 		callback);
 }
 
+export function ownerOf(tokenId, callback) {
+	post('nft/ownerOf',
+    {   
+        tokenId: tokenId
+    },
+		callback);
+}
+
+export function tokenURI(tokenId, callback) {
+	post('nft/tokenURI',
+    {   
+        tokenId: tokenId
+    },
+		callback);
+}
+
+export function nftPrice(tokenId, callback) {
+	post('nft/nftPrice',
+    {   
+        tokenId: tokenId
+    },
+		callback);
+}
+
+export function IsSale(tokenId, callback) {
+	post('nft/IsSale',
+    {   
+        tokenId: tokenId
+    },
+		callback);
+}
+
 export function balanceOf(account, tokenId, callback) {
 	post('nft/balanceOf',
 		{      

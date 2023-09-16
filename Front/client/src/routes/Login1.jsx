@@ -27,8 +27,8 @@ function Login() {
     const LogSubmit = async (event) => {
       event.preventDefault();
       try {
-        //await logins(id, pass);
-        await roomInfo(1)
+        await logins(id, pass);
+        await roomInfo(roomCode)
       } catch (error) {
         console.error("로그인 또는 룸 정보 처리 실패", error);
       }
@@ -48,7 +48,7 @@ function Login() {
               console.log("로그인 성공 :", responseData);
               const { user_code, user_id, user_nick, user_profile, room_code, room_name, room_like } = responseData.users;
               const { account, privateKey } = responseData.wallet;
-              setRoomCode(room_code)
+              roomInfo(room_code)
               dispatch(
                 setLogin({
                   room_code,
@@ -86,13 +86,15 @@ function Login() {
               reject(error);
             } else {
               console.log("룸 정보 성공 :", responseData);
-              //const { items } = responseData;
-              // dispatch(
-              //   setFurniture({
-              //     items
-              //   })
-              // );
-              navigate('/Home');
+              const { items } = responseData;
+              console.log("itwms", items);
+              dispatch(
+                setFurniture(items)
+              );
+              setTimeout(() => {
+                navigate('/Home');
+              }, 1000); // 5초를 밀리초로 변환하여 설정
+              
               resolve(responseData); // 룸 정보 성공 시 프로미스를 성공 상태로 해결
             }
           });

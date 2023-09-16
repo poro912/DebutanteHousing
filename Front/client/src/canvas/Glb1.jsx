@@ -28,6 +28,8 @@ const Glb = ({ code, url, initialPos, initialRot }) => {
           break;
         case 3: newModelRotation = [0, Math.PI * 1.5, 0];
           break;
+        case -1: newModelRotation = [0, Math.PI * 1.5, 0];
+          break;
       }
     return newModelRotation
   }

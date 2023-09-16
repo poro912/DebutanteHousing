@@ -5,6 +5,7 @@ import state from '../store';
 import { CustomButton } from '../components';
 import {Link} from "react-router-dom"
 import styles from "./Home.module.css"
+import { useDispatch, useSelector } from 'react-redux';
 
 import{
     headContainerAnimation,
@@ -16,7 +17,7 @@ import{
 
 const HomePage = () => {
     const snap = useSnapshot(state);
-
+    const usersItems = useSelector((state) => state.users);
   return (
     <div className={styles.homcon}>
       {snap.intro && (
@@ -24,7 +25,7 @@ const HomePage = () => {
           <header>
             <div className={styles.verti}>
               <button>
-                <Link to="/mypage"><h3 className={styles.name}>Serbia</h3></Link>
+                <Link to="/mypage"><h3 className={styles.name}>{usersItems.user_nick}</h3></Link>
               </button>
               <button>
                 <img

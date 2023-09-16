@@ -14,13 +14,18 @@ import { useSelector } from 'react-redux';
 
 import FuItem from './FuItem';
 
-import { place, replace } from '../apis/room';
+import { place, replace, remove } from '../apis/room';
+import { getNftOwnerList } from "../apis/contract";
 
 import styles from './Customizer.module.css';
 
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+  //리덕스에서 가구 리스트 불러오기
+  //리덕스에서 유저 정보 불러오기
+  const furnitureItems = useSelector((state) => state.furniture);
+  const usersItems = useSelector((state) => state.users);
 
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
@@ -50,15 +55,25 @@ const Customizer = () => {
     'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/1.json',
     'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/2.json'
   ]
-
+  const [nftList, setNftList] = useState([]);
   const [fuItems, setfuItems] = useState([]);
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    getNftOwnerList(usersItems.account, (error, responseData) => {
+      if (error) {
+        console.error('nft 정보 실패');
+      } else {
+        console.log('nft 정보 성공: ', responseData.data.NFTList);
+        setNftList(responseData.data.NFTList)
+      }
+    })
+
+    const fetchData = async (url, code) => {
       try {
         const response = await fetch(url);
         const jsonData = await response.json();
-        console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        jsonData.code = code;
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
         
         // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
         setfuItems((prevFuItems) => {
@@ -73,20 +88,45 @@ const Customizer = () => {
     };
   
     // meataurl 배열을 순회하면서 fetchData 함수를 호출
-    meataurl.forEach((el) => {
-      console.log(el);
-      fetchData(el);
+    nftList.forEach((el) => {
+      //console.log(el);
+      fetchData(el[1], el[0]);
     });
+
   }, []);
+
+  useEffect(() => {
+    const fetchData = async (url, code) => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        jsonData.code = code;
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        
+        // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
+        setfuItems((prevFuItems) => {
+          if (!prevFuItems.some(item => item.name === jsonData.name)) {
+            return [...prevFuItems, jsonData];
+          }
+          return prevFuItems;
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    // meataurl 배열을 순회하면서 fetchData 함수를 호출
+    nftList.forEach((el) => {
+      //console.log(el);
+      el.code = 0;
+      fetchData(el[1], el[0]);
+    });
+  }, [nftList])
   
   useEffect(() => {
     console.log(fuItems);
   }, [fuItems]);
 
-  //리덕스에서 가구 리스트 불러오기
-
-  const furnitureItems = useSelector((state) => state.furniture);
-  const usersItems = useSelector((state) => state.users);
 
   
   // place 함수
@@ -121,12 +161,12 @@ const Customizer = () => {
       const furnitureArray = Array.from(Object.values(furnitureItems.items)); // furnitureItems 배열을 반복 가능한 객체로 변환
       
       // place 함수 호출 및 대기
-      const placeResponse = await placeFurniture(1, furnitureArray);
+      const placeResponse = await placeFurniture(usersItems.room_code, furnitureArray);
       //console.log('Place Response:', furnitureArray);
       console.log('Place Response:', placeResponse);
 
       // replace 함수 호출 및 대기
-      const replaceResponse = await replaceFurniture(1, furnitureArray);
+      const replaceResponse = await replaceFurniture(usersItems.room_code, furnitureArray);
       console.log('Replace Response:', replaceResponse);
 
       // 서버 응답에 따른 처리를 수행할 수 있습니다.
@@ -215,7 +255,7 @@ const Customizer = () => {
                 onClick={saveHandle}
                 className={styles.backBtn}
                 alt="Back Button"
-              />
+              ></img>
               save
             </button>
           </motion.div>

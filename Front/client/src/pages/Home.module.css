@@ -52,8 +52,8 @@ font-size: 30px;
   position: relative;
   top: 38vh;
   left: 10vw;
-  
-  font-size: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .firendImg{
@@ -61,7 +61,8 @@ font-size: 30px;
   position: relative;
   top: 38vh;
   left: 70vw;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .iconCon {

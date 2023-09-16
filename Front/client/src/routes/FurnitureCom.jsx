@@ -2,7 +2,7 @@ import { Component } from "react";
 import styles from "./FurnitureCom.module.css";
 
 function FurnitureCom({ data }) {
-  console.log(data)
+
     return (
       <div className={styles.duiContainer}>
         <div className={styles.sbox}>

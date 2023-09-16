@@ -1,16 +1,23 @@
 import styles from "./Mypage.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FurnitureCom from "./FurnitureCom";
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getNftOwnerList, getSaleOwnerNftList } from "../apis/contract";
 
 function Mypage() {
   const [copied, setCopied] = useState(false);
   const [nickname, setNickname] = useState("nyaaaaaaa");
 
+
+  const usersItems = useSelector((state) => state.users);
+
   const handleCopyClick = () => {
     // 복사할 텍스트를 담을 textarea 엘리먼트 생성
+    
     const textarea = document.createElement("textarea");
-    textarea.value = "ASDF1234";
+    textarea.value = usersItems.account;
 
     // textarea를 DOM에 추가
     document.body.appendChild(textarea);
@@ -33,6 +40,96 @@ function Mypage() {
     }, 1500);
   };
 
+  const [nftList, setNftList] = useState([]);
+  const [fuItems, setfuItems] = useState([]);
+
+  useEffect(() => {
+    getNftOwnerList(usersItems.account, (error, responseData) => {
+      if (error) {
+        console.error('nft 정보 실패');
+      } else {
+        console.log('nft 정보 성공: ', responseData.data.NFTList);
+        setNftList(responseData.data.NFTList)
+      }
+    })
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (url, code, price) => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        jsonData.code = code;
+        jsonData.price = price
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        
+        // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
+        setfuItems((prevFuItems) => {
+          if (!prevFuItems.some(item => item.name === jsonData.name)) {
+            return [...prevFuItems, jsonData];
+          }
+          return prevFuItems;
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    // meataurl 배열을 순회하면서 fetchData 함수를 호출
+    nftList.forEach((el) => {
+      fetchData(el[1], el[0], el[2]);
+    });
+  }, [nftList])
+
+  useEffect(() => {
+    console.log(fuItems);
+  }, [fuItems]);
+  
+
+  const [salenftList, setSlaeNftList] = useState([]);
+  const [salefuItems, setSalefuItems] = useState([]);
+
+  useEffect(() => {
+    getSaleOwnerNftList(usersItems.account, (error, responseData) => {
+      if (error) {
+        console.error('salenft 정보 실패');
+      } else {
+        console.log('salenft 정보 성공: ', responseData.data.NFTList);
+        setSlaeNftList(responseData.data.NFTList)
+      }
+    })
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (url, code, price) => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        jsonData.code = code;
+        jsonData.price = price
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        
+        // 이전 salefuItems를 복사하고 새로운 데이터를 추가한 후 설정
+        setSalefuItems((prevFuItems) => {
+          if (!prevFuItems.some(item => item.name === jsonData.name)) {
+            return [...prevFuItems, jsonData];
+          }
+          return prevFuItems;
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    // meataurl 배열을 순회하면서 fetchData 함수를 호출
+    salenftList.forEach((el) => {
+      fetchData(el[1], el[0], el[2]);
+    });
+  }, [salenftList])
+  
+  useEffect(() => {
+    console.log(salefuItems);
+  }, [salefuItems]);
+
+
   return (
     <div>
       <div className={styles.box}>
@@ -40,7 +137,7 @@ function Mypage() {
     
 <div>
 <div>
-        <h1 className={styles.name}>{nickname}</h1>
+        <h1 className={styles.name}>{usersItems.user_nick}</h1>
         <img
           onClick={handleCopyClick}
           title="지갑주소 복사하기"
@@ -56,16 +153,24 @@ function Mypage() {
 
 
 <div>
-        <h1 className={styles.Money}>Wallet :</h1>
+        <h1 className={styles.Money}>Wallet : </h1>
         <h1 className={styles.sale}>On sale</h1>
         </div>
         
           <div className={styles.leftContent}>
-       
+            {fuItems.map((fu) => (
+              <Link to={`/Shopdetail/${fu.code}`}>
+                <FurnitureCom key={fu.code} data={fu} />
+              </Link>
+            ))}
           </div>
           <div className={styles.separator}></div>
           <div className={styles.rightContent}>
-       
+            {salefuItems.map((fu) => (
+                <Link to={`/Shopdetail/${fu.code}`}>
+                  <FurnitureCom key={fu.code} data={fu} />
+                </Link>
+            ))}
           </div>
         
         

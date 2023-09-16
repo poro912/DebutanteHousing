@@ -5,9 +5,10 @@ import { addFurniture } from '../Redux/furnitureSlice'
 
 function FuItem( {Fudata} ) {
   const dispatch = useDispatch();
+  const furnitureItems = useSelector((state) => state.furniture);
 
   const ClickHandler = ()=>{
-    dispatch(addFurniture({ code: 403, name:Fudata.name, url: Fudata.animation_url, pos: [0, -0.2, 0], rot: [0, 0, 0] }));
+    dispatch(addFurniture({ code: Fudata.code, name:Fudata.name, url: Fudata.animation_url, pos: [0, -0.2, 0], rot: [0, 0, 0] }));
   }
 
   return (

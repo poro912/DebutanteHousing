@@ -11,6 +11,7 @@ export function login(id, pw, callback) {
 }
 
 export function signup(id, pw, name, nick, email, phone, callback) {
+	console.log("회원가입", id, pw, name, nick, email, phone)
 	post('user/signup',
 		{id: id,
 		pw: pw,
