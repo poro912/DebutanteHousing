@@ -118,19 +118,20 @@ const Customizer = () => {
   // saveHandle 함수
   async function saveHandle() {
     try {
-      const furnitureArray = Array.from(furnitureItems); // furnitureItems 배열을 반복 가능한 객체로 변환
+      const furnitureArray = Array.from(Object.values(furnitureItems.items)); // furnitureItems 배열을 반복 가능한 객체로 변환
       
       // place 함수 호출 및 대기
       const placeResponse = await placeFurniture(1, furnitureArray);
+      //console.log('Place Response:', furnitureArray);
       console.log('Place Response:', placeResponse);
 
       // replace 함수 호출 및 대기
-      // const replaceResponse = await replaceFurniture(1, furnitureArray);
-      // console.log('Replace Response:', replaceResponse);
+      const replaceResponse = await replaceFurniture(1, furnitureArray);
+      console.log('Replace Response:', replaceResponse);
 
       // 서버 응답에 따른 처리를 수행할 수 있습니다.
 
-      console.log(furnitureItems);
+      console.log(furnitureArray);
       console.log(usersItems);
     } catch (error) {
       console.error('Error:', error);

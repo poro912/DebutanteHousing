@@ -27,7 +27,7 @@ function Login() {
     const LogSubmit = async (event) => {
       event.preventDefault();
       try {
-        await logins(id, pass);
+        //await logins(id, pass);
         await roomInfo(1)
       } catch (error) {
         console.error("로그인 또는 룸 정보 처리 실패", error);

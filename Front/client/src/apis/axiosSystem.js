@@ -40,7 +40,7 @@ export const post = (page, data, callback) => {
 
 export const put = (page, data, callback) => {
 	axios
-	.get(info.GenURL() + page, data)
+	.put(info.GenURL() + page, data)
 	.then(response => {
 		callback(null, response.data); // 성공 시 콜백 호출
 	})
@@ -52,7 +52,7 @@ export const put = (page, data, callback) => {
 
 export const dele = (page, data, callback) => {
 	axios
-	.get(info.GenURL() + page, data)
+	.delete(info.GenURL() + page, data)
 	.then(response => {
 		callback(null, response.data); // 성공 시 콜백 호출
 	})

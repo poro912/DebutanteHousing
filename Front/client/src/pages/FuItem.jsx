@@ -7,7 +7,7 @@ function FuItem( {Fudata} ) {
   const dispatch = useDispatch();
 
   const ClickHandler = ()=>{
-    dispatch(addFurniture({ code: 1, name:Fudata.name, url: Fudata.animation_url, pos: [0, -0.2, 0], rot: [0, 0, 0] }));
+    dispatch(addFurniture({ code: 403, name:Fudata.name, url: Fudata.animation_url, pos: [0, -0.2, 0], rot: [0, 0, 0] }));
   }
 
   return (

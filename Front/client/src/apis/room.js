@@ -5,17 +5,19 @@ import {dele} from './axiosSystem';
 
 
 export function info(code, callback) {
-	get('room',
+	post('room',
 		{code: code}
 		,callback);
 }
 export function place(code, items, callback) {
+	console.log("플레이스", items)
 	post('room/item',
 		{code: code
 		,items:items}
 		,callback);
 }
 export function replace(code, items, callback) {
+	console.log("리플레이스", items)
 	put('room/item',
 		{code: code
 		,items:items}
