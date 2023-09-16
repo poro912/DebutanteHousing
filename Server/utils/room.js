@@ -66,10 +66,14 @@ const room = {
 		var conn = await db.getConnection();
 		await db.use.current(conn);
 		var cnt = 0;
+		
+		system.debug.print(items);
+		system.debug.print(items[0]);
+		system.debug.print(items[0][0]);
 
 		for (const item of items) {
 			system.debug.print(item);
-			temp = await room.placeItem(conn, room_code, item.url, item.name);
+			temp = await room.placeItem(conn, room_code, item.code ,item.url, item.name);
 		}
 		//if(items.length == cnt) result = true;
 
@@ -99,6 +103,7 @@ const room = {
 	},
 	replaceItems : async (room_code, items) => {
 		system.debug.print("replace Items function");
+		system.debug.print();
 		let result = false;
 
 		if(items.length == 0 || items === undefined) return false;
@@ -106,13 +111,21 @@ const room = {
 		var conn = await db.getConnection();
 		await db.use.current(conn);
 
+		for (const item of items) {	
+			system.debug.print(item);
+		}
+		
 		items = room.convertPositionINT(items);
 		items = room.convertRotateINT(items);
+
+		for (const item of items) {	
+			system.debug.print(item);
+		}
 		
 		var cnt = 0;
+
 		for (const item of items) {	
 			temp = await room.replaceItem(conn, room_code, item.code, item.pos, item.rot);
-			system.debug.print(item);
 			if(temp["changedRows"] != 0) cnt += temp["changedRows"];
 		}
 
@@ -125,11 +138,11 @@ const room = {
 		return result;
 	},
 
-	placeItem : async (conn, room_code, item_url, item_name) => {
+	placeItem : async (conn, room_code, item_code, item_url, item_name) => {
 		system.debug.print("place Item function");
 		await db.use.func(conn);
 		result  = await db.execQuery(conn, 
-			`call create_item(${room_code}, '${item_url}', '${item_name}');`);
+			`call create_item(${room_code}, '${item_code}', '${item_url}', '${item_name}');`);
 		system.debug.print(result);
 		system.debug.print(result[0]);
 		return result;
@@ -179,7 +192,16 @@ const room = {
 	convertRotateArray : (obj)  =>{
 		for (let i = 0; i < obj.length; i++) {
 			if(obj[i]["rot"] === undefined) continue;
-			obj[i]["rot"] = room.itoaVector(obj[i]["rot"]);
+			//obj[i]["rot"] = room.itoaVector(obj[i]["rot"]);
+			
+			var data = obj[i]["rot"];
+			var z = data % 100;
+			data = Math.floor(data / 100);
+			var y = data % 100;
+			data = Math.floor(data / 100);
+			var x = data % 100;
+
+			obj[i]["rot"] = [x, y-1, z];
 		}
 		return obj;
 	},
@@ -187,7 +209,14 @@ const room = {
 	convertRotateINT : (obj) => {
 		for (let i = 0; i < obj.length; i++) {
 			if(obj[i]["rot"] === undefined) continue;
-			obj[i]["rot"] = room.atoiVector(obj[i]["rot"]);
+			//obj[i]["rot"] = room.atoiVector(obj[i]["rot"]);
+
+			var data = obj[i]["rot"];
+			var x = data[0] ;
+			var y = data[1] ;
+			var z = data[2] ;
+
+			obj[i]["rot"] = x * 10000 + y * 100 + z;
 		}
 		return obj;
 	},
@@ -196,15 +225,21 @@ const room = {
 	// [ x, y, z ]
 	// 00 00 00
 	atoiVector : (data) => {
+		// 범위 외의 데이터 삽입 방지
 		// 0 <= x y z <= 20
 		//var x = Number.isInteger(data[0]) ? data[0] : 0;
   		//var y = Number.isInteger(data[1]) ? data[1] : 0;
   		//var z = Number.isInteger(data[2]) ? data[2] : 0;
 
+		// U시스템 이전 임시코드 -0.50~+0.49
 		var x = data[0] ;
   		var y = data[1] ;
   		var z = data[2] ;
-
+		  system.debug.print(x,y,z);
+		x = x.toFixed(2);
+		y = y.toFixed(2);
+		z = z.toFixed(2);
+		system.debug.print(x,y,z);
 		x = (x * 100) + 50;
 		y = (y * 100) + 50;
 		z = (z * 100) + 50;
@@ -221,6 +256,7 @@ const room = {
 		data = Math.floor(data / 100);
 		var x = data % 100;
 
+		// U시스템 이전 임시코드 -0.50~+0.49
 		x = (x - 50) / 100;
 		y = (y - 50) / 100;
 		z = (z - 50) / 100;

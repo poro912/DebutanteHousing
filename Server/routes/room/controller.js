@@ -127,7 +127,7 @@ const Controller = {
 /**
  * 방 정보 획득
  */
-Router.get('/', Controller.getInfo)
+Router.post('/', Controller.getInfo)
 
 /**
  * 방 아이템 위치 변경

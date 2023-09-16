@@ -60,12 +60,23 @@ const room ={
 
 		system.debug.print("model room.replaceItems");
 		system.debug.print("attempt replace item");
-		system.debug.print();
+		
+		
+		system.debug.print("model form iteams : ");
+		system.debug.print(form.items);
+		
+		system.debug.print(form.items[0]);
+		system.debug.print(form.items[1]);
 
 		ret = await db_room.replaceItems(form.code, form.items);	
 
 		if(ret) {
 			ret = await db_room.getRoomInfo(form.code);
+			//ret[result] = true;
+		}
+		else {
+			ret = await db_room.getRoomInfo(form.code);
+			//ret[result] = false;
 		}
 		
 		if("function" === typeof callback){

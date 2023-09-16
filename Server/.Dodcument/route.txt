@@ -28,7 +28,7 @@ http://182.220.199.210:3310/user/login
 /room
 방 정보에 접근한다. 
 /room/
-	get		: 방 정보를 가져온다	(완성)
+	post		: 방 정보를 가져온다	(완성)
 /room/item	
 	post	: 방에 아이템을 배치한다 (함수 완성)
 /room/item
@@ -36,3 +36,4 @@ http://182.220.199.210:3310/user/login
 			move, rotate
 /room/item
 	delete	: 아이템을 방에서 제거한다.	(함수 완성)
+	

@@ -193,6 +193,40 @@ const Controller = {
             res.status(500).send(e.message || e);
         }
     },
+    ownerOf : async(req, res, next) => {
+        try{
+            const { tokenId } = req.body;
+            const result = await DHT721.methods.ownerOf(tokenId).call()
+            
+            console.log(result);
+            res.status(200).json({
+                message : "ownerOf",
+                data : {
+                    owner : result
+                }
+            });
+        }catch(e){
+            console.error(e);
+            res.status(500).send(e.message || e);
+        }
+    },
+    tokenURI : async(req, res, next) => {
+        try{
+            const { tokenId } = req.body;
+            const result = await DHT721.methods.tokenURI(tokenId).call()
+            
+            console.log(result);
+            res.status(200).json({
+                message : "tokenURI",
+                data : {
+                    URI : result
+                }
+            });
+        }catch(e){
+            console.error(e);
+            res.status(500).send(e.message || e);
+        }
+    },
 
     balanceOf : async(req, res, next) => {
         try{
@@ -295,6 +329,8 @@ Router.post("/getAllNftList", Controller.getAllNftList);
 Router.post("/getNftOwnerList", Controller.getNftOwnerList);
 Router.post("/getSaleAllNftList", Controller.getSaleAllNftList);
 Router.post("/getSaleOwnerNftList", Controller.getSaleOwnerNftList);
+Router.post("/ownerOf", Controller.ownerOf);
+Router.post("/tokenURI", Controller.tokenURI);
 Router.post("/balanceOf", Controller.balanceOf);
 Router.post("/transfer", Controller.transfer);
 Router.post("/approve", Controller.approve);
