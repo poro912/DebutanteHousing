@@ -32,6 +32,38 @@ const Controller = {
             res.status(500).send(e.message || e);
         }
     },
+    sendEther: async (req, res, next) => {
+        try {
+          const { account } = req.body;
+          //const userWallet = await connWallte.DHT721Wallet(process.env.SERVER_WALLET_PRIVATE)
+
+		  const userWallet = web3.eth.accounts.privateKeyToAccount(process.env.SERVER_WALLET_PRIVATE);
+		  const etherAmount = '0.1';
+          if (!web3.utils.isAddress(account)) {
+            throw new Error('수신 계정 주소가 올바르지 않습니다.');
+          }
+          const etherInWei = web3.utils.toWei(etherAmount, 'ether');
+          const gasPrice = await web3.eth.getGasPrice();
+    
+          // 트랜잭션 객체 생성
+          const txObject = {
+            from: userWallet.address,
+            to: account,
+            value: etherInWei,
+            gasPrice, // 가스 가격 설정
+            gasLimit: 21000, // 이더를 다른 계정으로 전송하는 경우 일반적으로 21,000 가스를 사용
+          };
+		  const signedTx = await web3.eth.accounts.signTransaction(txObject, process.env.SERVER_WALLET_PRIVATE);
+          const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+          console.log(`트랜잭션 해시: ${receipt.transactionHash}`);
+          console.log(`전송 완료. 블록 번호: ${receipt.blockNumber}`);
+		  res.status(200).send(receipt);
+
+		} catch (error) {
+          //console.error('Transaction error:', error);
+          res.status(500).send(error.message || error);
+        }
+      },
     createAccount : async(req, res, next) => {
         try{
             const newAccount = await web3.eth.accounts.create();
@@ -307,6 +339,32 @@ const Controller = {
             res.status(500).send(e.message || e);
         }
     },
+    SingupTransfer : async(req, res, next) => {
+        try{
+            const { recipient, amount } = req.body;
+            const gasPrice = web3.utils.toWei('100', 'gwei'); // 원하는 가스 가격 설정
+            const gasLimit = 1000000; // 원하는 가스 리미트 설정
+
+            const userWallet = web3.eth.accounts.privateKeyToAccount(process.env.SERVER_WALLET_PRIVATE);
+            const connectedContract = DHT20.clone();
+            connectedContract.options.address = process.env.DHT20_ADDRESS;
+            connectedContract.options.from = userWallet.address;
+            web3.eth.accounts.wallet.add(userWallet);
+
+            const result = await DHT20.methods.transfer(recipient, amount).send({ from: userWallet.address, gasPrice, gasLimit  });
+            
+            console.log(result);
+            res.status(200).json({
+                message : "SingipTransfer",
+                data : {
+                    bool : result
+                }
+            });
+        }catch(e){
+            console.error(e);
+            res.status(500).send(e.message || e);
+        }
+    },
     approve : async(req, res, next) => {
         try{
             const { accountPirvate, spender, amount } = req.body;
@@ -355,6 +413,7 @@ const Controller = {
 
 Router.get("/", Controller.getAccounts);
 Router.get("/newAccount", Controller.createAccount);
+Router.post("/sendEther", Controller.sendEther);
 Router.post("/setToken", Controller.setToken);
 Router.post("/mintNFT", Controller.mintNFT);
 Router.post("/saleNFT", Controller.saleNFT);
@@ -369,6 +428,7 @@ Router.post("/nftPrice", Controller.nftPrice);
 Router.post("/IsSale", Controller.IsSale);
 Router.post("/balanceOf", Controller.balanceOf);
 Router.post("/transfer", Controller.transfer);
+Router.post("/SingupTransfer", Controller.SingupTransfer);
 Router.post("/approve", Controller.approve);
 Router.post("/allowance", Controller.allowance);
 

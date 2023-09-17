@@ -58,7 +58,7 @@ const Controller = {
 			return res.json(result);
 		});
     },
-    getMember : (req, res) => {
+    postMember : (req, res) => {
         // 회원 정보 조회 처리 코드
 		// 1인 조회, 다중조회(페이지)
         let data = req.body;
@@ -114,7 +114,7 @@ Router.post('/signup', Controller.postSignup)
 /**
  * 회원정보 조회
  */
-Router.get('/member', Controller.getMember)
+Router.post('/member', Controller.postMember)
 
 /**
  * 회원정보 수정
