@@ -184,7 +184,7 @@ function Mypage() {
 
 
 <div>
-        <h1 className={styles.Money}>DTH : {usersItems.token_amount}</h1>
+        <h1 className={styles.Money}>DHT : {usersItems.token_amount}</h1>
         <h1 className={styles.sale}>On sale</h1>
         </div>
         

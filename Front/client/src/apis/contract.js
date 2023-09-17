@@ -48,6 +48,15 @@ export function buyNFT(accountPirvate, tokenId, callback) {
 		,callback);
 }
 
+export function approveNFT(accountPirvate, tokenId, callback) {
+	post('nft/approveNFT',
+		{   
+            accountPirvate: accountPirvate,
+            tokenId : tokenId
+        }
+		,callback);
+}
+
 export function getAllNftList(callback) {
 	post('nft/getAllNftList', null,
 		callback);
