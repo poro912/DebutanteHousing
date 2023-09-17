@@ -119,10 +119,10 @@ CREATE TABLE ROOM_ITEM (
 CREATE TABLE NEW_ROOM_ITEM (
   r_code		INT				NOT NULL,
   code			INT				NOT NULL,
-  i_url			VARCHAR(100)	NOT NULL,
+  i_url			VARCHAR(500)	NOT NULL,
   position	INT				NOT NULL DEFAULT 0,
   rotate		INT		    NOT NULL DEFAULT 0,
-  name			VARCHAR(20)		,
+  name			VARCHAR(50)		,
 
   PRIMARY KEY (r_code, code),
   FOREIGN KEY (r_code)			REFERENCES room(code)
