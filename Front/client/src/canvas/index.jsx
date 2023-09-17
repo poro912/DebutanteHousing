@@ -20,15 +20,15 @@ const CanvasModel = () => {
   //const url = state.green
 
   const dispatch = useDispatch();
-  const furnitureList = useSelector(state => state.furniture.furnitureList);
+  const furnitureList = useSelector(state => state.furniture.items);
 
   const [glburl, setGlburl] = useState("") //링크로 불러오기 성공
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://gateway.pinata.cloud/ipfs/QmP25FavCnPjQpuvM9noxxfZNNRKW6cmUYsEg3LwSJ22gm/1.json');
+        const response = await fetch('https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/1.json');
         const jsonData = await response.json();
-        console.log(jsonData.animation_url); // JSON 데이터를 콘솔에 출력
+        console.log(jsonData); // JSON 데이터를 콘솔에 출력
         setGlburl(jsonData.animation_url);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -37,8 +37,6 @@ const CanvasModel = () => {
     fetchData();
   }, []);
 //링크
-  
-
   return (
     
     <Canvas
@@ -52,11 +50,9 @@ const CanvasModel = () => {
     >
 
       
-      
-      
+    
       <Environment preset="warehouse" />
 
-      {/* <CameraRig> */}
         
         {state.intro === true ? <OrbitControls enablePan={false}/> : <></>}
         
@@ -64,23 +60,14 @@ const CanvasModel = () => {
         
          
           <RoomGlb receiveShadow />
-          {/* <Glb url={urls[0]} pos={[0,-0.2,0] }/> */}
 
           {
+
             furnitureList.map((furnitur) =>{
-              return <Glb1 key={furnitur.id} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
+              return <Glb1 key={furnitur.code} code={furnitur.code} url={furnitur.url} initialPos={furnitur.pos}  initialRot={furnitur.rot} receiveShadow/>
             })
           }
-          {/* {
-            url.map((url, index) => {
-              console.log(url[0])
-              return <Glb1 key={index} url={url[0]} initialPos={url[1]} initialRot={[0,0,0]}/>
-              
-            })
-          }  */}
-          {/* <Test /> */}
-        
-      {/* </CameraRig> */}
+
 
     </Canvas>
   )

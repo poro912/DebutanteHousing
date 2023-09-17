@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 
@@ -10,10 +10,27 @@ import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../components';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { resetFurniture } from '../Redux/furnitureSlice';
+
+import FuItem from './FuItem';
+
+import { place, replace, remove } from '../apis/room';
+import { getNftOwnerList } from "../apis/contract";
+
 import styles from './Customizer.module.css';
+
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+  const dispatch = useDispatch();
+  //리덕스에서 가구 리스트 불러오기
+  //리덕스에서 유저 정보 불러오기
+  const furnitureItems = useSelector((state) => state.furniture);
+  const usersItems = useSelector((state) => state.users);
+
+  
+  
 
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
@@ -37,34 +54,164 @@ const Customizer = () => {
     }
   };
 
-  const images = [
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
-    `./img/furniture/chair.png`,
+  const firstFu = furnitureItems.items
 
-  ];
+  const [fuCode, setFuCode] = useState([]);
+  useEffect(() => {
+    const updatedFuCode = firstFu.map((el) => el.code);
+    setFuCode(updatedFuCode);
+    console.log("updatedFuCode", updatedFuCode);
+  }, [firstFu]);
 
+  //ipfs로 가구 데이터 불러오기
+  
+
+  const [nftList, setNftList] = useState([]);
+  const [fuItems, setfuItems] = useState([]);
+
+  useEffect(() => {
+    getNftOwnerList(usersItems.account, (error, responseData) => {
+      if (error) {
+        console.error('nft 정보 실패');
+      } else {
+        console.log('nft 정보 성공: ', responseData.data.NFTList);
+        setNftList(responseData.data.NFTList)
+      }
+    })
+
+    const fetchData = async (url, code) => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        jsonData.code = code;
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        
+        // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
+        setfuItems((prevFuItems) => {
+          if (!prevFuItems.some(item => item.name === jsonData.name)) {
+            return [...prevFuItems, jsonData];
+          }
+          return prevFuItems;
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    // meataurl 배열을 순회하면서 fetchData 함수를 호출
+    nftList.forEach((el) => {
+      //console.log(el);
+      fetchData(el[1], el[0]);
+    });
+
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (url, code) => {
+      try {
+        const response = await fetch(url);
+        const jsonData = await response.json();
+        jsonData.code = code;
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        
+        // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
+        setfuItems((prevFuItems) => {
+          if (!prevFuItems.some(item => item.name === jsonData.name)) {
+            return [...prevFuItems, jsonData];
+          }
+          return prevFuItems;
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    // meataurl 배열을 순회하면서 fetchData 함수를 호출
+    nftList.forEach((el) => {
+      //console.log(el);
+      el.code = 0;
+      fetchData(el[1], el[0]);
+    });
+  }, [nftList])
+  
+  useEffect(() => {
+    console.log(fuItems);
+  }, [fuItems]);
+
+
+  // remove 함수
+  async function removeFurniture(roomCode, furnitureCodeArray) {
+    return new Promise((resolve, reject) => {
+      remove(roomCode, furnitureCodeArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          alert("초기화 완료")
+          resolve(response);
+        }
+      });
+    });
+  }
+
+  async function resetHandle(){
+    await removeFurniture(usersItems.room_code, fuCode)
+    dispatch(resetFurniture())
+  }
+  
+  // place 함수
+  async function placeFurniture(roomCode, furnitureArray) {
+    return new Promise((resolve, reject) => {
+      place(roomCode, furnitureArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
+        }
+      });
+    });
+  }
+
+  // replace 함수
+  async function replaceFurniture(roomCode, furnitureArray) {
+    return new Promise((resolve, reject) => {
+      replace(roomCode, furnitureArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
+        }
+      });
+    });
+  }
+
+  // saveHandle 함수
+  async function saveHandle() {
+    try {
+      const furnitureArray = Array.from(Object.values(furnitureItems.items)); // furnitureItems 배열을 반복 가능한 객체로 변환
+      
+      // place 함수 호출 및 대기
+      const placeResponse = await placeFurniture(usersItems.room_code, furnitureArray);
+      //console.log('Place Response:', furnitureArray);
+      console.log('Place Response:', placeResponse);
+
+      // replace 함수 호출 및 대기
+      const replaceResponse = await replaceFurniture(usersItems.room_code, furnitureArray);
+      console.log('Replace Response:', replaceResponse);
+
+      // 서버 응답에 따른 처리를 수행할 수 있습니다.
+
+      console.log(furnitureArray);
+      console.log(usersItems);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
+
+
+  //페이지 네이션
   const itemsPerPage = 8;
-  const totalItems = images.length;
+  const totalItems = fuItems.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,6 +227,7 @@ const Customizer = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
+
   return (
     <>
       {!snap.intro && (
@@ -94,9 +242,12 @@ const Customizer = () => {
                 {generateTabContent()}
                 <div className={styles.fuListContainer}>
                   <div className={styles.furnitureGrid}>
-                    {images.slice(startIndex, endIndex).map((imagePath, index) => (
+                    {fuItems.slice(startIndex, endIndex).map((data, index) => (
                       <div key={startIndex + index} className={styles.furniture}>
-                        <div className={styles.fuList}><img src={imagePath} alt={`Furniture ${startIndex + index + 1}`} />chair</div>
+                        <div className={styles.fuList}>
+                          <FuItem Fudata={data}/>
+                          {/* <img src={data.image} alt={`Furniture ${startIndex + index + 1}`} />chair */}
+                          </div>
                       </div>
                     ))}
                   </div>
@@ -106,33 +257,42 @@ const Customizer = () => {
             {/* Pagination controls */}
             <div className={styles.pagination}>
               <button onClick={handlePrevPage} disabled={currentPage === 1}>
-                <img src='.\img\arrowPu.png' className={styles.leftarrow}></img>
+                <div className={styles.leftarrow}> ➤ </div>
               </button>
               <span>
                 {currentPage} / {totalPages}
               </span>
               <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                <img src='.\img\arrowPu.png' className={styles.rightarrow}></img>
+              <div className={styles.rightarrow}> ➤ </div>
+                
               </button>
             </div>
           </motion.div>
 
           <div></div>
           <motion.div className='absolute z-10 top-5 left-5' {...fadeAnimation}>
-            <img
-              src='./img/arrowPu.png'
-              onClick={() => (state.intro = true)}
-              className={styles.backBtn}
-              alt="Back Button"
-            />
+            <button>
+              <div className={styles.backarrow} onClick={() => (state.intro = true)}>
+                ➤
+              </div>
+            </button>
           </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
-            <img
-              src='./img/arrowPu.png'
-              onClick={() => (state.intro = true)}
-              className={styles.backBtn}
-              alt="Back Button"
-            />
+            <button>
+              <img
+                src='./img/saveicon.png'
+                onClick={saveHandle}
+                className={styles.backBtn}
+                alt="Back Button"
+              ></img>
+              save
+            </button>
+          </motion.div>
+          <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
+            <button onClick={resetHandle} className={styles.reset}>
+              <img src='./img/reset.png' className={styles.resetImg}/>
+              reset
+            </button>
           </motion.div>
         </>
       )}

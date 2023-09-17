@@ -1,5 +1,5 @@
 import { Component } from "react";
-import styles from "./FurnitureCom.module.css"
+import styles from "./FurnitureCom.module.css";
 
 class FurnitureCom extends Component {
   render() {
