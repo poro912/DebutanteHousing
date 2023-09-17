@@ -59,11 +59,21 @@ CREATE TABLE user (
 
 CREATE TABLE wallet (
   u_code		INT				NOT NULL,
-  balance		BIGINT			NOT NULL,
+  balance		BIGINT			NOT NULL DEFAULT 0,
   code			INT				NOT NULL,
   PRIMARY KEY (u_code),
   FOREIGN KEY (u_code)			REFERENCES user (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE new_wallet (
+  u_code		INT				NOT NULL,
+  account		VARCHAR(42)		NOT NULL UNIQUE,
+  private_key	VARCHAR(66),
+
+  PRIMARY KEY (u_code),
+  FOREIGN KEY (u_code)			REFERENCES user (code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+-- account		VARCHAR(30)		NOT NULL UNIQUE,
 
 CREATE TABLE room (
   code			INT				NOT NULL ,
@@ -99,12 +109,25 @@ CREATE TABLE ROOM_ITEM (
   r_code		INT				NOT NULL,
   i_code		BIGINT			NOT NULL,
   position		INT				NOT NULL DEFAULT 0,
-  rotate		SMALLINT		NOT NULL DEFAULT 0,
+  rotate		INT		NOT NULL DEFAULT 0,
   
   PRIMARY KEY (r_code, i_code),
   FOREIGN KEY (r_code)			REFERENCES room(code),
   FOREIGN KEY (i_code)			REFERENCES item(code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE NEW_ROOM_ITEM (
+  r_code		INT				NOT NULL,
+  code			INT				NOT NULL,
+  i_url			VARCHAR(500)	NOT NULL,
+  position	INT				NOT NULL DEFAULT 0,
+  rotate		INT		    NOT NULL DEFAULT 0,
+  name			VARCHAR(50)		,
+
+  PRIMARY KEY (r_code, code),
+  FOREIGN KEY (r_code)			REFERENCES room(code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 CREATE TABLE friend (
   follower		INT				NOT NULL,
