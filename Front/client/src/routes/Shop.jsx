@@ -65,7 +65,7 @@ function Shop() {
       setTimeout(() => {
         // 요청 보내는 코드
         fetchData(el[1], el[0], el[2]);
-      }, 500);
+      }, 800);
       
     });
   }, [nftList])

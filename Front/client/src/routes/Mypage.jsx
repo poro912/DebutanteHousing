@@ -101,7 +101,10 @@ function Mypage() {
     };
     // meataurl 배열을 순회하면서 fetchData 함수를 호출
     nftList.forEach((el) => {
-      fetchData(el[1], el[0], el[2]);
+      setTimeout(() => {
+        // 요청 보내는 코드
+        fetchData(el[1], el[0], el[2]);
+      }, 800);
     });
   }, [nftList])
 
@@ -146,7 +149,10 @@ function Mypage() {
     };
     // meataurl 배열을 순회하면서 fetchData 함수를 호출
     salenftList.forEach((el) => {
-      fetchData(el[1], el[0], el[2]);
+      setTimeout(() => {
+        // 요청 보내는 코드
+        fetchData(el[1], el[0], el[2]);
+      }, 800);
     });
   }, [salenftList])
   

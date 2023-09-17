@@ -38,7 +38,7 @@ const Controller = {
           //const userWallet = await connWallte.DHT721Wallet(process.env.SERVER_WALLET_PRIVATE)
 
 		  const userWallet = web3.eth.accounts.privateKeyToAccount(process.env.SERVER_WALLET_PRIVATE);
-		  const etherAmount = '0.1';
+		  const etherAmount = '0.2';
           if (!web3.utils.isAddress(account)) {
             throw new Error('수신 계정 주소가 올바르지 않습니다.');
           }

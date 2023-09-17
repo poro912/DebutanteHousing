@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Glb1 from './Glb1'
 
 const RoomGlb = () => {
-  const gltf = useLoader(GLTFLoader, './glb/room/room_green.glb');
+  const gltf = useLoader(GLTFLoader, '/glb/room/room_green.glb');
   const dispatch = useDispatch();
   const furnitureList = useSelector(state => state.furniture.furnitureList);
 

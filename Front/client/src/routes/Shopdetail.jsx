@@ -161,11 +161,11 @@ function Shopdetail() {
     } else {
       setIsLoading(true);
       try {
-        await tokensale(usersItems.privateKey, id, inPrice);
-        await removeFurnitures(usersItems.room_code, [id])
-        dispatch(removeFurniture(id));
+        //await tokensale(usersItems.privateKey, id, inPrice);
+        //await removeFurnitures(usersItems.room_code, [id])
+        //dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
-        alert(`${nftdata.name} 판매 성공`);
+        alert(`${nftdata.name} 판매 실패`);
         navigate("/mypage");
       } catch (error) {
         setIsLoading(false); // 에러 발생 시 로딩 종료
