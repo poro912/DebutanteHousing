@@ -163,7 +163,6 @@ function Shopdetail() {
       setIsLoading(true);
       try {
         await tokensale(usersItems.privateKey, id, inPrice);
-        await approveNFTcon(usersItems.privateKey, id)
         await removeFurnitures(usersItems.room_code, [id])
         dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
