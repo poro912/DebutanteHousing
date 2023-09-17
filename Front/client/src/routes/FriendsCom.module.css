@@ -1,8 +1,7 @@
 .container {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-  transform: translate(-50%, -50%);
+  display: flex; /* 요소들을 수평으로 배치 */
+ /* 자식 요소들을 가운데 정렬 */
+  /* 추가적인 스타일을 여기에 추가할 수 있습니다. */
 }
 
 .Name {
@@ -27,18 +26,16 @@
 }
 
 .goarrow {
-  position: absolute;
-  top: 35%;
-  right: -120%; /* Name 요소와 수평 정렬 및 오른쪽에 위치하도록 수정 */
   font-size: 4vh;
   color: rgba(56, 50, 17, 0.808);
   text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  margin-top: 8%;
+  margin-left: 20%;
 }
 
 .heartp {
-  position: absolute;
-  top: 37%; /* Name 요소와 수평 정렬 */
-  left: -30%; /* Name 요소의 왼쪽에 위치하도록 조정 */
+  margin-top: 15%;
+  margin-right: 2%;
   width: 2.5vw;
   height: 5vh;
 }

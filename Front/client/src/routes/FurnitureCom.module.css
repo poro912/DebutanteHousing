@@ -13,6 +13,7 @@
   left: 53%;
   transform: translate(-50%, -50%);
   margin: 0;
+
 }
 
 .sbox {
@@ -33,7 +34,6 @@
 .fu {
   position: absolute;
   height: 13vh;
-  width: 7vw;
   margin: 0;
 }
 

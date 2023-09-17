@@ -50,8 +50,7 @@ const CanvasModel = () => {
     >
 
       
-      
-      
+    
       <Environment preset="warehouse" />
 
         

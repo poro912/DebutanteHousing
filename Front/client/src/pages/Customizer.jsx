@@ -10,7 +10,8 @@ import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
 import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../components';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetFurniture } from '../Redux/furnitureSlice';
 
 import FuItem from './FuItem';
 
@@ -22,10 +23,14 @@ import styles from './Customizer.module.css';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
+  const dispatch = useDispatch();
   //리덕스에서 가구 리스트 불러오기
   //리덕스에서 유저 정보 불러오기
   const furnitureItems = useSelector((state) => state.furniture);
   const usersItems = useSelector((state) => state.users);
+
+  
+  
 
   const [file, setFile] = useState('');
   const [prompt, setPrompt] = useState('');
@@ -49,12 +54,18 @@ const Customizer = () => {
     }
   };
 
+  const firstFu = furnitureItems.items
+
+  const [fuCode, setFuCode] = useState([]);
+  useEffect(() => {
+    const updatedFuCode = firstFu.map((el) => el.code);
+    setFuCode(updatedFuCode);
+    console.log("updatedFuCode", updatedFuCode);
+  }, [firstFu]);
+
   //ipfs로 가구 데이터 불러오기
   
-  const meataurl = [
-    'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/1.json',
-    'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/2.json'
-  ]
+
   const [nftList, setNftList] = useState([]);
   const [fuItems, setfuItems] = useState([]);
 
@@ -128,6 +139,24 @@ const Customizer = () => {
   }, [fuItems]);
 
 
+  // remove 함수
+  async function removeFurniture(roomCode, furnitureCodeArray) {
+    return new Promise((resolve, reject) => {
+      remove(roomCode, furnitureCodeArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          alert("초기화 완료")
+          resolve(response);
+        }
+      });
+    });
+  }
+
+  async function resetHandle(){
+    await removeFurniture(usersItems.room_code, fuCode)
+    dispatch(resetFurniture())
+  }
   
   // place 함수
   async function placeFurniture(roomCode, furnitureArray) {
@@ -257,6 +286,12 @@ const Customizer = () => {
                 alt="Back Button"
               ></img>
               save
+            </button>
+          </motion.div>
+          <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
+            <button onClick={resetHandle} className={styles.reset}>
+              <img src='./img/reset.png' className={styles.resetImg}/>
+              reset
             </button>
           </motion.div>
         </>

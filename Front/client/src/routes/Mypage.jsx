@@ -1,12 +1,14 @@
 import styles from "./Mypage.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { setTokenAmount } from "../Redux/userSlice";
 import FurnitureCom from "./FurnitureCom";
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getNftOwnerList, getSaleOwnerNftList } from "../apis/contract";
+import { getNftOwnerList, getSaleOwnerNftList, balanceOf } from "../apis/contract";
 
 function Mypage() {
+  const dispatch = useDispatch();
   const [copied, setCopied] = useState(false);
   const [nickname, setNickname] = useState("nyaaaaaaa");
 
@@ -40,6 +42,8 @@ function Mypage() {
     }, 1500);
   };
 
+
+
   const [nftList, setNftList] = useState([]);
   const [fuItems, setfuItems] = useState([]);
 
@@ -52,6 +56,27 @@ function Mypage() {
         setNftList(responseData.data.NFTList)
       }
     })
+    async function getbalanceOf(address) {
+      try {
+        await new Promise((resolve, reject) => {
+          balanceOf(address, (error, responseData) => {
+            if (error) {
+              console.log("토큰 잔액 실패");
+              console.log(error);
+              reject(error);
+            } else {
+              dispatch(setTokenAmount(responseData.data.balance));
+  
+              resolve(responseData); // 룸 정보 성공 시 프로미스를 성공 상태로 해결
+            }
+          });
+        });
+      } catch (error) {
+        console.error("토큰 잔액 처리 실패", error);
+        throw error;
+      }
+    }
+    getbalanceOf(usersItems.account)
   }, []);
 
   useEffect(() => {

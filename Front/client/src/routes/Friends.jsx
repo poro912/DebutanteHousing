@@ -1,12 +1,21 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Friends.module.css";
-import FriendsCom from './FriendsCom';
+import FriendsCom from "./FriendsCom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { setFurniture } from "../Redux/furnitureSlice";
+
+import { member } from "../apis/user";
+import { info } from "../apis/room";
 
 function Friends() {
+  const dispatch = useDispatch();
+
+  const usersItems = useSelector((state) => state.users);
+
   const [friend, setFriend] = useState("");
   const [friends, setFriends] = useState([]);
-  const [name, setName] = useState("chaeyeon"); // 이름을 저장할 상태 변수 추가
 
   const onChange = (event) => setFriend(event.target.value);
 
@@ -19,11 +28,36 @@ function Friends() {
     setFriend("");
   };
 
-  // 이름을 저장하는 함수
-  const saveName = () => {
-    setName(friend);
-    setFriend(""); // 입력 필드 초기화
-  };
+  useEffect(() => {
+    member( "0", "", "",  (error, responseData) => {
+      if (error) {
+        console.error('member 정보 실패');
+      } else {
+        console.log('member 정보 성공: ', responseData.users);
+        setFriends(responseData.users)
+      }
+    })
+  }, []);
+
+  function backButton() {
+    function roomInfo(room_code) {
+      info(room_code, (error, responseData) => {
+        if (error) {
+          console.log("룸 정보 실패");
+          console.log(error);
+        } else {
+          console.log("룸 정보 성공 :", responseData);
+          const { items } = responseData;
+          console.log("items", items);
+          dispatch(setFurniture(items));
+        }
+      });
+    }
+    // roomInfo 함수 호출
+    roomInfo(usersItems.room_code);
+
+  }
+
 
   return (
     <div className={styles.friendsContainer}>
@@ -35,44 +69,39 @@ function Friends() {
           type="text"
           placeholder=""
         />
-      
       </form>
 
-      <div className={styles.listContainer}>
-        <div className={styles.listWrapper}>
-          <ul className={styles.friendList} >
-            {friends.map((fri, index) => (
-              <li className={styles.list} key={index}>{fri}</li>
-            ))}
-          </ul>
+      <div className={styles.box}>
+        <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+        <hr className={styles.hrr} />
+        <div className={styles.friendList}>
+          {friends.map((fri, index) => (
+            <Link to={`/FriendRoom/${fri.room_code}`}>
+              <FriendsCom key={index} frdata={fri} />
+            </Link>
+          ))}
         </div>
       </div>
-      
-      <div className={styles.box}>
-      <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
-      <hr className={styles.hrr} />
-        {friends.map((fri, index) => (
-          <FriendsCom key={index} name={fri} />
-        ))}
-        
-        <div className={styles.furnitureWrapper}>
-        
-        <FriendsCom name={name} />
-        </div>
-        
-        </div>
- 
-      
 
       <h1 className={styles.fr}>Friends List</h1>
-      
-      <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
-      
+
+      <Link to="/Home">
+        <button className={styles.backarrow} onClick={backButton}>➤</button>
+      </Link>
+
       <img className={styles.star} alt="star" src="./img/star.gif" />
       <img className={styles.upstar} alt="downstar" src="./img/upstar.gif" />
       <img className={styles.upstarr} alt="downstarr" src="./img/upstar.gif" />
-      <img className={styles.upstarrr} alt="downstarrr" src="./img/upstar.gif" />
-      <img className={styles.upstarrrr} alt="downstarrrr" src="./img/upstar.gif" />
+      <img
+        className={styles.upstarrr}
+        alt="downstarrr"
+        src="./img/upstar.gif"
+      />
+      <img
+        className={styles.upstarrrr}
+        alt="downstarrrr"
+        src="./img/upstar.gif"
+      />
     </div>
   );
 }

@@ -10,6 +10,7 @@ import Homec from './routes/Homecopy';
 import Login1 from './routes/Login1';
 import Mypage from './routes/Mypage';
 import APITest from './routes/APITest';
+import FriendRoom from './routes/FriendRoom';
 
 
 const RouterPage = () => {
@@ -25,6 +26,7 @@ const RouterPage = () => {
         <Route path="/Shopdetail/:id" element={<Shopdetail />} />
         <Route path="/Join" element={<Join />} />
         <Route path="/Friends" element={<Friends />} />
+        <Route path="/FriendRoom/:id" element={<FriendRoom />} />
         <Route path="/Mypage" element={<Mypage />} />
         <Route path="/APITest" element={<APITest />} />
       </Routes>

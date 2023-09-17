@@ -32,9 +32,12 @@ const furnitureSlice = createSlice({
     setFurniture: (state, action) => {
       state.items = action.payload; // 새로운 배열을 할당하여 items를 업데이트
     },
+    resetFurniture: (state) => {
+      state.items = []; // items 배열을 빈 배열로 재설정
+    },
     // 다른 액션들 추가 가능
   },
 });
 
-export const { setFurniture, addFurniture, updateFurniture, removeFurniture } = furnitureSlice.actions;
+export const { setFurniture, addFurniture, updateFurniture, removeFurniture, resetFurniture } = furnitureSlice.actions;
 export default furnitureSlice.reducer;

@@ -52,6 +52,7 @@ export const put = (page, data, callback) => {
 
 
 export const dele = (page, data, callback) => {
+	console.log(data)
 	axios
 	.delete(info.GenURL() + page, data)
 	.then(response => {

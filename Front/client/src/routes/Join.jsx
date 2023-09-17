@@ -16,6 +16,7 @@ function Join() {
   const onChangenname = (event) => {
     setnname(event.target.value);
   };
+
   const [pass, setpass] = useState();
   const onChangepass = (event) => {
     setpass(event.target.value);
@@ -61,7 +62,7 @@ function Join() {
   async function tokenTransfer(recipient) {
     try {
       await new Promise((resolve, reject) => {
-        SingupTransfer(recipient, 1, (error, responseData) => {
+        SingupTransfer(recipient, 30, (error, responseData) => {
           if (error) {
             console.error("SingupTransfer 실패");
             reject(error);
