@@ -39,8 +39,8 @@ export function saleNFT(accountPirvate, tokenId, price, callback) {
 		,callback);
 }
 
-export function approveNFT(accountPirvate, tokenId, callback) {
-	post('nft/approveNFT',
+export function buyNFT(accountPirvate, tokenId, callback) {
+	post('nft/buyNFT',
 		{   
             accountPirvate: accountPirvate,
             tokenId : tokenId
@@ -48,12 +48,11 @@ export function approveNFT(accountPirvate, tokenId, callback) {
 		,callback);
 }
 
-export function mintNFT(accountPirvate, tokenURI, price, callback) {
-	post('nft/mintNFT',
+export function approveNFT(accountPirvate, tokenId, callback) {
+	post('nft/approveNFT',
 		{   
             accountPirvate: accountPirvate,
-            tokenURI : tokenURI,
-            price : price
+            tokenId : tokenId
         }
 		,callback);
 }
