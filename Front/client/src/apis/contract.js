@@ -116,6 +116,15 @@ export function transfer(accountPirvate, recipient, amount, callback) {
 		,callback);
 }
 
+export function SingupTransfer( recipient, amount, callback) {
+	post('nft/SingupTransfer',
+		{      
+            recipient : recipient,
+            amount : amount
+        }
+		,callback);
+}
+
 export function approve(accountPirvate, amount, callback) {
 	post('nft/approve',
 		{      

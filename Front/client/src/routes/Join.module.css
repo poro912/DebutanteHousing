@@ -340,3 +340,11 @@
     animation: fadeInAndStay 2s forwards 1s;
   }
   
+  .heartloding{
+    position: fixed;
+    width: 15%;
+    top: 35%;
+    left: 43%;
+    z-index: 2;
+  }
+  
