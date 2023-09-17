@@ -1,56 +1,109 @@
-import { useState } from 'react';
-import {Link} from "react-router-dom"
-import styles from "./Friends.module.css"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./Friends.module.css";
+import FriendsCom from "./FriendsCom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { setFurniture } from "../Redux/furnitureSlice";
+
+import { member } from "../apis/user";
+import { info } from "../apis/room";
 
 function Friends() {
-  const [friend, setfriend] = useState("");
-  const [friends, setfriends] = useState([]);
-  const onChange = (event) => setfriend(event.target.value);
+  const dispatch = useDispatch();
+
+  const usersItems = useSelector((state) => state.users);
+
+  const [friend, setFriend] = useState("");
+  const [friends, setFriends] = useState([]);
+
+  const onChange = (event) => setFriend(event.target.value);
+
   const onSubmit = (event) => {
     event.preventDefault();
     if (friend === "") {
       return;
     }
-    setfriends((currentArray) => [friend, ...currentArray]);
-    setfriend("");
+    setFriends((currentArray) => [friend, ...currentArray]);
+    setFriend("");
   };
-  return <div>
-    
-    
-    <h1 className={styles.fname}>Mare</h1>
-    <h1 className={styles.ffname}>Debut</h1>
+
+  useEffect(() => {
+    member( "0", "", "",  (error, responseData) => {
+      if (error) {
+        console.error('member 정보 실패');
+      } else {
+        console.log('member 정보 성공: ', responseData.users);
+        setFriends(responseData.users)
+      }
+    })
+  }, []);
+
+  function backButton() {
+    function roomInfo(room_code) {
+      info(room_code, (error, responseData) => {
+        if (error) {
+          console.log("룸 정보 실패");
+          console.log(error);
+        } else {
+          console.log("룸 정보 성공 :", responseData);
+          const { items } = responseData;
+          console.log("items", items);
+          dispatch(setFurniture(items));
+        }
+      });
+    }
+    // roomInfo 함수 호출
+    roomInfo(usersItems.room_code);
+
+  }
 
 
-<hr className={styles.line} />
-<hr className={styles.linee}/>
-
+  return (
+    <div className={styles.friendsContainer}>
       <form onSubmit={onSubmit}>
-        <input className={styles.searchbar}
+        <input
+          className={styles.searchbar}
           onChange={onChange}
           value={friend}
           type="text"
           placeholder=""
         />
-        
       </form>
-     
-      <ul>
-        {friends.map((fri, index) => (
-          <li key={index}>{fri}</li>
-        ))}
-      </ul>
-     
-      <hr />
-      <div className={styles.box}></div>
 
-      <Link to="Friendss"><img className={styles.Aro} alt="Aro" src="./img/Aro.png" /></Link>
+      <div className={styles.box}>
+        <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
+        <hr className={styles.hrr} />
+        <div className={styles.friendList}>
+          {friends.map((fri, index) => (
+            <Link to={`/FriendRoom/${fri.room_code}`}>
+              <FriendsCom key={index} frdata={fri} />
+            </Link>
+          ))}
+        </div>
+      </div>
 
-      <img className={styles.Aroo} alt="Aro" src="./img/Aro.png" />
- <img className={styles.Fbgimg} alt="Fbgimg" src="./img/Fbgimg.png" />
- <img className={styles.Doorplate} alt="Doorplate" src="./img/Doorplate.png" />
- <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
- <Link to="/DeHaPrototype/Home"><img className={styles.back} alt="back" src="./img/back.png" /></Link>
-  </div>;
+      <h1 className={styles.fr}>Friends List</h1>
+
+      <Link to="/Home">
+        <button className={styles.backarrow} onClick={backButton}>➤</button>
+      </Link>
+
+      <img className={styles.star} alt="star" src="./img/star.gif" />
+      <img className={styles.upstar} alt="downstar" src="./img/upstar.gif" />
+      <img className={styles.upstarr} alt="downstarr" src="./img/upstar.gif" />
+      <img
+        className={styles.upstarrr}
+        alt="downstarrr"
+        src="./img/upstar.gif"
+      />
+      <img
+        className={styles.upstarrrr}
+        alt="downstarrrr"
+        src="./img/upstar.gif"
+      />
+    </div>
+  );
 }
 
 export default Friends;

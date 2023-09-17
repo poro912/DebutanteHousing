@@ -1,34 +1,37 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './routes/Login'
-import Nonmem from './routes/Nonmem'
-import Storage from './routes/Storage'
-import Shop from './routes/Shop'
-import Shopdetail from './routes/Shopdetail'
-import Join from './routes/Join'
-import Friends from './routes/Friends'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './routes/Login';
+import Nonmem from './routes/Nonmem';
+import Storage from './routes/Storage';
+import Shop from './routes/Shop';
+import Shopdetail from './routes/Shopdetail';
+import Join from './routes/Join';
+import Friends from './routes/Friends';
 import Homec from './routes/Homecopy';
-import Friendss from './routes/Friendss'
-import UploadAndDisplayGLB from './routes/UploadAndDisplayGLB'
+import Login1 from './routes/Login1';
+import Mypage from './routes/Mypage';
+import APITest from './routes/APITest';
+import FriendRoom from './routes/FriendRoom';
 
 
 const RouterPage = () => {
   return (
-
     <BrowserRouter>
-    <Switch>
-        <Route path="/DeHaPrototype/" exact={true} component={Login} />
-        <Route path="/DeHaPrototype/Home" component={Homec} />
-        <Route path="/DeHaPrototype/Non" component={Nonmem} />
-        <Route path="/DeHaPrototype/Storage" component={Storage} />
-        <Route path="/DeHaPrototype/Shop" component={Shop} />
-        <Route path="/DeHaPrototype/Shopdetail" component={Shopdetail} />
-        <Route path="/DeHaPrototype/Join" component={Join} />
-        <Route path="/DeHaPrototype/Friends" component={Friends} />
-        <Route path="/DeHaPrototype/Friendss" component={Friendss} />
-        <Route path="/DeHaPrototype/UploadAndDisplayGLB" component={UploadAndDisplayGLB} />
-    </Switch>
-</BrowserRouter>
-  )
-}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/test" element={<Login1 />} />
+        <Route path="/Home" element={<Homec />} />
+        <Route path="/Non" element={<Nonmem />} />
+        <Route path="/Storage" element={<Storage />} />
+        <Route path="/Shop" element={<Shop />} />
+        <Route path="/Shopdetail/:id" element={<Shopdetail />} />
+        <Route path="/Join" element={<Join />} />
+        <Route path="/Friends" element={<Friends />} />
+        <Route path="/FriendRoom/:id" element={<FriendRoom />} />
+        <Route path="/Mypage" element={<Mypage />} />
+        <Route path="/APITest" element={<APITest />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default RouterPage
+export default RouterPage;

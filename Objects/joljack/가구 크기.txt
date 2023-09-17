@@ -1,0 +1,18 @@
+(가로X세로X높이)
+칸당 4cm
+desk1 - (2X4X3)
+desk2 - (2X4X3)
+desk3 - (2X4X3)
+chair1 - (2X2X2)
+chair2 - (2X2X3)
+drawer1 - (2X3X2)
+drawer2 - (2X3X4)
+table - (3X3X2)
+bed - 2x5x4(임시)
+closet1, closet2 - 2x3x8
+
+
+room - 10x10x10
+
+
+OneRoom 게임 참고

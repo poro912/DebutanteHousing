@@ -1,3 +1,4 @@
+
 .btn{
     color: white; 
     padding: 15px 25px;
@@ -5,21 +6,30 @@
     border: 1px solid rgba(0,0,0,0.21);
     border-bottom-color: rgba(0,0,0,0.34);
     text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
+    box-shadow: 3px 3px 2px rgb(139, 129, 129),
+    0 1px 0 rgba(255,255,255,0.34) inset, 
+    0 3px 0 -1px rgba(0,0,0,0.13), 
+    0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+    0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);
+      padding: 1vh 12vw; 
+      font-size: 1.7vh;
       font-family: 'BookkMyungjo-Bd';
-      
+      position: fixed;
+      top: 58vh;
+      left: 37.5vw;
+      z-index: 5;
+      border-radius: 24px;
+      opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
 }
 
 .btn:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
+    position: relative;
+    top: 30.5vh;
+    left: 7.5vw;}
 
 .btn3{
         color: white; 
@@ -33,13 +43,14 @@
                     0 3px 0 -1px rgba(0,0,0,0.08), 
                     0 3px 13px -1px rgba(0,0,0,0.21);
           background-color: #74675c;  
-          padding: 4px 12px;  
+          padding: 4px 24px;  
           font-size: 12px;
           font-family: 'BookkMyungjo-Bd';
           position: relative;
               top: 560px;
               left: 50%;
               z-index: 5;
+              
           
     }
 
@@ -51,68 +62,289 @@
         left: 50%;
         z-index: 5;}
 
-.id {
-    font-family: 'BookkMyungjo-Bd'
 
-}
 
-.password{
-    font-family: 'BookkMyungjo-Bd'
 
-}
-
-.title{
-    font-family: 'Pacifico', cursive;
-    position: relative;
-              top: 200px;
-              left: 42%;
-              font-size: 40px;
-    z-index: 5;
-    
-
-}
 
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather:ital,wght@0,300;1,700&family=Pacifico&family=Pangolin&display=swap');
 
 
-.bookcover{
-    
-    width: 600px;
-    height: 800px;
-    object-fit: cover;
-    position: relative;
-        top:  -180px;
-        left: 35%;
-        z-index: 1;
+
+.pass{
+    box-sizing: border-box;
+    border: none;
+    position: fixed;
+    top:  44.5vh;
+    left: 45%;
+    width : 20vh;
+        z-index: 5;
+
+        color:#a1ffd0;
+        background-color: rgb(255, 255, 255);
+        font-family: 'Dancing Script';
+        font-size: 3.5vh;
+        text-align: center;
+        border-radius: 15px;
+        background-color: transparent;
+        opacity: 0;
+        animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
+
+.id::placeholder {
+  color:#fff5d6;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
+
+.nname::placeholder {
+  color:#d5ebff;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+  font-size: 3.5vh;
+}
+
+.pass::placeholder {
+  color:#a1ffd0;
+  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
+.id {
+    box-sizing: border-box;
+    border: none;
+    position: fixed;
+    top:  39vh;
+    left: 45.7%;
+    width : 18vh;
+        z-index: 5;
+        color:#fff5d6;
+        background-color: rgb(255, 255, 255);
+        font-family: 'Dancing Script';
+        font-size: 3.5vh;
+        text-align: center;
+        border-radius: 15px;
+        background-color: transparent;
+        opacity: 0;
+        animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
        
+}
+
+.nname{
+    box-sizing: border-box;
+    border: none;
+    position: fixed;
+    top:  50vh;
+    left: 45.5%;
+    width : 18vh;
+        z-index: 5;
+        color:#d5ebff;
+        background-color: rgb(255, 255, 255);
+        font-family: 'Dancing Script';
+        font-size: 4vh;
+        text-align: center;
+        border-radius: 15px;
+        background-color: transparent;
+        opacity: 0;
+        animation: fadeInAndStay 2s forwards 1s;
+        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+}
+
+.ID{
+    position: fixed;
+    top:  39.5vh;
+    left: 45vw;
+    z-index: 5;
+    color:#ffffff;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Dancing Script';
+    font-size: 3vh;
+    text-align: center;
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+}
+
+.PASS{
+    position: fixed;
+    top:  44vh;
+    left: 40.2vw;
+    z-index: 5;
+    color:#ffffff;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Dancing Script';
+    font-size: 3vh;
+    text-align: center;
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+}
+.NAME{
+    position: fixed;
+    top:  49vh;
+    left: 39.5vw;
+    z-index: 5;
+    color:#ffffff;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Dancing Script';
+    font-size: 3vh;
+    text-align: center;
+    background-color: transparent;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+}
+
+.btn2{
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+              0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 3px 0 -1px rgba(0,0,0,0.13), 
+              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+              0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);   
+    padding: 1.2vh 13.2vw;  
+    font-size: 1.7vh;
+    font-family: 'BookkMyungjo-Bd';
+    position: fixed;
+      top: 45vh;
+      left: 36vw;
+      z-index: 5;
+        animation: fadeOut 2s forwards;
+        opacity: 0;
+        border-radius: 24px;
+
+}
+
+
+.btn3{
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+              0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 3px 0 -1px rgba(0,0,0,0.13), 
+              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+              0 3px 13px -1px rgba(14, 11, 11, 0.21);
+    background-color: rgba(255, 114, 147, 0.452);   
+    padding: 1.2vh 13vw;  
+    font-size: 1.7vh;
+    font-family: 'BookkMyungjo-Bd';
+    position: fixed;
+      top: 54vh;
+      left: 36vw;
+      z-index: 5;
+      
+        animation: fadeOut 2s forwards;
+        opacity: 0;
+        border-radius: 24px;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0; /* 시작과 끝에서 투명한 상태 (사라짐) */
+    }
+    50% {
+      opacity: 1; /* 중간에서 불투명한 상태 (나타남) */
+    }
+  }
+  @keyframes fadeInAndStay {
+    from {
+        opacity: 0; /* 시작에서 투명한 상태 (사라짐) */
+    }
+    to {
+        opacity: 1; /* 끝에서 불투명한 상태 (나타남) */
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 
-  .pass{
-    width: 10%;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    position: relative;
-        top: 570px;
-        left: 45%;
-        z-index: 5;
-        background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
+  .Login{
+    position: fixed;
+    width: 25vw;
+    height: 0vh;
+    top: 28vh;
+    left: 45.3vw;
+    font-family: 'Dancing Script';
+    font-size: 9vh;
+    color: #ffffff;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-underline-offset: 2vh;
+    z-index: 4;
+    animation: fadeOut 2s forwards;
+    opacity: 0;
 }
 
-.id {
-    width: 10%;
-    padding: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: none;
-    position: relative;
-        top: 570px;
-        left: 45%;
-        z-index: 5;
-        background-color:transparent;
-        font-family: 'BookkMyungjo-Bd';
-        z-index: 5;
-}
+.backarrow {
+    position: fixed;
+    top: 3vh;
+    left: 4vh;
+    font-size: 5vh;
+    transform: rotate(180deg);
+    color:#302b26;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  }
+  .Fbg{
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
 
+    .sbox{
+      position: relative;
+      box-sizing: border-box;
+      height: 40vh;
+    width: 40vw;
+    top: 27.6vh;
+    left: 30vw;
+      background-color: rgba(255, 209, 220, 0.651);
+      border-radius: 0px; /* 둥근 테두리 */
+      box-shadow: 0px 0px 5px rgb(255, 255, 255),
+                  0px 0px 5px rgb(255, 255, 255),
+                  5px 5px 10px rgb(255, 168, 189),
+                  -5px -5px 10px rgb(255, 168, 189);
+      
+      z-index:0;
+      margin: 0px;
+      padding-bottom: 0vh;
+      
+  }
+
+  .Join{
+    position: fixed;
+    width: 26vw;
+    top: 27vh;
+    left: 47%;
+    font-family: 'Dancing Script';
+    font-size: 9vh;
+    color: #ffffff;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-underline-offset: 2vh;
+    text-decoration-thickness: 0.2vh;
+    z-index: 4;
+    opacity: 0;
+    animation: fadeInAndStay 2s forwards 1s;
+  }
+  
+  .heartloding{
+    position: fixed;
+    width: 15%;
+    top: 35%;
+    left: 43%;
+    z-index: 2;
+  }
+  

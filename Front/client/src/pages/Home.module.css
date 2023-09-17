@@ -52,8 +52,8 @@ font-size: 30px;
   position: relative;
   top: 38vh;
   left: 10vw;
-  
-  font-size: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .firendImg{
@@ -61,7 +61,8 @@ font-size: 30px;
   position: relative;
   top: 38vh;
   left: 70vw;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .iconCon {
@@ -71,19 +72,38 @@ font-size: 30px;
 
 
 
-.verti{
-  position: relative;
+/* display: flex;를 사용한 예제 */
+.verti {
+  display: flex;
+  justify-content: space-between; /* 요소 사이에 공간을 배분하여 가로로 배치 */
+  align-items: center; /* 요소를 수직 중앙에 정렬 */
+}
+
+/* display: inline-block;을 사용한 예제 */
+.verti {
+  font-size: 0; /* 인라인 블록 요소 사이의 공백을 제거하기 위해 폰트 크기를 0으로 설정 */
+}
+
+.verti button {
   display: inline-block;
+  margin-right: 10px; /* 버튼 사이의 간격을 설정 */
+  vertical-align: middle; /* 버튼을 수직 중앙에 정렬 */
 }
 
-.varti h3 {
-  width: 20px;
-  height: 20px;
-  vertical-align: top;
+/* float: left;을 사용한 예제 */
+.verti button {
+  float: left;
+  margin-right: 10px; /* 버튼 사이의 간격을 설정 */
 }
 
-.varti_img {
-  line-height: 0px;
+/* float: right;을 사용한 예제 */
+.verti button {
+  float: right;
+  margin-left: 10px; /* 버튼 사이의 간격을 설정 */
+}
+
+.setting{
+  width: 80px;
 }
 
 .bgimg{

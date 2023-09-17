@@ -1,60 +1,149 @@
-.btn {
-    color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd';
-}
 
-.btn:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
-    
-.btn2{   color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 2px 0 -1px rgba(0,0,0,0.13), 
-                0 3px 0 -1px rgba(0,0,0,0.08), 
-                0 3px 13px -1px rgba(0,0,0,0.21);
-      background-color: #74675c;  
-      padding: 4px 12px;  
-      font-size: 12px;
-      font-family: 'BookkMyungjo-Bd'
-
-}
-.btn2:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;}
-    
 
 .searchbar{
-    position: relative;
+  position: fixed;
+  width: 19%;
+  height: 40%;
+  top: -12%; 
+  left: 41%; 
+  z-index: 6;
+  font-size: 5.5vh;
+  text-align:center;
+  font-family: 'Dancing Script';
+  background-color: transparent;
+  color: rgb(255, 177, 190);
+  text-shadow: 2px 2px 2px rgb(255, 254, 254),
+    2px 2px 2px rgb(255, 133, 151);
+  
+  
+}
+.box {
+  position: fixed;
+  top: 12%; /* 원하는 수치로 조정 */
+  left: 51%;
+  transform: translateX(-50%);
+  width: 88vw;
+  height: 83vh;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: rgb(255, 244, 246);
+  border-radius: 10px; /* 둥근 테두리 */
+  box-shadow: 5px 5px 10px rgb(196, 179, 182),
+              -5px -5px 10px rgb(196, 179, 182),
+              0px 0px 3px rgb(226, 208, 211),
+              -0px -0px 3px rgb(226, 208, 211);
+  z-index:-1;
+}
+
+
+
+.Mag{
+  position: fixed;
+  top: 6%;
+  left: 36%;
+  height: 4vh;
+  width: 2vw;
+  color:rgb(228, 30, 83);
+}
+
+
+
+.flexContainer {
+    display: flex;
+    flex-direction: row; /* 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
+  
+  .listContainer {
+    list-style: none;
     padding: 0;
     margin: 0;
-    border: 0;
-    width: 330px;
-    height: 40px;
-    font-family: 'BookkMyungjo-Bd'
+  }
+  
+  .imageContainer {
+    display: flex;
+    
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
+
+  .itemsContainer {
+    display: flex;
+    flex-wrap: wrap; /* 아이템이 넘칠 경우 아래로 넘어가도록 설정 */
+    gap: 20px; /* 아이템 간 간격 설정 */
+  }
+
+  .heartp{
+    position: fixed;
+    width: 3vw;
+    height: 6vh;
+    top: 12vh;
+    left: 59vw;
+  
 }
-.search{
-    font-family: 'BookkMyungjo-Bd'
+
+.backarrow {
+  position: fixed;
+  top: 2vh;
+  left: 4vh;
+  font-size: 5vh;
+  transform: rotate(180deg);
+  color:#302b26;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
 }
 
+.Shop{
+  font-size: 7vh;
+    font-weight: bold;
+    position: absolute;
+    top: 0%;
+    left: 48%;
+    font-family: 'Dancing Script';
+    z-index: 2;
+    color:rgb(255, 198, 213);
+    text-shadow: 3px 3px 3px rgb(161, 123, 133),
+                3px 3px 2px rgb(255, 255, 255);
+    
+    
+}
 
+.hrr {
+  position: fixed;
+  width: 26vw;
+  height: 5vh;
+  top: 13%;
+  left: 36%;
+  z-index: 4;
+  border-top : 4px solid rgb(92, 81, 84);
+  
+  
+}
 
+.upheart{
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  left: 0vh;
+  top: 0vh;
+  z-index: -2;
+}
+.upheart2{
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  left: 110vh;
+  top: 0vh;
+  z-index: -2;
+}
+
+.furnitureWrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 3vw;
+  grid-row-gap: 3.5vh;
+  justify-content: start;
+  position: absolute;
+  top: -3%;
+  left: -2%;
+}
 

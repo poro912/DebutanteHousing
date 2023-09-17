@@ -1,0 +1,42 @@
+.container {
+  display: flex; /* 요소들을 수평으로 배치 */
+ /* 자식 요소들을 가운데 정렬 */
+  /* 추가적인 스타일을 여기에 추가할 수 있습니다. */
+}
+
+.Name {
+  font-size: 7vh;
+  font-weight: bold;
+  font-family: 'Dancing Script';
+  color: rgb(255, 233, 162);
+  text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
+  position: relative;
+  
+}
+
+.Name::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2vh;
+  left: -10%;
+  width: 25vw;
+  height: 0.5vh;
+  background-color: rgba(75, 62, 29, 0.753);
+  border-radius: 10px;
+}
+
+.goarrow {
+  font-size: 4vh;
+  color: rgba(56, 50, 17, 0.808);
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  margin-top: 8%;
+  margin-left: 20%;
+}
+
+.heartp {
+  margin-top: 15%;
+  margin-right: 2%;
+  width: 2.5vw;
+  height: 5vh;
+}
+
