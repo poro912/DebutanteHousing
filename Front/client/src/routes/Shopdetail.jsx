@@ -14,6 +14,7 @@ import {
   buyNFT,
   approve,
   saleNFT,
+  approveNFT
 } from "../apis/contract";
 
 function Shopdetail() {
@@ -162,6 +163,7 @@ function Shopdetail() {
       setIsLoading(true);
       try {
         await tokensale(usersItems.privateKey, id, inPrice);
+        await approveNFTcon(usersItems.privateKey, id)
         await removeFurnitures(usersItems.room_code, [id])
         dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
@@ -184,6 +186,21 @@ function Shopdetail() {
           reject(error);
         } else {
           console.log("saleNFT 성공", responseData);
+          resolve(responseData);
+        }
+      });
+    });
+  }
+
+  async function approveNFTcon(key, tokenId) {
+    return new Promise((resolve, reject) => {
+      approveNFT(key, tokenId, (error, responseData) => {
+        if (error) {
+          console.log("approveNFTcon 실패");
+          console.log(error);
+          reject(error);
+        } else {
+          console.log("approveNFTcon 성공", responseData);
           resolve(responseData);
         }
       });

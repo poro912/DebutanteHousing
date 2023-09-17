@@ -158,6 +158,29 @@ const Controller = {
           res.status(500).send(e.message || e);
         }
       },
+        approveNFT: async (req, res, next) => {
+        try {
+          const { accountPirvate, tokenId } = req.body;
+          const gasPrice = web3.utils.toWei('100', 'gwei'); // 원하는 가스 가격 설정
+          const gasLimit = 1000000; // 원하는 가스 리미트 설정
+            
+          const userWallet = web3.eth.accounts.privateKeyToAccount(accountPirvate);
+		  const connectedContract = DHT721.clone();
+		  connectedContract.options.address = process.env.DHT721_ADDRESS;
+		  connectedContract.options.from = userWallet.address;
+		  web3.eth.accounts.wallet.add(userWallet);
+
+          const result = await DHT721.methods
+            .approve(process.env.DHT721_ADDRESS, tokenId)
+            .send({ from: userWallet.address, gasPrice, gasLimit });
+      
+          console.log(result);
+          res.send(result);
+        } catch (e) {
+          console.error(e);
+          res.status(500).send(e.message || e);
+        }
+      },
       
     getAllNftList : async(req, res, next) => {
         try{
@@ -418,6 +441,7 @@ Router.post("/setToken", Controller.setToken);
 Router.post("/mintNFT", Controller.mintNFT);
 Router.post("/saleNFT", Controller.saleNFT);
 Router.post("/buyNFT", Controller.buyNFT);
+Router.post("/approveNFT", Controller.approveNFT);
 Router.post("/getAllNftList", Controller.getAllNftList);
 Router.post("/getNftOwnerList", Controller.getNftOwnerList);
 Router.post("/getSaleAllNftList", Controller.getSaleAllNftList);
