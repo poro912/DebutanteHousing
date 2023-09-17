@@ -41,7 +41,7 @@ export function buyNFT(accountPirvate, tokenId, callback) {
 }
 
 export function getAllNftList(callback) {
-	post('nft/getAllNftList',
+	post('nft/getAllNftList', null,
 		callback);
 }
 
@@ -54,7 +54,7 @@ export function getNftOwnerList(account, callback) {
 }
 
 export function getSaleAllNftList(callback) {
-	post('nft/getSaleAllNftList',
+	post('nft/getSaleAllNftList', null,
 		callback);
 }
 
@@ -98,7 +98,7 @@ export function IsSale(tokenId, callback) {
 		callback);
 }
 
-export function balanceOf(account, tokenId, callback) {
+export function balanceOf(account, callback) {
 	post('nft/balanceOf',
 		{      
             account: account

@@ -1,24 +1,30 @@
 import { useEffect, useState } from 'react';
-import {Link, useParams} from "react-router-dom"
+import {Link, useParams, useNavigate} from "react-router-dom"
 import styles from "./Shopdetail.module.css"
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ownerOf, tokenURI, nftPrice, IsSale } from "../apis/contract";
+import { ownerOf, tokenURI, nftPrice, IsSale, buyNFT, approve, saleNFT } from "../apis/contract";
 
 function Shopdetail() {
 	const { id } = useParams();
 	const usersItems = useSelector((state) => state.users);
+	const navigate = useNavigate();
 
 	const [price , setPrice] = useState()
 	const [owner , setOwner] = useState(false)
 	const [isowner , setIsOwner] = useState(false)
 	const [nftdata, setNftdata] = useState()
-	const [inPrice, setInPrice] = useState(0)
+	const [inPrice, setInPrice] = useState()
 	const [isSale, setIsSale] = useState()
+	const [isLoading, setIsLoading] = useState(false);
+
+
 	const onChangeprice = (event) => {
 		setInPrice(event.target.value);
-	  }
+	}
 
+
+	//가구 데이터 가져오기
 	useEffect(()=> {
 		ownerOf(id , (error, responseData) => {
 			if (error) {
@@ -93,79 +99,174 @@ function Shopdetail() {
 	  };
 
 
+	  //가구 결제
+	  async function buyButtonHandle() {
+		if (usersItems.token_amount > price) {
+		  setIsLoading(true); // 로딩 시작
+		  try {
+			await tokenapprove(usersItems.privateKey, price);
+			await buyfurniture(usersItems.privateKey, id);
+			setIsLoading(false); // 로딩 종료
+			alert(`${nftdata.name} 구매 성공`);
+			navigate('/shop');
+		  } catch (error) {
+			setIsLoading(false); // 에러 발생 시 로딩 종료
+			console.error("에러:", error);
+			// 여기에서 발생한 에러를 처리합니다.
+		  }
+		} else {
+		  setIsLoading(false); // DHT 잔액 부족 시 로딩 종료
+		  alert('DHT 잔액이 부족합니다');
+		}
+	  }
+	  
+	  
 
+	  async function tokenapprove(key, amount) {
+		return new Promise((resolve, reject) => {
+		  approve(key, amount, (error, responseData) => {
+			if (error) {
+			  console.log("권한 실패");
+			  console.log(error);
+			  reject(error);
+			} else {
+			  console.log("권한 성공", responseData);
+			  resolve(responseData);
+			}
+		  });
+		});
+	  }
+	  
+
+	  async function buyfurniture(key, tokenId) {
+		return new Promise((resolve, reject) => {
+		  buyNFT(key, tokenId, (error, responseData) => {
+			if (error) {
+			  console.log("구매 실패");
+			  console.log(error);
+			  reject(error);
+			} else {
+			  console.log("구매 성공", responseData);
+			  resolve(responseData);
+			}
+		  });
+		});
+	  }
+	  
+	  async function saleButtonHandle(){
+		if(!inPrice) {
+		  alert('가격을 입력하세요');
+		  return; // 가격이 비어있으면 함수 종료
+		}else{
+			setIsLoading(true);
+			try {
+				await tokensale(usersItems.privateKey, id, inPrice);
+				setIsLoading(false); // 로딩 종료
+				alert(`${nftdata.name} 판매 성공`);
+				navigate('/mypage');
+			  } catch (error) {
+				setIsLoading(false); // 에러 발생 시 로딩 종료
+				console.error("에러:", error);
+				// 여기에서 발생한 에러를 처리합니다.
+			  }
+		}
+	  }
+
+	  async function tokensale(key, tokenId, price) {
+		return new Promise((resolve, reject) => {
+		  saleNFT(key, tokenId, price, (error, responseData) => {
+			if (error) {
+			  console.log("saleNFT 실패");
+			  console.log(error);
+			  reject(error);
+			} else {
+			  console.log("saleNFT 성공", responseData);
+			  resolve(responseData);
+			}
+		  });
+		});
+	  }
+	  
 	  
  
   return (
 	<div>
 		{nftdata ? (
 		<div>
-			{!isowner ? (
-				<div>
-					<img className={styles.heartp} alt="heartp" src="/img/heartp.gif" />
+			{!isLoading ? (
+			<div>
+				{!isowner ? (
+					<div>
+						<img className={styles.heartp} alt="heartp" src="/img/heartp.gif" />
 
-					<img className={styles.fu} alt="fu" src={nftdata.image} />
-					<div className={styles.box}>
-						<div className={styles.sbox} />
-						<h1 className={styles.detailtext}>{nftdata.description}</h1>
-						<h1 className={styles.name}>Owner:</h1>
-						<div className={styles.owner}>{owner}</div>
-						<h1 className={styles.price}>Price: {price} DHT</h1>
-						<hr className={styles.hrr} />
-						<hr className={styles.hrrr} />
-						{isSale ? 
-							(<button className={styles.buy}>Buy</button>)
-							: (
-								<></>
-							)}
-						
-						<div className={styles.text}>{nftdata.name}</div>
-						<div className={styles.titletext}>{nftdata.name}</div>
-					</div>
-				
-					<Link to="/shop"><button className={styles.backarrow}>➤</button></Link>
-					<h1 className={styles.FurnitureDetails}>Furniture Details</h1>	
-					<img className={styles.upheart} alt="upheart" src="/img/upheart.gif" />
-					<img className={styles.upheart2} alt="upheart" src="/img/upheart.gif" />
-				</div>
-			) : (
-				<div>
-					<img className={styles.heartp} alt="heartp" src="/img/heartp.gif" />
-
-					<img className={styles.fu} alt="fu" src={nftdata.image} />
-					<div className={styles.box}>
-						<div className={styles.sbox} />
-						<h1 className={styles.detailtext}>{nftdata.description}</h1>
-						<h1 className={styles.name}>Owner:</h1>
-						<div className={styles.owner}>{owner}</div>
-						<div>
-							<h1 className={styles.price}>Price:</h1>
-							<input 
-								className={styles.priceInput}
-								type="number" 
-            					placeholder="" 
-            					name="inprice"
-            					value={inPrice}
-            					onChange={onChangeprice}
-							></input>
-							<div className={styles.dht}>DHT</div>
+						<img className={styles.fu} alt="fu" src={nftdata.image} />
+						<div className={styles.box}>
+							<div className={styles.sbox} />
+							<h1 className={styles.detailtext}>{nftdata.description}</h1>
+							<h1 className={styles.name}>Owner:</h1>
+							<div className={styles.owner}>{owner}</div>
+							<h1 className={styles.price}>Price: {price} DHT</h1>
+							<hr className={styles.hrr} />
+							<hr className={styles.hrrr} />
+							{isSale ? 
+								(<button className={styles.buy} onClick={buyButtonHandle}>Buy</button>)
+								: (
+									<></>
+								)}
+							
+							<div className={styles.text}>{nftdata.name}</div>
+							<div className={styles.titletext}>{nftdata.name}</div>
 						</div>
-						
-						<hr className={styles.hrr} />
-						<hr className={styles.hrrr} />
-						<button className={styles.buy}>Sale</button>
-						<div className={styles.text}>{nftdata.name}</div>
-						<div className={styles.titletext}>{nftdata.name}</div>
+					
+						<Link to="/shop"><button className={styles.backarrow}>➤</button></Link>
+						<h1 className={styles.FurnitureDetails}>Furniture Details</h1>	
+						<img className={styles.upheart} alt="upheart" src="/img/upheart.gif" />
+						<img className={styles.upheart2} alt="upheart" src="/img/upheart.gif" />
 					</div>
+				) : (
+					<div>
+						<img className={styles.heartp} alt="heartp" src="/img/heartp.gif" />
 
-					<Link to="/shop"><button className={styles.backarrow}>➤</button></Link>
-					<h1 className={styles.FurnitureDetails}>Furniture Details</h1>	
-					<img className={styles.upheart} alt="upheart" src="/img/upheart.gif" />
-					<img className={styles.upheart2} alt="upheart" src="/img/upheart.gif" />
-				</div>
-			)
-			}
-			
+						<img className={styles.fu} alt="fu" src={nftdata.image} />
+						<div className={styles.box}>
+							<div className={styles.sbox} />
+							<h1 className={styles.detailtext}>{nftdata.description}</h1>
+							<h1 className={styles.name}>Owner:</h1>
+							<div className={styles.owner}>{owner}</div>
+							<div>
+								<h1 className={styles.price}>Price:</h1>
+								<input 
+									className={styles.priceInput}
+									type="number" 
+									placeholder="" 
+									name="inprice"
+									value={inPrice}
+									onChange={onChangeprice}
+								></input>
+								<div className={styles.dht}>DHT</div>
+							</div>
+							
+							<hr className={styles.hrr} />
+							<hr className={styles.hrrr} />
+							<button className={styles.buy} onClick={saleButtonHandle}>Sale</button>
+							<div className={styles.text}>{nftdata.name}</div>
+							<div className={styles.titletext}>{nftdata.name}</div>
+						</div>
+
+						<Link to="/shop"><button className={styles.backarrow}>➤</button></Link>
+						<h1 className={styles.FurnitureDetails}>Furniture Details</h1>	
+						<img className={styles.upheart} alt="upheart" src="/img/upheart.gif" />
+						<img className={styles.upheart2} alt="upheart" src="/img/upheart.gif" />
+					</div>
+				)
+				}
+			</div>) : (
+			<div>
+				<img className={styles.heartloding} alt="heartp" src="/img/heartp.gif" />
+				<img className={styles.upheart} alt="upheart" src="/img/upheart.gif" />
+				<img className={styles.upheart2} alt="upheart" src="/img/upheart.gif" />
+			</div>
+			)}
 		</div>
 		) :
 			<div>

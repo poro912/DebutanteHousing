@@ -2,8 +2,13 @@ import { useState, useEffect } from 'react';
 import {Link} from "react-router-dom"
 import styles from "./Shop.module.css"
 import FurnitureCom from './FurnitureCom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getSaleAllNftList, getNftOwnerList } from "../apis/contract";
 
 function Shop() {
+
+  const usersItems = useSelector((state) => state.users);
   const [Sitem, setSitem] = useState("");
   const [Sitems, setSitems] = useState([]);
   const onChange = (event) => setSitem(event.target.value);
@@ -21,14 +26,28 @@ function Shop() {
     'https://gateway.pinata.cloud/ipfs/QmWvpY9w2DtQbRJcETM3WQuGhXwZYMUGTayCUbRsNNFAmz/2.json'
   ]
 
+  const [nftList, setNftList] = useState([]);
   const [fuItems, setfuItems] = useState([]);
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    getSaleAllNftList( (error, responseData) => {
+      if (error) {
+        console.error('getSaleAllNftList 정보 실패');
+      } else {
+        console.log('getSaleAllNftList 정보 성공: ', responseData.data.NFTList);
+        setNftList(responseData.data.NFTList)
+      }
+    })
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async (url, code, price) => {
       try {
         const response = await fetch(url);
         const jsonData = await response.json();
-        console.log(jsonData); // JSON 데이터를 콘솔에 출력
+        jsonData.code = code;
+        jsonData.price = price
+        //console.log(jsonData); // JSON 데이터를 콘솔에 출력
         
         // 이전 fuItems를 복사하고 새로운 데이터를 추가한 후 설정
         setfuItems((prevFuItems) => {
@@ -41,16 +60,14 @@ function Shop() {
         console.error('Error fetching data:', error);
       }
     };
-  
     // meataurl 배열을 순회하면서 fetchData 함수를 호출
-    meataurl.forEach((el) => {
-      console.log(el);
-      fetchData(el);
+    nftList.forEach((el) => {
+      fetchData(el[1], el[0], el[2]);
     });
-  }, []);
+  }, [nftList])
 
   useEffect(() => {
-    console.log("상점", fuItems);
+    console.log(fuItems);
   }, [fuItems]);
 
   return (
@@ -72,9 +89,9 @@ function Shop() {
       <hr className={styles.hrr} />
       <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
       <div className={styles.furnitureWrapper}>
-        {fuItems.map((fu, index) => (
-          <Link to={`/Shopdetail/${index}`}>
-            <FurnitureCom key={index} data={fu} />
+        {fuItems.map((fu) => (
+          <Link to={`/Shopdetail/${fu.code}`}>
+            <FurnitureCom key={fu.code} data={fu} />
           </Link>
         ))}
       </div>

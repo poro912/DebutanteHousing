@@ -2,11 +2,12 @@ import styles from "./Login1.module.css"
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
-import { setLogin, setProfileImg } from '../Redux/userSlice';
+import { setLogin, setTokenAmount } from '../Redux/userSlice';
 import { setFurniture } from "../Redux/furnitureSlice";
 
 import { login } from "../apis/user"
 import { info } from "../apis/room";
+import { balanceOf } from "../apis/contract";
 
 
 function Login() {
@@ -49,6 +50,7 @@ function Login() {
               const { user_code, user_id, user_nick, user_profile, room_code, room_name, room_like } = responseData.users;
               const { account, privateKey } = responseData.wallet;
               roomInfo(room_code)
+              const bal = getbalanceOf(account)
               dispatch(
                 setLogin({
                   room_code,
@@ -101,6 +103,29 @@ function Login() {
         });
       } catch (error) {
         console.error("룸 정보 처리 실패", error);
+        throw error;
+      }
+    }
+
+    async function getbalanceOf(address) {
+      try {
+        await new Promise((resolve, reject) => {
+          balanceOf(address, (error, responseData) => {
+            if (error) {
+              console.log("토큰 잔액 실패");
+              console.log(error);
+              reject(error);
+            } else {
+              dispatch(
+                setTokenAmount(responseData.data.balance)
+              );
+              
+              resolve(responseData); // 룸 정보 성공 시 프로미스를 성공 상태로 해결
+            }
+          });
+        });
+      } catch (error) {
+        console.error("토큰 잔액 처리 실패", error);
         throw error;
       }
     }

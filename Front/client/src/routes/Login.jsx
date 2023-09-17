@@ -1,9 +1,20 @@
 import {Link} from "react-router-dom"
 import styles from "./Login.module.css"
 
-
+import { setToken } from "../apis/contract";
+import { useEffect } from "react";
 
 function Login() {
+  useEffect(() => {
+    setToken("0xE9DC2024e6C63e65A8a481473878803237873797", (error, responseData) => {
+      if (error) {
+        console.error('setToken 실패');
+      } else {
+        console.log('setToken 성공: ', responseData);
+      }
+    })
+  },[])
+  
   
   return <div>
 <h1 className={styles.title}>Debutant</h1>

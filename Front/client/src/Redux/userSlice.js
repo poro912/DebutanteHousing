@@ -12,7 +12,7 @@ const userSlice = createSlice({
     room_like: null,
     account : null,
     privateKey : null,
-    //token_amount : null,
+    token_amount : null,
     //eth_amount : null,
     isLoggedIn: false,
   },
@@ -27,7 +27,7 @@ const userSlice = createSlice({
       state.room_like = null;
       state.account = null;
       state.privateKey = null;
-      //state.token_amount = null;
+      state.token_amount = null;
       //state.eth_amount = null;
       state.isLoggedIn = false;
       console.log('실제 상태:', state.user_id, state.user_nick, state.user_code, state.token_amount, state.eth_amount, state.isLoggedIn);

@@ -27,6 +27,7 @@ export const get = (page, data, callback) => {
 }
 
 export const post = (page, data, callback) => {
+	
 	axios
 	.post(info.GenURL() + page, data)
 	.then(response => {
