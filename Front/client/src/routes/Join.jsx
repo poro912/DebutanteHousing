@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./Join.module.css";
 
 import { signup } from "../apis/user";
-import { SingupTransfer } from "../apis/contract";
+import { SingupTransfer, sendEther } from "../apis/contract";
 
 function Join() {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ function Join() {
             } else {
               console.log("회원가입 성공: ", responseData);
               console.log("회원가입 성공: ", responseData.wallet.account);
-              tokenTransfer(responseData.wallet.account);
+			  addressfuc(responseData.wallet.account);
               resolve(responseData);
             }
           }
@@ -53,17 +53,42 @@ function Join() {
     }
   }
 
+  async function addressfuc (recipient) {
+	await tokenTransfer(recipient)
+	await sendEthers(recipient)
+  }
+
   async function tokenTransfer(recipient) {
     try {
       await new Promise((resolve, reject) => {
         SingupTransfer(recipient, 1, (error, responseData) => {
           if (error) {
-			setIsLoding(false);
             console.error("SingupTransfer 실패");
             reject(error);
           } else {
-			setIsLoding(false);
             console.log("SingupTransfer 성공: ", responseData);
+            resolve(responseData);
+          }
+        });
+      });
+      console.log(recipient);
+    } catch (error) {
+      console.error("에러 발생:", error);
+      // 에러 처리를 원하는 대로 수행합니다.
+    }
+  }
+
+  async function sendEthers(recipient) {
+    try {
+      await new Promise((resolve, reject) => {
+        sendEther(recipient, (error, responseData) => {
+          if (error) {
+			setIsLoding(false);
+            console.error("sendEther 실패");
+            reject(error);
+          } else {
+			setIsLoding(false);
+            console.log("sendEther 성공: ", responseData);
             resolve(responseData);
 			navigate("/test");
           }

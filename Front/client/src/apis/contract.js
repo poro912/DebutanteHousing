@@ -3,6 +3,14 @@ import {get} from './axiosSystem';
 
 //함수명 기능명뒤에 API붙이기
 //변수명이랑 라벨명이랑 같게 처리
+export function sendEther(account,callback) {
+	post('nft/sendEther',
+		{
+            account: account
+        }
+		,callback);
+}
+
 export function setToken(tokenAddress,callback) {
 	post('nft/setToken',
 		{
