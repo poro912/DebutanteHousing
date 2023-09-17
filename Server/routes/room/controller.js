@@ -96,7 +96,7 @@ const Controller = {
 		});
 	},
 
-	deleteItem : (req, res) => {
+	postDeleteItem : (req, res) => {
 		// 방 아이템 삭제
         system.debug.print('deleteItem');
 
@@ -114,7 +114,7 @@ const Controller = {
 			// 모두 초기화 반환
 			form = system.form.init(form);
 			form = system.form.addResult(form,false, "please follow this form");
-			form["items"] = example.items;
+			form["items"] = Controller.example.items;
 			return res.json(form);
 		}
 
@@ -142,6 +142,6 @@ Router.post('/item', Controller.postPlaceItem)
 /**
  * 방 아이템 삭제 
  */
-Router.delete('/item', Controller.deleteItem)
+Router.post('/item/delete', Controller.postDeleteItem)
 
 module.exports = Router;

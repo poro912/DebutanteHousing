@@ -16,12 +16,12 @@ http://182.220.199.210:3310/user/login
 	http://182.220.199.210:3310/user/login
 
 /user/member
-	get		: 회원정보 획득
+	post		: 회원정보 획득
 		다중 정보 획득
 			완성
 		단정 정보 획득
 			완성
-	post	: 회원정보 수정
+	put	: 회원정보 수정
 	
 	http://182.220.199.210:3310/user/member
 
