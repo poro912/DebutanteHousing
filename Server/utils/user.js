@@ -93,6 +93,9 @@ const user = {
 			*/
 			result = user.getInfo(code);
 		}
+		
+		db.deleteConnection(conn);
+
 		system.debug.print(result);
 		return result;
 	},
@@ -125,6 +128,8 @@ const user = {
 		if(undefined === temp[0]) temp = -1;
 		else temp = temp[0].code;
 
+		db.deleteConnection(conn);
+
 		return await user.getInfo(temp);
 	},
 
@@ -154,6 +159,8 @@ const user = {
 		temp = temp[0];
 
 		result = temp.nick;
+
+		db.deleteConnection(conn);
 
 		return result;
 	},
@@ -203,6 +210,9 @@ const user = {
 				privateKey : temp[0].key
 			};
 		}
+
+		db.deleteConnection(conn);
+
 		return result;
 	},
 	getAllUserInfo : async () => {
@@ -221,10 +231,6 @@ const user = {
 
 		system.debug.print(temp);
 
-		for (const item of temp) {
-			console.log(item);
-		}
-
 		if (db.checkNodate(temp)) {
 			system.debug.printError(user.info.FILE + " login()", "sql no data")
 			// set error data
@@ -235,6 +241,9 @@ const user = {
 			result.result = true;
 			result.users = temp;
 		}
+
+		db.deleteConnection(conn);
+
 		return result;
 
 	},
@@ -244,6 +253,8 @@ const user = {
 		temp = await db.execQuery(conn,
 			`update user set email = "${email}" where code = "${code}";`
 		);
+
+		db.deleteConnection(conn);
 	},
 	setPhone : async(code, phone) =>{
 		var conn = await db.getConnection();
@@ -251,6 +262,8 @@ const user = {
 		temp = await db.execQuery(conn,
 			`update user set phone = "${phone}" where code = "${code}";`
 		);
+
+		db.deleteConnection(conn);
 	},
 	
 }

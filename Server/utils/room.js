@@ -42,6 +42,8 @@ const room = {
 		
 		system.debug.print(user_temp[0]);
 
+		db.deleteConnection(conn);
+
 		// 조회 결과 값 없음
 		if (db.checkNodate(user_temp) || code <= 0 ) {
 			system.debug.printError(room.info.FILE + " getInfo()", "sql no data")
@@ -68,14 +70,16 @@ const room = {
 		var cnt = 0;
 		
 		system.debug.print(items);
-		system.debug.print(items[0]);
-		system.debug.print(items[0][0]);
+		//system.debug.print(items[0]);
+		//system.debug.print(items[0][0]);
 
 		for (const item of items) {
 			system.debug.print(item);
 			temp = await room.placeItem(conn, room_code, item.code ,item.url, item.name);
 		}
 		//if(items.length == cnt) result = true;
+
+		db.deleteConnection(conn);
 
 		system.debug.print(result);
 		system.debug.print();
@@ -96,6 +100,8 @@ const room = {
 		}
 
 		if(items.length == cnt) result = true;
+
+		db.deleteConnection(conn);
 
 		system.debug.print(result);
 		system.debug.print();
@@ -133,6 +139,8 @@ const room = {
 
 		if(items.length == cnt) result = true;
 
+		db.deleteConnection(conn);
+		
 		system.debug.print("result ",result);
 		system.debug.print();
 		return result;
