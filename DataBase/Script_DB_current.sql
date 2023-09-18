@@ -1,6 +1,6 @@
 USE db_current;
 
-#desc
+--desc
 desc user;
 desc wallet;
 desc room;
@@ -9,7 +9,7 @@ desc ITEM;
 desc ROOM_ITEM;
 desc friend;
 
-# Select
+-- Select
 select * from user;
 select * from wallet;
 select * from room;
@@ -21,11 +21,11 @@ select * from friend;
 
 select nick FROM user WHERE code = 1;
 
-# insert 
+-- insert 
 insert into user(code, nick, id) values(999, "poro", "angus99");
 
-# update
+-- update
 
 
-# delete
+-- delete
 delete from user where code=999;

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="git">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/.Document/git/git.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

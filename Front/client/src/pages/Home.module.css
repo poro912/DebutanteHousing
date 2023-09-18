@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(255, 255, 255);
 }
 
 .fonts{
@@ -41,62 +41,6 @@ box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
 
 }
 
-.shop{
- color: white; 
-  padding: 15px 25px;
-  display: inline-block;
-  border: 1px solid rgba(0,0,0,0.21);
-  border-bottom-color: rgba(0,0,0,0.34);
-  text-shadow:0 1px 0 rgba(0,0,0,0.15);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-              0 2px 0 -1px rgba(0,0,0,0.13), 
-              0 3px 0 -1px rgba(0,0,0,0.08), 
-              0 3px 13px -1px rgba(0,0,0,0.21);
-    background-color: #74675c;  
-    padding: 4px 12px;  
-    font-size: 12px;
-    font-family: 'BookkMyungjo-Bd';
-    position: relative;
-
-}
-
-
-.shop:active{top: 1px;
-border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-position: relative;
-top: 300px;
-left: 20%;}
-
-.friend{
-color: white; 
-padding: 15px 25px;
-display: inline-block;
-border: 1px solid rgba(0,0,0,0.21);
-border-bottom-color: rgba(0,0,0,0.34);
-text-shadow:0 1px 0 rgba(0,0,0,0.15);
-box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-            0 2px 0 -1px rgba(0,0,0,0.13), 
-            0 3px 0 -1px rgba(0,0,0,0.08), 
-            0 3px 13px -1px rgba(0,0,0,0.21);
-  background-color: #74675c;  
-  padding: 4px 12px;  
-  font-size: 12px;
-  font-family: 'BookkMyungjo-Bd';
-  position: relative;
-  top: 300px;
-  left: 70%;
-
-
-}
-
-
-.friend:active{top: 1px;
-border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-position: relative;
-top: 300px;
-left: 70%;}
 
 .main{
 font-family: 'BookkMyungjo-Bd';
@@ -108,32 +52,58 @@ font-size: 30px;
   position: relative;
   top: 38vh;
   left: 10vw;
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .firendImg{
   width: 4vw;
   position: relative;
-  top: 35vh;
+  top: 38vh;
   left: 70vw;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
-.backImg{
-  width : 3vw
+.iconCon {
+  display: flex;
+  flex-direction: row;
 }
 
-.verti{
-  position: relative;
+
+
+/* display: flex;를 사용한 예제 */
+.verti {
+  display: flex;
+  justify-content: space-between; /* 요소 사이에 공간을 배분하여 가로로 배치 */
+  align-items: center; /* 요소를 수직 중앙에 정렬 */
+}
+
+/* display: inline-block;을 사용한 예제 */
+.verti {
+  font-size: 0; /* 인라인 블록 요소 사이의 공백을 제거하기 위해 폰트 크기를 0으로 설정 */
+}
+
+.verti button {
   display: inline-block;
+  margin-right: 10px; /* 버튼 사이의 간격을 설정 */
+  vertical-align: middle; /* 버튼을 수직 중앙에 정렬 */
 }
 
-.varti h3 {
-  width: 20px;
-  height: 20px;
-  vertical-align: top;
+/* float: left;을 사용한 예제 */
+.verti button {
+  float: left;
+  margin-right: 10px; /* 버튼 사이의 간격을 설정 */
 }
 
-.varti_img {
-  line-height: 0px;
+/* float: right;을 사용한 예제 */
+.verti button {
+  float: right;
+  margin-left: 10px; /* 버튼 사이의 간격을 설정 */
+}
+
+.setting{
+  width: 80px;
 }
 
 .bgimg{

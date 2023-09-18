@@ -1,0 +1,139 @@
+/* Customizer.module.css */
+
+.customizerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+     /* Adding padding for spacing */
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center; /* Align items to the center vertically */
+    padding: 1.5%;
+  }
+  
+  .backBtn {
+    margin-top: -10px;
+    margin-left: -10px;
+    width : 120px
+  }
+  
+  .saveBtn {
+    margin: 0;
+  }
+  
+
+
+.fuListContainer {
+  /* Your existing styles for the furniture list container */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.furnitureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two items in each row */
+  grid-gap: 0px; /* Gap between items */
+  justify-items: center;
+  max-width: 400px; /* Set a maximum width for the grid */
+  margin: 0 auto; /* Center the grid horizontally */
+  height: 80vh; /* Set a fixed height for the grid */
+}
+
+.furniture {
+  /* Your existing styles for each furniture item */
+  width: 100%; /* Adjust the width to fill the grid cell */
+  text-align: center;
+}
+
+.fuList{
+  border: 2px solid rgb(255, 215, 222);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px pink;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  margin: 3%;
+}
+
+
+#furnitureGridMargin{
+  margin-top: 10vh;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+
+.pageIndicator {
+  display: flex;
+  align-items: center;
+}
+
+.pageIndicator span {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.currentPage {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.leftarrow{
+  width: 90px;
+  top: 2vh;
+  left: 4vh;
+  font-size: 3vh;
+  transform: rotate(180deg);
+  color:#302b26;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.rightarrow{
+  width: 90px;
+  top: 2vh;
+  left: 4vh;
+  font-size: 3vh;
+  color:#302b26;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.backarrow {
+  position: fixed;
+  top: 2vh;
+  left: 4vh;
+  font-size: 5vh;
+  transform: rotate(180deg);
+  color:#302b26;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.reset {
+  position: fixed;
+  top: 85vh;
+  right: 2vh;
+  width : 120px
+}
+
+.resetImg{
+  margin-bottom: -15px;
+}

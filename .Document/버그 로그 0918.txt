@@ -1,0 +1,89 @@
+버그 발생 로그
+발생 시각
+로그
+
+친구 방 페이지 방문 시 사물을 움직일 수 있음
+친구 방 페이지에서 사물을 잡고 움직일 경우 난리남
+
+폰트 조언
+상업 이용 가능한 무료 폰트
+https://noonnu.cc/
+https://www.dafont.com/
+
+다크모드 지원
+
+
+
+버그 1
+connection 생성에 실패할 가능성이 존재함
+현재 try-catch로 땜빵해놓은 상태
+getRoomInfo function
+D:\Project\DebutanteHousing\Server\node_modules\mysql2\promise.js:253
+  const createConnectionErr = new Error();
+                              ^
+
+Error: Too many connections
+    at Object.createConnection (D:\Project\DebutanteHousing\Server\node_modules\mysql2\promise.js:253:31)
+    at Object.getConnection (D:\Project\DebutanteHousing\Server\utils\DB_systeam.js:40:22)
+    at Object.getRoomInfo (D:\Project\DebutanteHousing\Server\utils\room.js:39:23)
+    at Object.placeItems (D:\Project\DebutanteHousing\Server\models\room.js:104:24)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ER_CON_COUNT_ERROR',
+  errno: 1040,
+  sqlState: '08004'
+
+:\Project\DebutanteHousing\Server\node_modules\mysql2\promise.js:253
+  const createConnectionErr = new Error();
+                              ^
+
+Error: Too many connections
+    at Object.createConnection (D:\Project\DebutanteHousing\Server\node_modules\mysql2\promise.js:253:31)
+    at Object.getConnection (D:\Project\DebutanteHousing\Server\utils\DB_systeam.js:40:22)
+    at Object.getRoomInfo (D:\Project\DebutanteHousing\Server\utils\room.js:39:23)
+    at Object.getRoomInfo (D:\Project\DebutanteHousing\Server\models\room.js:21:23)
+    at getInfo (D:\Project\DebutanteHousing\Server\routes\room\controller.js:40:9)
+    at Layer.handle [as handle_request] (D:\Project\DebutanteHousing\Server\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Project\DebutanteHousing\Server\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Project\DebutanteHousing\Server\node_modules\express\lib\router\route.js:114:3)
+
+
+상점 최초 접근 시 이미지 로딩 안됨
+
+뒤로가기 후 되돌아오면 페이지 로딩 안됨
+
+
+데이터 검색 개수 조절하는 방법
+MySQL에서 21번부터 40번까지의 결과를 가져오려면 LIMIT 절을 사용하여 범위를 지정하면 됩니다. 아래와 같이 LIMIT 절을 활용하여 원하는 범위의 결과를 가져올 수 있습니다:
+
+sql
+Copy code
+SELECT * FROM your_table_name
+LIMIT 20, 20;
+위의 SQL 쿼리에서 다음과 같이 작동합니다:
+
+SELECT *: 테이블에서 모든 열을 선택합니다. 필요에 따라 열 이름을 지정하여 선택할 열을 지정할 수 있습니다.
+FROM your_table_name: 데이터를 가져올 대상 테이블의 이름을 지정합니다. 실제 테이블 이름을 사용해야 합니다.
+LIMIT 20, 20: 결과 집합을 21번부터 40번까지의 행으로 제한합니다. 첫 번째 숫자는 시작 위치를 나타내고 두 번째 숫자는 가져올 행의 수를 나타냅니다.
+이렇게 하면 21번부터 40번까지의 결과를 가져올 수 있습니다.
+
+아이템 구매 불가
+
+2차 버그
+getAllInfo
+TypeError: Cannot read properties of undefined (reading 'query')
+    at Object.execQuery (D:\Project\DebutanteHousing\Server\utils\DB_systeam.js:59:31)
+    at Object.view (D:\Project\DebutanteHousing\Server\utils\DB_systeam.js:34:31)
+    at Object.getAllUserInfo (D:\Project\DebutanteHousing\Server\utils\user.js:219:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.getUser (D:\Project\DebutanteHousing\Server\models\user.js:113:15)
+TypeError: Cannot read properties of undefined (reading 'query')
+    at Object.execQuery (D:\Project\DebutanteHousing\Server\utils\DB_systeam.js:59:31)
+    at Object.getAllUserInfo (D:\Project\DebutanteHousing\Server\utils\user.js:220:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.getUser (D:\Project\DebutanteHousing\Server\models\user.js:113:15)
+false
+D:\Project\DebutanteHousing\Server\utils\user.js:224
+                for (const item of temp) {
+
+너무 많은 횟수의 쿼리를 진행할 경우 Connection이 과다해져 connection을 받을 수 없음
+
