@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const furnitureSlice = createSlice({
   name: 'furniture',
   initialState: {
-    items: [],
+    items: [{ code: 0, name:"Fudata.name", url: "./glb/test/closet2_wood.glb", pos: [0, -0.2, 0], rot: [0, 0, 0] }],
   },
   reducers: {
     addFurniture: (state, action) => {
