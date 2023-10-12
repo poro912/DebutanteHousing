@@ -10,6 +10,8 @@ import Homec from './routes/Homecopy';
 import Login1 from './routes/Login1';
 import Mypage from './routes/Mypage';
 import APITest from './routes/APITest';
+import Profil from './routes/Profil';
+import Upload from './routes/Upload';
 
 
 const RouterPage = () => {
@@ -27,6 +29,8 @@ const RouterPage = () => {
         <Route path="/Friends" element={<Friends />} />
         <Route path="/Mypage" element={<Mypage />} />
         <Route path="/APITest" element={<APITest />} />
+        <Route path="/Profil" element={<Profil />} />
+        <Route path="/Upload" element={<Upload />} />
       </Routes>
     </BrowserRouter>
   );
