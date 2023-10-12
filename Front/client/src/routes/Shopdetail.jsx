@@ -3,6 +3,9 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import styles from "./Shopdetail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
+import { remove } from '../apis/room';
+import { removeFurniture } from '../Redux/furnitureSlice';
+
 import {
   ownerOf,
   tokenURI,
@@ -17,6 +20,7 @@ function Shopdetail() {
   const { id } = useParams();
   const usersItems = useSelector((state) => state.users);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [price, setPrice] = useState();
   const [owner, setOwner] = useState(false);
@@ -158,6 +162,8 @@ function Shopdetail() {
       setIsLoading(true);
       try {
         await tokensale(usersItems.privateKey, id, inPrice);
+        await removeFurnitures(usersItems.room_code, [id])
+        dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
         alert(`${nftdata.name} 판매 성공`);
         navigate("/mypage");
@@ -179,6 +185,18 @@ function Shopdetail() {
         } else {
           console.log("saleNFT 성공", responseData);
           resolve(responseData);
+        }
+      });
+    });
+  }
+
+  async function removeFurnitures(roomCode, furnitureCodeArray) {
+    return new Promise((resolve, reject) => {
+      remove(roomCode, furnitureCodeArray, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
         }
       });
     });

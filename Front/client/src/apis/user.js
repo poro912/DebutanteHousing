@@ -23,7 +23,8 @@ export function signup(id, pw, name, nick, email, phone, callback) {
 }
 
 export function member(code, page, count, callback) {
-	get('user/member',
+	console.log(code,page,count)
+	post('user/member',
 		{usercode: code,
 		page: page,
 		count: count}

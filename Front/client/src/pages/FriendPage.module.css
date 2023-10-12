@@ -1,0 +1,20 @@
+.con {
+    display: flex; /* 요소들을 수평으로 배치 */
+    justify-content: space-between; /* 요소들 사이의 간격을 최대화하여 수평 정렬 */
+    align-items: center; /* 세로 정렬 */
+    /* 추가적인 스타일을 여기에 추가할 수 있습니다. */
+  }
+
+.backarrow {
+    font-size: 5vh;
+    transform: rotate(180deg);
+    color:#302b26;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  }
+
+.name{
+    font-family: 'Dancing Script';
+    font-size: 4rem;
+    vertical-align: top;
+    margin-left: 20%;
+  }

@@ -25,7 +25,8 @@ export function replace(code, items, callback) {
 		,callback);
 }
 export function remove(code, items, callback) {
-	dele('room/item',
+	console.log(code, items)
+	post('room/item/delete',
 		{code: code
 		,items:items}
 		,callback);
