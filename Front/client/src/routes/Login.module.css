@@ -1,3 +1,67 @@
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SDKukdetopokki-Lt';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SDKukdetopokki-aLt00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
 .sbox{
     position: relative;
     box-sizing: border-box;
@@ -13,13 +77,10 @@
                 -5px -5px 10px rgb(255, 168, 189);
     
     z-index:0;
-    margin: 0px;
-    padding-bottom: 0vh;
     animation: fadeInAndStay 3s forwards;
     animation-delay: 6s;
-    opacity: 0;
+    border-radius: 20px;
 }
-
 .ui{
     position: fixed;
     top: 14vh; 
@@ -47,9 +108,9 @@
 .Login{
     position: fixed;
     width: 26vw;
-    top: 28vh;
-    left: 45.3vw;
-    font-family: 'Dancing Script';
+    top: 30vh;
+    left: 44vw;
+    font-family: 'KimjungchulMyungjo-Bold';
     font-size: 9vh;
     color: #ffffff;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
@@ -68,7 +129,7 @@
     height: 0vh;
     top: 32vh;
     left: 41vw;
-    font-family: 'Dancing Script';
+    font-family: 'GangwonEdu_OTFBoldA';
     font-size: 10.5vh;
     color: #ffffff;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
@@ -89,7 +150,7 @@
     height: 0vh;
     top: 45vh;
     left: 42.5vw;
-    font-family: 'Dancing Script';
+    font-family: 'SDKukdetopokki-Lt';
     font-size: 10.5vh;
     color: #ffffff;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
@@ -153,7 +214,7 @@ input:focus::placeholder{
       background-color: rgba(255, 114, 147, 0.452);   
       padding: 1.2vh 13.2vw;  
       font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
+      font-family: 'KimjungchulMyungjo-Bold';
       position: fixed;
         top: 45vh;
         left: 36vw;
@@ -193,7 +254,7 @@ input:focus::placeholder{
       background-color: rgba(255, 114, 147, 0.452);   
       padding: 1.2vh 13vw;  
       font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
+      font-family: 'KimjungchulMyungjo-Bold';
       position: fixed;
         top: 54vh;
         left: 36vw;

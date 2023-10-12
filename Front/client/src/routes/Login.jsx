@@ -42,6 +42,7 @@ function Login() {
    
     
     <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+    
   
   <div className={styles.sbox}>
   </div>
