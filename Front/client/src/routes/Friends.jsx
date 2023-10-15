@@ -62,6 +62,7 @@ function Friends() {
   return (
     <div className={styles.background}>
     <div className={styles.friendsContainer}>
+    <div className={styles.box}>
       <form onSubmit={onSubmit}>
         <input
           className={styles.searchbar}
@@ -72,7 +73,7 @@ function Friends() {
         />
       </form>
 
-      <div className={styles.box}>
+      
         <img className={styles.Mag} alt="Mag" src="./img/Mag.png" />
         <hr className={styles.hrr} />
         <div className={styles.friendList}>
@@ -91,7 +92,7 @@ function Friends() {
       </Link>
 
       <img className={styles.star} alt="star" src="./img/star.gif" />
-      <img className={styles.back} alt="back" src="./img/backimg.png" />
+    
      
     </div>
     </div>

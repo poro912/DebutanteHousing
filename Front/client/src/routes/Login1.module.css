@@ -90,10 +90,10 @@
   }
   
   .background{
-    background-color: rgba(255, 246, 246, 0.651);
+    background-color: #f8dbd79c;
     height: 100vh;
     
-  }
+}
 
 
 input:focus{
@@ -135,9 +135,6 @@ input:focus::placeholder{
         animation: fadeOut 2s forwards;
         opacity: 0;
         border-radius: 30px;
-      
-
-
 }
 
 
@@ -257,12 +254,13 @@ input:focus::placeholder{
     width: 40vw;
     top: 27vh;
     left: 30vw;
-    background-color: rgba(255, 246, 248, 0.89);
     border-radius: 20px; /* 둥근 테두리 */
-    box-shadow: 0px 0px 5px rgb(255, 255, 255),
-                0px 0px 5px rgb(255, 255, 255),
-                5px 5px 10px rgb(238, 204, 213),
-                -5px -5px 10px rgb(238, 204, 213);
+    background-color: #fffdfd;
+      border-radius: 20px; /* 둥근 테두리 */
+      box-shadow: 0px 0px 5px rgb(255, 255, 255),
+                  0px 0px 5px rgb(255, 255, 255),
+                  5px 5px 10px #dababd,
+                  -5px -5px 10px #dababd;
     z-index:3;
     border-radius: 20px;
     

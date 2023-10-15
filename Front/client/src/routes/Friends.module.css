@@ -6,11 +6,11 @@
 
 
 .searchbar{
-    position: fixed;
+    position: relative;
     width: 19vw;
     height: 5vh;
-    top: 15vh;
-    left: 43vw;
+    top: 2vh;
+    left: 16vw;
     z-index: 6;
     font-size: 40px;
     text-align:center;
@@ -20,9 +20,6 @@
     
 }
 
-
-
- 
 
 
 .hrr {

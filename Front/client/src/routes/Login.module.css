@@ -43,7 +43,7 @@
 }
 
 .background{
-    background-color: rgba(255, 246, 246, 0.651);
+    background-color: #f8dbd79c;
     height: 100vh;
     
 }
@@ -56,18 +56,17 @@
       width: 40vw;
       top: 27vh;
       left: 30vw;
-      background-color: rgba(255, 246, 248, 0.89);
+      background-color: #ffffff;
       border-radius: 20px; /* 둥근 테두리 */
       box-shadow: 0px 0px 5px rgb(255, 255, 255),
                   0px 0px 5px rgb(255, 255, 255),
-                  5px 5px 10px rgb(238, 204, 213),
-                  -5px -5px 10px rgb(238, 204, 213);
+                  5px 5px 10px #e5a8b1,
+                  -5px -5px 10px #f5d0d5;
       z-index:3;
     animation: fadeInAndStay 3s forwards;
     animation-delay: 6s;
     border-radius: 20px;
     opacity: 0;
-    
 }
 
 
