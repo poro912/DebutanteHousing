@@ -156,6 +156,7 @@ function Mypage() {
 
 
   return (
+    <div className={styles.background}>
     <div>
       <div className={styles.box}>
      
@@ -202,9 +203,9 @@ function Mypage() {
       </div>
       <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       <h1 className={styles.Mypage}>My Page</h1>
+      <img className={styles.back} alt="back" src="./img/bback.jpg" />
 
-      <img className={styles.heartb} alt="heartb" src="./img/bheart.gif" />
-      <img className={styles.heartbb} alt="heartbb" src="./img/bheart.gif" />
+    </div>
     </div>
   );
 }
