@@ -31,6 +31,7 @@ const RouterPage = () => {
         <Route path="/APITest" element={<APITest />} />
         <Route path="/Profil" element={<Profil />} />
         <Route path="/Upload" element={<Upload />} />
+        <Route path="/FriendRoom/:id" element={<FriendRoom />} />
       </Routes>
     </BrowserRouter>
   );
