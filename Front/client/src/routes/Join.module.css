@@ -288,9 +288,9 @@
       background-color: #fffdfd;
       border-radius: 20px; /* 둥근 테두리 */
       box-shadow: 0px 0px 5px rgb(255, 255, 255),
-                  0px 0px 5px rgb(255, 255, 255),
-                  5px 5px 10px #dababd,
-                  -5px -5px 10px #dababd;
+      0px 0px 5px rgb(255, 255, 255),
+      5px 5px 10px #e5a8b1,
+      -5px -5px 10px #f5d0d5;
       z-index:0;
      
   }

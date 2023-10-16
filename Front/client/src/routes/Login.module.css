@@ -88,7 +88,7 @@
     left: 13vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;
-    color: #ff9cb5f3;
+    color: #ff94aff3;
     text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #ff7295f3
                  ;
     text-underline-offset: 2vh;
@@ -108,11 +108,11 @@
     left: 6vw;
     font-family: 'TheJamsil5Bold';
     font-size: 12vh;
-    color: #ffc0cff3;
+    color: #ffb8c8;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     z-index: 4;
     opacity: 0;
-    animation: fadeInOut 5s 1;
+    animation: fadeInOut 6s 1;
     animation-delay: 6s;
     
 }
@@ -127,11 +127,11 @@
     font-family: 'TheJamsil5Bold';
     font-weight: 100vh;
     font-size: 12vh;
-    color: #ffdae3f3;
+    color: #ffdae3;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
     z-index: 4;
     opacity: 0;
-    animation: fadeInOut 5s 1;
+    animation: fadeInOut 6s 1;
     animation-delay: 6s;
 }
 
