@@ -1,4 +1,8 @@
-
+.background{
+  background-color: rgba(255, 246, 246, 0.651);
+  height: 100vh;
+  z-index: 0;
+}
 
 .searchbar{
   position: fixed;
@@ -9,7 +13,7 @@
   z-index: 6;
   font-size: 5.5vh;
   text-align:center;
-  font-family: 'Dancing Script';
+  font-family: 'omyu_pretty';
   background-color: transparent;
   color: rgb(255, 177, 190);
   text-shadow: 2px 2px 2px rgb(255, 254, 254),
@@ -32,7 +36,7 @@
               -5px -5px 10px rgb(196, 179, 182),
               0px 0px 3px rgb(226, 208, 211),
               -0px -0px 3px rgb(226, 208, 211);
-  z-index:-1;
+  z-index:1;
 }
 
 
@@ -43,7 +47,6 @@
   left: 36%;
   height: 4vh;
   width: 2vw;
-  color:rgb(228, 30, 83);
 }
 
 
@@ -93,14 +96,14 @@
 }
 
 .Shop{
-  font-size: 7vh;
+  font-size: 8vh;
     font-weight: bold;
     position: absolute;
-    top: 0%;
-    left: 48%;
-    font-family: 'Dancing Script';
+    top: -0.5%;
+    left: 46%;
+    font-family: 'omyu_pretty';
     z-index: 2;
-    color:rgb(255, 198, 213);
+    color:rgb(255, 182, 201);
     text-shadow: 3px 3px 3px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
     

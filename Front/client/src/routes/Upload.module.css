@@ -1,0 +1,115 @@
+.Upload{
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(63, 63, 63, 0.21);
+    border-bottom-color: rgba(165, 165, 165, 0.34);
+    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
+    box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: rgba(125, 82, 243, 0.452);   
+      padding: 1vh 14.5vw;  
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
+      position: relative;
+        top: 10%;
+        left: 35%;
+        z-index: 5;
+        border-radius: 30px;
+}
+
+.Upload:hover{
+    background-color: rgba(93, 53, 202, 0.452); 
+  }
+  
+  
+  .Upload:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+      box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+      position: relative;
+      top: 10%;
+      left: 35%;
+      z-index: 5;
+      background-color: rgba(58, 25, 148, 0.452);  
+  }
+  
+  .box {
+    position: fixed;
+    top: 12%; /* 원하는 수치로 조정 */
+    left: 51%;
+    transform: translateX(-50%);
+    width: 88vw;
+    height: 83vh;
+    max-height: 85vh;
+    overflow-y: auto;
+    background-color: rgb(249, 244, 255);
+    border-radius: 10px; /* 둥근 테두리 */
+    box-shadow: 5px 5px 10px rgb(174, 162, 189),
+                -5px -5px 10px rgb(174, 162, 189),
+                0px 0px 3px rgb(226, 208, 211),
+                -0px -0px 3px rgb(226, 208, 211);
+    z-index:1;
+  }
+
+  .backarrow {
+    position: fixed;
+    top: 2vh;
+    left: 4vh;
+    font-size: 5vh;
+    transform: rotate(180deg);
+    color:#302b26;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  }
+
+  .Uploading_Furniture{
+      font-size: 8vh;
+        font-weight: bold;
+        position: absolute;
+        top: -0.5%;
+        left: 35%;
+        font-family: 'omyu_pretty';
+        z-index: 2;
+        color:rgba(228, 195, 255, 0.87);
+        text-shadow: 3px 3px 3px rgb(161, 136, 177),
+                    3px 3px 2px rgb(255, 255, 255);
+
+  }
+
+.sell{
+  color: white; 
+    display: inline-block;
+    border: 1px solid rgba(63, 63, 63, 0.21);
+    border-bottom-color: rgba(165, 165, 165, 0.34);
+    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
+    box-shadow: 3px 3px 2px rgba(15, 11, 29, 0.452),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: rgba(125, 82, 243, 0.452);   
+      padding: 0vh 19vw;  
+      font-size: 3.5vh;
+      font-family: 'omyu_pretty';
+      position: fixed;
+        top: 85%;
+        left: 29%;
+        z-index: 5;
+        border-radius: 30px;
+}
+
+.sell:hover{
+  background-color: rgba(93, 53, 202, 0.452); 
+}
+
+
+.sell:active{top: 1px;
+  border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: fixed;
+        top: 85%;
+        left: 29%;
+    z-index: 5;
+    background-color: rgba(58, 25, 148, 0.452);  
+}

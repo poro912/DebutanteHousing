@@ -3,11 +3,14 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Vector3, Euler, MathUtils  } from 'three';
+import { useSnapshot } from 'valtio';
+import state from '../store';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFurniture } from '../Redux/furnitureSlice';
 
 const Glb = ({ code, url, initialPos, initialRot }) => {
+  const snap = useSnapshot(state);
   const { camera, mouse, raycaster, scene } = useThree();
   const [isMoving, setIsMoving] = useState(false);
   const [isRotating, setIsRotating] = useState(false);
@@ -40,7 +43,7 @@ const Glb = ({ code, url, initialPos, initialRot }) => {
   },[])
 
   useEffect(() => {
-    if (isRotating) {
+    if (!snap.intro && isRotating) {
 
       const updatedDbRotatio = [...dbRotation];
       if (updatedDbRotatio[1] >= 3) {
@@ -58,7 +61,7 @@ const Glb = ({ code, url, initialPos, initialRot }) => {
   
 
   useFrame(() => {
-    if (isMoving) {
+    if (!snap.intro && isMoving) {
       raycaster.setFromCamera(mouse, camera);
   
       const intersect = raycaster.intersectObject(scene, true);
@@ -88,7 +91,7 @@ const Glb = ({ code, url, initialPos, initialRot }) => {
   });
   
   useEffect(() => {
-    if (isMoving) {
+    if (!snap.intro && isMoving) {
       // Now, update the furniture position in the dispatch only after the state is updated.
       dispatch(updateFurniture({ code: code, url: url, pos: [modelPosition.x, modelPosition.y, modelPosition.z], rot: initialRot }));
     }

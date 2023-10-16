@@ -1,0 +1,73 @@
+.backarrow {
+    position: fixed;
+    top: 2vh;
+    left: 4vh;
+    font-size: 5vh;
+    transform: rotate(180deg);
+    color:#302b26;
+    text-shadow: 3px 3px 2px rgb(172, 151, 151);
+  }
+
+.Mypage{
+    font-size: 8vh;
+      font-weight: bold;
+      position: fixed;
+      top: -0.5%;
+    left: 43%;
+    font-family: 'SDKukdetopokki-Lt';
+      z-index: 2;
+      color: #afc4ff;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145), 
+                  3px 3px 3px hsl(224, 46%, 44%);
+      
+      
+  }
+
+  .box {
+    position: fixed;
+    top: 12%; /* 원하는 수치로 조정 */
+    left: 51%;
+    transform: translateX(-50%);
+    width: 85vw;
+    height: 85vh;
+    max-height: 85vh;
+    padding: 10px;
+    background-color: rgb(244, 247, 255);
+    border-radius: 10px; /* 둥근 테두리 */
+    box-shadow: 5px 5px 10px rgb(184, 192, 212),
+      -5px -5px 10px rgb(184, 192, 212),
+      0px 0px 3px rgb(165, 147, 148),
+      -0px -0px 3px rgb(165, 147, 148);
+    z-index:1;
+    display: flex;
+    
+  }
+
+ .Token{
+    font-size: 7vh;
+    font-weight: bold;
+    position: relative;
+    top: 35%;
+    left: 35%;
+    font-family: 'omyu_pretty';
+    z-index: 2;
+    color:rgb(255, 203, 203);
+    text-shadow: 3px 3px 3px rgb(204, 197, 197),
+                3px 3px 2px rgb(158, 125, 125);
+}
+
+.Eth{
+    font-size: 7vh;
+    font-weight: bold;
+    position: relative;
+    top: 44%;
+    left: 12%;
+    font-family: 'omyu_pretty';
+    z-index: 2;
+    color:rgb(255, 203, 203);
+    text-shadow: 3px 3px 3px rgb(204, 197, 197),
+                3px 3px 2px rgb(158, 125, 125);
+}
+
+
+

@@ -111,20 +111,27 @@ function Join() {
     singupButton();
     event.preventDefault();
   };
+
+
   return (
-    <div>
+    <div className={styles.background}>
       {!isLoding ? (
         <div>
           <Link to="/">
             <button className={styles.backarrow}>➤</button>
           </Link>
           <div>
-            <div className={styles.sbox}>
-              <h1 className={styles.Join}>Join</h1>
-
-              <button className={styles.btn2}>Join</button>
-              <button className={styles.btn3}>Login</button>
-              <h1 className={styles.Login}>Login</h1>
+          <div className={styles.sbox}>
+          <h1 className={styles.Login}>Login</h1>
+          <button className={styles.btn2}>Join</button>
+    <button className={styles.btn3}>Login</button>
+    <h1 className={styles.Join}>Join</h1>
+    
+  
+  <div>
+   
+  </div>
+ 
 
               <form onSubmit={LogSubmit}>
                 <input
@@ -137,21 +144,21 @@ function Join() {
                 />
 
                 <input
-                  className={styles.nname}
-                  type="text"
-                  placeholder="NAME"
-                  name=""
-                  value={nname}
-                  onChange={onChangenname}
-                />
-
-                <input
                   className={styles.pass}
                   type="Password"
                   placeholder="PASSWORD"
                   name="pass"
                   value={pass}
                   onChange={onChangepass}
+                />
+                
+                 <input
+                  className={styles.nname}
+                  type="text"
+                  placeholder="NAME"
+                  name=""
+                  value={nname}
+                  onChange={onChangenname}
                 />
                 <button className={styles.btn}>Join</button>
               </form>
@@ -160,6 +167,7 @@ function Join() {
         </div>
       ) : (
         <div>
+          
 			<img
                 className={styles.heartloding}
                 alt="heartp"
