@@ -47,10 +47,13 @@ const Controller = {
         system.debug.print('postItemReplace');
 
         let data = req.body;
-        let form = {
+        var form = {
             code : data.code,
 			items : data.items,
         };
+		if(data.color !== undefined){
+			form.color = data.color;
+		}
 
         // system.debug.print('id : ', data.code);
 
@@ -122,6 +125,26 @@ const Controller = {
 			return res.json(result);
 		});
 	},
+	putLike : (req, res) => {
+		// 방 아이템 삭제
+        system.debug.print('putLike');
+
+        let data = req.body;
+        let form = {
+            code : req.params[0],
+        };
+
+		// 폼이 전부 채워져 있지 않다면
+		if(req.params[0] === undefined)
+		{
+			// 모두 초기화 반환
+			form = system.form.addResult(form,false, "please pass me url parameter");
+			return res.json(form);
+		}
+		Model.like(res,form,(res, result)=>{
+			return res.json(result);
+		});
+	},
 }
 
 /**
@@ -143,5 +166,8 @@ Router.post('/item', Controller.postPlaceItem)
  * 방 아이템 삭제 
  */
 Router.post('/item/delete', Controller.postDeleteItem)
+
+// 방에 좋아요 표시
+Router.put('/like/*', Controller.putLike);
 
 module.exports = Router;

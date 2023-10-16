@@ -17,31 +17,31 @@ const db_user = require('../utils/user').module;
 const system = require('../utils/DHM_system').module;
 
 
-const user ={
-	info : {
-		FILE : "module/user.js",
+const user = {
+	info: {
+		FILE: "module/user.js",
 	},
 
-	joinIn : async(res, form, callback) => {
+	joinIn: async (res, form, callback) => {
 		let ret = {
-			result : Boolean,
-			code : Number,
-			id : String,
-			nick : String,
-			wallet : Number,
+			result: Boolean,
+			code: Number,
+			id: String,
+			nick: String,
+			wallet: Number,
 		};
 
 		system.debug.print("model user.join");
 		system.debug.print("attempt join");
 		system.debug.print("회원가입 시도");
 		system.debug.print();
-		
+
 		ret = await db_user.joinIn(form.id, form.pw, form.name, form.nick, form.email, form.phone);
-		
-		if("function" === typeof callback){
+
+		if ("function" === typeof callback) {
 			callback(res, ret);
 		}
-		else{
+		else {
 			return ret;
 		}
 	},
@@ -55,14 +55,14 @@ const user ={
 	* @details  로그인 시도를 하며 성공 시 유저의 로그인 정보를 반환함
 	* @todo	작업 전
 	*/
-	login : async(res, form, callback) => {
+	login: async (res, form, callback) => {
 		let ret = {
 			result: Boolean,
-			code : Number,
-			id : String,
-			nick : String,
-			profile : String,
-			wallet : Number,
+			code: Number,
+			id: String,
+			nick: String,
+			profile: String,
+			wallet: Number,
 		};
 
 		system.debug.print("model user.login");
@@ -73,33 +73,33 @@ const user ={
 
 		//if(-1 == ret.code || false == ret.result ) return false;
 
-		if("function" === typeof callback){
+		if ("function" === typeof callback) {
 			callback(res, ret);
 		}
-		else{
+		else {
 			return ret;
 		}
 	},
 
-	
-	logout : () => {
+
+	logout: () => {
 		system.debug.print("model user.logout");
 		system.debug.print("attempt logout");
 		system.debug.print();
 	},
 
 
-	getUser : async(res, form, callback) =>{
+	getUser: async (res, form, callback) => {
 		let ret = {
-			result : Boolean,
-			count : Number,
-			users : [
+			result: Boolean,
+			count: Number,
+			users: [
 				{
-					code : Number,
-					id : String,
-					nick : String,
-					profile : String,
-					wallet : Number,
+					code: Number,
+					id: String,
+					nick: String,
+					profile: String,
+					wallet: Number,
 				}
 			],
 		}
@@ -109,37 +109,72 @@ const user ={
 		system.debug.print();
 
 		// 전체 데이터 탐색
-		if(form.usercode === undefined || form.usercode <= 0)		{
+		if (form.usercode === undefined || form.usercode <= 0) {
 			let temp = await db_user.getAllUserInfo();
-			
-			if(temp.result){
+
+			if (temp.result) {
 				ret.result = temp.result;
 				ret.count = 10;
 				ret.users = temp.users;
 			}
-			else{
-				system.form.addResult(form,false,"error, data not found");
+			else {
+				system.form.addResult(form, false, "error, data not found");
 			}
 		}
 		// 특정 유저 데이터 탐색
-		else{
+		else {
 			let temp = await db_user.getInfo(form.usercode);
-			if(temp.result){
+			if (temp.result) {
 				ret.result = temp.result;
 				ret.count = 10;
 				ret.users = temp.users;
 			}
-			else{
-				system.form.addResult(form,false,"error, data not found");
+			else {
+				system.form.addResult(form, false, "error, data not found");
 			}
 		}
-		
-		if("function" === typeof callback){
+
+		if ("function" === typeof callback) {
 			callback(res, ret);
 		}
-		else{
+		else {
 			return ret;
 		}
 	},
+
+	getUserByWallet: async (res, form, callback) => {
+		let ret = {
+			result: Boolean,
+			count: Number,
+			users: [
+				{
+					code: Number,
+					id: String,
+					nick: String,
+					profile: String,
+					wallet: Number,
+				}
+			],
+		}
+
+		system.debug.print("model user.getUserByWallet");
+		system.debug.print();
+
+		// 전체 데이터 탐색
+		let temp = await db_user.getInfoByWallet(form.wallet);
+		if (temp.result) {
+			ret.result = temp.result;
+		}
+		else {
+			system.form.addResult(form, false, "error, data not found");
+		}
+
+		if ("function" === typeof callback) {
+			callback(res, ret);
+		}
+		else {
+			return ret;
+		}
+	}
 }
 exports.module = user;

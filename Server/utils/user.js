@@ -265,6 +265,47 @@ const user = {
 
 		db.deleteConnection(conn);
 	},
+
+	getInfoByWallet : async (wallet) => {
+		var result = {
+			result : Boolean,
+			code : Number,
+			nick : String,
+			room : Number,
+		};
+		var temp;
+		
+		system.debug.print("getInfoByWallet");
+		system.debug.print("wallet : ", wallet);
+
+		var conn = await db.getConnection();
+		await db.use.view(conn);
+		
+		wallet = wallet.slice(0,-1);
+
+		// sql injection 취약점
+		system.debug.print(`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
+		temp = await db.execQuery(conn,`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
+		
+		system.debug.print(temp[0]);
+
+		// 조회 결과 값 없음
+		if (db.checkNodate(temp) || wallet <= "" || wallet == undefined) {
+			system.debug.printError(user.info.FILE + " getInfoByWallet()", "sql no data")
+			// set error data
+			result.result = false;
+			result.code = -1;
+			result.nick = "";
+			result.room = -1;
+		}
+		else{
+			result = temp[0];
+		}
+
+		db.deleteConnection(conn);
+
+		return result;
+	}
 	
 }
 exports.module = user;
