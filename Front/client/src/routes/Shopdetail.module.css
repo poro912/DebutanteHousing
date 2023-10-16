@@ -25,10 +25,10 @@
 
 .text{
   position: fixed;
-  top: 72%;
-  left: 13%;
-  font-family: 'omyu_pretty';
-    font-size: 6vh;
+  top: 76%;
+  left: 16%;
+  font-family: 'TheJamsil5Bold';
+    font-size: 4.5vh;
     color:rgb(255, 177, 190);
     text-shadow: 2px 2px 2px rgb(255, 254, 254),
                  2px 2px 2px rgb(255, 133, 151);
@@ -67,8 +67,8 @@
   left: 3%;
   font-family: 'TheJamsil5Bold';
     font-size: 9vh;
-    color:rgb(255, 214, 214);
-    text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
+    color:rgb(255, 177, 181);
+    text-shadow: 2px 2px 2px rgb(160, 85, 88);;
 }
 
 .detailtext{
@@ -78,7 +78,7 @@
   font-family: 'omyu_pretty';
     font-size: 6vh;
     color:rgb(255, 255, 255);
-    text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
+    text-shadow: 2px 2px 2px rgba(122, 81, 81, 0.863);
 }
 
 .backarrow {
