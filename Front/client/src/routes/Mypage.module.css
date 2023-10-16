@@ -86,7 +86,7 @@
     font-family: 'omyu_pretty';
     z-index: 2;
     color:rgb(255, 203, 203);
-    text-shadow: 3px 3px 3px rgb(204, 197, 197),
+    text-shadow: 3px 3px 3px rgb(168, 152, 152),
                 3px 3px 2px rgb(158, 125, 125);
 }
 
@@ -108,7 +108,7 @@
     transform: translate(-15%);
     font-family: 'TheJamsil5Bold';
     z-index: 2;
-    color: rgb(197, 183, 187);
+    color: rgb(177, 153, 160);
     text-shadow: 3px 3px 3px rgb(114, 106, 108), 3px 3px 2px rgb(255, 255, 255);
   }
   
@@ -122,8 +122,8 @@
     transform: translate(-20%); /* 가로 중앙 정렬을 위해 transform 사용 */
     font-family: 'TheJamsil5Bold';
     z-index: 2;
-    color: rgb(197, 183, 187);
-    text-shadow: 3px 3px 3px rgb(172, 146, 152), 3px 3px 2px rgb(255, 255, 255);
+    color: rgb(177, 153, 160);
+    text-shadow: 3px 3px 3px rgb(114, 106, 108), 3px 3px 2px rgb(255, 255, 255);
   }
 
 

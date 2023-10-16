@@ -16,6 +16,8 @@
     text-align:center;
     font-family: 'omyu_pretty';
     background-color: transparent;
+    color: rgb(255, 233, 162);
+  text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
     
     
 }
@@ -115,12 +117,12 @@
 
 
 .fr{
-  font-size: 7vh;
+  font-size: 6.5vh;
     font-weight: bold;
     position: absolute;
-    top: 0%;
-    left: 43%;
-    font-family: 'omyu_pretty';
+    top: 1%;
+    left: 42%;
+    font-family: 'TheJamsil5Bold';
     z-index: 2;
     color:rgb(255, 233, 160);
     text-shadow: 3px 3px 3px rgb(194, 185, 152),
@@ -131,8 +133,8 @@
   position: fixed;
     width: 2.5vw;
     height: 5.5vh;
-    top: 3vh;
-    left: 40vw;
+    top: 3.5vh;
+    left: 39vw;
     z-index: 5;
 }
 

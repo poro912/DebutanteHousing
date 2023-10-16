@@ -241,16 +241,8 @@ function Shopdetail() {
                     <button className={styles.backarrow}>➤</button>
                   </Link>
                   <h1 className={styles.FurnitureDetails}>Furniture Details</h1>
-                  <img
-                    className={styles.upheart}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
-                  <img
-                    className={styles.upheart2}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
+                
+              
                 </div>
               ) : (
                 <div>
@@ -292,16 +284,8 @@ function Shopdetail() {
                     <button className={styles.backarrow}>➤</button>
                   </Link>
                   <h1 className={styles.FurnitureDetails}>Furniture Details</h1>
-                  <img
-                    className={styles.upheart}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
-                  <img
-                    className={styles.upheart2}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
+              
+            
                 </div>
               )}
             </div>
@@ -312,31 +296,15 @@ function Shopdetail() {
                 alt="heartp"
                 src="/img/heartp.gif"
               />
-              <img
-                className={styles.upheart}
-                alt="upheart"
-                src="/img/upheart.gif"
-              />
-              <img
-                className={styles.upheart2}
-                alt="upheart"
-                src="/img/upheart.gif"
-              />
+            
+             
             </div>
           )}
         </div>
       ) : (
         <div>
-          <img
-            className={styles.upheart}
-            alt="upheart"
-            src="/img/upheart.gif"
-          />
-          <img
-            className={styles.upheart2}
-            alt="upheart"
-            src="/img/upheart.gif"
-          />
+       
+      
         </div>
       )}
     </div>

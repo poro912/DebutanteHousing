@@ -27,7 +27,7 @@
   position: fixed;
   top: 72%;
   left: 13%;
-  font-family: 'Dancing Script';
+  font-family: 'omyu_pretty';
     font-size: 6vh;
     color:rgb(255, 177, 190);
     text-shadow: 2px 2px 2px rgb(255, 254, 254),
@@ -65,8 +65,8 @@
   position: fixed;
   top: 1%;
   left: 3%;
-  font-family: 'Dancing Script';
-    font-size: 11vh;
+  font-family: 'TheJamsil5Bold';
+    font-size: 9vh;
     color:rgb(255, 214, 214);
     text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
 }
@@ -75,7 +75,7 @@
   position: fixed;
   top: 16%;
   left: 7%;
-  font-family: 'Dancing Script';
+  font-family: 'omyu_pretty';
     font-size: 6vh;
     color:rgb(255, 255, 255);
     text-shadow: 2px 2px 2px rgba(155, 118, 118, 0.863);
@@ -96,8 +96,8 @@
   font-weight: bold;
   position: absolute;
   top: 0%;
-  left: 41%;
-  font-family: 'Dancing Script';
+  left: 37%;
+  font-family: 'SDKukdetopokki-Lt';
   z-index: 2;
   color:rgb(255, 198, 213);
   text-shadow: 3px 3px 3px rgb(161, 123, 133),
@@ -122,7 +122,7 @@
     padding: 0vh 12vw;  
     font-size: 3vh;
     font-weight: bolder;
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     position: fixed;
     top: 85%;
     left: 55%; 
@@ -142,9 +142,9 @@
   position: fixed;
     top: 65%;
     left: 52%;
-    font-family: 'Dancing Script';
-    font-size: 6vh;
-    color:rgb(255, 216, 216);
+    font-family: 'TheJamsil5Bold';
+    font-size: 5vh;
+    color:rgb(255, 189, 189);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
 }
@@ -158,7 +158,7 @@
   border-radius: 20px; /* 모서리 둥글게 설정 */
   background-color: rgba(255, 255, 255, 0.9); /* 배경색 및 투명도 설정 */
   padding: 10px; /* 내부 여백 추가 (선택 사항) */
-  font-family: 'Dancing Script';
+  font-family: 'omyu_pretty';
   color: rgb(255, 216, 216);
   text-shadow: 3px 3px 2px rgb(161, 123, 133), 3px 3px 2px rgb(255, 255, 255);
   box-shadow: 0 0 5px rgba(151, 98, 119, 0.3); /* 그림자 설정 */
@@ -168,7 +168,7 @@
   position: fixed;
   top: 64%;
   left: 78%;
-  font-family: 'Dancing Script';
+  font-family: 'omyu_pretty';
   font-size: 6vh;
   color:rgb(255, 216, 216);
   text-shadow: 3px 3px 2px rgb(161, 123, 133),
@@ -179,9 +179,9 @@
   position: fixed;
     top: 43%;
     left: 52%;
-    font-family: 'Dancing Script';
-    font-size: 6vh;
-    color:rgb(255, 216, 216);
+    font-family: 'TheJamsil5Bold';
+    font-size: 5vh;
+    color:rgb(255, 189, 189);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
                 3px 3px 2px rgb(255, 255, 255);
 }
@@ -190,7 +190,7 @@
   position: fixed;
     top: 51%;
     left: 52%;
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     font-size: 2.7vh;
     color:rgb(255, 216, 216);
     text-shadow: 3px 3px 2px rgb(161, 123, 133),
@@ -218,23 +218,9 @@
   border-top :4px solid rgba(105, 84, 84, 0.76);
 }
 
-.upheart{
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  left: 0vh;
-  top: 0vh;
-  z-index: -3;
-}
 
-.upheart2{
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  left: 110vh;
-  top: 0vh;
-  z-index: -3;
-}
+
+
 
 .heartloding{
   position: fixed;
