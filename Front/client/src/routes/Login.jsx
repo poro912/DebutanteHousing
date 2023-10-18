@@ -49,6 +49,7 @@ function Login() {
   </div>
   </div>
   <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+
   </div>;
 }
 

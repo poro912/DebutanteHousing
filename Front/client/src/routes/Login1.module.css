@@ -7,9 +7,8 @@
     left: 13vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;
-    color: #ffaabff3;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #ff7295f3
-                 ;
+    color: #1D2D44;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #101e33;
     z-index: 4;
     
 }
@@ -22,7 +21,7 @@
     left: 8vw;
     width : 20vh;
         z-index: 5;
-        color:#fff5d6;
+        color: #889ED0;
         background-color: rgb(255, 255, 255);
         font-family: 'omyu_pretty';
         font-size: 4vh;
@@ -31,7 +30,7 @@
         animation: fadeInAndStay 2s forwards 1s;
         border-radius: 15px;
         background-color: transparent;
-          text-shadow: 3px 2px 1px rgb(161, 145, 145);
+          text-shadow: 1px 1px 1px rgb(0, 0, 0);
         }
         
     
@@ -47,7 +46,7 @@
         left: 18vw;
         width : 18vh;
             z-index: 5;
-            color:#a1ffd0;
+            color:#889ED0;
             font-family: 'omyu_pretty';
             font-size: 4vh;
             background-color: rgb(255, 255, 255);
@@ -90,7 +89,7 @@
   }
   
   .background{
-    background-color: #f8dbd79c;
+    background-color: #fffefe1c;
     height: 100vh;
     
 }
@@ -124,7 +123,7 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: rgba(255, 114, 147, 0.452);   
+                background-color: #748CAB;   
       padding: 1vh 14.5vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
@@ -149,7 +148,7 @@ input:focus::placeholder{
               0 3px 0 -1px rgba(0,0,0,0.13), 
               0 4px 0 -1px rgba(51, 46, 46, 0.08), 
               0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);   
+              background-color: #748CAB;   
     padding: 1vh 14.4vw;  
     font-size: 2vh;
     font-family: 'omyu_pretty';
@@ -174,7 +173,7 @@ input:focus::placeholder{
               0 3px 0 -1px rgba(0,0,0,0.13), 
               0 4px 0 -1px rgba(51, 46, 46, 0.08), 
               0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);   
+    background-color: #748CAB;   
     padding: 0.7vh 14.4vw;  
     font-size: 2vh;
     font-family: 'omyu_pretty';
@@ -188,7 +187,7 @@ input:focus::placeholder{
 }
 
 .btn3:hover{
-  background-color: rgba(214, 93, 122, 0.452); 
+  background-color: #53647a;  
 }
 
 
@@ -199,7 +198,7 @@ input:focus::placeholder{
       top: 58%;
       left: 34.5%;
     z-index: 5;
-    background-color: rgba(168, 73, 96, 0.452);  
+    background-color: #374352; 
 }
 
 .ID{
@@ -207,7 +206,7 @@ input:focus::placeholder{
     top:  46vh;
     left: 34vw;
     z-index: 5;
-    color:#ffffff;
+    color:#0D1321;
     background-color: rgb(255, 255, 255);
     font-family: 'omyu_pretty';
     font-size: 5vh;
@@ -215,7 +214,7 @@ input:focus::placeholder{
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
     background-color: transparent;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    text-shadow: 1px 1px 1px #091622;
 }
 
 .PASS{
@@ -223,7 +222,7 @@ input:focus::placeholder{
         top: 46vh;
         left: 51vw;
         z-index: 5;
-        color:#ffffff;
+        color:#0D1321;
         background-color: rgb(255, 255, 255);
         font-family: 'omyu_pretty';
         font-size: 5vh;
@@ -231,7 +230,7 @@ input:focus::placeholder{
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
         background-color: transparent;
-        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+        text-shadow: 1px 1px 1px #091622;
 }
 
 .backarrow {
@@ -254,15 +253,23 @@ input:focus::placeholder{
     width: 40vw;
     top: 27vh;
     left: 30vw;
-    border-radius: 20px; /* 둥근 테두리 */
-    background-color: #fffdfd;
-      border-radius: 20px; /* 둥근 테두리 */
-      box-shadow: 0px 0px 5px rgb(255, 255, 255),
-      0px 0px 5px rgb(255, 255, 255),
-      5px 5px 10px #e5a8b1,
-      -5px -5px 10px #f5d0d5;
+    background-color: #fffaf4;
+      box-shadow: 3px 3px 5px #f7eee1,
+                  -3px -3px 5px #f7eee1,
+                  5px 5px 10px #e2c79e,
+                  -5px -5px 10px #e2c79e;
     z-index:3;
-    border-radius: 20px;
+    border-radius: 100px;
     
 }
 
+.ui
+{
+    position: relative;
+    top: -33%;
+    left: 68%;
+    width: 6%;
+    z-index:4;
+    transform: rotate(45deg);
+
+}
