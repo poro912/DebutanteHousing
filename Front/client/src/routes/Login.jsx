@@ -16,22 +16,23 @@ function Login() {
   },[])
   
   
-  return <div>
+  return <div className={styles.background}>
+    
+    <div>
+    <div className={styles.sbox}>
+      <div>
 <h1 className={styles.title}>Debutant</h1>
-<h1 className={styles.titlee}>housing</h1>
+<h1 className={styles.titlee}>Housing</h1>
+</div>
 <h1 className={styles.Login}>Login</h1>
       <div>
       </div>
      <div>
+      <div>
      <Link to="/Join"><button className={styles.btn}>Join</button></Link>
      <Link to="/test"><button className={styles.btn2}>Login</button></Link>
+     </div>
      
-       
-         <div>
-    
-           
-            
-            </div>
  
     <br />
           
@@ -41,11 +42,13 @@ function Login() {
  
    
     
-    <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+    
+    
   
-  <div className={styles.sbox}>
+    </div>
   </div>
   </div>
+  <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
   </div>;
 }
 

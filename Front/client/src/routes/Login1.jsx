@@ -130,6 +130,7 @@ function Login() {
   }
 
   return (
+    <div className={styles.background}>
     <div>
       <Link to="/">
         <button className={styles.backarrow}>➤</button>
@@ -168,6 +169,7 @@ function Login() {
           <br />
         </div>
       </div>
+    </div>
     </div>
   );
 }

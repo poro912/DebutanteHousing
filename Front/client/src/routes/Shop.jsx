@@ -76,6 +76,8 @@ function Shop() {
 
   return (
     <div>
+      <div className={styles.background}>
+      </div>
       <Link to="/Home"><button className={styles.backarrow}>➤</button></Link>
       <div>
       
@@ -106,8 +108,8 @@ function Shop() {
       
       <h1 className={styles.Shop}>Shop</h1>
       </div>
-      <img className={styles.upheart} alt="upheart" src="./img/upheart.gif" />
-      <img className={styles.upheart2} alt="upheart" src="./img/upheart.gif" />
+
+    
     </div>
   );
             }
