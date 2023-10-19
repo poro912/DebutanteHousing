@@ -62,6 +62,7 @@ const room = {
 	},
 	changeColor : async(code, color) =>{
 		var result = {
+			result : false
 		};
 		system.debug.print("change color");
 		var conn = await db.getConnection();
