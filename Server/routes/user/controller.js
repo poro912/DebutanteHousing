@@ -104,17 +104,18 @@ const Controller = {
 			return res.json(result);
 		});
     },
-	getMemberByWallet : (req, res) => {
+	postMemberByWallet : (req, res) => {
 		system.debug.print('');
 
         let data = req.body;
         let form = {
-			wallet : req.params[0]
+			wallet : data.wallet
         };
 		let result = {};
-
+		system.debug.print('postMemberByWallet');
+		system.debug.print(form.wallet);
 		// 폼이 전부 채워져 있지 않다면
-		if(req.params[0] === undefined)
+		if(!system.form.checkFill(form))
 		{
 			// 모두 초기화 반환
 			form = system.form.addResult(form,false, "please pass me url parameter");
@@ -142,7 +143,7 @@ Router.post('/member', Controller.postMember)
 /**
  * 지갑정보를 통해 유저정보 획득
  */
-Router.post('/member/wallet/*', Controller.getMemberByWallet)
+Router.post('/member/wallet', Controller.postMemberByWallet)
 // req.params[0]
 
 

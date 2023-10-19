@@ -324,8 +324,6 @@ const room = {
 			result = await room.getRoomInfo(room_code);
 		}
 
-		system.debug.print("result ",result);
-		system.debug.print();
 		return result;
 	},
 }

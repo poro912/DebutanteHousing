@@ -280,15 +280,11 @@ const user = {
 
 		var conn = await db.getConnection();
 		await db.use.view(conn);
-		
-		wallet = wallet.slice(0,-1);
 
 		// sql injection 취약점
-		system.debug.print(`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
+		// system.debug.print(`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
 		temp = await db.execQuery(conn,`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
 		
-		system.debug.print(temp[0]);
-
 		// 조회 결과 값 없음
 		if (db.checkNodate(temp) || wallet <= "" || wallet == undefined) {
 			system.debug.printError(user.info.FILE + " getInfoByWallet()", "sql no data")
@@ -299,11 +295,12 @@ const user = {
 			result.room = -1;
 		}
 		else{
-			result = temp[0];
+			system.debug.print(temp[0]);
+			result.users = temp[0];
+			result.result = true;
 		}
 
 		db.deleteConnection(conn);
-
 		return result;
 	}
 	
