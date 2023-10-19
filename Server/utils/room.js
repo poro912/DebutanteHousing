@@ -228,7 +228,7 @@ const room = {
 			data = Math.floor(data / 100);
 			var x = data % 100;
 
-			obj[i]["rot"] = [x, y-1, z];
+			obj[i]["rot"] = [x, y, z];
 		}
 		return obj;
 	},

@@ -14,7 +14,8 @@ SELECT
     u.profile_path AS user_profile,
     r.code AS room_code,
     r.name AS room_name,
-    r.like AS room_like
+    r.like AS room_like,
+    r.color AS room_color
 FROM db_current.user AS u
 INNER JOIN db_current.room AS r ON u.code = r.current_u_code;
 
