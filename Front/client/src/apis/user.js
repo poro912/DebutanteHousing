@@ -1,5 +1,5 @@
 import {post} from './axiosSystem';
-import {get} from './axiosSystem';
+//import {get} from './axiosSystem';
 
 //함수명 기능명뒤에 API붙이기
 //변수명이랑 라벨명이랑 같게 처리
@@ -31,3 +31,9 @@ export function member(code, page, count, callback) {
 		,callback);
 }
 
+export function memberByWallet(wallet, callback) {
+	console.log("유저정보 획득 : " + wallet)
+	post('user/member/wallet',
+		{wallet: wallet}
+		,callback);
+}
