@@ -1,30 +1,25 @@
-body{
-  background-color: rgba(141, 141, 141, 0.096);
+.background{
+  background-color: rgba(255, 251, 246, 0.651);
+  height: 100vh;
+  z-index: 0;
 }
 
 
-
 .searchbar{
-    position: fixed;
-    padding:0;
-    margin: 0;
-    border: 0;
+    position: relative;
     width: 19vw;
     height: 5vh;
-    top: 14.5vh;
-    left: 41vw;
+    top: 2vh;
+    left: 16vw;
     z-index: 6;
     font-size: 40px;
     text-align:center;
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     background-color: transparent;
     
     
 }
 
-
-
- 
 
 
 .hrr {
@@ -61,17 +56,6 @@ body{
   width: 1.5vw;
 }
 
-
-
-.Fbg{
-    position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -2; /* Make sure the image stays in the background */
-  overflow: hidden;
-}
 
 
 .listContainer {
@@ -123,7 +107,7 @@ body{
   box-shadow: 5px 5px 10px rgba(10, 10, 10, 0.274),
               -5px -5px 10px rgba(10, 10, 10, 0.247),
               1px 1px 3px rgba(10, 10, 10, 0.281);
-  z-index:-1;
+  z-index:3;
   
 }
 
@@ -136,10 +120,10 @@ body{
     position: absolute;
     top: 0%;
     left: 43%;
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     z-index: 2;
-    color:rgb(255, 235, 171);
-    text-shadow: 3px 3px 3px rgb(146, 138, 110),
+    color:rgb(255, 233, 160);
+    text-shadow: 3px 3px 3px rgb(194, 185, 152),
                 3px 3px 2px rgb(95, 89, 71);
 }
 
@@ -149,6 +133,7 @@ body{
     height: 5.5vh;
     top: 3vh;
     left: 40vw;
+    z-index: 5;
 }
 
 .upstar{
@@ -157,7 +142,7 @@ body{
   height: 50vh;
   left: 0vh;
   top: 0vh;
-  z-index: -2;
+  z-index: 5;
 }
 
 .upstarr{
@@ -166,7 +151,7 @@ body{
   height: 50vh;
   left: 110vh;
   top: 0vh;
-  z-index: -2;
+  z-index: 5;
 }
 
 .upstarrr{
@@ -175,7 +160,7 @@ body{
   height: 50vh;
   left: 0vh;
   top: 50vh;
-  z-index: -2;
+  z-index: 5;
 }
 
 .upstarrrr{
@@ -184,7 +169,7 @@ body{
   height: 50vh;
   left: 110vh;
   top: 50vh;
-  z-index: -2;
+  z-index: 5;
 }
 
 .furnitureWrapper {

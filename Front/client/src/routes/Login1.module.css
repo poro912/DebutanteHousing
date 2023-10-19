@@ -1,60 +1,30 @@
 
-.heart{
-    position: relative;
-    width: 6vw;
-    height: 13vh;
-    top: 40vh;
-    left: 47vw;
-    opacity: 0;
-    animation: fadeInOut 6s 1;
-}
-
-.heartb{
-    position: relative;
-    width: 6vw;
-    height: 13vh;
-    top: 24vh;
-    left: 47vw;
-    opacity: 0;
-    animation: fadeInOut 6s 1;
-    animation-delay: 1s;
-}
-
-.heartp{
-    position: relative;
-    width: 6vw;
-    height: 13vh;
-    top: 37vh;
-    left: 47vw;
-    opacity: 0;
-    animation: fadeInOut 6s 1;
-}
-
 .Login{
-    position: fixed;
-    width: 25vw;
-    height: 0vh;
-    top: 28vh;
-    left: 45.3vw;
-    font-family: 'Dancing Script';
-    font-size: 9vh;
-    color: #ffffff;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145);
-    text-underline-offset: 2vh;
+  
+    position: relative;
+    width: 26vw;
+    top: 3vh;
+    left: 13vw;
+    font-family: 'TheJamsil5Bold';
+    font-size: 10vh;
+    color: #ffaabff3;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #ff7295f3
+                 ;
     z-index: 4;
+    
 }
 
 .id {
     box-sizing: border-box;
     border: none;
     position: relative;
-    top:  18.5vh;
-    left: 9vw;
+    top:  5vh;
+    left: 8vw;
     width : 20vh;
         z-index: 5;
         color:#fff5d6;
         background-color: rgb(255, 255, 255);
-        font-family: 'Dancing Script';
+        font-family: 'omyu_pretty';
         font-size: 4vh;
         text-align: left;
         opacity: 0;
@@ -72,13 +42,13 @@
     .pass{
         box-sizing: border-box;
         border: none;
-        position: fixed;
-        top:  46vh;
-        left: 58.5vw;
+        position: relative;
+        top:  5vh;
+        left: 18vw;
         width : 18vh;
             z-index: 5;
             color:#a1ffd0;
-            font-family: 'Dancing Script';
+            font-family: 'omyu_pretty';
             font-size: 4vh;
             background-color: rgb(255, 255, 255);
             text-align:left;
@@ -119,16 +89,11 @@
     }
   }
   
-.background{
-    position: fixed; 
-    top: -30vh; 
-    left: 0vw; 
-    min-width: 207vh;
-    min-height: 30vh;
-    z-index: -5;
+  .background{
+    background-color: #f8dbd79c;
+    height: 100vh;
     
-  }
-
+}
 
 
 input:focus{
@@ -150,27 +115,26 @@ input:focus::placeholder{
 
 .btn{
   color: white; 
-  display: inline-block;
-  border: 1px solid rgba(63, 63, 63, 0.21);
-  border-bottom-color: rgba(165, 165, 165, 0.34);
-  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
-  box-shadow: 3px 3px 2px rgb(139, 129, 129),
-              0 1px 0 rgba(255,255,255,0.34) inset, 
-              0 3px 0 -1px rgba(0,0,0,0.13), 
-              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-              0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);      
-      padding: 1.2vh 13.2vw;  
-      font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
+    display: inline-block;
+    border: 1px solid rgba(63, 63, 63, 0.21);
+    border-bottom-color: rgba(165, 165, 165, 0.34);
+    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
+    box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: rgba(255, 114, 147, 0.452);   
+      padding: 1vh 14.5vw;  
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
       position: fixed;
-        top: 45vh;
-        left: 36vw;
+        top: 47.5%;
+        left: 34.5%;
         z-index: 5;
         animation: fadeOut 2s forwards;
         opacity: 0;
-        border-radius: 24px;
-
+        border-radius: 30px;
 }
 
 
@@ -186,16 +150,16 @@ input:focus::placeholder{
               0 4px 0 -1px rgba(51, 46, 46, 0.08), 
               0 3px 13px -1px rgba(14, 11, 11, 0.21);
     background-color: rgba(255, 114, 147, 0.452);   
-      padding: 1.2vh 12.9vw;  
-      font-size: 1.7vh;
-      font-family:'BookkMyungjo-Bd';
-      position: fixed;
-        top: 54vh;
-        left: 36.1vw;
-        z-index: 5;
-        animation: fadeOut 2s forwards;
-        opacity: 0;
-        border-radius: 24px;
+    padding: 1vh 14.4vw;  
+    font-size: 2vh;
+    font-family: 'omyu_pretty';
+    position: fixed;
+      top: 56%;
+      left: 34.5%;
+      z-index: 5;
+      animation: fadeOut 2s forwards;
+      opacity: 0;
+      border-radius: 30px;
 }
 
 
@@ -211,16 +175,16 @@ input:focus::placeholder{
               0 4px 0 -1px rgba(51, 46, 46, 0.08), 
               0 3px 13px -1px rgba(14, 11, 11, 0.21);
     background-color: rgba(255, 114, 147, 0.452);   
-      padding: 1vh 12vw; 
-      font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
-      position: fixed;
-      top: 57vh;
-      left: 37vw;
+    padding: 0.7vh 14.4vw;  
+    font-size: 2vh;
+    font-family: 'omyu_pretty';
+    position: fixed;
+      top: 58%;
+      left: 34.5%;
       z-index: 5;
-      border-radius: 24px;
-      animation: fadeInAndStay 2s forwards 1s;
       opacity: 0;
+      border-radius: 30px;
+      animation: fadeInAndStay 2s forwards 1s;
 }
 
 .btn3:hover{
@@ -232,20 +196,20 @@ input:focus::placeholder{
   border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 57vh;
-    left: 37vw;
+      top: 58%;
+      left: 34.5%;
     z-index: 5;
     background-color: rgba(168, 73, 96, 0.452);  
 }
 
 .ID{
     position: fixed;
-    top:  45vh;
+    top:  46vh;
     left: 34vw;
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     font-size: 5vh;
     text-align: center;
     opacity: 0;
@@ -256,12 +220,12 @@ input:focus::placeholder{
 
 .PASS{
         position: fixed;
-        top: 45vh;
+        top: 46vh;
         left: 51vw;
         z-index: 5;
         color:#ffffff;
         background-color: rgb(255, 255, 255);
-        font-family: 'Dancing Script';
+        font-family: 'omyu_pretty';
         font-size: 5vh;
         text-align: center;
         opacity: 0;
@@ -283,22 +247,22 @@ input:focus::placeholder{
   }
   
   .sbox{
-    position: fixed;
+    
+    position: relative;
     box-sizing: border-box;
     height: 40vh;
     width: 40vw;
-    top: 27.6vh;
+    top: 27vh;
     left: 30vw;
-    background-color: rgba(255, 209, 220, 0.651);
-    border-radius: 0px; /* 둥근 테두리 */
-    box-shadow: 0px 0px 5px rgb(255, 255, 255),
-                0px 0px 5px rgb(255, 255, 255),
-                5px 5px 10px rgb(255, 168, 189),
-                -5px -5px 10px rgb(255, 168, 189);
-    
-    z-index:0;
-    margin: 0px;
-    padding-bottom: 0vh;
+    border-radius: 20px; /* 둥근 테두리 */
+    background-color: #fffdfd;
+      border-radius: 20px; /* 둥근 테두리 */
+      box-shadow: 0px 0px 5px rgb(255, 255, 255),
+                  0px 0px 5px rgb(255, 255, 255),
+                  5px 5px 10px #dababd,
+                  -5px -5px 10px #dababd;
+    z-index:3;
+    border-radius: 20px;
     
 }
 

@@ -1,34 +1,71 @@
-.sbox{
-    position: relative;
-    box-sizing: border-box;
-    height: 40vh;
-    width: 40vw;
-    top: 12vh;
-    left: 30vw;
-    background-color: rgba(255, 209, 220, 0.651);
-    border-radius: 0px; /* 둥근 테두리 */
-    box-shadow: 0px 0px 5px rgb(255, 255, 255),
-                0px 0px 5px rgb(255, 255, 255),
-                5px 5px 10px rgb(255, 168, 189),
-                -5px -5px 10px rgb(255, 168, 189);
-    
-    z-index:0;
-    margin: 0px;
-    padding-bottom: 0vh;
-    animation: fadeInAndStay 3s forwards;
-    animation-delay: 6s;
-    opacity: 0;
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.ui{
-    position: fixed;
-    top: 14vh; 
-    left: 20vw;  
-    width: 60vw;
-    height: 70vh;
-      
+@font-face {
+    font-family: 'SDKukdetopokki-Lt';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/SDKukdetopokki-aLt00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'KimjungchulMyungjo-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/KimjungchulMyungjo-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.background{
+    background-color: #f8dbd79c;
+    height: 100vh;
+    
+}
+
+
+.sbox{
+    position: relative;
+      box-sizing: border-box;
+      height: 40vh;
+      width: 40vw;
+      top: 27vh;
+      left: 30vw;
+      background-color: #ffffff;
+      border-radius: 20px; /* 둥근 테두리 */
+      box-shadow: 0px 0px 5px rgb(255, 255, 255),
+                  0px 0px 5px rgb(255, 255, 255),
+                  5px 5px 10px #e5a8b1,
+                  -5px -5px 10px #f5d0d5;
+      z-index:3;
     animation: fadeInAndStay 3s forwards;
     animation-delay: 6s;
+    border-radius: 20px;
     opacity: 0;
 }
 
@@ -37,22 +74,23 @@
     position: relative;
     width: 6vw;
     height: 13vh;
-    top: 39vh;
+    top: 0.5vh;
     left: 47vw;
     opacity: 0;
-    animation: fadeInOut 8s 1;
+    animation: fadeInOut 7s 1;
     z-index: 2;
 }
 
 .Login{
-    position: fixed;
+    position: relative;
     width: 26vw;
-    top: 28vh;
-    left: 45.3vw;
-    font-family: 'Dancing Script';
-    font-size: 9vh;
-    color: #ffffff;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145);
+    top: 3vh;
+    left: 13vw;
+    font-family: 'TheJamsil5Bold';
+    font-size: 10vh;
+    color: #ff9cb5f3;
+    text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #ff7295f3
+                 ;
     text-underline-offset: 2vh;
     text-decoration-thickness: 0.2vh;
     z-index: 4;
@@ -66,15 +104,12 @@
     position: relative;
     width: 25vw;
     height: 0vh;
-    top: 32vh;
-    left: 41vw;
-    font-family: 'Dancing Script';
-    font-size: 10.5vh;
-    color: #ffffff;
+    top: 3vh;
+    left: 6vw;
+    font-family: 'TheJamsil5Bold';
+    font-size: 12vh;
+    color: #ffc0cff3;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
-    text-decoration : underline;
-    text-underline-offset : 2vh;
-    text-decoration-thickness: 0.2vh;
     z-index: 4;
     opacity: 0;
     animation: fadeInOut 5s 1;
@@ -87,20 +122,19 @@
     position: relative;
     width: 25vw;
     height: 0vh;
-    top: 45vh;
-    left: 42.5vw;
-    font-family: 'Dancing Script';
-    font-size: 10.5vh;
-    color: #ffffff;
+    top: 17vh;
+    left: 8.5vw;
+    font-family: 'TheJamsil5Bold';
+    font-weight: 100vh;
+    font-size: 12vh;
+    color: #ffdae3f3;
     text-shadow: 3px 2px 1px rgb(161, 145, 145);
-    text-decoration : underline;
-    text-underline-offset : 2vh;
-    text-decoration-thickness: 0.2vh;
     z-index: 4;
     opacity: 0;
     animation: fadeInOut 5s 1;
     animation-delay: 6s;
 }
+
 
 
 @keyframes fadeInOut {
@@ -144,24 +178,23 @@ input:focus::placeholder{
     display: inline-block;
     border: 1px solid rgba(63, 63, 63, 0.21);
     border-bottom-color: rgba(165, 165, 165, 0.34);
-    text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
     box-shadow: 3px 3px 2px rgb(139, 129, 129),
                 0 1px 0 rgba(255,255,255,0.34) inset, 
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: rgba(255, 114, 147, 0.452);   
-      padding: 1.2vh 13.2vw;  
-      font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
+      padding: 1vh 14.5vw;  
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
       position: fixed;
-        top: 45vh;
-        left: 36vw;
+        top: 47.5%;
+        left: 34.5%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
         opacity: 0;
-       
-        border-radius: 24px;
+        border-radius: 30px;
 
 }
 
@@ -173,8 +206,8 @@ input:focus::placeholder{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 45vh;
-    left: 36vw;
+        top: 47.5%;
+        left: 34.5%;
     z-index: 5;
     background-color: rgba(168, 73, 96, 0.452);  
 }
@@ -191,16 +224,16 @@ input:focus::placeholder{
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: rgba(255, 114, 147, 0.452);   
-      padding: 1.2vh 13vw;  
-      font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
+      padding: 1vh 14.4vw;  
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
       position: fixed;
-        top: 54vh;
-        left: 36vw;
+        top: 56%;
+        left: 34.5%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
         opacity: 0;
-        border-radius: 24px;
+        border-radius: 30px;
 }
 
 .btn2:hover{
@@ -211,8 +244,8 @@ input:focus::placeholder{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 54vh;
-        left: 36vw;
+    top: 56%;
+    left: 34.5%;
     z-index: 5;
     background-color: rgba(168, 73, 96, 0.452);   
 }
