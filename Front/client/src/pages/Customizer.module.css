@@ -19,16 +19,19 @@
     width: 100%;
     align-items: center; /* Align items to the center vertically */
     padding: 1.5%;
+
   }
   
   .backBtn {
     margin-top: -10px;
     margin-left: -10px;
-    width : 120px
+    width : 120px;
+
   }
   
-  .saveBtn {
-    margin: 0;
+  .savebtn {
+    font-family: 'omyu_pretty';
+    font-size: 20px;
   }
   
 
@@ -131,7 +134,9 @@
   position: fixed;
   top: 85vh;
   right: 2vh;
-  width : 120px
+  width : 120px;
+  font-family: 'omyu_pretty';
+  font-size: 20px;
 }
 
 .resetImg{

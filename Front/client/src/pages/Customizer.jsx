@@ -12,10 +12,11 @@ import { AIpicker, ColorPicker, FilePicker, CustomButton, Tab } from '../compone
 
 import { useSelector, useDispatch } from 'react-redux';
 import { resetFurniture } from '../Redux/furnitureSlice';
+import { setRoomColor } from '../Redux/userSlice';
 
 import FuItem from './FuItem';
 
-import { place, replace, remove } from '../apis/room';
+import { place, replace, remove, setColor } from '../apis/room';
 import { getNftOwnerList } from "../apis/contract";
 
 import styles from './Customizer.module.css';
@@ -183,6 +184,38 @@ const Customizer = () => {
       });
     });
   }
+  //RoomColor 함수
+  async function RoomColor(roomCode, color) {
+    let newColor = null
+    if(isCL){
+      if(roomColor <= 0){
+        newColor = 4
+      }else{
+        newColor = color+1
+      }
+    } 
+    else if(isCR) {
+      if(roomColor >= 4){
+        newColor = 0
+      }else{
+        newColor = color-1
+      }
+    }
+    else{
+      newColor = color
+    }
+    return new Promise((resolve, reject) => {
+      setColor(roomCode, newColor, (error, response) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(response);
+          alert("저장되었습니다.")
+        }
+      });
+    });
+  }
+
 
   // saveHandle 함수
   async function saveHandle() {
@@ -198,6 +231,8 @@ const Customizer = () => {
       const replaceResponse = await replaceFurniture(usersItems.room_code, furnitureArray);
       console.log('Replace Response:', replaceResponse);
 
+      const RoomColorResponse = await RoomColor(usersItems.room_code, roomColor);
+      console.log('RoomColor Response:', RoomColorResponse)
       // 서버 응답에 따른 처리를 수행할 수 있습니다.
 
       console.log(furnitureArray);
@@ -227,6 +262,32 @@ const Customizer = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
 
+
+  const [roomColor, setroomColor] = useState(usersItems.room_color)
+  const [isCL, setIsCL] = useState(false)
+  const [isCR, setIsCR] = useState(false)
+
+  const handleColL = () => {
+    if(roomColor <= 0){
+      setroomColor(4)
+    }else{
+      setroomColor(roomColor-1)
+    }
+    console.log(roomColor)
+    dispatch(setRoomColor(roomColor))
+    setIsCL(true)
+  }
+
+  const handleColR = () => {
+    if(roomColor >= 4){
+      setroomColor(0)
+    }else{
+      setroomColor(roomColor+1)
+    }
+    console.log(roomColor)
+    dispatch(setRoomColor(roomColor))
+    setIsCR(true)
+  }
 
   return (
     <>
@@ -279,7 +340,7 @@ const Customizer = () => {
             
           </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
-            <button>
+            <button className={styles.savebtn}>
               <img
                 src='./img/saveicon.png'
                 onClick={saveHandle}
@@ -290,12 +351,12 @@ const Customizer = () => {
             </button>
           </motion.div>
           <motion.div className='absolute bottom-0 left-20 z-20' {...fadeAnimation}>
-            <button onClick={resetHandle} className={styles.roomcolL}>
+            <button onClick={handleColL} className={styles.roomcolL}>
             ➤
             </button>
           </motion.div>
           <motion.div className='absolute bottom-0 right-20 z-20' {...fadeAnimation}>
-            <button onClick={resetHandle} className={styles.roomcolR}>
+            <button onClick={handleColR} className={styles.roomcolR}>
             ➤
             </button>
           </motion.div>

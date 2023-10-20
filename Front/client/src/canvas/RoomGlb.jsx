@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +6,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import Glb1 from './Glb1'
 
 const RoomGlb = () => {
-  const gltf = useLoader(GLTFLoader, './glb/room/room_green.glb');
+  const roomColor = useSelector((state) => state.users.room_color);
+  const [roomGLB, setRoomGLB] = useState('./glb/room/room_green.glb')
+  useEffect(() => {
+    if(roomColor ==0){
+      setRoomGLB('/glb/room/room_green.glb')
+    }
+    else if(roomColor == 1){
+      setRoomGLB('/glb/room/room_blue.glb')
+    }
+    else if(roomColor == 2){
+      setRoomGLB('/glb/room/room_pink.glb')
+    }
+    else if(roomColor == 3){
+      setRoomGLB('/glb/room/room_white.glb')
+    }
+    else if(roomColor == 4){
+      setRoomGLB('/glb/room/room_wood.glb')
+    }
+  }, [roomColor])
+
+  const gltf = useLoader(GLTFLoader, roomGLB);
+  
   const dispatch = useDispatch();
   const furnitureList = useSelector(state => state.furniture.furnitureList);
 

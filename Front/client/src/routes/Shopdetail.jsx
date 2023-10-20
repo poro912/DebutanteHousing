@@ -4,6 +4,7 @@ import styles from "./Shopdetail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import { remove } from '../apis/room';
+import { memberByWallet } from "../apis/user";
 import { removeFurniture } from '../Redux/furnitureSlice';
 
 import {
@@ -29,6 +30,7 @@ function Shopdetail() {
   const [inPrice, setInPrice] = useState();
   const [isSale, setIsSale] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [percent, setPercent] = useState(0)
 
   const onChangeprice = (event) => {
     setInPrice(event.target.value);
@@ -42,6 +44,14 @@ function Shopdetail() {
       } else {
         console.log("ownerOf 정보 성공: ", responseData.data.owner);
         setOwner(responseData.data.owner);
+        memberByWallet(responseData.data.owner, (error, responseData) => {
+          if (error) {
+            console.error("지갑 닉네임 실패");
+          } else {
+            console.log("지갑 닉네임 성공: ", responseData);
+            setOwner(responseData.users.nick);
+          }
+        })
         if (usersItems.account === responseData.data.owner) {
           setIsOwner(true);
           console.log(isowner);
@@ -109,6 +119,7 @@ function Shopdetail() {
       setIsLoading(true); // 로딩 시작
       try {
         await tokenapprove(usersItems.privateKey, price);
+        setPercent(48);
         await buyfurniture(usersItems.privateKey, id);
         setIsLoading(false); // 로딩 종료
         alert(`${nftdata.name} 구매 성공`);
@@ -147,6 +158,7 @@ function Shopdetail() {
           console.log(error);
           reject(error);
         } else {
+          setPercent(99);
           console.log("구매 성공", responseData);
           resolve(responseData);
         }
@@ -296,7 +308,9 @@ function Shopdetail() {
                 alt="heartp"
                 src="/img/heartp.gif"
               />
-            
+              <div className={styles.percent}>
+                {`Loding.....${percent}%`}
+              </div>
              
             </div>
           )}

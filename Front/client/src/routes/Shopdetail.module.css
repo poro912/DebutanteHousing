@@ -225,8 +225,19 @@
 .heartloding{
   position: fixed;
   width: 15%;
-  top: 35%;
-  left: 43%;
+  top: 47%;
+  left: 50%;
   z-index: 2;
+  transform: translate(-50%, -50%);
 }
 
+.percent{
+  position: absolute;
+  font-family: 'omyu_pretty';
+  font-size: 2.5rem;
+  color: rgb(251, 160, 210);
+  font-weight: bold;
+  top: 65%; /* 세로 가운데 정렬을 위해 요소의 상단을 화면 중앙으로 이동 */
+  left: 50%; /* 가로 가운데 정렬을 위해 요소의 왼쪽을 화면 중앙으로 이동 */
+  transform: translate(-50%, -50%); /* 요소를 다시 왼쪽과 상단으로 이동시켜 중앙 정렬 */
+}

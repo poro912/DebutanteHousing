@@ -1,4 +1,4 @@
-import {post} from './axiosSystem';
+import {post, cpost} from './axiosSystem';
 //import {get} from './axiosSystem';
 
 //함수명 기능명뒤에 API붙이기
@@ -6,8 +6,8 @@ import {post} from './axiosSystem';
 export function login(id, pw, callback) {
 	post('user/login',
 		{id: id, 
-		pw: pw}
-		,callback);
+		pw: pw},
+		callback);
 }
 
 export function signup(id, pw, name, nick, email, phone, callback) {

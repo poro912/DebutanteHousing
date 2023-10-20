@@ -244,6 +244,7 @@ input:focus::placeholder{
         border-radius: 30px;
 }
 
+
 .btn2:hover{
     background-color: #53647a;  
 }
@@ -267,4 +268,8 @@ input:focus::placeholder{
       z-index: -1;
       overflow: hidden;
     }
+
+.guest{
+    
+}
 
