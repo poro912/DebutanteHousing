@@ -37,8 +37,14 @@ const HomePage = () => {
                 
               
             </div>
+            {/* <div >
+              <div className={styles.icons}><img src='profileimg.png'></img>프로필</div>
+              <div className={styles.icons}><img src='cusimg.png'></img>인테리어</div>
+              <div className={styles.icons} ><img src='shopimg.png'></img>shop</div>
+              <div className={styles.icons}><img src='frimg.png'></img>친구</div>
+            </div> */}
             <div className={styles.iconCon}>
-              <div className={styles.shopImg}><Link to="/shop"><img src=".\img\cart.png"></img>shop</Link></div>
+              <div className={styles.shopImg}> <Link to="/shop"><img src=".\img\cart.png"></img>shop</Link></div>
               <div className={styles.firendImg}><Link to="/friends"><img src=".\img\friend.png"></img>friend</Link></div>
             </div>
           </header>

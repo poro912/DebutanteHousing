@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255);
+
 }
 
 .fonts{
@@ -114,3 +114,17 @@ font-size: 30px;
   min-height: 100%;
   z-index: -9999;
 }
+
+.icons {
+  display: flex; /* 이미지와 텍스트를 가로로 정렬합니다. */
+  align-items: center; /* 세로 중앙 정렬을 수행합니다. */
+  margin: 5px; /* 아이콘 사이에 약간의 간격을 부여합니다. */
+}
+
+.icons img {
+  width: 50px; /* 이미지의 너비를 50px로 설정합니다. */
+  height: 50px; /* 이미지의 높이를 50px로 설정합니다. */
+  border: 2px solid #000; /* 2px 굵기의 테두리를 만듭니다. */
+  border-radius: 20%; /* 둥근 모서리를 생성합니다. 50%는 원 형태를 의미합니다. */
+}
+

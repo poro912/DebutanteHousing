@@ -137,3 +137,20 @@
 .resetImg{
   margin-bottom: -15px;
 }
+
+.roomcolL{
+  margin: 30vh;
+  margin-bottom: 45vh;
+  transform: rotate(180deg);
+  font-size: 3vh;
+  color: #000000;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}
+
+.roomcolR{
+  margin: 30vh;
+  margin-bottom: 45vh;
+  font-size: 3vh;
+  color: #000;
+  text-shadow: 3px 3px 2px rgb(172, 151, 151);
+}

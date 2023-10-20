@@ -232,6 +232,7 @@ const Customizer = () => {
     <>
       {!snap.intro && (
         <>
+          
           <motion.div
             key={'custom'}
             className='absolute top-0 left-0 z-10'
@@ -269,13 +270,13 @@ const Customizer = () => {
             </div>
           </motion.div>
 
-          <div></div>
           <motion.div className='absolute z-10 top-5 left-5' {...fadeAnimation}>
             <button>
               <div className={styles.backarrow} onClick={() => (state.intro = true)}>
                 ➤
               </div>
             </button>
+            
           </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
             <button>
@@ -288,12 +289,23 @@ const Customizer = () => {
               save
             </button>
           </motion.div>
+          <motion.div className='absolute bottom-0 left-20 z-20' {...fadeAnimation}>
+            <button onClick={resetHandle} className={styles.roomcolL}>
+            ➤
+            </button>
+          </motion.div>
+          <motion.div className='absolute bottom-0 right-20 z-20' {...fadeAnimation}>
+            <button onClick={resetHandle} className={styles.roomcolR}>
+            ➤
+            </button>
+          </motion.div>
           <motion.div className='absolute z-10 top-5 right-5' {...fadeAnimation}>
             <button onClick={resetHandle} className={styles.reset}>
               <img src='./img/reset.png' className={styles.resetImg}/>
               reset
             </button>
           </motion.div>
+          
         </>
       )}
     </>
