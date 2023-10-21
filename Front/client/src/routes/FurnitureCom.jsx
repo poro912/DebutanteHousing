@@ -9,7 +9,8 @@ function FurnitureCom({ data }) {
           <img className={`${styles.fu} ${styles.fuImage}`} alt="fu" src={data.image} />
           <div className={styles.text}>{data.name}</div>
         </div>
-        <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+  
+        <img className={styles.stopheart} alt="stopheart" src="./img/stopheart.png" />
       </div>
     );
 }
