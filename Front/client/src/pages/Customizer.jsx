@@ -350,12 +350,12 @@ const Customizer = () => {
               save
             </button>
           </motion.div>
-          <motion.div className='absolute bottom-0 left-20 z-20' {...fadeAnimation}>
+          <motion.div className='absolute bottom-0 left-20 z-1 w-[20px]' {...fadeAnimation}>
             <button onClick={handleColL} className={styles.roomcolL}>
             ➤
             </button>
           </motion.div>
-          <motion.div className='absolute bottom-0 right-20 z-20' {...fadeAnimation}>
+          <motion.div className='absolute bottom-0 left-0 z-1 w-[20px]' {...fadeAnimation}>
             <button onClick={handleColR} className={styles.roomcolR}>
             ➤
             </button>

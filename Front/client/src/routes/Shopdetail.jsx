@@ -123,15 +123,18 @@ function Shopdetail() {
         await buyfurniture(usersItems.privateKey, id);
         setIsLoading(false); // 로딩 종료
         alert(`${nftdata.name} 구매 성공`);
+        setPercent(0);
         navigate("/shop");
       } catch (error) {
         setIsLoading(false); // 에러 발생 시 로딩 종료
         console.error("에러:", error);
+        setPercent(0);
         // 여기에서 발생한 에러를 처리합니다.
       }
     } else {
       setIsLoading(false); // DHT 잔액 부족 시 로딩 종료
       alert("DHT 잔액이 부족합니다");
+      setPercent(0);
     }
   }
 
@@ -155,6 +158,7 @@ function Shopdetail() {
       buyNFT(key, tokenId, (error, responseData) => {
         if (error) {
           console.log("구매 실패");
+          setPercent(0);
           console.log(error);
           reject(error);
         } else {
@@ -174,10 +178,12 @@ function Shopdetail() {
       setIsLoading(true);
       try {
         await tokensale(usersItems.privateKey, id, inPrice);
+        setPercent(48);
         await removeFurnitures(usersItems.room_code, [id])
         dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
         alert(`${nftdata.name} 판매 성공`);
+        setPercent(0);
         navigate("/mypage");
       } catch (error) {
         setIsLoading(false); // 에러 발생 시 로딩 종료
@@ -192,6 +198,7 @@ function Shopdetail() {
       saleNFT(key, tokenId, price, (error, responseData) => {
         if (error) {
           console.log("saleNFT 실패");
+          setPercent(0);
           console.log(error);
           reject(error);
         } else {
