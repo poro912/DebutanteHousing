@@ -43,7 +43,7 @@
 }
 
 .background{
-    background-color: #fffefe1c;
+    background-color: #ffffff1c;
     height: 100vh;
     
 }
@@ -56,15 +56,15 @@
       width: 40vw;
       top: 27vh;
       left: 30vw;
-      background-color: #fff0f496;
-      box-shadow: 5px 5px 5px #e4d3d6,
-                  -5px -5px 5px #e4d3d6,
-                  5px 5px 10px #ddc9cd,
-                  -5px -5px 10px #ddc9cd;
-      z-index:3;
+      background-color: #fff3ede0;
+      box-shadow: 3px 3px 5px #f5e3da,
+                  -3px -3px 5px #f5e3da,
+                  5px 5px 10px #dbb39d,
+                  -5px -5px 10px #dbb39d;
+      z-index:0;
       animation: fadeInAndStay 3s forwards;
       animation-delay: 6s;
-    border-radius: 100px;
+    border-radius: 10vh;
     opacity: 0;
    
 }
@@ -95,12 +95,13 @@
 .Login{
     position: relative;
     width: 26vw;
-    top: 3vh;
-    left: 13vw;
+    top: 4vh;
+    left: 13.2vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;
-    color: #595758;
-    text-shadow: 3px 2px 1px #503d46, 3px 3px 3px #ca93ad;
+    color: #ff94a4;
+    text-shadow: 3px 2px 1px #c07a84, 
+                  3px 3px 3px #5a5355f3;
     z-index: 4;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 11s; 
@@ -116,8 +117,9 @@
     left: 6vw;
     font-family: 'TheJamsil5Bold';
     font-size: 12vh;
-    color: #B9375E;
-    text-shadow: 3px 2px 1px #835b65;
+    color: #ff94a4;
+    text-shadow: 3px 2px 1px #c07a84, 
+                  3px 3px 3px #5a5355f3;
     z-index: 4;
     opacity: 0;
     animation: fadeInOut 6s 1;
@@ -135,8 +137,9 @@
     font-family: 'TheJamsil5Bold';
     font-weight: 100vh;
     font-size: 12vh;
-    color: #FF9EBB;
-    text-shadow: 3px 2px 1px #a5868f;
+    color:#ceddd4;
+    text-shadow: 3px 3px 3px #8ea597,
+                3px 3px 2px rgb(158, 125, 125);
     z-index: 4;
     opacity: 0;
     animation: fadeInOut 6s 1;
@@ -192,32 +195,31 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #FF7AA2;   
-      padding: 1vh 14.5vw;  
+      background-color: #9D8189;  
+      padding: 0.5vh 3vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-        top: 10.5%;
-        left: 34.5%;
+         top: 58%;
+        left: 46%;
         z-index: 5;
-  
+        animation: fadeInAndStay 2s forwards 11s; 
+        border-radius: 5vh;
         opacity: 0;
-        border-radius: 30px;
-
 }
 
 .btn:hover{
-    background-color: #53647a;  
+    background-color: #7a6269;  
 }
 
 .btn:active{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-        top: 47.5%;
-        left: 34.5%;
+    top: 58%;
+    left: 46%;
     z-index: 5;
-    background-color: #374352; 
+    background-color: #503f44; 
 }
 
 .btn2{
@@ -231,32 +233,32 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #FF7AA2;   
-      padding: 1vh 14.4vw;  
+      background-color: #9D8189;  
+      padding: 1vh 7vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-        top: 56%;
-        left: 34.5%;
+        top: 49%;
+        left: 33%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
+        border-radius: 5vh;
         opacity: 0;
-        border-radius: 30px;
 }
 
 
 .btn2:hover{
-    background-color: #53647a;  
+    background-color: #7a6269; 
 }
 
 .btn2:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 56%;
-    left: 34.5%;
+    top: 49%;
+        left: 33%;
     z-index: 5;
-    background-color: #374352;  
+    background-color: #503f44;  
 }
 
 .Fbg{
@@ -280,30 +282,30 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #FF7AA2;   
-      padding: 1vh 14.2vw;  
+      background-color: #9D8189;    
+      padding: 1vh 7vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-        top: 47.5%;
-        left: 34.5%;
+        top: 49%;
+        left: 51%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
+        border-radius: 5vh;
         opacity: 0;
-        border-radius: 30px;
 }
 .guest:hover{
-    background-color: #53647a;  
+    background-color: #7a6269; 
 }
 
 .guest:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 56%;
-    left: 34.5%;
+    top: 49%;
+        left: 51%;
     z-index: 5;
-    background-color: #374352;  
+    background-color: #503f44;  
 }
 
 

@@ -51,12 +51,12 @@
   max-height: 85vh;
   overflow-y: auto;
   padding: 10px;
-  background-color: rgb(255, 244, 246);
   border-radius: 10px; /* 둥근 테두리 */
-  box-shadow: 5px 5px 10px rgb(196, 179, 182),
-              -5px -5px 10px rgb(196, 179, 182),
-              0px 0px 3px rgb(226, 208, 211),
-              -0px -0px 3px rgb(226, 208, 211);
+  background-color: #fff3ed;
+  box-shadow: 5px 5px 10px rgb(207, 194, 195),
+    -5px -5px 10px rgb(207, 194, 195),
+    0px 0px 3px rgb(165, 147, 148),
+    -0px -0px 3px rgb(165, 147, 148);
   z-index:-2;
 
 }
@@ -67,8 +67,8 @@
   left: 3%;
   font-family: 'TheJamsil5Bold';
     font-size: 9vh;
-    color:rgb(255, 177, 181);
-    text-shadow: 2px 2px 2px rgb(160, 85, 88);;
+    color: #9D8189;
+    text-shadow: 3px 3px 3px rgb(88, 62, 69), 3px 3px 2px rgb(255, 255, 255);
 }
 
 .detailtext{
@@ -77,8 +77,10 @@
   left: 7%;
   font-family: 'omyu_pretty';
     font-size: 6vh;
-    color:rgb(255, 255, 255);
-    text-shadow: 2px 2px 2px rgba(122, 81, 81, 0.863);
+    color:#abbadb;
+    text-shadow: 2px 2px 2px rgb(138, 106, 115),
+                2px 2px 2px rgb(255, 255, 255);
+    
 }
 
 .backarrow {
@@ -99,34 +101,37 @@
   left: 37%;
   font-family: 'SDKukdetopokki-Lt';
   z-index: 2;
-  color:rgb(255, 198, 213);
-  text-shadow: 3px 3px 3px rgb(161, 123, 133),
-              3px 3px 2px rgb(255, 255, 255);
+  color: #ff94a4;
+    text-shadow: 3px 2px 1px #c07a84, 
+                  3px 3px 3px #5a5355f3;
   
   
 }
 
 
 .buy{
-  color: rgb(109, 91, 91); 
+  color: rgb(255, 255, 255); 
   display: inline-block;
   border: 1px solid rgba(56, 56, 56, 0.21);
   border-bottom-color: rgba(0,0,0,0.34);
-  text-shadow:0 1px 0 rgba(0,0,0,0.15);
   box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
               0 2px 0 rgba(0,0,0,0.13), 
               0 3px 0 rgba(0,0,0,0.08), 
-              0 3px 1px  rgba(0,0,0,0.21),
+              0 3px 1px  rgba(75, 38, 38, 0.21),
               0px 0px 1px rgb(161, 123, 133);
-    background-color: rgb(255, 255, 255);  
-    padding: 0vh 12vw;  
+    background-color: #ff94a4;
+    padding: 0.5vh 16vw;  
     font-size: 3vh;
     font-weight: bolder;
     font-family: 'omyu_pretty';
     position: fixed;
     top: 85%;
-    left: 55%; 
-    border-radius: 20px;
+    left: 50%; 
+    border-radius: 30px;
+}
+
+.buy:hover{
+  background-color: #da7c8a;
 }
 
 .buy:active{top: 1px;
@@ -134,7 +139,8 @@
   box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
   position: fixed;
   top: 85%;
-    left: 55%;
+    left: 50%; 
+  background-color: #a85c67;
   }
     
 
@@ -144,9 +150,8 @@
     left: 52%;
     font-family: 'TheJamsil5Bold';
     font-size: 5vh;
-    color:rgb(255, 189, 189);
-    text-shadow: 3px 3px 2px rgb(161, 123, 133),
-                3px 3px 2px rgb(255, 255, 255);
+    color:#ceddd4;
+    text-shadow: 2px 2px 2px rgba(122, 81, 81, 0.863);
 }
 .priceInput {
   position: fixed;
@@ -181,14 +186,13 @@
     left: 52%;
     font-family: 'TheJamsil5Bold';
     font-size: 5vh;
-    color:rgb(255, 189, 189);
-    text-shadow: 3px 3px 2px rgb(161, 123, 133),
-                3px 3px 2px rgb(255, 255, 255);
+    color:#ceddd4;
+    text-shadow: 2px 2px 2px rgba(122, 81, 81, 0.863);
 }
 
 .owner{
   position: fixed;
-    top: 51%;
+    top: 50%;
     left: 52%;
     font-family: 'omyu_pretty';
     font-size: 2.7vh;
@@ -225,19 +229,8 @@
 .heartloding{
   position: fixed;
   width: 15%;
-  top: 47%;
-  left: 50%;
+  top: 35%;
+  left: 43%;
   z-index: 2;
-  transform: translate(-50%, -50%);
 }
 
-.percent{
-  position: absolute;
-  font-family: 'omyu_pretty';
-  font-size: 2.5rem;
-  color: rgb(251, 160, 210);
-  font-weight: bold;
-  top: 65%; /* 세로 가운데 정렬을 위해 요소의 상단을 화면 중앙으로 이동 */
-  left: 50%; /* 가로 가운데 정렬을 위해 요소의 왼쪽을 화면 중앙으로 이동 */
-  transform: translate(-50%, -50%); /* 요소를 다시 왼쪽과 상단으로 이동시켜 중앙 정렬 */
-}

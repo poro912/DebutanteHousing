@@ -39,22 +39,17 @@ function Join() {
             if (error) {
               console.error("회원가입 실패");
               reject(error);
-              alert("회원가입 실패");
-              setIsLoding(false);
             } else {
               console.log("회원가입 성공: ", responseData);
               console.log("회원가입 성공: ", responseData.wallet.account);
-			        addressfuc(responseData.wallet.account);
+			  addressfuc(responseData.wallet.account);
               resolve(responseData);
-              setIsLoding(false);
-              navigate("/test");
             }
           }
         );
       });
     } catch (error) {
       console.error("에러 발생:", error);
-      setIsLoding(false);
       // 에러 처리를 원하는 대로 수행합니다.
     }
   }
@@ -89,16 +84,20 @@ function Join() {
       await new Promise((resolve, reject) => {
         sendEther(recipient, (error, responseData) => {
           if (error) {
+			setIsLoding(false);
             console.error("sendEther 실패");
             reject(error);
           } else {
+			setIsLoding(false);
             console.log("sendEther 성공: ", responseData);
             resolve(responseData);
+			navigate("/test");
           }
         });
       });
       console.log(recipient);
     } catch (error) {
+		setIsLoding(false);
       console.error("에러 발생:", error);
       // 에러 처리를 원하는 대로 수행합니다.
     }
@@ -127,6 +126,7 @@ function Join() {
           <button className={styles.btn2}>Join</button>
     <button className={styles.btn3}>Login</button>
     <h1 className={styles.Join}>Join</h1>
+    <button className={styles.guest}>Guest</button>
     
   
   <div>
