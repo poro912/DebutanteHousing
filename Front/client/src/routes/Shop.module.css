@@ -1,5 +1,5 @@
 .background{
-  background-color: rgba(255, 255, 255, 0.651);
+  background-color: rgba(255, 246, 246, 0.651);
   height: 100vh;
   z-index: 0;
 }
@@ -9,15 +9,15 @@
   width: 19%;
   height: 40%;
   top: -12%; 
-  left: 41%; 
+  left: 42%; 
   z-index: 6;
-  font-size: 5.5vh;
+  font-size: 4vh;
   text-align:center;
-  font-family: 'omyu_pretty';
+  font-family: 'TheJamsil5Bold';
   background-color: transparent;
-  color: #856B98;
-  text-shadow: 2px 2px 2px #654b79,
-    2px 2px 2px #462a5a;
+  color: rgb(255, 146, 173);
+  text-shadow: 2px 2px 2px rgb(255, 254, 254),
+    2px 2px 2px rgb(255, 133, 151);;
   
   
 }
@@ -30,13 +30,12 @@
   height: 83vh;
   max-height: 85vh;
   overflow-y: auto;
-  background-color: #efd3d742;
+  background-color: #fff2f6;
   border-radius: 10px; /* 둥근 테두리 */
-  box-shadow: 5px 5px 10px #d6b6b6,
-              -5px -5px 10px #d6b6b6,
-              0px 0px 3px rgb(226, 208, 211),
-              -0px -0px 3px rgb(226, 208, 211);
+  box-shadow: 5px 5px 10px #b49aa2,
+              -5px -5px 10px #b49aa2;
   z-index:1;
+
 }
 
 
@@ -103,8 +102,8 @@
     left: 46%;
     font-family: 'SDKukdetopokki-Lt';
     z-index: 2;
-    color:#8E9AAF;
-    text-shadow: 3px 3px 3px #5a6475,
+    color: #ff8bb0;
+    text-shadow: 3px 3px 2px #91767e,
                 3px 3px 2px rgb(255, 255, 255);
     
     

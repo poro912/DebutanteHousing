@@ -56,11 +56,11 @@
       width: 40vw;
       top: 27vh;
       left: 30vw;
-      background-color: #fffaf4;
-      box-shadow: 3px 3px 5px #f7eee1,
-                  -3px -3px 5px #f7eee1,
-                  5px 5px 10px #e2c79e,
-                  -5px -5px 10px #e2c79e;
+      background-color: #fff0f496;
+      box-shadow: 5px 5px 5px #e4d3d6,
+                  -5px -5px 5px #e4d3d6,
+                  5px 5px 10px #ddc9cd,
+                  -5px -5px 10px #ddc9cd;
       z-index:3;
       animation: fadeInAndStay 3s forwards;
       animation-delay: 6s;
@@ -99,8 +99,8 @@
     left: 13vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;
-    color: #1D2D44;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145), 3px 3px 3px #101e33;
+    color: #595758;
+    text-shadow: 3px 2px 1px #503d46, 3px 3px 3px #ca93ad;
     z-index: 4;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 11s; 
@@ -116,7 +116,7 @@
     left: 6vw;
     font-family: 'TheJamsil5Bold';
     font-size: 12vh;
-    color: #0D1321;
+    color: #B9375E;
     text-shadow: 3px 2px 1px #835b65;
     z-index: 4;
     opacity: 0;
@@ -135,7 +135,7 @@
     font-family: 'TheJamsil5Bold';
     font-weight: 100vh;
     font-size: 12vh;
-    color: #3E5C76;
+    color: #FF9EBB;
     text-shadow: 3px 2px 1px #a5868f;
     z-index: 4;
     opacity: 0;
@@ -192,15 +192,15 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #748CAB;   
+      background-color: #FF7AA2;   
       padding: 1vh 14.5vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-        top: 47.5%;
+        top: 10.5%;
         left: 34.5%;
         z-index: 5;
-        animation: fadeInAndStay 2s forwards 11s; 
+  
         opacity: 0;
         border-radius: 30px;
 
@@ -231,7 +231,7 @@ input:focus::placeholder{
                 0 3px 0 -1px rgba(0,0,0,0.13), 
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #748CAB;   
+      background-color: #FF7AA2;   
       padding: 1vh 14.4vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
@@ -270,6 +270,40 @@ input:focus::placeholder{
     }
 
 .guest{
-    
+    color: white; 
+    display: inline-block;
+    border: 1px solid rgba(63, 63, 63, 0.21);
+    border-bottom-color: rgba(165, 165, 165, 0.34);
+    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
+    box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: #FF7AA2;   
+      padding: 1vh 14.2vw;  
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
+      position: fixed;
+        top: 47.5%;
+        left: 34.5%;
+        z-index: 5;
+        animation: fadeInAndStay 2s forwards 11s; 
+        opacity: 0;
+        border-radius: 30px;
 }
+.guest:hover{
+    background-color: #53647a;  
+}
+
+.guest:active{top: 1px;
+    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+    position: fixed;
+    top: 56%;
+    left: 34.5%;
+    z-index: 5;
+    background-color: #374352;  
+}
+
 
