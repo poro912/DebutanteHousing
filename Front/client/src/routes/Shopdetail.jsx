@@ -245,15 +245,12 @@ function Shopdetail() {
             <div>
               {!isowner ? (
                 <div>
-                  <img
-                    className={styles.heartp}
-                    alt="heartp"
-                    src="/img/heartp.gif"
-                  />
-
+                  <img className={styles.stopheart} alt="stopheart" src="/img/stopheart.png" />
                   <img className={styles.fu} alt="fu" src={nftdata.image} />
                   <div className={styles.box}>
-                    <div className={styles.sbox} />
+                    <div className={styles.sbox} >
+                     <div className={styles.text}>{nftdata.name}</div>
+                      </div>
                     <h1 className={styles.detailtext}>{nftdata.description}</h1>
                     <h1 className={styles.name}>Owner:</h1>
                     <div className={styles.owner}>{owner}</div>
@@ -268,7 +265,7 @@ function Shopdetail() {
                       <></>
                     )}
 
-                    <div className={styles.text}>{nftdata.name}</div>
+                   
                     <div className={styles.titletext}>{nftdata.name}</div>
                   </div>
 
@@ -281,15 +278,14 @@ function Shopdetail() {
                 </div>
               ) : (
                 <div>
-                  <img
-                    className={styles.heartp}
-                    alt="heartp"
-                    src="/img/heartp.gif"
-                  />
-
+                
+                <img className={styles.stopheart} alt="stopheart" src="/img/stopheart.png" />
                   <img className={styles.fu} alt="fu" src={nftdata.image} />
                   <div className={styles.box}>
-                    <div className={styles.sbox} />
+              
+                    <div className={styles.sbox}>
+                    <div className={styles.text}>{nftdata.name}</div>
+                      </div>
                     <h1 className={styles.detailtext}>{nftdata.description}</h1>
                     <h1 className={styles.name}>Owner:</h1>
                     <div className={styles.owner}>{owner}</div>
@@ -311,11 +307,11 @@ function Shopdetail() {
                     <button className={styles.buy} onClick={saleButtonHandle}>
                       Sale
                     </button>
-                    <div className={styles.text}>{nftdata.name}</div>
+                    
                     <div className={styles.titletext}>{nftdata.name}</div>
                   </div>
 
-                  <Link to="/shop">
+                  <Link to="/mypage">
                     <button className={styles.backarrow}>➤</button>
                   </Link>
                   <h1 className={styles.FurnitureDetails}>Furniture Details</h1>
