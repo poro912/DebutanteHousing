@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 192.168.219.104 --port 5174",
+    "dev": "vite",
+    "orgdev" : "vite --port 5174",
+    "defdev": "vite --host 192.168.219.104 --port 5174",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
