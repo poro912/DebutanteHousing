@@ -136,10 +136,6 @@ const room = {
 
 		var conn = await db.getConnection();
 		await db.use.current(conn);
-
-		for (const item of items) {	
-			system.debug.print(item);
-		}
 		
 		items = room.convertPositionINT(items);
 		items = room.convertRotateINT(items);
@@ -229,7 +225,7 @@ const room = {
 			data = Math.floor(data / 100);
 			var x = data % 100;
 
-			obj[i]["rot"] = [x, y, z];
+			obj[i]["rot"] = [x, y-1, z];
 		}
 		return obj;
 	},

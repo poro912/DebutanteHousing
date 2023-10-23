@@ -73,6 +73,10 @@ const user = {
 					address : "A123456",
 					privateKey : "A12345678"
 				}*/
+				/*const newAccount ={
+					address : "0x11af0d9a75D96f8EF4D8cC29f04997C02B80120f",
+					privateKey : "1477052570c06e7a0577249cbb749e0a3b13bf78f5fea982aadc981c170d336d"
+				}*/
 				console.log(`New Account Address: ${newAccount.address}, New Account privateKey: ${newAccount.privateKey}`);
 				await db.use.current(conn);
 				temp = await db.execQuery(conn,`insert into new_wallet values(${code}, '${newAccount.address}','${newAccount.privateKey}')`);
