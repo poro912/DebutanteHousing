@@ -16,6 +16,8 @@
 const db = require('./DB_systeam').module;
 const system = require('./DHM_system').module;
 //const DHM_system = require('../System/DHM_system.js').module;
+const Web3 = require('web3');
+const web3 = new Web3(process.env.INFURA_URL);
 
 const user = {
 	info : {
@@ -30,6 +32,7 @@ const user = {
 	 * @todo	검증전
 	*/
 	joinIn : async (id, pw, name, nick, email, phone) => {
+		
 		let result = {
 			result : Boolean,
 			code: Number,
@@ -50,24 +53,49 @@ const user = {
 			result.nick = "";
 		}
 		else{
+			// usercode 가져오기
 			await db.use.personal(conn);
 			temp = await db.execQuery(conn,
 				`select code from user where id = "${id}";`
 			);
-			var code = temp[0].code;
-			
+
+			let code = temp[0].code;
 			system.debug.print(temp);
 			result.result = true;
 			result.code = temp[0].code;
 			result.id = id;
 			result.nick = nick;
 
+			// 지갑 생성 및 데이터 삽입
+			try{
+				const newAccount = await web3.eth.accounts.create();
+				/*const newAccount ={
+					address : "A123456",
+					privateKey : "A12345678"
+				}*/
+				console.log(`New Account Address: ${newAccount.address}, New Account privateKey: ${newAccount.privateKey}`);
+				await db.use.current(conn);
+				temp = await db.execQuery(conn,`insert into new_wallet values(${code}, '${newAccount.address}','${newAccount.privateKey}')`);
+			}
+			catch(e){
+				console.error(e);
+			}
+			
 			user.setEmail(code,email);
 			user.setPhone(code,phone);
 
-			temp = user.getInfo(temp[0].code);
-			result.user = temp.users;
+			//temp = user.getInfo(temp[0].code);
+			//result.user = temp.users;
+
+			/*await db.use.view(conn);
+			temp = await db.execQuery(conn,`select * from user_wallet_view where user_code = ${code}`);
+			result["wallet"] = temp[0];
+			*/
+			result = user.getInfo(code);
 		}
+		
+		db.deleteConnection(conn);
+
 		system.debug.print(result);
 		return result;
 	},
@@ -100,6 +128,8 @@ const user = {
 		if(undefined === temp[0]) temp = -1;
 		else temp = temp[0].code;
 
+		db.deleteConnection(conn);
+
 		return await user.getInfo(temp);
 	},
 
@@ -129,6 +159,8 @@ const user = {
 		temp = temp[0];
 
 		result = temp.nick;
+
+		db.deleteConnection(conn);
 
 		return result;
 	},
@@ -170,7 +202,17 @@ const user = {
 		else{
 			result.result = true;
 			result.users = temp[0];
+			
+			await db.use.view(conn);
+			temp = await db.execQuery(conn,`select * from user_wallet_view where user_code = ${code}`);
+			result["wallet"] = {
+				account : temp[0].account,
+				privateKey : temp[0].key
+			};
 		}
+
+		db.deleteConnection(conn);
+
 		return result;
 	},
 	getAllUserInfo : async () => {
@@ -189,10 +231,6 @@ const user = {
 
 		system.debug.print(temp);
 
-		for (const item of temp) {
-			console.log(item);
-		}
-
 		if (db.checkNodate(temp)) {
 			system.debug.printError(user.info.FILE + " login()", "sql no data")
 			// set error data
@@ -203,6 +241,9 @@ const user = {
 			result.result = true;
 			result.users = temp;
 		}
+
+		db.deleteConnection(conn);
+
 		return result;
 
 	},
@@ -212,6 +253,8 @@ const user = {
 		temp = await db.execQuery(conn,
 			`update user set email = "${email}" where code = "${code}";`
 		);
+
+		db.deleteConnection(conn);
 	},
 	setPhone : async(code, phone) =>{
 		var conn = await db.getConnection();
@@ -219,6 +262,8 @@ const user = {
 		temp = await db.execQuery(conn,
 			`update user set phone = "${phone}" where code = "${code}";`
 		);
+
+		db.deleteConnection(conn);
 	},
 	
 }

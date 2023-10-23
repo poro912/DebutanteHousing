@@ -54,22 +54,22 @@ INSERT INTO room (code, current_U_code, name, `like`)VALUES
 use db_function;
 set sql_safe_updates=0;
 -- 유저 추가
-call user_join('function_test_01','test01','test001','A');
-call user_join('function_test_02','test02','test002','B');
-call user_join('function_test_03','test03','test003','C');
-call user_join('function_test_04','test04','test004','D');
-call user_join('function_test_05','test05','test005','E');
-call user_join('function_test_06','test06','test006','F');
-call user_join('function_test_07','test07','test007','G');
-call user_join('function_test_08','test08','test008','H');
-call user_join('function_test_09','test09','test009','I');
-call user_join('function_test_10','test10','test010','J');
+-- call user_join('function_test_01','test01','test001','A');
+-- call user_join('function_test_02','test02','test002','B');
+-- call user_join('function_test_03','test03','test003','C');
+-- call user_join('function_test_04','test04','test004','D');
+-- call user_join('function_test_05','test05','test005','E');
+-- call user_join('function_test_06','test06','test006','F');
+-- call user_join('function_test_07','test07','test007','G');
+-- call user_join('function_test_08','test08','test008','H');
+-- call user_join('function_test_09','test09','test009','I');
+-- call user_join('function_test_10','test10','test010','J');
 
 SET @tmp = NULL;
 -- 방 추가
-call create_room('second room', 101, @tmp);
-call create_room('second room', 102, @tmp);
-call create_room('second room', 103, @tmp);
+-- call create_room('second room', 101, @tmp);
+-- call create_room('second room', 102, @tmp);
+-- call create_room('second room', 103, @tmp);
 
 
 -- NFT 등록
@@ -97,12 +97,30 @@ call supply_item(1, 4, 1);
 
 -- 아이템 배치
 use db_current
-insert room_item (r_code, i_code, position, rotate) values
+insert into room_item (r_code, i_code, position, rotate) values
 (1,106,120206,1),
 (1,107,010206,0),
 (1,108,051004,1),
 (1,109,160201,0);
 
+/*insert into new_room_item (r_code, i_url, position, rotate) values
+(1,"106",120206,1),
+(1,"107",010206,0),
+(1,"108",051004,1),
+(1,"109",160201,0);*/
+
+/*INSERT INTO new_wallet (u_code, account, private_key) VALUES
+(1,"1","1"),
+(2,"2","1"),
+(3,"3","1"),
+(4,"4","1");
+*/
+
+use db_function;
+set sql_safe_updates=0;
+call create_item(1, 1000,'', '원목 책상');
+call create_item(1, 1002,'', '원목 의자');
+call create_item(1, 1003,'', '원목 옷장');
 
 
 -- select * from db_current.room;

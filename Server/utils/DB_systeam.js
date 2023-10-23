@@ -37,14 +37,27 @@ const db={
 
 	getConnection : async () => {
 		var conn;
-		conn = await mysql.createConnection({
-			host: db.info.DBHOST,
-			user: "webuser",
-			password: "A12345678!",
-			database: "db_personal",
-		});
+		for(var i = 0 ; i < 5 ; i++){
+			try{
+				conn = await mysql.createConnection({
+					host: db.info.DBHOST,
+					user: "webuser",
+					password: "A12345678!",
+					database: "db_personal",
+				});
+			}
+			catch(e){
+				continue;
+			}
+			break;
+		}
 		return conn;
 	},
+
+	deleteConnection : (conn) => {
+		conn.end();
+	},
+
 	execQuery : async (conn, query) => {
 		var row, fields;
 		try {
@@ -56,6 +69,7 @@ const db={
 		//console.log(row);
 		return row;
 	},
+	
 	checkNodate : (target) =>{
 		if(Object.keys(target).length === 0){
 			return true;

@@ -2,10 +2,10 @@ const userRouter = require('./user/controller')
 const friendRouter = require('./friend/controller')
 const roomRouter = require('./room/controller')
 const storeRouter = require('./store/controller')
-const nftRouter = require('./nft/controller')
 const itemRouter = require('./item/controller')
 const editRouter = require('./edit/controller')
 const etcRouter = require('./etc/controller')
+const nftRouter = require('./contract/controller')
 
 
 /**
@@ -14,12 +14,12 @@ const etcRouter = require('./etc/controller')
  *       ex) 회원가입 등록 => '/user/signup' 요런 느낌
  */
 exports.route = (app)=>{
-    app.use('/user',      userRouter);
+    app.use('/user',		userRouter);
+    app.use('/room',		roomRouter);
     //app.use('/friend',    friendRouter);
-    app.use('/room',      roomRouter);
     //app.use('/store',     storeRouter);
-    //app.use('/nft',       nftRouter);
     //app.use('/item',      itemRouter);
     //app.use('/edit',      editRouter);
     //app.use('*',          etcRouter);
+    app.use('/nft',			nftRouter);
 }

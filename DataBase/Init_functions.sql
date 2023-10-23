@@ -161,6 +161,7 @@ BEGIN
   -- user 테이블
   INSERT INTO db_current.user (code, id, nick) VALUES (v_user_seq, v_id, v_nick);
 
+  -- ! 추후 삭제 예정
   -- wallet 테이블
   CALL create_wallet(v_user_seq, v_user_seq);
 
@@ -211,13 +212,6 @@ CREATE PROCEDURE supply_item (
 BEGIN
   DECLARE v_item_seq INT;
   DECLARE i INT;
-
-  -- DECLARE EXIT HANDLER FOR SQLEXCEPTION
-  -- BEGIN
-  --  ROLLBACK;
-  --  SIGNAL SQLSTATE '45000'
-  --    SET MESSAGE_TEXT = 'An error occurred during supply item procedure';
-  -- END;
   
   -- 만약 v_count가 0이하 또는 99초과라면 오류 처리
   IF v_count <= 0 OR v_count > 99 THEN
@@ -248,8 +242,93 @@ BEGIN
   COMMIT;
 END $$
 DELIMITER ;
+
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 아이템 생성
+  
+DROP PROCEDURE IF EXISTS create_item;
+set sql_safe_updates=0;
+DELIMITER $$
+CREATE PROCEDURE create_item (
+  IN v_r_code INT,
+  IN v_item_seq INT,
+  IN v_i_url VARCHAR(500),
+  IN v_name VARCHAR(50)
+)
+BEGIN
+  -- DECLARE v_item_seq INT;
+
+  -- 트랜잭션 시작
+  -- START TRANSACTION;
+
+  -- select_seq 함수를 통해 seq 번호를 얻는다.
+  -- CALL select_seq('item', 1, v_item_seq);
+
+  -- 만약 v_item_seq가 null 이라면 오류 처리
+  -- IF v_item_seq IS NULL THEN
+  --  SIGNAL SQLSTATE '45000'
+  --    SET MESSAGE_TEXT = 'Failed to obtain sequence number';
+  -- END IF;
+
+  -- db_current.item 테이블에 v_count 개수 만큼 item을 생성한다.
+  INSERT INTO db_current.new_room_item (r_code, code, i_url, name) VALUES (v_r_code, v_item_seq, v_i_url, v_name);
+
+  -- 모든 작업이 정상적으로 완료되었을 때만 커밋
+  -- COMMIT;
+END $$
+DELIMITER ;
 -- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 -- 아이템 배치
+
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 유저 삭제
+DROP PROCEDURE IF EXISTS user_delete;
+set sql_safe_updates=0;
+DELIMITER $$
+CREATE PROCEDURE user_delete (
+  IN v_code INT
+)
+BEGIN
+  DECLARE v_user_seq INT;
+  DECLARE v_room_seq INT;
+  
+  -- 선언된 변수들 초기화
+  SET v_user_seq = 0;
+  SET v_room_seq = 0;
+
+  -- 트랜잭션 시작
+  START TRANSACTION;
+  
+  -- wallet 테이블
+
+  delete from db_current.new_wallet where u_code = v_code;
+  delete from db_current.wallet where u_code = v_code;
+
+  -- delete from db_current.new_room_item where code = v_code;
+  delete from db_current.room_item where r_code = (select code from db_current.room where current_u_code = v_code);
+  delete from db_current.new_room_item where r_code = (select code from db_current.room where current_u_code = v_code);
+
+  -- room 테이블
+  delete from db_current.room where current_u_code = v_code;
+
+  -- user 테이블
+  delete from db_current.user where code = v_code;
+
+  -- db_personal의 user 테이블에 유저가 입력한 정보를 등록한다.
+  delete from db_personal.user where code = v_code;
+
+  -- 모든 작업이 정상적으로 완료되었을 때만 커밋
+  COMMIT;
+END $$
+DELIMITER ;
+
+-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+-- 유저 탈퇴
+
+-- call user_delete(125);
+
 
 
 

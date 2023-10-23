@@ -27,4 +27,4 @@ echo 필수데이터 삽입
 mysql -h localhost -u root -p%MYSQL_PASSWORD% < Init_InsertBaseData.sql
 
 echo 임시데이터 삽입
-mysql -h localhost -u root -p%MYSQL_PASSWORD% < Script_InsertTestData.sql
+REM mysql -h localhost -u root -p%MYSQL_PASSWORD% < Script_InsertTestData.sql
