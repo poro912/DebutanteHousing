@@ -38,11 +38,9 @@ const room = {
 
 		var conn = await db.getConnection();
 		await db.use.view(conn);
-		user_temp = await db.execQuery(conn, `select user_nick, room_name from room_view where room_code = "${code}";`);
+		user_temp = await db.execQuery(conn, `select user_nick, room_name, room_like, room_color from room_view where room_code = "${code}";`);
 		
 		system.debug.print(user_temp[0]);
-
-		db.deleteConnection(conn);
 
 		// 조회 결과 값 없음
 		if (db.checkNodate(user_temp) || code <= 0 ) {
@@ -58,9 +56,31 @@ const room = {
 			result.room_info = user_temp;
 			result.items = await room.getRoomItems(conn, code);
 		}
+
+		db.deleteConnection(conn);
 		return result;
 	},
+	changeColor : async(code, color) =>{
+		var result = {
+			result : false
+		};
+		system.debug.print("change color");
+		var conn = await db.getConnection();
+		await db.use.view(conn);
+		var temp = await db.execQuery(conn, `update room_view set room_color = ${color} where  room_code = "${code}";`);
+		db.deleteConnection(conn);
 
+		if(db.checkNodate(temp)){
+			system.debug.printError(room.info.FILE + " getInfo()", "sql no data")
+			result.result = false;
+		}
+		else{
+			result.result = true;
+			result = room.getRoomInfo(code);
+		}
+
+		return result;
+	},
 	placeItems : async (room_code, items) => {
 		system.debug.print("place Items function");
 		let result = true;
@@ -116,17 +136,13 @@ const room = {
 
 		var conn = await db.getConnection();
 		await db.use.current(conn);
-
-		for (const item of items) {	
-			system.debug.print(item);
-		}
 		
 		items = room.convertPositionINT(items);
 		items = room.convertRotateINT(items);
 
-		for (const item of items) {	
-			system.debug.print(item);
-		}
+		//for (const item of items) {	
+		//	system.debug.print(item);
+		//}
 		
 		var cnt = 0;
 
@@ -282,7 +298,30 @@ const room = {
 		// items_temp = room.convertPositionArray(items_temp);
 		// items_temp = room.convertRotateArray(items_temp);
 		return items_temp
-	}
+	},
+
+	like : async (room_code) => {
+		system.debug.print("like function");
+		system.debug.print();
+		let result = false;
+
+		if(room_code == 0 || room_code === undefined) return false;
+
+		var conn = await db.getConnection();
+		await db.use.view(conn);
+
+		user_temp = await db.execQuery(conn, `update room_view set room_like = room_like + 1 where room_code = ${room_code}`);
+		system.debug.print(user_temp[0]);
+
+		db.deleteConnection(conn);
+		
+		if(user_temp != undefined) {
+			result = true;
+			result = await room.getRoomInfo(room_code);
+		}
+
+		return result;
+	},
 }
 
 exports.module = room;

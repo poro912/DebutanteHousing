@@ -104,6 +104,27 @@ const Controller = {
 			return res.json(result);
 		});
     },
+	postMemberByWallet : (req, res) => {
+		system.debug.print('');
+
+        let data = req.body;
+        let form = {
+			wallet : data.wallet
+        };
+		let result = {};
+		system.debug.print('postMemberByWallet');
+		system.debug.print(form.wallet);
+		// 폼이 전부 채워져 있지 않다면
+		if(!system.form.checkFill(form))
+		{
+			// 모두 초기화 반환
+			form = system.form.addResult(form,false, "please pass me url parameter");
+			return res.json(form);
+		}
+		Model.getUserByWallet(res,form,(res, result)=>{
+			return res.json(result);
+		});
+	}
 }
 
 /**
@@ -115,6 +136,16 @@ Router.post('/signup', Controller.postSignup)
  * 회원정보 조회
  */
 Router.post('/member', Controller.postMember)
+
+// 추후 구현하기 기존의 데이터에 담아서 요청하는 방법을 url에 담아서 보내는 방법으로 변환
+// Router.post('/member/*', Controller.getMemberById)
+
+/**
+ * 지갑정보를 통해 유저정보 획득
+ */
+Router.post('/member/wallet', Controller.postMemberByWallet)
+// req.params[0]
+
 
 /**
  * 회원정보 수정

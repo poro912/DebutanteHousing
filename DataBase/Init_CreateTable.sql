@@ -80,6 +80,7 @@ CREATE TABLE room (
   current_u_code	INT			NOT NULL,
   name			VARCHAR(50)		NOT NULL,
   `like`		INT				NOT NULL DEFAULT 0,
+  color			INT				NOT NULL DEFAULT 0,
   
   PRIMARY KEY (code),
   FOREIGN KEY (current_u_code)	REFERENCES DB_current.user (code)
@@ -120,8 +121,8 @@ CREATE TABLE NEW_ROOM_ITEM (
   r_code		INT				NOT NULL,
   code			INT				NOT NULL,
   i_url			VARCHAR(500)	NOT NULL,
-  position	INT				NOT NULL DEFAULT 0,
-  rotate		INT		    NOT NULL DEFAULT 0,
+  position		INT				NOT NULL DEFAULT 0,
+  rotate		INT				NOT NULL DEFAULT 0,
   name			VARCHAR(50)		,
 
   PRIMARY KEY (r_code, code),
