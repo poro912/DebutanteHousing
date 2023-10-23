@@ -31,6 +31,7 @@ function Login() {
       <div>
      <Link to="/Join"><button className={styles.btn}>Join</button></Link>
      <Link to="/test"><button className={styles.btn2}>Login</button></Link>
+     <Link to="/Home"><div className={styles.guest}>Guest</div></Link>
      </div>
      
  
@@ -49,6 +50,7 @@ function Login() {
   </div>
   </div>
   <img className={styles.heartp} alt="heartp" src="./img/heartp.gif" />
+
   </div>;
 }
 

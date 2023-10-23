@@ -126,6 +126,7 @@ function Join() {
           <button className={styles.btn2}>Join</button>
     <button className={styles.btn3}>Login</button>
     <h1 className={styles.Join}>Join</h1>
+    <button className={styles.guest}>Guest</button>
     
   
   <div>

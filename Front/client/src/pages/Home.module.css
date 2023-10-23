@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255);
+
 }
 
 .fonts{
@@ -9,9 +9,11 @@ body {
 .name{
   position: relative;
   display: inline-block;
-  font-family: 'Dancing Script';
+  font-weight: bold;
+  font-family: 'omyu_pretty';
   font-size: 4rem;
   vertical-align: top;
+  white-space: nowrap;
 }
 
 .storage{
@@ -48,21 +50,23 @@ font-size: 30px;
 }
 
 .shopImg {
-  width: 4vw;
+  width: 6vw;
   position: relative;
-  top: 38vh;
-  left: 10vw;
+  top: 32vh;
+  left: 5vw;
   text-align: center;
   font-size: 1.5rem;
+  font-family: 'omyu_pretty';
 }
 
 .firendImg{
-  width: 4vw;
+  width: 6vw;
   position: relative;
-  top: 38vh;
+  top: 32vh;
   left: 70vw;
   font-size: 1.5rem;
   text-align: center;
+  font-family: 'omyu_pretty';
 }
 
 .iconCon {
@@ -114,3 +118,33 @@ font-size: 30px;
   min-height: 100%;
   z-index: -9999;
 }
+
+.icons {
+  display: flex; /* 이미지와 텍스트를 가로로 정렬합니다. */
+  align-items: center; /* 세로 중앙 정렬을 수행합니다. */
+  margin: 5px; /* 아이콘 사이에 약간의 간격을 부여합니다. */
+}
+
+.icons img {
+  width: 50px; /* 이미지의 너비를 50px로 설정합니다. */
+  height: 50px; /* 이미지의 높이를 50px로 설정합니다. */
+  border: 2px solid #000; /* 2px 굵기의 테두리를 만듭니다. */
+  border-radius: 20%; /* 둥근 모서리를 생성합니다. 50%는 원 형태를 의미합니다. */
+}
+
+.likeCom {
+  display: flex; 
+  align-items: center; 
+}
+
+.likeImg {
+  margin-right: 10px;
+  width: 2.5vw;
+}
+
+.likeCnt {
+  font-family: 'omyu_pretty';
+  font-size: 1.5vw;
+  color: #d77676
+}
+

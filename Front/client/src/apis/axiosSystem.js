@@ -62,3 +62,17 @@ export const dele = (page, data, callback) => {
 		callback(error, null); // 실패 시 콜백 호출
 	});
 }
+
+export const cpost = (page, data, messge, callback) => {
+	
+	axios
+	.post(info.GenURL() + page, data)
+	.then(response => {
+		callback(null, response.data); // 성공 시 콜백 호출
+		alert(messge+" 성공했습니다")
+	})
+	.catch(error => {
+		callback(error, null); // 실패 시 콜백 호출
+		alert(messge+" 실패했습니다")
+	});
+}

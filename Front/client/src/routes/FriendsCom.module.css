@@ -5,11 +5,12 @@
 }
 
 .Name {
-  font-size: 7vh;
+  font-size: 5vh;
   font-weight: bold;
-  font-family: 'Dancing Script';
-  color: rgb(255, 233, 162);
-  text-shadow: 2px 2px 2px rgba(94, 91, 50, 0.603);
+  font-family: 'omyu_pretty';
+  color:#ceddd4;
+  text-shadow: 2px 2px 2px #818d85,
+  2px 2px 2px rgb(95, 87, 87);
   position: relative;
   
 }
@@ -30,11 +31,11 @@
   color: rgba(56, 50, 17, 0.808);
   text-shadow: 3px 3px 2px rgb(172, 151, 151);
   margin-top: 8%;
-  margin-left: 20%;
+  margin-left: 1vh;
 }
 
 .heartp {
-  margin-top: 15%;
+  margin-top: 10%;
   margin-right: 2%;
   width: 2.5vw;
   height: 5vh;

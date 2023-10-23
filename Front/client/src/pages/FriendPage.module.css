@@ -13,8 +13,28 @@
   }
 
 .name{
-    font-family: 'Dancing Script';
+    font-weight: bold;
+    font-family: 'omyu_pretty';
     font-size: 4rem;
     vertical-align: top;
     margin-left: 20%;
+    white-space: nowrap;
   }
+
+  .likeCom {
+    display: flex; 
+    align-items: center; 
+    margin-top: 30px;
+  }
+  
+  .likeImg {
+    margin-right: 10px;
+    width: 2.5vw;
+  }
+  
+  .likeCnt {
+    font-family: 'omyu_pretty';
+    font-size: 1.5vw;
+    color: #d77676
+  }
+  
