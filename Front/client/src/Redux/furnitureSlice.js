@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const furnitureSlice = createSlice({
   name: 'furniture',
   initialState: {
-    items: [{ code: 0, name:"Fudata.name", url: "./glb/test/bed1_lightgreen.glb", pos: [-0.08, -0.2, 0.12], rot: [0, 0, 0] }, { code: 1, name:"Fudata.name", url: "./glb/test/chair1_lightgreen.glb", pos: [0.15, -0.2, -0.09], rot: [0, 0, 0] },
-            { code: 2, name:"Fudata.name", url: "./glb/test/closet2_lightgreen.glb", pos: [-0.10, -0.2, -0.14], rot: [0, 0, 0] }],
+    items: [{ code: 0, name:"Fudata.name", url: "./glb/test/bed1_lightgreen.glb", pos: [-0.08, -0.2, 0.06], rot: [0, 0, 0] }, { code: 1, name:"Fudata.name", url: "./glb/test/chair1_lightgreen.glb", pos: [0.15, -0.2, -0.09], rot: [0, 0, 0] },
+            { code: 2, name:"Fudata.name", url: "./glb/test/closet2_lightgreen.glb", pos: [-0.10, -0.2, -0.14], rot: [0, 0, 0] }, { code: 3, name:"Fudata.name", url: "./glb/test/cactus.glb", pos: [-0.16, -0.2, 0.16], rot: [0, 0, 0] }],
   },
   reducers: {
     addFurniture: (state, action) => {
