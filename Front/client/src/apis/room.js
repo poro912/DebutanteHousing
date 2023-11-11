@@ -48,6 +48,17 @@ export function like(code, callback) {
 		,callback);
 }
 
+export function comment(room_code, user_code, content, callback) {
+	console.log("댓글")
+	if (user_code == 0)
+		user_code = 1;
+
+	post('room/comment',
+		{room_code:room_code, 
+		user_code:user_code,
+		content:content}
+		,callback);
+}
 
 
 export function genVector(x, y, z){
