@@ -54,7 +54,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS select_comment_seq;
 DELIMITER $$
 CREATE PROCEDURE select_comment_seq (
-  IN r_code int,
+  IN v_r_code int,
   OUT v_code INT
 )
 BEGIN
@@ -64,13 +64,13 @@ BEGIN
   START TRANSACTION;
 
   -- db_identification에서 comment 테이블의 r_code 튜플이 존재하는지 확인 후 없으면 생성한다.
-  INSERT IGNORE INTO db_identification.comment (r_code) VALUES (r_code);
+  INSERT IGNORE INTO db_identification.comment (r_code) VALUES (v_r_code);
 
   -- db_identification에서 comment 테이블의 r_code 칼럼의 count 값을 획득한다.
-  SELECT `count` INTO v_count FROM db_identification.comment WHERE r_code = r_code;
+  SELECT `count` INTO v_count FROM db_identification.comment WHERE r_code = v_r_code;
 
   -- comment 테이블의 r_code 칼럼의 count값을 1 증가시킨다.
-  UPDATE db_identification.comment SET count = count + 1 WHERE r_code = r_code;
+  UPDATE db_identification.comment SET count = count + 1 WHERE r_code = v_r_code;
 
   -- 얻은 count값 반환
   SET v_code = v_count;
@@ -350,9 +350,9 @@ DELIMITER ;
 
 -- select * from db_identification.comment;
 
--- SET @seq = NULL;
--- CALL select_comment_seq(101, @seq);
--- SELECT @seq;
+-- SET @v_code = NULL;
+-- CALL db_function.select_comment_seq(10, @v_code);
+-- SELECT @v_code;
 
 
 

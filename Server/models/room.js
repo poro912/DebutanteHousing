@@ -186,7 +186,7 @@ const room ={
 	},
 
 	postComment : async(res, form, callback)=>{
-		let ret = {
+		var ret = {
 			result: Boolean,
 		};
 
@@ -195,10 +195,12 @@ const room ={
 
 		ret.result = await db_room.registComment(form.room_code, form.user_code, form.content);
 
-		if(ret.result){
+		//system.debug.print(ret.result);
+
+		if(ret.result === true){
 			ret = await db_room.getRoomInfo(form.room_code);
 		}
-		
+
 		if("function" === typeof callback){	
 			callback(res, ret);
 		}

@@ -55,7 +55,7 @@ const room = {
 			result.result = true;
 			result.room_info = user_temp;
 			result.items = await room.getRoomItems(conn, code);
-			result.comment = await room.getComment(conn,code);
+			result.comment = await room.getComment(conn, code);
 		}
 
 		db.deleteConnection(conn);
@@ -320,9 +320,12 @@ const room = {
 	},
 
 	getComment : async(conn,room_code) => {
+		system.debug.print("getComment function");
 		const attribute = "comment_code, time, user_nick, content";
 		
-		comment_temp = await db.execQuery(conn, `select ${attribute} from room_comment_user_view where room_code = "${room_code}";`);
+		var comment_temp = await db.execQuery(conn, `select ${attribute} from room_comment_user_view where room_code = ${room_code};`);
+		
+		system.debug.print(comment_temp);
 		return comment_temp;
 	},
 
@@ -332,10 +335,13 @@ const room = {
 
 		var conn = await db.getConnection();
 		await db.use.func(conn);
-		
-		result  = await db.execQuery(conn, 
-			`call regist_comment(${room_code}, '${user_code}', '${content}');`);
 
+		result  = await db.execQuery(conn, 
+			`call regist_comment(${room_code}, ${user_code}, '${content}');`);
+
+		system.debug.print(result);
+		system.debug.print(result[0]);
+		
 		db.deleteConnection(conn);
 		return result;
 	},
