@@ -55,6 +55,7 @@ const room = {
 			result.result = true;
 			result.room_info = user_temp;
 			result.items = await room.getRoomItems(conn, code);
+			result.comment = await room.getComment(conn,code);
 		}
 
 		db.deleteConnection(conn);
@@ -292,11 +293,6 @@ const room = {
 		items_temp = await db.execQuery(conn, `select code, url, name, pos, rot from room_item_view where room_code = "${code}";`);
 		items_temp = room.convertPositionArray(items_temp);
 		items_temp = room.convertRotateArray(items_temp);
-
-
-		// items_temp = await db.execQuery(conn, `select item_code as id , nft_code, item_name, item_path, position as pos, rotate as rot from room_item_nft_view where room_code = "${code}";`);
-		// items_temp = room.convertPositionArray(items_temp);
-		// items_temp = room.convertRotateArray(items_temp);
 		return items_temp
 	},
 
@@ -320,6 +316,27 @@ const room = {
 			result = await room.getRoomInfo(room_code);
 		}
 
+		return result;
+	},
+
+	getComment : async(conn,room_code) => {
+		const attribute = "comment_code, time, user_nick, content";
+		
+		comment_temp = await db.execQuery(conn, `select ${attribute} from room_comment_user_view where room_code = "${room_code}";`);
+		return comment_temp;
+	},
+
+	registComment : async(room_code, user_code, content) =>{
+		system.debug.print("registComment function");
+		let result = true;
+
+		var conn = await db.getConnection();
+		await db.use.func(conn);
+		
+		result  = await db.execQuery(conn, 
+			`call regist_comment(${room_code}, '${user_code}', '${content}');`);
+
+		db.deleteConnection(conn);
 		return result;
 	},
 }

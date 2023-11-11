@@ -54,7 +54,7 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS select_comment_seq;
 DELIMITER $$
 CREATE PROCEDURE select_comment_seq (
-  IN r_code VARCHAR(255),
+  IN r_code int,
   OUT v_code INT
 )
 BEGIN
@@ -64,13 +64,13 @@ BEGIN
   START TRANSACTION;
 
   -- db_identification에서 comment 테이블의 r_code 튜플이 존재하는지 확인 후 없으면 생성한다.
-  INSERT IGNORE INTO comment (r_code) VALUES (r_code);
+  INSERT IGNORE INTO db_identification.comment (r_code) VALUES (r_code);
 
   -- db_identification에서 comment 테이블의 r_code 칼럼의 count 값을 획득한다.
-  SELECT COUNT(*) INTO v_count FROM comment WHERE r_code = r_code;
+  SELECT `count` INTO v_count FROM db_identification.comment WHERE r_code = r_code;
 
   -- comment 테이블의 r_code 칼럼의 count값을 1 증가시킨다.
-  UPDATE comment SET count = count + 1 WHERE r_code = r_code;
+  UPDATE db_identification.comment SET count = count + 1 WHERE r_code = r_code;
 
   -- 얻은 count값 반환
   SET v_code = v_count;
@@ -178,21 +178,19 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS regist_comment;
 DELIMITER $$
 CREATE PROCEDURE regist_comment (
-  IN v_r_code VARCHAR(255),
-  IN v_comment_text VARCHAR(255),
-  OUT v_result INT
+  IN v_r_code INT,
+  IN v_u_code INT,
+  IN v_comment_text VARCHAR(255)
 )
 BEGIN
   DECLARE v_seq INT;
 
   -- select_comment_seq 함수를 통해 seq 번호를 얻는다.
-  SET v_seq = select_comment_seq(v_r_code);
+  CALL select_comment_seq(v_r_code,v_seq);
 
   -- db_record에서 comment 테이블에 값을 저장한다.
-  INSERT INTO db_record.comment (comment_id, r_code, comment_text) VALUES (v_seq, v_r_code, v_comment_text);
+  INSERT INTO db_record.comment (`code`, r_code, u_code, `comment`, `datetime`, deleted) VALUES (v_seq, v_r_code, v_u_code, v_comment_text, NOW(), FALSE);
 
-  -- 저장 결과를 반환한다.
-  SET v_result = v_seq;
 END $$
 DELIMITER ;
 
@@ -349,3 +347,17 @@ DELIMITER ;
 -- select * from db_current.room;
 -- select * from db_current.item;
 -- call supply_item(1,1,2);
+
+-- select * from db_identification.comment;
+
+-- SET @seq = NULL;
+-- CALL select_comment_seq(101, @seq);
+-- SELECT @seq;
+
+
+
+-- call regist_comment(room_code, user_code, content);
+-- call db_function.regist_comment(101, 1, "hello this is first comment");
+-- call regist_comment(101, 1, "hello this is first comment");
+
+
