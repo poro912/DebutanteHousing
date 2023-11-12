@@ -1,0 +1,54 @@
+/* ChatItem.module.css */
+
+.chat {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.chatLable {
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  margin-bottom: 5px; /* Add margin between the chat bubble and username/time */
+}
+
+.chatnick {
+  font-weight: bold;
+  font-size: 22px;
+  font-family: 'omyu_pretty';
+}
+
+.chattime {
+  font-size: 0.8em;
+  color: #888;
+}
+
+.chatCont {
+  font-family: 'omyu_pretty';
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  background-color: #e6e6e6;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Create triangular shapes on both sides of the chat bubble */
+.chatCont::before,
+.chatCont::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  border-style: solid;
+  width: 0;
+  height: 0;
+}
+
+/* Left triangular shape */
+.chatCont::before {
+  left: 10px;
+  border-width: 0 10px 10px 0;
+  border-color: transparent #e6e6e6 transparent transparent;
+}
+

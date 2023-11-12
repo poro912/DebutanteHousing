@@ -32,8 +32,7 @@ body {
     padding: 4px 12px;  
     font-size: 12px;
     font-family: 'BookkMyungjo-Bd';
-    
-    
+     
 
 }
 
@@ -81,6 +80,7 @@ font-size: 30px;
   display: flex;
   justify-content: space-between; /* 요소 사이에 공간을 배분하여 가로로 배치 */
   align-items: center; /* 요소를 수직 중앙에 정렬 */
+  padding-left: 9rem;
 }
 
 /* display: inline-block;을 사용한 예제 */
@@ -146,5 +146,115 @@ font-size: 30px;
   font-family: 'omyu_pretty';
   font-size: 1.5vw;
   color: #d77676
+}
+
+.sidebar {
+  
+  position: fixed;
+  top: 50%;
+  left: 80px;
+  transform: translate(-50%, -50%);
+}
+
+
+.sidebar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* Adjust the width as needed */
+  height: 150px; /* Set the height equal to the width */
+  margin: 10%;
+  padding: 15%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(235, 235, 235, 0.222);
+  border-radius: 10px;
+}
+
+.sidebar img {
+  max-width: 100%; /* Ensure the image doesn't exceed the container */
+}
+
+.sidebar button {
+  font-family: 'omyu_pretty';
+  font-size: 20px;
+}
+
+
+.LRcom{
+  display: flex;
+  position: relative;
+}
+
+
+.chatCom {
+  position: fixed;
+  width: 20vw;
+  bottom: 0;
+  right: 0;
+  margin: 16px; /* Adjust margin as needed */
+  background-color: rgba(255, 255, 255, 0.7); /* Set a background color with 30% opacity */
+  padding: 16px; /* Add padding if necessary */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+  border-radius: 15px; /* Adjust the border-radius as needed for rounded corners */
+}
+
+.chatList {
+  width: 98%;
+  max-height: 80vh; /* 최대 높이를 지정하여 화면을 넘어가면 스크롤이 생성되도록 합니다. */
+  overflow-y: auto; /* 세로 스크롤을 적용합니다. */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* 추가된 부분: 스크롤 스타일 조정 */
+.chatList::-webkit-scrollbar {
+  width: 12px; /* 스크롤의 너비 */
+}
+
+.chatList::-webkit-scrollbar-thumb {
+  background-color: #888; /* 스크롤 바의 색상 */
+  border-radius: 10px; /* 스크롤 바의 모서리 반경 */
+}
+
+.chatList::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* 스크롤 트랙의 색상 */
+}
+
+.chatIn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3%;
+  padding: 10px;
+  background-color: rgba(240, 240, 240, 0.274); /* Set a slightly transparent background color */
+  border-radius: 10px; /* Add border-radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.chatInBox {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc; /* Add your desired border styles */
+  border-radius: 5px;
+  margin-right: 10px; /* Adjust the margin based on your design */
+}
+
+.chatpl button {
+  background-color: rgba(76, 140, 175, 0.8); /* Set a slightly transparent button background color */
+  color: white; /* Add your desired button text color */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px; /* Adjust the margin based on your design */
+}
+
+.chatLable{
+  display: flex;
+  position: relative;
+}
+
+.chatCont{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
