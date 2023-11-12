@@ -1,8 +1,9 @@
 .background{
-  background-color: #ffffff1c;
+  background-color:#ffe9c017;
   height: 100vh;
-  
+  z-index: 0;
 }
+
 
 .btn{
   color: white; 
@@ -53,12 +54,12 @@
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: #9D8189;  
-      padding: 0.5vh 3vw;    
+      padding:  1vh 14.5vw;   
         font-size: 2vh;
         font-family: 'omyu_pretty';
         position: fixed;
-        top: 58%;
-        left: 46%;
+        top: 48%;
+        left: 34.5%;
           z-index: 5;
           animation: fadeOut 2s forwards;
           opacity: 0;
@@ -78,43 +79,18 @@
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: #9D8189;  
-      padding: 1vh 7vw;  
+      padding: 1vh 14.4vw;    
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-      top: 49%;
-      left: 33%;
+      top: 56%;
+      left: 34.5%;
         z-index: 5;
         animation: fadeOut 2s forwards;
         opacity: 0;
         border-radius: 30px;
     }
            
-    .guest{
-      color: white; 
-      display: inline-block;
-      border: 1px solid rgba(63, 63, 63, 0.21);
-      border-bottom-color: rgba(165, 165, 165, 0.34);
-      text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
-      box-shadow: 3px 3px 2px rgb(139, 129, 129),
-                  0 1px 0 rgba(255,255,255,0.34) inset, 
-                  0 3px 0 -1px rgba(0,0,0,0.13), 
-                  0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-                  0 3px 13px -1px rgba(14, 11, 11, 0.21);
-        background-color: #9D8189;    
-        padding: 1vh 7vw;  
-        font-size: 2vh;
-        font-family: 'omyu_pretty';
-        position: fixed;
-          top: 49%;
-          left: 51%;
-          z-index: 5;
-          animation: fadeOut 2s forwards;
-          border-radius: 5vh;
-          opacity: 0;
-    }
-        
-
 
 
 .id::placeholder {
@@ -142,11 +118,10 @@
   left: 45%;
   width : 20vh;
       z-index: 5;
-
       color:#ceddd4;
       background-color: rgb(255, 255, 255);
       font-family: 'omyu_pretty';
-      font-size: 3.5vh;
+      font-size: 4vh;
       text-align: center;
       border-radius: 15px;
       background-color: transparent;
@@ -165,7 +140,7 @@
         color:#ffb7c1;
         background-color: rgb(255, 255, 255);
         font-family: 'omyu_pretty';
-        font-size: 3.5vh;
+        font-size: 4vh;
         text-align: center;
         border-radius: 15px;
         background-color: transparent;
@@ -186,7 +161,7 @@
         color:#abbadb;
         background-color: rgb(255, 255, 255);
         font-family: 'omyu_pretty';
-        font-size: 4vh;
+        font-size: 4.5vh;
         text-align: center;
         border-radius: 15px;
         background-color: transparent;
@@ -269,7 +244,7 @@
   .Login{
     position: relative;
     width: 26vw;
-    top: 4vh;
+    top: 3vh;
     left: 13.2vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;

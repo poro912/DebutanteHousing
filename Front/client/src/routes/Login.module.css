@@ -43,11 +43,11 @@
 }
 
 .background{
-    background-color: #ffffff1c;
+    background-color:#ffe9c017;
     height: 100vh;
-    
-}
-
+    z-index: 0;
+  }
+  
 
 .sbox{
     position: relative;
@@ -95,7 +95,7 @@
 .Login{
     position: relative;
     width: 26vw;
-    top: 4vh;
+    top: 3vh;
     left: 13.2vw;
     font-family: 'TheJamsil5Bold';
     font-size: 10vh;
@@ -196,12 +196,12 @@ input:focus::placeholder{
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: #9D8189;  
-      padding: 0.5vh 3vw;  
+      padding:  1vh 14.5vw; 
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-         top: 58%;
-        left: 46%;
+      top: 48%;
+      left: 34.5%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
         border-radius: 5vh;
@@ -216,8 +216,8 @@ input:focus::placeholder{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 58%;
-    left: 46%;
+    top: 48%;
+    left: 34.5%;
     z-index: 5;
     background-color: #503f44; 
 }
@@ -234,12 +234,12 @@ input:focus::placeholder{
                 0 4px 0 -1px rgba(51, 46, 46, 0.08), 
                 0 3px 13px -1px rgba(14, 11, 11, 0.21);
       background-color: #9D8189;  
-      padding: 1vh 7vw;  
+      padding: 1vh 14.4vw;  
       font-size: 2vh;
       font-family: 'omyu_pretty';
       position: fixed;
-        top: 49%;
-        left: 33%;
+        top: 56%;
+        left: 34.5%;
         z-index: 5;
         animation: fadeInAndStay 2s forwards 11s; 
         border-radius: 5vh;
@@ -255,8 +255,8 @@ input:focus::placeholder{
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
     position: fixed;
-    top: 49%;
-        left: 33%;
+    top: 56%;
+    left: 34.5%;
     z-index: 5;
     background-color: #503f44;  
 }
@@ -271,41 +271,5 @@ input:focus::placeholder{
       overflow: hidden;
     }
 
-.guest{
-    color: white; 
-    display: inline-block;
-    border: 1px solid rgba(63, 63, 63, 0.21);
-    border-bottom-color: rgba(165, 165, 165, 0.34);
-    text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
-    box-shadow: 3px 3px 2px rgb(139, 129, 129),
-                0 1px 0 rgba(255,255,255,0.34) inset, 
-                0 3px 0 -1px rgba(0,0,0,0.13), 
-                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-                0 3px 13px -1px rgba(14, 11, 11, 0.21);
-      background-color: #9D8189;    
-      padding: 1vh 7vw;  
-      font-size: 2vh;
-      font-family: 'omyu_pretty';
-      position: fixed;
-        top: 49%;
-        left: 51%;
-        z-index: 5;
-        animation: fadeInAndStay 2s forwards 11s; 
-        border-radius: 5vh;
-        opacity: 0;
-}
-.guest:hover{
-    background-color: #7a6269; 
-}
-
-.guest:active{top: 1px;
-    border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-    box-shadow: 3px 3px 2px rgb(114, 102, 102), 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: fixed;
-    top: 49%;
-        left: 51%;
-    z-index: 5;
-    background-color: #503f44;  
-}
 
 

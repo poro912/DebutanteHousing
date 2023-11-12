@@ -1,8 +1,8 @@
 /* FurnitureCom.module.css */
 .duiContainer {
   position: relative;
-  top: 25vh;
-  left: 7vw;
+  top: 26vh;
+  left: 8.5vw;
 }
 
 /* 추가 */
@@ -29,6 +29,7 @@
     -3px -3px 10px rgba(255, 238, 244, 0.719);
   z-index: 0;
   margin-bottom: 10vh;
+  margin-left: -1vh;
 }
 
 .fu {
@@ -58,7 +59,7 @@
   width: 5vw;
   height: 10vh;
   top: -4.5vh;
-  left: 4.2vw;
+  left: 4.1vw;
   z-index: 2;
 }
 

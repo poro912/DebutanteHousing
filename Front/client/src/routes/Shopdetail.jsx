@@ -245,6 +245,8 @@ function Shopdetail() {
             <div>
               {!isowner ? (
                 <div>
+                    <div className={styles.background}>
+                      </div>
                   <img className={styles.stopheart} alt="stopheart" src="/img/stopheart.png" />
                   <img className={styles.fu} alt="fu" src={nftdata.image} />
                   <div className={styles.box}>
@@ -337,7 +339,7 @@ function Shopdetail() {
       ) : (
         <div>
        
-      
+     
         </div>
       )}
     </div>

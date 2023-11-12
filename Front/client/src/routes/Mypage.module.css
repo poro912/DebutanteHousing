@@ -1,7 +1,7 @@
 
 
 .background{
-  background-color: rgb(255, 255, 255);
+  background-color:#ffe9c017;
   height: 100vh;
   z-index: 0;
 }
@@ -121,16 +121,13 @@
   .leftContent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 8vh;
+    grid-column-gap: 9.5vh;
     grid-row-gap: 2vh;
     justify-content: start;
     position: absolute;
     top: 10%;
     left: -3.5%;
     flex: 1;
-    
-    
-    
   }
 
   .rightContent {

@@ -1,5 +1,5 @@
 .background{
-  background-color: rgba(255, 255, 255, 0.651);
+  background-color: #ffe9c017;
   height: 100vh;
   z-index: 0;
 }
@@ -67,7 +67,6 @@
   
   .imageContainer {
     display: flex;
-    
     gap: 20px; /* 아이템 간 간격 설정 */
   }
 
@@ -128,11 +127,11 @@
 .furnitureWrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 3vw;
+  grid-column-gap: 3.5vw;
   grid-row-gap: 3.5vh;
   justify-content: start;
   position: absolute;
   top: -3%;
-  left: -2%;
+  left: -4.5%;
 }
 
