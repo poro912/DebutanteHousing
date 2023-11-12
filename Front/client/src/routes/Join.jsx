@@ -47,9 +47,11 @@ function Join() {
             }
           }
         );
+        setIsLoding(false);
       });
     } catch (error) {
       console.error("에러 발생:", error);
+      setIsLoding(false);
       // 에러 처리를 원하는 대로 수행합니다.
     }
   }
@@ -84,11 +86,9 @@ function Join() {
       await new Promise((resolve, reject) => {
         sendEther(recipient, (error, responseData) => {
           if (error) {
-			setIsLoding(false);
             console.error("sendEther 실패");
             reject(error);
           } else {
-			setIsLoding(false);
             console.log("sendEther 성공: ", responseData);
             resolve(responseData);
 			navigate("/test");
@@ -97,7 +97,6 @@ function Join() {
       });
       console.log(recipient);
     } catch (error) {
-		setIsLoding(false);
       console.error("에러 발생:", error);
       // 에러 처리를 원하는 대로 수행합니다.
     }
