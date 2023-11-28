@@ -142,7 +142,7 @@ function Login() {
           <h1 className={styles.Login}>Login</h1>
           <button className={styles.btn}>Join</button>
           <button className={styles.btn2}>Login</button>
-          <button className={styles.guest}>Guest</button>
+
 
           <div>
             <form onSubmit={LogSubmit}>

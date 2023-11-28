@@ -84,6 +84,7 @@ function Shop() {
       
       <div className={styles.itemsContainer}>
       <div className={styles.box}>
+        
       <form onSubmit={onSubmit}>
         <input className={styles.searchbar}
           onChange={onChange}

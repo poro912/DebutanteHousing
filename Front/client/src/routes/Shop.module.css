@@ -1,8 +1,9 @@
 .background{
-  background-color: rgba(255, 255, 255, 0.651);
+  background-color: #ffe9c017;
   height: 100vh;
   z-index: 0;
 }
+
 
 .searchbar{
   position: fixed;
@@ -66,7 +67,6 @@
   
   .imageContainer {
     display: flex;
-    
     gap: 20px; /* 아이템 간 간격 설정 */
   }
 
@@ -122,31 +122,16 @@
   
 }
 
-.upheart{
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  left: 0vh;
-  top: 0vh;
-  z-index: -2;
-}
-.upheart2{
-  position: fixed;
-  width: 50vw;
-  height: 100vh;
-  left: 110vh;
-  top: 0vh;
-  z-index: -2;
-}
+
 
 .furnitureWrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 3vw;
+  grid-column-gap: 3.5vw;
   grid-row-gap: 3.5vh;
   justify-content: start;
   position: absolute;
   top: -3%;
-  left: -2%;
+  left: -4.5%;
 }
 
