@@ -184,6 +184,30 @@ const room ={
 			return ret;
 		}
 	},
+
+	postComment : async(res, form, callback)=>{
+		var ret = {
+			result: Boolean,
+		};
+
+		system.debug.print("model room.postComment");
+		system.debug.print("attempt posting comment");
+
+		ret.result = await db_room.registComment(form.room_code, form.user_code, form.content);
+
+		//system.debug.print(ret.result);
+
+		if(ret.result === true){
+			ret = await db_room.getRoomInfo(form.room_code);
+		}
+
+		if("function" === typeof callback){	
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
+	},
 }
 
 exports.module = room;

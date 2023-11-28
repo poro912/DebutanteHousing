@@ -156,6 +156,31 @@ const Controller = {
 			color : data.color,
         };
 
+		// 폼이 전부 채워져 있지 않다면
+		if(!system.form.checkFill(form))
+		{
+			// 모두 초기화 반환
+			form = system.form.init(form);
+			form = system.form.addResult(form,false, "please follow this form");
+			return res.json(form);
+		}
+
+		Model.changeColor(res,form,(res, result)=>{
+			return res.json(result);
+		});
+	},
+
+	postComment : (req, res) =>{
+		// 방 색상 변경
+        system.debug.print('postComment');
+
+        let data = req.body;
+        var form = {
+            room_code : data.room_code,
+			user_code : data.user_code,
+			content : data.content,
+        };
+
 		system.debug.print(form);
 
 		// 폼이 전부 채워져 있지 않다면
@@ -167,7 +192,7 @@ const Controller = {
 			return res.json(form);
 		}
 
-		Model.changeColor(res,form,(res, result)=>{
+		Model.postComment(res,form,(res, result)=>{
 			return res.json(result);
 		});
 	},
@@ -202,5 +227,10 @@ Router.put('/like/*', Controller.putLike);
  * 방 색상 변경
  */
 Router.put('/color', Controller.putChangeColor);
+
+/*
+ * 방에 좋아요 표시
+ */
+Router.post('/comment', Controller.postComment);
 
 module.exports = Router;
