@@ -73,6 +73,10 @@ const user = {
 					address : "A123456",
 					privateKey : "A12345678"
 				}*/
+				/*const newAccount ={
+					address : "0x11af0d9a75D96f8EF4D8cC29f04997C02B80120f",
+					privateKey : "1477052570c06e7a0577249cbb749e0a3b13bf78f5fea982aadc981c170d336d"
+				}*/
 				console.log(`New Account Address: ${newAccount.address}, New Account privateKey: ${newAccount.privateKey}`);
 				await db.use.current(conn);
 				temp = await db.execQuery(conn,`insert into new_wallet values(${code}, '${newAccount.address}','${newAccount.privateKey}')`);
@@ -280,15 +284,11 @@ const user = {
 
 		var conn = await db.getConnection();
 		await db.use.view(conn);
-		
-		wallet = wallet.slice(0,-1);
 
 		// sql injection 취약점
-		system.debug.print(`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
+		// system.debug.print(`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
 		temp = await db.execQuery(conn,`select user_code, id, nick, profile, account from user_wallet_view where account = '${wallet}'`);
 		
-		system.debug.print(temp[0]);
-
 		// 조회 결과 값 없음
 		if (db.checkNodate(temp) || wallet <= "" || wallet == undefined) {
 			system.debug.printError(user.info.FILE + " getInfoByWallet()", "sql no data")
@@ -299,11 +299,12 @@ const user = {
 			result.room = -1;
 		}
 		else{
-			result = temp[0];
+			system.debug.print(temp[0]);
+			result.users = temp[0];
+			result.result = true;
 		}
 
 		db.deleteConnection(conn);
-
 		return result;
 	}
 	

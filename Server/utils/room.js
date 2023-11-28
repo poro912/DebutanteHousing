@@ -55,6 +55,7 @@ const room = {
 			result.result = true;
 			result.room_info = user_temp;
 			result.items = await room.getRoomItems(conn, code);
+			result.comment = await room.getComment(conn, code);
 		}
 
 		db.deleteConnection(conn);
@@ -62,6 +63,7 @@ const room = {
 	},
 	changeColor : async(code, color) =>{
 		var result = {
+			result : false
 		};
 		system.debug.print("change color");
 		var conn = await db.getConnection();
@@ -135,10 +137,6 @@ const room = {
 
 		var conn = await db.getConnection();
 		await db.use.current(conn);
-
-		for (const item of items) {	
-			system.debug.print(item);
-		}
 		
 		items = room.convertPositionINT(items);
 		items = room.convertRotateINT(items);
@@ -228,7 +226,7 @@ const room = {
 			data = Math.floor(data / 100);
 			var x = data % 100;
 
-			obj[i]["rot"] = [x, y, z];
+			obj[i]["rot"] = [x, y-1, z];
 		}
 		return obj;
 	},
@@ -295,11 +293,6 @@ const room = {
 		items_temp = await db.execQuery(conn, `select code, url, name, pos, rot from room_item_view where room_code = "${code}";`);
 		items_temp = room.convertPositionArray(items_temp);
 		items_temp = room.convertRotateArray(items_temp);
-
-
-		// items_temp = await db.execQuery(conn, `select item_code as id , nft_code, item_name, item_path, position as pos, rotate as rot from room_item_nft_view where room_code = "${code}";`);
-		// items_temp = room.convertPositionArray(items_temp);
-		// items_temp = room.convertRotateArray(items_temp);
 		return items_temp
 	},
 
@@ -323,8 +316,33 @@ const room = {
 			result = await room.getRoomInfo(room_code);
 		}
 
-		system.debug.print("result ",result);
-		system.debug.print();
+		return result;
+	},
+
+	getComment : async(conn,room_code) => {
+		system.debug.print("getComment function");
+		const attribute = "comment_code, time, user_nick, content";
+		
+		var comment_temp = await db.execQuery(conn, `select ${attribute} from room_comment_user_view where room_code = ${room_code};`);
+		
+		system.debug.print(comment_temp);
+		return comment_temp;
+	},
+
+	registComment : async(room_code, user_code, content) =>{
+		system.debug.print("registComment function");
+		let result = true;
+
+		var conn = await db.getConnection();
+		await db.use.func(conn);
+
+		result  = await db.execQuery(conn, 
+			`call regist_comment(${room_code}, ${user_code}, '${content}');`);
+
+		system.debug.print(result);
+		system.debug.print(result[0]);
+		
+		db.deleteConnection(conn);
 		return result;
 	},
 }

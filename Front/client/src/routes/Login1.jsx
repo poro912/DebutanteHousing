@@ -51,6 +51,7 @@ function Login() {
               room_code,
               room_name,
               room_like,
+              room_color,
             } = responseData.users;
             const { account, privateKey } = responseData.wallet;
             roomInfo(room_code);
@@ -66,6 +67,7 @@ function Login() {
                 user_profile,
                 account,
                 privateKey,
+                room_color,
               })
             );
             resolve(responseData); // 로그인 성공 시 프로미스를 성공 상태로 해결
@@ -130,6 +132,7 @@ function Login() {
   }
 
   return (
+    <div className={styles.background}>
     <div>
       <Link to="/">
         <button className={styles.backarrow}>➤</button>
@@ -139,6 +142,7 @@ function Login() {
           <h1 className={styles.Login}>Login</h1>
           <button className={styles.btn}>Join</button>
           <button className={styles.btn2}>Login</button>
+
 
           <div>
             <form onSubmit={LogSubmit}>
@@ -162,12 +166,15 @@ function Login() {
                 onChange={onChangepass}
               />
               <button className={styles.btn3}>Enter</button>
+              
             </form>
           </div>
 
           <br />
+          
         </div>
       </div>
+    </div>
     </div>
   );
 }

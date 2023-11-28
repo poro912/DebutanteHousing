@@ -1,8 +1,8 @@
 /* FurnitureCom.module.css */
 .duiContainer {
   position: relative;
-  top: 25vh;
-  left: 7vw;
+  top: 26vh;
+  left: 8.5vw;
 }
 
 /* 추가 */
@@ -22,13 +22,14 @@
   height: 27vh;
   width: 13.5vw;
   background-color: rgba(255, 255, 255, 0.897);
-  border-radius: 4vh;
+  border-radius: 35px;
   box-shadow: 0px 0px 10px rgb(255, 255, 255),
-    5px 5px 3px rgba(255, 169, 199, 0.808),
-    5px 5px 10px rgba(255, 206, 223, 0.808),
+    5px 5px 3px rgb(245, 124, 144),
+    5px 5px 10px rgba(255, 207, 223, 0.808),
     -3px -3px 10px rgba(255, 238, 244, 0.719);
   z-index: 0;
-  margin-bottom: 5vh;
+  margin-bottom: 10vh;
+  margin-left: -1vh;
 }
 
 .fu {
@@ -42,21 +43,23 @@
   top: 75%;
   left: 50%;
   transform: translateX(-50%);
-  font-family: 'Dancing Script';
-  font-size: 3vh;
-  color: rgb(255, 177, 190);
+  font-family: 'TheJamsil5Bold';
+  font-size: 2.5vh;
+  color: rgb(255, 154, 167);
   text-shadow: 2px 2px 2px rgb(255, 254, 254),
     2px 2px 2px rgb(255, 133, 151);
   
 
 }
 
-.heartp {
+
+
+.stopheart{
   position: absolute;
   width: 5vw;
   height: 10vh;
   top: -4.5vh;
-  left: 4.2vw;
+  left: 4.1vw;
   z-index: 2;
 }
 

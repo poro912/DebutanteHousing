@@ -162,8 +162,10 @@ const user = {
 
 		// 전체 데이터 탐색
 		let temp = await db_user.getInfoByWallet(form.wallet);
+		
 		if (temp.result) {
 			ret.result = temp.result;
+			ret.users = temp.users;
 		}
 		else {
 			system.form.addResult(form, false, "error, data not found");

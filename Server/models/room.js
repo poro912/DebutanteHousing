@@ -62,16 +62,8 @@ const room ={
 		system.debug.print("attempt replace item");
 		
 		
-		system.debug.print("model form iteams : ");
-		system.debug.print(form.items);
-		
-		system.debug.print(form.items[0]);
-		system.debug.print(form.items[1]);
-
-		system.debug.print(form.color);
-		if(form.color !== undefined){
-			await db_room.changeColor(form.code, form.color);
-		}
+		//system.debug.print("model form iteams : ");
+		//system.debug.print(form.items);
 
 		ret = await db_room.replaceItems(form.code, form.items);	
 
@@ -151,11 +143,65 @@ const room ={
 
 		ret = await db_room.like(form.code);	
 
+		//if(ret) {
+		//	ret = await db_room.getRoomInfo(form.code);
+		//}
+		
+		if("function" === typeof callback){
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
+	},
+
+	changeColor : async(res, form, callback) => {
+		let ret = {
+			result: Boolean,
+			code : Number,
+			nick : String,
+			profile : String,
+		};
+
+		system.debug.print("model room.changeColor");
+		system.debug.print("attempt change roomColor");
+
+		ret = await db_room.changeColor(form.code, form.color);
+
 		if(ret) {
 			ret = await db_room.getRoomInfo(form.code);
+			//ret[result] = true;
+		}
+		else {
+			ret = await db_room.getRoomInfo(form.code);
+			//ret[result] = false;
 		}
 		
 		if("function" === typeof callback){
+			callback(res, ret);
+		}
+		else{
+			return ret;
+		}
+	},
+
+	postComment : async(res, form, callback)=>{
+		var ret = {
+			result: Boolean,
+		};
+
+		system.debug.print("model room.postComment");
+		system.debug.print("attempt posting comment");
+
+		ret.result = await db_room.registComment(form.room_code, form.user_code, form.content);
+
+		//system.debug.print(ret.result);
+
+		if(ret.result === true){
+			ret = await db_room.getRoomInfo(form.room_code);
+		}
+
+		if("function" === typeof callback){	
 			callback(res, ret);
 		}
 		else{

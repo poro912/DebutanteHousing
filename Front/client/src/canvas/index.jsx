@@ -12,6 +12,7 @@ import state from '../store'
 
 import Glb1 from './Glb1'
 import RoomGlb from './RoomGlb'
+import  Backdrop  from './Backdrop';
 
 
 
@@ -50,7 +51,7 @@ const CanvasModel = () => {
     >
 
       
-    
+
       <Environment preset="warehouse" />
 
         

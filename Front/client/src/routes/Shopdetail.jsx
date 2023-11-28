@@ -4,6 +4,7 @@ import styles from "./Shopdetail.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import { remove } from '../apis/room';
+import { memberByWallet } from "../apis/user";
 import { removeFurniture } from '../Redux/furnitureSlice';
 
 import {
@@ -30,6 +31,7 @@ function Shopdetail() {
   const [inPrice, setInPrice] = useState();
   const [isSale, setIsSale] = useState();
   const [isLoading, setIsLoading] = useState(false);
+  const [percent, setPercent] = useState(0)
 
   const onChangeprice = (event) => {
     setInPrice(event.target.value);
@@ -43,6 +45,14 @@ function Shopdetail() {
       } else {
         console.log("ownerOf 정보 성공: ", responseData.data.owner);
         setOwner(responseData.data.owner);
+        memberByWallet(responseData.data.owner, (error, responseData) => {
+          if (error) {
+            console.error("지갑 닉네임 실패");
+          } else {
+            console.log("지갑 닉네임 성공: ", responseData);
+            setOwner(responseData.users.nick);
+          }
+        })
         if (usersItems.account === responseData.data.owner) {
           setIsOwner(true);
           console.log(isowner);
@@ -110,18 +120,22 @@ function Shopdetail() {
       setIsLoading(true); // 로딩 시작
       try {
         await tokenapprove(usersItems.privateKey, price);
+        setPercent(48);
         await buyfurniture(usersItems.privateKey, id);
         setIsLoading(false); // 로딩 종료
         alert(`${nftdata.name} 구매 성공`);
+        setPercent(0);
         navigate("/shop");
       } catch (error) {
         setIsLoading(false); // 에러 발생 시 로딩 종료
         console.error("에러:", error);
+        setPercent(0);
         // 여기에서 발생한 에러를 처리합니다.
       }
     } else {
       setIsLoading(false); // DHT 잔액 부족 시 로딩 종료
       alert("DHT 잔액이 부족합니다");
+      setPercent(0);
     }
   }
 
@@ -145,9 +159,11 @@ function Shopdetail() {
       buyNFT(key, tokenId, (error, responseData) => {
         if (error) {
           console.log("구매 실패");
+          setPercent(0);
           console.log(error);
           reject(error);
         } else {
+          setPercent(99);
           console.log("구매 성공", responseData);
           resolve(responseData);
         }
@@ -162,11 +178,13 @@ function Shopdetail() {
     } else {
       setIsLoading(true);
       try {
-        //await tokensale(usersItems.privateKey, id, inPrice);
-        //await removeFurnitures(usersItems.room_code, [id])
-        //dispatch(removeFurniture(id));
+        await tokensale(usersItems.privateKey, id, inPrice);
+        setPercent(48);
+        await removeFurnitures(usersItems.room_code, [id])
+        dispatch(removeFurniture(id));
         setIsLoading(false); // 로딩 종료
-        alert(`${nftdata.name} 판매 실패`);
+        alert(`${nftdata.name} 판매 성공`);
+        setPercent(0);
         navigate("/mypage");
       } catch (error) {
         setIsLoading(false); // 에러 발생 시 로딩 종료
@@ -181,6 +199,7 @@ function Shopdetail() {
       saleNFT(key, tokenId, price, (error, responseData) => {
         if (error) {
           console.log("saleNFT 실패");
+          setPercent(0);
           console.log(error);
           reject(error);
         } else {
@@ -226,15 +245,14 @@ function Shopdetail() {
             <div>
               {!isowner ? (
                 <div>
-                  <img
-                    className={styles.heartp}
-                    alt="heartp"
-                    src="/img/heartp.gif"
-                  />
-
+                    <div className={styles.background}>
+                      </div>
+                  <img className={styles.stopheart} alt="stopheart" src="/img/stopheart.png" />
                   <img className={styles.fu} alt="fu" src={nftdata.image} />
                   <div className={styles.box}>
-                    <div className={styles.sbox} />
+                    <div className={styles.sbox} >
+                     <div className={styles.text}>{nftdata.name}</div>
+                      </div>
                     <h1 className={styles.detailtext}>{nftdata.description}</h1>
                     <h1 className={styles.name}>Owner:</h1>
                     <div className={styles.owner}>{owner}</div>
@@ -249,7 +267,7 @@ function Shopdetail() {
                       <></>
                     )}
 
-                    <div className={styles.text}>{nftdata.name}</div>
+                   
                     <div className={styles.titletext}>{nftdata.name}</div>
                   </div>
 
@@ -257,28 +275,19 @@ function Shopdetail() {
                     <button className={styles.backarrow}>➤</button>
                   </Link>
                   <h1 className={styles.FurnitureDetails}>Furniture Details</h1>
-                  <img
-                    className={styles.upheart}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
-                  <img
-                    className={styles.upheart2}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
+                
+              
                 </div>
               ) : (
                 <div>
-                  <img
-                    className={styles.heartp}
-                    alt="heartp"
-                    src="/img/heartp.gif"
-                  />
-
+                
+                <img className={styles.stopheart} alt="stopheart" src="/img/stopheart.png" />
                   <img className={styles.fu} alt="fu" src={nftdata.image} />
                   <div className={styles.box}>
-                    <div className={styles.sbox} />
+              
+                    <div className={styles.sbox}>
+                    <div className={styles.text}>{nftdata.name}</div>
+                      </div>
                     <h1 className={styles.detailtext}>{nftdata.description}</h1>
                     <h1 className={styles.name}>Owner:</h1>
                     <div className={styles.owner}>{owner}</div>
@@ -300,24 +309,16 @@ function Shopdetail() {
                     <button className={styles.buy} onClick={saleButtonHandle}>
                       Sale
                     </button>
-                    <div className={styles.text}>{nftdata.name}</div>
+                    
                     <div className={styles.titletext}>{nftdata.name}</div>
                   </div>
 
-                  <Link to="/shop">
+                  <Link to="/mypage">
                     <button className={styles.backarrow}>➤</button>
                   </Link>
                   <h1 className={styles.FurnitureDetails}>Furniture Details</h1>
-                  <img
-                    className={styles.upheart}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
-                  <img
-                    className={styles.upheart2}
-                    alt="upheart"
-                    src="/img/upheart.gif"
-                  />
+              
+            
                 </div>
               )}
             </div>
@@ -328,31 +329,17 @@ function Shopdetail() {
                 alt="heartp"
                 src="/img/heartp.gif"
               />
-              <img
-                className={styles.upheart}
-                alt="upheart"
-                src="/img/upheart.gif"
-              />
-              <img
-                className={styles.upheart2}
-                alt="upheart"
-                src="/img/upheart.gif"
-              />
+              <div className={styles.percent}>
+                {`Loding.....${percent}%`}
+              </div>
+             
             </div>
           )}
         </div>
       ) : (
         <div>
-          <img
-            className={styles.upheart}
-            alt="upheart"
-            src="/img/upheart.gif"
-          />
-          <img
-            className={styles.upheart2}
-            alt="upheart"
-            src="/img/upheart.gif"
-          />
+       
+     
         </div>
       )}
     </div>

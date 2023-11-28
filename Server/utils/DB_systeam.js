@@ -21,7 +21,7 @@ const db={
 		IDENTIFICATION	: "db_identification",
 		FUNCTION	: "db_function",
 		VIEW		: "db_views",
-		//DBHOST		: "localhost",
+		// DBHOST		: "localhost",
 		DBHOST		: "182.220.199.210",
 		DBPORT		: 3306,
 	},

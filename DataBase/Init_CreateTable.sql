@@ -171,6 +171,7 @@ CREATE TABLE `JOIN` (
   PRIMARY KEY (`U_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- DROP TABLE `comment`;
 CREATE TABLE `comment` (
   `code`		INT				NOT NULL,
   `R_code`		BIGINT			NOT NULL,
@@ -179,7 +180,7 @@ CREATE TABLE `comment` (
   `datetime`	DATETIME		NOT NULL,
   `deleted`		BOOL			NOT NULL,
   
-  PRIMARY KEY (`code`)
+  PRIMARY KEY (`code`, `R_code`)
 --  ,FOREIGN KEY (R_code)			REFERENCES db_current.room (code)
 --  ,FOREIGN KEY (U_code)			REFERENCES db_current.item (code)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

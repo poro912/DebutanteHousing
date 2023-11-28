@@ -15,3 +15,5 @@ insert into seq values( 1, "room", 100);
 insert into seq values( 2, "nft", 100);
 insert into seq values( 3, "item", 100);
 insert into seq values( 4, "transaction", 100);
+
+insert into db_current.user value(1, "guest1", "guest", NULL);

@@ -1,13 +1,14 @@
-import {post} from './axiosSystem';
+import {cpost, post} from './axiosSystem';
 import {get} from './axiosSystem';
 
 //함수명 기능명뒤에 API붙이기
 //변수명이랑 라벨명이랑 같게 처리
 export function sendEther(account,callback) {
-	post('nft/sendEther',
+	cpost('nft/sendEther',
 		{
             account: account
-        }
+        },
+        "ETH 지급"
 		,callback);
 }
 
@@ -44,8 +45,8 @@ export function buyNFT(accountPirvate, tokenId, callback) {
 		{   
             accountPirvate: accountPirvate,
             tokenId : tokenId
-        }
-		,callback);
+        },
+		callback);
 }
 
 export function approveNFT(accountPirvate, tokenId, callback) {
@@ -124,21 +125,23 @@ export function balanceOf(account, callback) {
 }
 
 export function transfer(accountPirvate, recipient, amount, callback) {
-	post('nft/transfer',
+	cpost('nft/transfer',
 		{      
             accountPirvate : accountPirvate,
             recipient : recipient,
             amount : amount
-        }
+        },
+        "DHT 전송"
 		,callback);
 }
 
 export function SingupTransfer( recipient, amount, callback) {
-	post('nft/SingupTransfer',
+	cpost('nft/SingupTransfer',
 		{      
             recipient : recipient,
             amount : amount
-        }
+        },
+        "회원가입 DHT 지급"
 		,callback);
 }
 

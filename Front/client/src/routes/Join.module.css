@@ -1,110 +1,133 @@
+.background{
+  background-color:#ffe9c017;
+  height: 100vh;
+  z-index: 0;
+}
+
 
 .btn{
-    color: white; 
-    padding: 15px 25px;
-    display: inline-block;
-    border: 1px solid rgba(0,0,0,0.21);
-    border-bottom-color: rgba(0,0,0,0.34);
-    text-shadow:0 1px 0 rgba(0,0,0,0.15);
-    box-shadow: 3px 3px 2px rgb(139, 129, 129),
-    0 1px 0 rgba(255,255,255,0.34) inset, 
-    0 3px 0 -1px rgba(0,0,0,0.13), 
-    0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-    0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);
-      padding: 1vh 12vw; 
-      font-size: 1.7vh;
-      font-family: 'BookkMyungjo-Bd';
-      position: fixed;
-      top: 58vh;
-      left: 37.5vw;
+  color: white; 
+  display: inline-block;
+  border: 1px solid rgba(63, 63, 63, 0.21);
+  border-bottom-color: rgba(165, 165, 165, 0.34);
+  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+  box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: #9D8189;  
+    padding: 0.7vh 14.4vw;  
+    font-size: 2vh;
+    font-family: 'omyu_pretty';
+    position: fixed;
+      top: 58%;
+      left: 34.5%;
       z-index: 5;
-      border-radius: 24px;
       opacity: 0;
+      border-radius: 30px;
     animation: fadeInAndStay 2s forwards 1s;
+}
+
+.btn:hover{
+  background-color: #7a6269; 
 }
 
 .btn:active{top: 1px;
     border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
     box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-    position: relative;
-    top: 30.5vh;
-    left: 7.5vw;}
+    position: fixed;
+    top: 58%;
+      left: 34.5%;
+      background-color: #503f44;  
+  }
 
-.btn3{
-        color: white; 
-        padding: 15px 25px;
-        display: inline-block;
-        border: 1px solid rgba(0,0,0,0.21);
-        border-bottom-color: rgba(0,0,0,0.34);
-        text-shadow:0 1px 0 rgba(0,0,0,0.15);
-        box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
-                    0 2px 0 -1px rgba(0,0,0,0.13), 
-                    0 3px 0 -1px rgba(0,0,0,0.08), 
-                    0 3px 13px -1px rgba(0,0,0,0.21);
-          background-color: #74675c;  
-          padding: 4px 24px;  
-          font-size: 12px;
-          font-family: 'BookkMyungjo-Bd';
-          position: relative;
-              top: 560px;
-              left: 50%;
-              z-index: 5;
-              
-          
+    .btn2{
+      color: white; 
+      display: inline-block;
+      border: 1px solid rgba(63, 63, 63, 0.21);
+      border-bottom-color: rgba(165, 165, 165, 0.34);
+      text-shadow:2px 2px 2px rgba(189, 187, 187, 0.15);
+      box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: #9D8189;  
+      padding:  1vh 14.5vw;   
+        font-size: 2vh;
+        font-family: 'omyu_pretty';
+        position: fixed;
+        top: 48%;
+        left: 34.5%;
+          z-index: 5;
+          animation: fadeOut 2s forwards;
+          opacity: 0;
+          border-radius: 30px;
+    
     }
 
-.btn3:active{top: 1px;
-        border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
-        box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
-        position: relative;
-        top: 560px;
-        left: 50%;
-        z-index: 5;}
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather:ital,wght@0,300;1,700&family=Pacifico&family=Pangolin&display=swap');
-
-
-
-.pass{
-    box-sizing: border-box;
-    border: none;
-    position: fixed;
-    top:  44.5vh;
-    left: 45%;
-    width : 20vh;
+    .btn3{
+      color: white; 
+    display: inline-block;
+    border: 1px solid rgba(63, 63, 63, 0.21);
+    border-bottom-color: rgba(165, 165, 165, 0.34);
+    text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
+    box-shadow: 3px 3px 2px rgb(139, 129, 129),
+                0 1px 0 rgba(255,255,255,0.34) inset, 
+                0 3px 0 -1px rgba(0,0,0,0.13), 
+                0 4px 0 -1px rgba(51, 46, 46, 0.08), 
+                0 3px 13px -1px rgba(14, 11, 11, 0.21);
+      background-color: #9D8189;  
+      padding: 1vh 14.4vw;    
+      font-size: 2vh;
+      font-family: 'omyu_pretty';
+      position: fixed;
+      top: 56%;
+      left: 34.5%;
         z-index: 5;
-
-        color:#a1ffd0;
-        background-color: rgb(255, 255, 255);
-        font-family: 'Dancing Script';
-        font-size: 3.5vh;
-        text-align: center;
-        border-radius: 15px;
-        background-color: transparent;
+        animation: fadeOut 2s forwards;
         opacity: 0;
-        animation: fadeInAndStay 2s forwards 1s;
-        text-shadow: 3px 2px 1px rgb(161, 145, 145);
-}
+        border-radius: 30px;
+    }
+           
+
 
 .id::placeholder {
-  color:#fff5d6;
-  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+  color:#ffb7c1;
+  text-shadow: 2px 1px 1px rgb(141, 122, 122);
 }
 
 .nname::placeholder {
-  color:#d5ebff;
-  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+  color:#abbadb;
+  text-shadow: 2px 1px 1px rgb(141, 122, 122);
   font-size: 3.5vh;
 }
 
 .pass::placeholder {
-  color:#a1ffd0;
-  text-shadow: 3px 2px 1px rgb(161, 145, 145);
+  color:#ceddd4;
+  text-shadow: 2px 1px 1px rgb(141, 122, 122);
+}
+
+
+.pass{
+  box-sizing: border-box;
+  border: none;
+  position: fixed;
+  top:  44.5vh;
+  left: 45%;
+  width : 20vh;
+      z-index: 5;
+      color:#ceddd4;
+      background-color: rgb(255, 255, 255);
+      font-family: 'omyu_pretty';
+      font-size: 4vh;
+      text-align: center;
+      border-radius: 15px;
+      background-color: transparent;
+      opacity: 0;
+      animation: fadeInAndStay 2s forwards 1s;
+      text-shadow: 3px 2px 1px rgb(161, 145, 145);
 }
 .id {
     box-sizing: border-box;
@@ -114,16 +137,16 @@
     left: 45.7%;
     width : 18vh;
         z-index: 5;
-        color:#fff5d6;
+        color:#ffb7c1;
         background-color: rgb(255, 255, 255);
-        font-family: 'Dancing Script';
-        font-size: 3.5vh;
+        font-family: 'omyu_pretty';
+        font-size: 4vh;
         text-align: center;
         border-radius: 15px;
         background-color: transparent;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
-        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+        text-shadow: 2px 1px 1px rgb(156, 134, 134);
        
 }
 
@@ -135,16 +158,16 @@
     left: 45.5%;
     width : 18vh;
         z-index: 5;
-        color:#d5ebff;
+        color:#abbadb;
         background-color: rgb(255, 255, 255);
-        font-family: 'Dancing Script';
-        font-size: 4vh;
+        font-family: 'omyu_pretty';
+        font-size: 4.5vh;
         text-align: center;
         border-radius: 15px;
         background-color: transparent;
         opacity: 0;
         animation: fadeInAndStay 2s forwards 1s;
-        text-shadow: 3px 2px 1px rgb(161, 145, 145);
+        text-shadow: 2px 1px 1px rgb(128, 112, 112);
 }
 
 .ID{
@@ -183,7 +206,7 @@
     z-index: 5;
     color:#ffffff;
     background-color: rgb(255, 255, 255);
-    font-family: 'Dancing Script';
+    font-family: 'omyu_pretty';
     font-size: 3vh;
     text-align: center;
     background-color: transparent;
@@ -191,56 +214,7 @@
     animation: fadeInAndStay 2s forwards 1s;
 }
 
-.btn2{
-  color: white; 
-  display: inline-block;
-  border: 1px solid rgba(63, 63, 63, 0.21);
-  border-bottom-color: rgba(165, 165, 165, 0.34);
-  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
-  box-shadow: 3px 3px 2px rgb(139, 129, 129),
-              0 1px 0 rgba(255,255,255,0.34) inset, 
-              0 3px 0 -1px rgba(0,0,0,0.13), 
-              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-              0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);   
-    padding: 1.2vh 13.2vw;  
-    font-size: 1.7vh;
-    font-family: 'BookkMyungjo-Bd';
-    position: fixed;
-      top: 45vh;
-      left: 36vw;
-      z-index: 5;
-        animation: fadeOut 2s forwards;
-        opacity: 0;
-        border-radius: 24px;
 
-}
-
-
-.btn3{
-  color: white; 
-  display: inline-block;
-  border: 1px solid rgba(63, 63, 63, 0.21);
-  border-bottom-color: rgba(165, 165, 165, 0.34);
-  text-shadow:0 1px 0 rgba(206, 206, 206, 0.15);
-  box-shadow: 3px 3px 2px rgb(139, 129, 129),
-              0 1px 0 rgba(255,255,255,0.34) inset, 
-              0 3px 0 -1px rgba(0,0,0,0.13), 
-              0 4px 0 -1px rgba(51, 46, 46, 0.08), 
-              0 3px 13px -1px rgba(14, 11, 11, 0.21);
-    background-color: rgba(255, 114, 147, 0.452);   
-    padding: 1.2vh 13vw;  
-    font-size: 1.7vh;
-    font-family: 'BookkMyungjo-Bd';
-    position: fixed;
-      top: 54vh;
-      left: 36vw;
-      z-index: 5;
-      
-        animation: fadeOut 2s forwards;
-        opacity: 0;
-        border-radius: 24px;
-}
 
 @keyframes fadeInOut {
     0%, 100% {
@@ -268,19 +242,18 @@
   }
 
   .Login{
-    position: fixed;
-    width: 25vw;
-    height: 0vh;
-    top: 28vh;
-    left: 45.3vw;
-    font-family: 'Dancing Script';
-    font-size: 9vh;
-    color: #ffffff;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145);
-    text-underline-offset: 2vh;
+    position: relative;
+    width: 26vw;
+    top: 3vh;
+    left: 13.2vw;
+    font-family: 'TheJamsil5Bold';
+    font-size: 10vh;
+    color: #ff94a4;
+    text-shadow: 3px 2px 1px #c07a84, 
+                  3px 3px 3px #5a5355f3;
     z-index: 4;
-    animation: fadeOut 2s forwards;
     opacity: 0;
+    animation: fadeOut 2s forwards;
 }
 
 .backarrow {
@@ -308,33 +281,31 @@
       position: relative;
       box-sizing: border-box;
       height: 40vh;
-    width: 40vw;
-    top: 27.6vh;
-    left: 30vw;
-      background-color: rgba(255, 209, 220, 0.651);
-      border-radius: 0px; /* 둥근 테두리 */
-      box-shadow: 0px 0px 5px rgb(255, 255, 255),
-                  0px 0px 5px rgb(255, 255, 255),
-                  5px 5px 10px rgb(255, 168, 189),
-                  -5px -5px 10px rgb(255, 168, 189);
-      
+      width: 40vw;
+      top: 27vh;
+      left: 30vw;
+      background-color: #fffdfd;
+      border-radius: 10vh; /* 둥근 테두리 */
+      background-color: #fff3ede0;
+      box-shadow: 3px 3px 5px #f5e3da,
+                  -3px -3px 5px #f5e3da,
+                  5px 5px 10px #dbb39d,
+                  -5px -5px 10px #dbb39d;
       z-index:0;
-      margin: 0px;
-      padding-bottom: 0vh;
-      
+     
   }
+  
 
   .Join{
     position: fixed;
     width: 26vw;
-    top: 27vh;
-    left: 47%;
-    font-family: 'Dancing Script';
-    font-size: 9vh;
-    color: #ffffff;
-    text-shadow: 3px 2px 1px rgb(161, 145, 145);
-    text-underline-offset: 2vh;
-    text-decoration-thickness: 0.2vh;
+    top: 27%;
+    left: 46%;
+    font-family: 'TheJamsil5Bold';
+    font-size: 8vh;
+    color: #ff94a4;
+    text-shadow: 3px 2px 1px #c07a84, 
+                  3px 3px 3px #5a5355f3;
     z-index: 4;
     opacity: 0;
     animation: fadeInAndStay 2s forwards 1s;
@@ -342,9 +313,10 @@
   
   .heartloding{
     position: fixed;
-    width: 15%;
-    top: 35%;
-    left: 43%;
+    width: 7%;
+    height: 14%;
+    top: 38%;
+    left: 46%;
     z-index: 2;
   }
   

@@ -47,9 +47,11 @@ function Join() {
             }
           }
         );
+        setIsLoding(false);
       });
     } catch (error) {
       console.error("에러 발생:", error);
+      setIsLoding(false);
       // 에러 처리를 원하는 대로 수행합니다.
     }
   }
@@ -84,11 +86,9 @@ function Join() {
       await new Promise((resolve, reject) => {
         sendEther(recipient, (error, responseData) => {
           if (error) {
-			setIsLoding(false);
             console.error("sendEther 실패");
             reject(error);
           } else {
-			setIsLoding(false);
             console.log("sendEther 성공: ", responseData);
             resolve(responseData);
 			navigate("/test");
@@ -97,7 +97,6 @@ function Join() {
       });
       console.log(recipient);
     } catch (error) {
-		setIsLoding(false);
       console.error("에러 발생:", error);
       // 에러 처리를 원하는 대로 수행합니다.
     }
@@ -111,20 +110,27 @@ function Join() {
     singupButton();
     event.preventDefault();
   };
+
+
   return (
-    <div>
+    <div className={styles.background}>
       {!isLoding ? (
         <div>
           <Link to="/">
             <button className={styles.backarrow}>➤</button>
           </Link>
           <div>
-            <div className={styles.sbox}>
-              <h1 className={styles.Join}>Join</h1>
-
-              <button className={styles.btn2}>Join</button>
-              <button className={styles.btn3}>Login</button>
-              <h1 className={styles.Login}>Login</h1>
+          <div className={styles.sbox}>
+          <h1 className={styles.Login}>Login</h1>
+          <button className={styles.btn2}>Join</button>
+    <button className={styles.btn3}>Login</button>
+    <h1 className={styles.Join}>Join</h1>
+    
+  
+  <div>
+   
+  </div>
+ 
 
               <form onSubmit={LogSubmit}>
                 <input
@@ -137,21 +143,21 @@ function Join() {
                 />
 
                 <input
-                  className={styles.nname}
-                  type="text"
-                  placeholder="NAME"
-                  name=""
-                  value={nname}
-                  onChange={onChangenname}
-                />
-
-                <input
                   className={styles.pass}
                   type="Password"
                   placeholder="PASSWORD"
                   name="pass"
                   value={pass}
                   onChange={onChangepass}
+                />
+                
+                 <input
+                  className={styles.nname}
+                  type="text"
+                  placeholder="NAME"
+                  name=""
+                  value={nname}
+                  onChange={onChangenname}
                 />
                 <button className={styles.btn}>Join</button>
               </form>
@@ -160,6 +166,7 @@ function Join() {
         </div>
       ) : (
         <div>
+          
 			<img
                 className={styles.heartloding}
                 alt="heartp"
