@@ -1,7 +1,12 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=DebutanteHousing&fontSize=90&animation=fadeIn&fontAlignY=38&desc=DecoratingTheRoom&descAlignY=51&descAlign=62)
 
-# NFT_minihompage
-졸업 작품 과제 (NFT 미니홈피)
+# DebutanteHousing 
+* 동양미래대학교 졸업 작품 과제
+* 블록체인을 활용한 인테리어 SNS 플랫폼
+  
+
+NFT_minihompage  
+(NFT 미니홈피)  
 
 ## 개발 팀
 <table>
@@ -52,4 +57,16 @@
 </tr>
 </table>
 
+## 개요
+
+
 ## 사용 기술
+
+
+## 시현 영상
+
+
+
+
+## 후기
+
