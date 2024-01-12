@@ -60,7 +60,9 @@ NFT_minihompage
 ## 개요
 
 
-## 사용 기술
+## 사용 언어 및 기술
+<img src="https://img.shields.io/badge/nodejs-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"></img>
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white">
 
 
 ## 시현 영상
