@@ -32,7 +32,14 @@ NFT_minihompage
 </a>
 </td>
 </tr>
-  
+
+<tr>
+  <td align="center"><img width="100px" src="/img/은서.jpg" alt="은서img"/></td>
+  <td align="center"><img width="100px" src="/img/가연.jpg" alt="가연img"/></td>
+  <td align="center"><img width="100px" src="/img/채연.jpg" alt="채연img"/></td>
+  <td align="center"><img width="100px" src="/img/무현.jpg" alt="무현img"/></td>
+</tr>
+
 <tr>
 <td align="center">
 <a href="[https://github.com/]()" target="_blank">
@@ -59,16 +66,16 @@ NFT_minihompage
 
 ## 개요
 
+## 시현 영상
+
+[![Video Label](https://img.youtube.com/vi/WExQ_lgkmLk/0.jpg)](https://www.youtu.be/WExQ_lgkmLk)
 
 ## 사용 언어 및 기술
 <img src="https://img.shields.io/badge/nodejs-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"></img>
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white">
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"></br>
+Smart Contract</br>
+3D 모델링</br>
 
-
-## 시현 영상
-
-
-
-
-## 후기
+<img src="/img/stact.png"/>
 
