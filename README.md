@@ -68,14 +68,19 @@ NFT_minihompage
 
 ## 시현 영상
 
-[![Video Label](https://img.youtube.com/vi/WExQ_lgkmLk/0.jpg)](https://www.youtu.be/WExQ_lgkmLk)
+[![Video Label](https://img.youtube.com/vi/WExQ_lgkmLk/0.jpg)](https://www.youtube.com/watch?v=WExQ_lgkmLk)
 
 ## 사용 언어 및 기술
+<!--
 <img src="https://img.shields.io/badge/nodejs-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"></img>
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white">
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"></br>
-Smart Contract</br>
-3D 모델링</br>
+-->
+<img width="600px" src="/img/stact.png"/>
 
-<img src="/img/stact.png"/>
+## DB Schema
+<img width="600px" src="/img/DB.png"/>
+
+## 기능 Flow
+<img width="600px" src="/img/Flow.png"/>
 
