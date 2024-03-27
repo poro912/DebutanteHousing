@@ -77,7 +77,7 @@ NFT_minihompage
 <img width="600px" src="/img/contract_state.bmp"/>
 
 
-## 시현 영상
+## 시연 영상
 
 [![Video Label](https://img.youtube.com/vi/WExQ_lgkmLk/0.jpg)](https://www.youtube.com/watch?v=WExQ_lgkmLk)
 
